@@ -21,8 +21,7 @@ export default {
   ],
 
   plugins: [
-    { src: "~/plugins/windowsize.js", ssr: false },
-    { src: "~/plugins/vue-intersect.js" }
+    { src: "~/plugins/vue-intersect.js", ssr: false }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
