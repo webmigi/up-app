@@ -92,8 +92,10 @@
 
 <style lang="scss" scoped>
   .main-page_title-imgs__container {
+    position: relative;
     display: flex;
     flex-direction: column;
+    z-index: 500;
 
     .block-wrap {
       position: relative;
