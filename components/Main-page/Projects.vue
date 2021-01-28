@@ -6,7 +6,10 @@
            v-for="(item, index) in contentImgs"
            key="index"
            :style="'grid-area:'+(index+1)+' '+(index+1)">
-        <Image_Scale_Block :img="item"/>
+        <Image_Scale_Block :img="item.img"/>
+        <div class="item-project-title">
+          {{item.title}}
+        </div>
       </div>
     </div>
     <div class="project_btn_wrap">
@@ -29,7 +32,11 @@
         components: {Image_Scale_Block, Content_btn},
         data() {
             return {
-                contentImgs: [img1, img2, img3, img4]
+                contentImgs: [
+                    {img:img1, title:'RB'},
+                    {img:img2, title:'Nyenrode'},
+                    {img:img3, title:"5CA int."},
+                    {img:img4, title:'OG'}]
             }
         }
     }
@@ -50,8 +57,25 @@
       gap: 60px;
 
       .content-img-wrap {
+        position: relative;
         width: 100%;
         height: 100%;
+        display: flex;
+
+
+        .item-project-title {
+          position: absolute;
+          bottom: 60px;
+          left: 60px;
+          align-self: flex-end;
+          font-family: Garamond;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 46.88px;
+          line-height: 141%;
+          letter-spacing: -0.04em;
+          color: #FFFFFF;
+        }
       }
     }
 
