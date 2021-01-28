@@ -48,7 +48,6 @@
       grid-template-rows: 840px 840px;
       grid-template-columns: calc((100% - 60px) / 2) calc((100% - 60px) / 2);
       gap: 60px;
-      /*grid-template-areas: "0 1" "2 3";*/
 
       .content-img-wrap {
         width: 100%;
