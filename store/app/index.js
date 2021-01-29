@@ -2,8 +2,9 @@ export const state = () => ({
   currentScrollValue: "",
   winSize: {
     width: null,
-    height: null
-  }
+    height: null,
+  },
+  galleryCursorActive: false,
 });
 
 export const getters = {
@@ -12,6 +13,9 @@ export const getters = {
   },
   APP_WINDOW_SIZE(state) {
     return state.winSize;
+  },
+  GALLERY_CURSOR_ACTIVE(state) {
+    return state.galleryCursorActive;
   },
 };
 
@@ -25,6 +29,10 @@ export const mutations = {
       height: payload.height
     };
   },
+  SET_GALLERY_CURSOR_ACTIVE(state, payload) {
+    debugger
+    state.galleryCursorActive = payload;
+  },
 };
 
 export const actions = {
@@ -33,6 +41,9 @@ export const actions = {
   },
   setWindowSize({commit}, windowSize) {
     commit("SET_APP_WINDOW_SIZE", windowSize);
+  },
+  setGalleryCursorActive({commit}, value) {
+    commit("SET_GALLERY_CURSOR_ACTIVE", value);
   },
 };
 

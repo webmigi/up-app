@@ -1,11 +1,15 @@
 <template>
-  <div class="news-block">
+  <div class="news-block"
+       @mouseover="setGalleryCursorActive(true)"
+       @mouseout="setGalleryCursorActive(false)">
     <span class="main-page__content-title-position block-title title">news</span>
     <Gallery :data="galleryData"/>
   </div>
 </template>
 
 <script>
+    import {mapActions} from 'vuex'
+
     import Gallery from "../shared/Gallery/Gallery";
 
     import galleryImg1 from "@/static/images/Main-page/News/News1.jpg"
@@ -36,6 +40,9 @@
                 ]
             }
         },
+        methods: {
+            ...mapActions('app', ['setGalleryCursorActive']),
+        },
     }
 </script>
 
@@ -46,6 +53,7 @@
     flex-direction: column;
     background: #E8E8E8;
     padding-bottom: 103px;
+    cursor: none;
 
     .title {
       margin-bottom: 102px;

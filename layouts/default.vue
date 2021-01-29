@@ -8,6 +8,12 @@
     import {mapActions} from "vuex";
 
     export default {
+        data() {
+            return {
+                xCursor: 0,
+                yCursor: 0,
+            }
+        },
         created() {
             this.$nextTick(() => {
                 if (process.client) {
@@ -19,6 +25,7 @@
                 }
             });
         },
+
         methods: {
             ...mapActions('app', ['updateScrollValue', 'setWindowSize']),
 
@@ -59,5 +66,4 @@
     overflow-x: hidden;
     overflow-Y: scroll;
   }
-
 </style>
