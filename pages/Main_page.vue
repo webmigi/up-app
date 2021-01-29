@@ -5,6 +5,7 @@
       <Studio/>
       <Projects/>
       <News/>
+      <Footer/>
     </div>
   </div>
 </template>
@@ -14,10 +15,11 @@
     import Studio from "../components/Main-page/Studio";
     import Projects from "../components/Main-page/Projects";
     import News from "../components/Main-page/News";
+    import Footer from "../components/shared/Footer";
 
     export default {
         name: 'Main_page',
-        components: {Title_imgs, Studio, Projects, News},
+        components: {Title_imgs, Studio, Projects, News, Footer},
     }
 </script>
 

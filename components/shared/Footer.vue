@@ -1,0 +1,47 @@
+<template>
+  <div class="footer">
+    <div class="content">
+      <span class="footer-logo">UP</span>
+      <div class="contacts">
+        <span class="footer-contacts">
+          Overtoom 2a, Castricum
+           </span>
+        <span class="footer-contacts">The Netherlands, 1901 EW </span>
+        <span class="footer-contacts">T +31 (0)251 82 76 10  </span>
+
+        <span class="footer-contacts email">studio@uparchitecture.nl </span>
+
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+    export default {
+        name: 'Footer'
+    }
+</script>
+
+<style lang="scss" scoped>
+  .footer {
+    width: 100%;
+    display: flex;
+
+    .content {
+      margin: 121px 0 70px 120px;
+      display: flex;
+      flex-direction: column;
+
+      .contacts {
+        width: 100%;
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+
+        .email {
+          margin-top: auto;
+        }
+      }
+    }
+  }
+</style>
