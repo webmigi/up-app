@@ -17,11 +17,13 @@ export default {
     "./assets/styles/reset.scss",
     "./assets/styles/main.scss",
     "./assets/styles/text.scss",
-    "./assets/styles/shared/main-page/title-imgs.scss"
+    "./assets/styles/shared/main-page/title-imgs.scss",
+    "vue-slick-carousel/dist/vue-slick-carousel.css"
   ],
 
   plugins: [
-    { src: "~/plugins/vue-intersect.js", ssr: false }
+    { src: "~/plugins/vue-intersect.js", ssr: false },
+    { src: "./plugins/vue-slick-carousel.js" }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

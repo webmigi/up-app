@@ -1,8 +1,9 @@
 <template>
   <div class="image-scale-block_wrap" ref="imageScaleElement">
     <intersect @enter.once="(scaleStartScroll = APP_SCROLL_VALUE),(scaleStartScrollActive = true)">
-      <img :src="img"
-           :style="'transform: scale('+this.imgScale+')'">
+      <div class="image-scale-img"
+           :style="'transform: scale('+this.imgScale+'); background: url('+img+'); background-size: contain; background-repeat: no-repeat'">
+      </div>
     </intersect>
   </div>
 </template>
@@ -40,11 +41,15 @@
 
 <style lang="scss" scoped>
   .image-scale-block_wrap {
+    position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
 
-    img {
+    .image-scale-img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
     }

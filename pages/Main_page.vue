@@ -4,6 +4,7 @@
     <div class="main-page_content">
       <Studio/>
       <Projects/>
+      <News/>
     </div>
   </div>
 </template>
@@ -12,10 +13,11 @@
     import Title_imgs from '@/components/Main-page/Title_imgs'
     import Studio from "../components/Main-page/Studio";
     import Projects from "../components/Main-page/Projects";
+    import News from "../components/Main-page/News";
 
     export default {
         name: 'Main_page',
-        components: {Title_imgs, Studio, Projects}
+        components: {Title_imgs, Studio, Projects, News},
     }
 </script>
 
