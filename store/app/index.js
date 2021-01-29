@@ -5,6 +5,10 @@ export const state = () => ({
     height: null,
   },
   galleryCursorActive: false,
+  windowCursor:{
+    x:0,
+    y:0
+  }
 });
 
 export const getters = {
@@ -16,6 +20,9 @@ export const getters = {
   },
   GALLERY_CURSOR_ACTIVE(state) {
     return state.galleryCursorActive;
+  },
+  WINDOW_CURSOR(state) {
+    return state.windowCursor;
   },
 };
 
@@ -30,8 +37,11 @@ export const mutations = {
     };
   },
   SET_GALLERY_CURSOR_ACTIVE(state, payload) {
-    debugger
     state.galleryCursorActive = payload;
+  },
+  SET_CURSOR_VALUE(state, payload) {
+    state.windowCursor.x = payload[0];
+    state.windowCursor.y = payload[1];
   },
 };
 
@@ -44,6 +54,9 @@ export const actions = {
   },
   setGalleryCursorActive({commit}, value) {
     commit("SET_GALLERY_CURSOR_ACTIVE", value);
+  },
+  setCursorValue({commit}, value) {
+    commit("SET_CURSOR_VALUE", value);
   },
 };
 

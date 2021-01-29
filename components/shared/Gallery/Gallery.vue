@@ -14,9 +14,7 @@
     </client-only>
   </div>
 </template>
-
 <script>
-
 
     import Gallery_item from "./Gallery_item";
 
@@ -59,7 +57,6 @@
   .carousel-wrapper {
     width: 100%;
     overflow: hidden;
-    /*cursor: grab;*/
     cursor: none;
   }
 
