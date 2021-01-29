@@ -22,10 +22,10 @@
     import Image_Scale_Block from "../shared/Image_Scale_Block";
     import Content_btn from "../shared/elements/Content_btn";
 
-    import img1 from '@/static/images/Main-page/Project/content1.jpg'
-    import img2 from '@/static/images/Main-page/Project/content2.jpg'
-    import img3 from '@/static/images/Main-page/Project/content3.jpg'
-    import img4 from '@/static/images/Main-page/Project/content4.jpg'
+    import img1 from '@/static/images/Main-page/Project/content1.jpg';
+    import img2 from '@/static/images/Main-page/Project/content2.jpg';
+    import img3 from '@/static/images/Main-page/Project/content3.jpg';
+    import img4 from '@/static/images/Main-page/Project/content4.jpg';
 
     export default {
         name: 'Projects',

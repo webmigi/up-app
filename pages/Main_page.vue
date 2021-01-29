@@ -1,11 +1,13 @@
 <template>
   <div class="main-page">
     <Title_imgs/>
-    <div class="main-page_content">
-      <Studio/>
-      <Projects/>
-      <News/>
-      <Footer/>
+    <div class="main-page_content-wrap">
+      <div class="main-page_content">
+        <Studio/>
+        <Projects/>
+        <News/>
+        <Footer/>
+      </div>
     </div>
   </div>
 </template>
@@ -29,12 +31,21 @@
     display: flex;
     flex-direction: column;
 
-    .main-page_content {
+    .main-page_content-wrap {
       width: 100%;
+      background-color: #FFFFFF;
       display: flex;
       flex-direction: column;
-      background-color: #FFFFFF;
+      align-items: center;
       z-index: 800;
+
+      .main-page_content {
+        width: 100%;
+        max-width: 1920px;
+        display: flex;
+        flex-direction: column;
+        background-color: #FFFFFF;
+      }
     }
   }
 </style>
