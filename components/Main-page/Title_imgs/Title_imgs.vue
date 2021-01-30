@@ -2,6 +2,19 @@
   <div class="main-page_title-imgs__container">
     <div class="block-wrap">
       <div class="block block-fixed">
+        <div class="start-span-wrap">
+          <div class="pseudo-logo-block"></div>
+          <start_span_item text="architecture"
+                           :startTransformScroll=500
+                           :finishTransformScroll=1000
+                           :startOpacityZero="false"
+          />
+          <start_span_item text="interior"
+                           :startTransformScroll=500
+                           :finishTransformScroll=1000
+                           :startOpacityZero="true"
+          />
+        </div>
         <img class="title-imgs_img"
              :style="'transform: scale('+this.imgScale_1+')'"
              :src="TitleImg_1">
@@ -25,10 +38,11 @@
     </div>
 
     <div class="block-wrap">
-      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (3 * this.APP_WINDOW_SIZE.height + 4 * 1000))}]">
+      <div :class="['block']">
         <img class="title-imgs_img"
              :src="TitleImg_4"
              :style="'transform: scale('+this.imgScale_4+')'">
+
       </div>
     </div>
 
@@ -37,6 +51,8 @@
 
 <script>
     import {mapGetters} from "vuex";
+
+    import start_span_item from "./start_span_item";
 
     import TitleImg_1 from '@/static/images/Main-page/Title-imgs/title-img-1.jpg'
     import TitleImg_2 from '@/static/images/Main-page/Title-imgs/title-img-2.jpg'
@@ -53,6 +69,7 @@
                 TitleImg_4,
             }
         },
+        components: {start_span_item},
         computed: {
             ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE"]),
 
@@ -108,18 +125,35 @@
         width: 100%;
         height: var(--winHeight);
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         .title-imgs_img {
           position: absolute;
           width: 100%;
           height: 100%;
         }
+
+        .start-span-wrap{
+          position: absolute;
+          left: 120px;
+          /*top: calc(100% / 2);*/
+          /*top: auto;*/
+          /*bottom: auto;*/
+          display: flex;
+          flex-direction: column;
+          z-index: 10;
+
+          .pseudo-logo-block{
+            height: 288px;
+          }
+        }
       }
 
       .block-fixed {
         position: fixed;
       }
-
     }
   }
 </style>

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import Title_imgs from '@/components/Main-page/Title_imgs'
+    import Title_imgs from '@/components/Main-page/Title_imgs/Title_imgs'
     import Studio from "../components/Main-page/Studio";
     import Projects from "../components/Main-page/Projects";
     import News from "../components/Main-page/News";
