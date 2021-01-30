@@ -1,6 +1,7 @@
 <template>
   <div class="header">
     <div class="header-logo"
+         ref="headerLogo"
          :style="'transform: translate('+this.logoTranslateX+'px, '+this.logoTranslateY+'px); width: '+this.logoWidth+'px;'">
       <svg viewBox="0 0 110 78" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -28,7 +29,7 @@
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
+    import {mapGetters, mapActions} from "vuex";
 
     export default {
         name: 'Header',
@@ -37,8 +38,11 @@
                 burgerActive: false
             }
         },
+        mounted(){
+           this.setLogoStartHeight(this.$refs.headerLogo.offsetHeight)
+        },
         computed: {
-            ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE"]),
+            ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE", "LOGO_START_HEIGHT"]),
 
             logoStartScroll() {
                 return (this.APP_WINDOW_SIZE.height / 2) + 1000
@@ -59,7 +63,7 @@
             },
 
             logoTranslateY() {
-                let startPositionY = 240;
+                let startPositionY = this.APP_WINDOW_SIZE.height / 2 - (60 + (this.LOGO_START_HEIGHT / 2));
                 return (this.APP_SCROLL_VALUE > this.logoStartScroll) ?
                     (this.APP_SCROLL_VALUE > this.logoFinishScroll ?
                         0
@@ -82,6 +86,7 @@
             },
         },
         methods: {
+            ...mapActions('app', ['setLogoStartHeight']),
             setBurgerActive() {
                 this.burgerActive = !this.burgerActive
             }
@@ -92,7 +97,7 @@
 <style lang="scss" scoped>
   .header {
     width: 100%;
-    max-width: 1920px;
+    /*max-width: 1920px;*/
     display: flex;
     justify-content: space-between;
     align-self: center;

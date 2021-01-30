@@ -2,8 +2,8 @@
   <div class="main-page_title-imgs__container">
     <div class="block-wrap">
       <div class="block block-fixed">
-        <div class="start-span-wrap">
-          <div class="pseudo-logo-block"></div>
+        <div class="start-span-wrap"
+        :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT/2) +'px);'">
           <start_span_item text="architecture"
                            :startTransformScroll=500
                            :finishTransformScroll=1000
@@ -71,7 +71,7 @@
         },
         components: {start_span_item},
         computed: {
-            ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE"]),
+            ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE", "LOGO_START_HEIGHT"]),
 
             imgScale_1() {
                 let startScroll = 1000;
@@ -125,9 +125,9 @@
         width: 100%;
         height: var(--winHeight);
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*justify-content: center;*/
 
         .title-imgs_img {
           position: absolute;

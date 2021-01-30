@@ -8,7 +8,8 @@ export const state = () => ({
   windowCursor:{
     x:0,
     y:0
-  }
+  },
+  logoStartHeight: 0
 });
 
 export const getters = {
@@ -23,6 +24,9 @@ export const getters = {
   },
   WINDOW_CURSOR(state) {
     return state.windowCursor;
+  },
+  LOGO_START_HEIGHT(state) {
+    return state.logoStartHeight;
   },
 };
 
@@ -43,6 +47,9 @@ export const mutations = {
     state.windowCursor.x = payload[0];
     state.windowCursor.y = payload[1];
   },
+  SET_LOGO_START_HEIGHT(state, payload) {
+    state.logoStartHeight = payload;
+  },
 };
 
 export const actions = {
@@ -57,6 +64,9 @@ export const actions = {
   },
   setCursorValue({commit}, value) {
     commit("SET_CURSOR_VALUE", value);
+  },
+  setLogoStartHeight({commit}, value) {
+    commit("SET_LOGO_START_HEIGHT", value);
   },
 };
 
