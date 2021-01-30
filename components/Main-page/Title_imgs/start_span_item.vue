@@ -1,6 +1,6 @@
 <template>
   <div class="start-span-block">
-    <span class="main-page_start-text"
+    <span :class="'main-page_'+textStyleClass"
           :style="'transform: translateY('+this.spanTranslate+'%); opacity: '+this.spanOpacity+';'">{{text}}</span>
   </div>
 </template>
@@ -14,7 +14,12 @@
             text: String,
             startTransformScroll: Number,
             finishTransformScroll: Number,
-            startOpacityZero: Boolean
+            startOpacityZero: Boolean,
+            textStyleClass:{
+                validator: function (value) {
+                    return ['start-text', 'second-text', 'small-text'].indexOf(value) !==-1
+                }
+            }
         },
         computed: {
             ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE"]),
@@ -46,5 +51,6 @@
   .start-span-block {
     width: 100%;
     display: flex;
+    min-height: 80px;
   }
 </style>
