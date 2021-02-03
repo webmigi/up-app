@@ -3,7 +3,7 @@
     <div class="block-wrap">
       <div class="block block-fixed">
         <div class="start-span_with-logo_wrap"
-        :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT/2) +'px);'">
+             :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT/2) +'px);'">
           <start_span_item text="architecture"
                            :startTransformScroll=500
                            :finishTransformScroll=1000
@@ -27,25 +27,25 @@
       <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (this.APP_WINDOW_SIZE.height + 2 * 1000))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We are up."
-                           :startTransformScroll= Number(2*1000+200)
+                           :startTransformScroll=Number(2*1000+200)
                            :finishTransformScroll=Number(2*1000+400)
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="We create architecture"
-                           :startTransformScroll= Number(2*1000+400)
+                           :startTransformScroll=Number(2*1000+400)
                            :finishTransformScroll=Number(2*1000+600)
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="and interiors"
-                           :startTransformScroll= Number(2*1000+600)
+                           :startTransformScroll=Number(2*1000+600)
                            :finishTransformScroll=Number(2*1000+800)
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="explore our projects "
-                           :startTransformScroll= Number(2*1000+800)
+                           :startTransformScroll=Number(2*1000+800)
                            :finishTransformScroll=Number(2*1000+1000)
                            :startOpacityZero="true"
                            textStyleClass="small-text"
@@ -61,31 +61,31 @@
       <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (2 * this.APP_WINDOW_SIZE.height + 3 * 1000))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We are uptimists."
-                           :startTransformScroll= Number(4400+(1000/6))
+                           :startTransformScroll=Number(4400+(1000/6))
                            :finishTransformScroll=Number(4400+(1000/6*2))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="We create a positive"
-                           :startTransformScroll= Number(4400+(1000/6*2))
+                           :startTransformScroll=Number(4400+(1000/6*2))
                            :finishTransformScroll=Number(4400+(1000/6*3))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="design process,"
-                           :startTransformScroll= Number(4400+(1000/6*3))
+                           :startTransformScroll=Number(4400+(1000/6*3))
                            :finishTransformScroll=Number(4400+(1000/6*4))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="building is fun"
-                           :startTransformScroll= Number(4400+(1000/6*4))
+                           :startTransformScroll=Number(4400+(1000/6*4))
                            :finishTransformScroll=Number(4400+(1000/6*5))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="meet up"
-                           :startTransformScroll= Number(4400+(1000/6*5))
+                           :startTransformScroll=Number(4400+(1000/6*5))
                            :finishTransformScroll=Number(4400+(1000/6*6))
                            :startOpacityZero="true"
                            textStyleClass="small-text"
@@ -97,8 +97,35 @@
       </div>
     </div>
 
+
     <div class="block-wrap">
       <div :class="['block']">
+        <div class="start-span_with-logo_wrap start-span_wrap">
+          <start_span_item text="We see unlimited posibilities"
+                           :startTransformScroll=Number(6300+(1000/5))
+                           :finishTransformScroll=Number(6300+(1000/5*2))
+                           :startOpacityZero="true"
+                           textStyleClass="second-text"
+          />
+          <start_span_item text="We work with an open mind"
+                           :startTransformScroll=Number(6300+(1000/5*2))
+                           :finishTransformScroll=Number(6300+(1000/5*3))
+                           :startOpacityZero="true"
+                           textStyleClass="second-text"
+          />
+          <start_span_item text="Everything is possible "
+                           :startTransformScroll=Number(6300+(1000/5*3))
+                           :finishTransformScroll=Number(6300+(1000/5*4))
+                           :startOpacityZero="true"
+                           textStyleClass="second-text"
+          />
+          <start_span_item text="learn more about our process"
+                           :startTransformScroll=Number(6300+(1000/5*4))
+                           :finishTransformScroll=Number(6300+(1000/5*5))
+                           :startOpacityZero="true"
+                           textStyleClass="small-text"
+          />
+        </div>
         <img class="title-imgs_img"
              :src="TitleImg_4"
              :style="'transform: scale('+this.imgScale_4+')'">
@@ -194,14 +221,15 @@
           height: 100%;
         }
 
-        .start-span_with-logo_wrap{
+        .start-span_with-logo_wrap {
           position: absolute;
           left: 120px;
           display: flex;
           flex-direction: column;
           z-index: 10;
         }
-        .start-span_wrap{
+
+        .start-span_wrap {
           display: flex;
           flex-direction: column;
           align-items: center;
