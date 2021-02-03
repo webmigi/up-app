@@ -9,7 +9,9 @@ export const state = () => ({
     x:0,
     y:0
   },
-  logoStartHeight: 0
+  logoStartHeight: 0,
+  headerComponentHeight:0,
+  modalIsActive: false
 });
 
 export const getters = {
@@ -27,6 +29,12 @@ export const getters = {
   },
   LOGO_START_HEIGHT(state) {
     return state.logoStartHeight;
+  },
+  HEADER_COMPONENT_HEIGHT(state) {
+    return state.headerComponentHeight;
+  },
+  MODAL_IS_ACTIVE(state) {
+    return state.modalIsActive;
   },
 };
 
@@ -50,6 +58,12 @@ export const mutations = {
   SET_LOGO_START_HEIGHT(state, payload) {
     state.logoStartHeight = payload;
   },
+  SET_HEADER_COMPONENT_HEIGHT(state, payload) {
+    state.headerComponentHeight = payload;
+  },
+  SET_MODAL_IS_ACTIVE(state) {
+    state.modalIsActive = !state.modalIsActive;
+  },
 };
 
 export const actions = {
@@ -67,6 +81,12 @@ export const actions = {
   },
   setLogoStartHeight({commit}, value) {
     commit("SET_LOGO_START_HEIGHT", value);
+  },
+  setHeaderComponenttHeight({commit}, value) {
+    commit("SET_HEADER_COMPONENT_HEIGHT", value);
+  },
+  setModalIsActive({commit}) {
+    commit("SET_MODAL_IS_ACTIVE");
   },
 };
 

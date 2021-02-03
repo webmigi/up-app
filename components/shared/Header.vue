@@ -1,6 +1,6 @@
 <template>
-  <div class="header">
-    <div class="header-logo"
+  <div class="header" ref="header_component">
+    <div :class="['header-logo', {'header-logo-on-nav-menu':MODAL_IS_ACTIVE || (APP_SCROLL_VALUE > (APP_WINDOW_SIZE.height * 4 + 4 * 1000 - HEADER_COMPONENT_HEIGHT / 3))}]"
          ref="headerLogo"
          :style="'transform: translate('+this.logoTranslateX+'px, '+this.logoTranslateY+'px); width: '+this.logoWidth+'px;'">
       <svg viewBox="0 0 110 78" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,7 +11,8 @@
       </svg>
     </div>
 
-    <button class="header-burger-btn" @click="setBurgerActive">
+    <button :class="['header-burger-btn', {'header-burger-btn-on-nav-menu': MODAL_IS_ACTIVE || (APP_SCROLL_VALUE > (APP_WINDOW_SIZE.height * 4 + 4 * 1000 - HEADER_COMPONENT_HEIGHT / 3))}]"
+            @click="burgerBtnAction">
       <svg v-if="!burgerActive"
            viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M15 30L45 30" stroke-width="4"/>
@@ -38,11 +39,12 @@
                 burgerActive: false
             }
         },
-        mounted(){
-           this.setLogoStartHeight(this.$refs.headerLogo.offsetHeight)
+        mounted() {
+            this.setLogoStartHeight(this.$refs.headerLogo.offsetHeight)
+            this.setHeaderComponenttHeight(this.$refs.header_component.offsetHeight)
         },
         computed: {
-            ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE", "LOGO_START_HEIGHT"]),
+            ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE", "LOGO_START_HEIGHT", "MODAL_IS_ACTIVE", "HEADER_COMPONENT_HEIGHT"]),
 
             logoStartScroll() {
                 return (this.APP_WINDOW_SIZE.height / 2) + 1000
@@ -86,9 +88,13 @@
             },
         },
         methods: {
-            ...mapActions('app', ['setLogoStartHeight']),
+            ...mapActions('app', ['setLogoStartHeight', 'setModalIsActive', 'setHeaderComponenttHeight']),
             setBurgerActive() {
                 this.burgerActive = !this.burgerActive
+            },
+            burgerBtnAction() {
+                this.setModalIsActive(),
+                    this.setBurgerActive()
             }
         }
     }
@@ -113,6 +119,18 @@
 
         path {
           fill: #FFFFFF;
+          /*transition: fill 0.3s;*/
+        }
+      }
+    }
+
+    .header-logo-on-nav-menu {
+      transform: (translate(0) !important);
+      width: (110px !important);
+
+      svg {
+        path {
+          fill: #000000;
         }
       }
     }
@@ -130,6 +148,15 @@
 
         path {
           stroke: #FFFFFF;
+          transition: fill 0.3s;
+        }
+      }
+    }
+
+    .header-burger-btn-on-nav-menu {
+      svg {
+        path {
+          stroke: #000000;
         }
       }
     }

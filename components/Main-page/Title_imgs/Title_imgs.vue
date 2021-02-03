@@ -199,7 +199,7 @@
         },
         methods:{
             setStartSpanWithLogoWrapHeight(){
-                var heightBlock = this.$refs.startSpanWithLogoWrap.clientHeight;
+                let heightBlock = this.$refs.startSpanWithLogoWrap.clientHeight;
                 this.startSpanWithLogoWrapHeight = heightBlock
             }
         }
