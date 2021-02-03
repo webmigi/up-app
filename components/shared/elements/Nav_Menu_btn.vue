@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`#${href}`">
+  <nuxt-link :to="`#${href}`" >
     <button class="nav-menu-btn-text nav-menu-btn">
       {{title}}
     </button>
@@ -11,11 +11,7 @@
         name: "Content-btn",
         props: {
             title: String,
-            href: {
-                validator: function (value) {
-                    return ['people', 'project', 'process'].indexOf(value) !== -1
-                }
-            }
+            href: String
         }
     }
 </script>

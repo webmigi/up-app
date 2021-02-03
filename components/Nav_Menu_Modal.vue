@@ -5,7 +5,7 @@
          :style="'height: '+(this.APP_WINDOW_SIZE.height/2 + this.hrefsSpanHeight/2)+'px;'">
       <div class="hrefs" ref="nav_menu_hrefs">
         <Nav_Menu_btn title="People"/>
-        <Nav_Menu_btn title="Project"/>
+        <Nav_Menu_btn title="Project" href="/Project_page"/>
         <Nav_Menu_btn title="Process"/>
       </div>
 
