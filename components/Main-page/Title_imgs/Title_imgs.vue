@@ -3,7 +3,8 @@
     <div class="block-wrap">
       <div class="block block-fixed">
         <div class="start-span_with-logo_wrap"
-             :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT/2) +'px);'">
+             ref="startSpanWithLogoWrap"
+             :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT/2 - startSpanWithLogoWrapHeight/2) +'px);'">
           <start_span_item text="architecture"
                            :startTransformScroll=500
                            :finishTransformScroll=1000
@@ -28,26 +29,26 @@
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item
             text="We are up."
-            :startTransformScroll=Number(2*1000+200)
-            :finishTransformScroll=Number(2*1000+400)
+            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5)
+            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*2)
             :startOpacityZero="true"
             textStyleClass="second-text"
           />
           <start_span_item text="We create architecture"
-                           :startTransformScroll=Number(2*1000+400)
-                           :finishTransformScroll=Number(2*1000+600)
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*2)
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*3)
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="and interiors"
-                           :startTransformScroll=Number(2*1000+600)
-                           :finishTransformScroll=Number(2*1000+800)
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*3)
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*4)
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="explore our projects "
-                           :startTransformScroll=Number(2*1000+800)
-                           :finishTransformScroll=Number(2*1000+1000)
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*4)
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*5)
                            :startOpacityZero="true"
                            textStyleClass="small-text"
           />
@@ -155,46 +156,53 @@
                 TitleImg_2,
                 TitleImg_3,
                 TitleImg_4,
+                startSpanWithLogoWrapHeight: 0
             }
         },
         components: {start_span_item},
         computed: {
             ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE", "LOGO_START_HEIGHT"]),
-            startSpanItemHeight() {
-                returnthis.$refs.startSpanItem.clientHeight
+
+            imgScale_1() {
+                let startScroll = 1000;
+                return (this.APP_SCROLL_VALUE > startScroll) ?
+                    1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
+                    :
+                    1
+
             },
+            imgScale_2() {
+                let startScroll = (this.APP_WINDOW_SIZE.height + 2 * 1000);
+                return (this.APP_SCROLL_VALUE > startScroll) ?
+                    1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
+                    :
+                    1
 
-        imgScale_1() {
-            let startScroll = 1000;
-            return (this.APP_SCROLL_VALUE > startScroll) ?
-                1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
-                :
-                1
-
+            },
+            imgScale_3() {
+                let startScroll = (this.APP_WINDOW_SIZE.height * 2 + 3 * 1000);
+                return (this.APP_SCROLL_VALUE > startScroll) ?
+                    1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
+                    :
+                    1
+            },
+            imgScale_4() {
+                let startScroll = (this.APP_WINDOW_SIZE.height * 3 + 4 * 1000);
+                return (this.APP_SCROLL_VALUE > startScroll) ?
+                    1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
+                    :
+                    1
+            },
         },
-        imgScale_2() {
-            let startScroll = (this.APP_WINDOW_SIZE.height + 2 * 1000);
-            return (this.APP_SCROLL_VALUE > startScroll) ?
-                1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
-                :
-                1
-
+        mounted(){
+            this.setStartSpanWithLogoWrapHeight();
         },
-        imgScale_3() {
-            let startScroll = (this.APP_WINDOW_SIZE.height * 2 + 3 * 1000);
-            return (this.APP_SCROLL_VALUE > startScroll) ?
-                1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
-                :
-                1
-        },
-        imgScale_4() {
-            let startScroll = (this.APP_WINDOW_SIZE.height * 3 + 4 * 1000);
-            return (this.APP_SCROLL_VALUE > startScroll) ?
-                1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
-                :
-                1
-        },
-    }
+        methods:{
+            setStartSpanWithLogoWrapHeight(){
+                var heightBlock = this.$refs.startSpanWithLogoWrap.clientHeight;
+                this.startSpanWithLogoWrapHeight = heightBlock
+            }
+        }
     }
 </script>
 
