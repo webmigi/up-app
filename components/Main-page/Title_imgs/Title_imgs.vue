@@ -26,11 +26,12 @@
     <div class="block-wrap">
       <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (this.APP_WINDOW_SIZE.height + 2 * 1000))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
-          <start_span_item text="We are up."
-                           :startTransformScroll=Number(2*1000+200)
-                           :finishTransformScroll=Number(2*1000+400)
-                           :startOpacityZero="true"
-                           textStyleClass="second-text"
+          <start_span_item
+            text="We are up."
+            :startTransformScroll=Number(2*1000+200)
+            :finishTransformScroll=Number(2*1000+400)
+            :startOpacityZero="true"
+            textStyleClass="second-text"
           />
           <start_span_item text="We create architecture"
                            :startTransformScroll=Number(2*1000+400)
@@ -61,32 +62,32 @@
       <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (2 * this.APP_WINDOW_SIZE.height + 3 * 1000))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We are uptimists."
-                           :startTransformScroll=Number(4400+(1000/6))
-                           :finishTransformScroll=Number(4400+(1000/6*2))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*2))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="We create a positive"
-                           :startTransformScroll=Number(4400+(1000/6*2))
-                           :finishTransformScroll=Number(4400+(1000/6*3))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*2))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*3))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="design process,"
-                           :startTransformScroll=Number(4400+(1000/6*3))
-                           :finishTransformScroll=Number(4400+(1000/6*4))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*3))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*4))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="building is fun"
-                           :startTransformScroll=Number(4400+(1000/6*4))
-                           :finishTransformScroll=Number(4400+(1000/6*5))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*4))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*5))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="meet up"
-                           :startTransformScroll=Number(4400+(1000/6*5))
-                           :finishTransformScroll=Number(4400+(1000/6*6))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*5))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*6))
                            :startOpacityZero="true"
                            textStyleClass="small-text"
           />
@@ -102,26 +103,26 @@
       <div :class="['block']">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We see unlimited posibilities"
-                           :startTransformScroll=Number(6300+(1000/5))
-                           :finishTransformScroll=Number(6300+(1000/5*2))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*2))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="We work with an open mind"
-                           :startTransformScroll=Number(6300+(1000/5*2))
-                           :finishTransformScroll=Number(6300+(1000/5*3))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*2))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*3))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="Everything is possible "
-                           :startTransformScroll=Number(6300+(1000/5*3))
-                           :finishTransformScroll=Number(6300+(1000/5*4))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*3))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*4))
                            :startOpacityZero="true"
                            textStyleClass="second-text"
           />
           <start_span_item text="learn more about our process"
-                           :startTransformScroll=Number(6300+(1000/5*4))
-                           :finishTransformScroll=Number(6300+(1000/5*5))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*4))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*5))
                            :startOpacityZero="true"
                            textStyleClass="small-text"
           />
@@ -159,38 +160,41 @@
         components: {start_span_item},
         computed: {
             ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE", "LOGO_START_HEIGHT"]),
+            startSpanItemHeight() {
+                returnthis.$refs.startSpanItem.clientHeight
+            },
 
-            imgScale_1() {
-                let startScroll = 1000;
-                return (this.APP_SCROLL_VALUE > startScroll) ?
-                    1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
-                    :
-                    1
+        imgScale_1() {
+            let startScroll = 1000;
+            return (this.APP_SCROLL_VALUE > startScroll) ?
+                1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
+                :
+                1
 
-            },
-            imgScale_2() {
-                let startScroll = (this.APP_WINDOW_SIZE.height + 2 * 1000);
-                return (this.APP_SCROLL_VALUE > startScroll) ?
-                    1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
-                    :
-                    1
+        },
+        imgScale_2() {
+            let startScroll = (this.APP_WINDOW_SIZE.height + 2 * 1000);
+            return (this.APP_SCROLL_VALUE > startScroll) ?
+                1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
+                :
+                1
 
-            },
-            imgScale_3() {
-                let startScroll = (this.APP_WINDOW_SIZE.height * 2 + 3 * 1000);
-                return (this.APP_SCROLL_VALUE > startScroll) ?
-                    1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
-                    :
-                    1
-            },
-            imgScale_4() {
-                let startScroll = (this.APP_WINDOW_SIZE.height * 3 + 4 * 1000);
-                return (this.APP_SCROLL_VALUE > startScroll) ?
-                    1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
-                    :
-                    1
-            },
-        }
+        },
+        imgScale_3() {
+            let startScroll = (this.APP_WINDOW_SIZE.height * 2 + 3 * 1000);
+            return (this.APP_SCROLL_VALUE > startScroll) ?
+                1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
+                :
+                1
+        },
+        imgScale_4() {
+            let startScroll = (this.APP_WINDOW_SIZE.height * 3 + 4 * 1000);
+            return (this.APP_SCROLL_VALUE > startScroll) ?
+                1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / (this.APP_WINDOW_SIZE.height / 100))
+                :
+                1
+        },
+    }
     }
 </script>
 
