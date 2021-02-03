@@ -29,19 +29,19 @@
                 let finishScroll = this.finishTransformScroll;
                 return (this.APP_SCROLL_VALUE > startScroll) ?
                     (this.APP_SCROLL_VALUE > finishScroll ?
-                        -100
+                        0
 
                         :
-                        -((this.APP_SCROLL_VALUE - startScroll) / ((finishScroll - startScroll) / 100)))
+                        (100 - ((this.APP_SCROLL_VALUE - startScroll) / ((finishScroll - startScroll) / 100))))
                     :
-                    0
+                    100
             },
 
             spanOpacity() {
                 return this.startOpacityZero ?
-                    0 - (this.spanTranslate / 100)
+                    1 - (this.spanTranslate / 100)
                     :
-                    1 + (this.spanTranslate / 100)
+                    0 + (this.spanTranslate / 100)
             },
         }
     }
