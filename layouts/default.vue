@@ -1,11 +1,18 @@
 <template>
   <div>
+    <div class="header-wrap">
+      <Header/>
+    </div>
+    <transition name="nav-menu-fade" appear>
+      <Nav_Menu_Modal v-if="MODAL_IS_ACTIVE"/>
+    </transition>
     <Nuxt/>
   </div>
 </template>
 
 <script>
-    import {mapActions} from "vuex";
+    import {mapActions, mapGetters} from 'vuex';
+    import Header from "../components/shared/Header";
 
     export default {
         data() {
@@ -14,18 +21,19 @@
                 yCursor: 0,
             }
         },
+        components: {Header},
         created() {
-            this.$nextTick(() => {
-                if (process.client) {
-                    window.addEventListener("scroll", () => this.windowScrollSet());
-                    window.addEventListener("resize", () => this.setWindowSizeAction());
-                    window.addEventListener("orientationchange", () => this.setWindowSizeAction());
-                    this.windowScrollSet();
-                    this.setWindowSizeAction();
-                }
-            });
+            if (process.client) {
+                window.addEventListener("scroll", () => this.windowScrollSet());
+                window.addEventListener("resize", () => this.setWindowSizeAction());
+                window.addEventListener("orientationchange", () => this.setWindowSizeAction());
+                this.windowScrollSet();
+                this.setWindowSizeAction();
+            }
         },
-
+        computed: {
+            ...mapGetters('app', ['MODAL_IS_ACTIVE'])
+        },
         methods: {
             ...mapActions('app', ['updateScrollValue', 'setWindowSize']),
 
@@ -65,5 +73,25 @@
     height: max-content;
     overflow-x: hidden;
     overflow-Y: scroll;
+    --winHeight: 100vh;
+    --winWidth: 100vw;
+  }
+
+  .header-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 850;
+  }
+
+  .nav-menu-fade-enter, .nav-menu-fade-leave-to {
+    transform: scale(0);
+  }
+
+  .nav-menu-fade-enter-active, .nav-menu-fade-leave-active {
+    transition: transform 1s;
   }
 </style>

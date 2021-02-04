@@ -32,19 +32,19 @@
             :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5)
             :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*2)
             :startOpacityZero="true"
-            textStyleClass="second-text"
+            textStyleClass="start-text"
           />
           <start_span_item text="We create architecture"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*2)
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*3)
                            :startOpacityZero="true"
-                           textStyleClass="second-text"
+                           textStyleClass="start-text"
           />
           <start_span_item text="and interiors"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*3)
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*4)
                            :startOpacityZero="true"
-                           textStyleClass="second-text"
+                           textStyleClass="start-text"
           />
           <start_span_item text="explore our projects "
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*4)
@@ -66,25 +66,25 @@
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6))
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*2))
                            :startOpacityZero="true"
-                           textStyleClass="second-text"
+                           textStyleClass="start-text"
           />
           <start_span_item text="We create a positive"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*2))
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*3))
                            :startOpacityZero="true"
-                           textStyleClass="second-text"
+                           textStyleClass="start-text"
           />
           <start_span_item text="design process,"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*3))
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*4))
                            :startOpacityZero="true"
-                           textStyleClass="second-text"
+                           textStyleClass="start-text"
           />
           <start_span_item text="building is fun"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*4))
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*5))
                            :startOpacityZero="true"
-                           textStyleClass="second-text"
+                           textStyleClass="start-text"
           />
           <start_span_item text="meet up"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*5))
@@ -107,19 +107,19 @@
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5))
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*2))
                            :startOpacityZero="true"
-                           textStyleClass="second-text"
+                           textStyleClass="start-text"
           />
           <start_span_item text="We work with an open mind"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*2))
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*3))
                            :startOpacityZero="true"
-                           textStyleClass="second-text"
+                           textStyleClass="start-text"
           />
           <start_span_item text="Everything is possible "
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*3))
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*4))
                            :startOpacityZero="true"
-                           textStyleClass="second-text"
+                           textStyleClass="start-text"
           />
           <start_span_item text="learn more about our process"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*4))

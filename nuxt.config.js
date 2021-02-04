@@ -17,7 +17,6 @@ export default {
     "./assets/styles/reset.scss",
     "./assets/styles/main.scss",
     "./assets/styles/text.scss",
-    "./assets/styles/shared/main-page/title-imgs.scss",
     "vue-slick-carousel/dist/vue-slick-carousel.css"
   ],
 

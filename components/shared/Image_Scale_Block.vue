@@ -1,10 +1,12 @@
 <template>
   <div class="image-scale-block_wrap" ref="imageScaleElement">
-    <intersect @enter.once="(scaleStartScroll = APP_SCROLL_VALUE),(scaleStartScrollActive = true)">
-      <div class="image-scale-img"
-           :style="'transform: scale('+this.imgScale+'); background: url('+img+'); background-size: contain; background-repeat: no-repeat'">
-      </div>
-    </intersect>
+    <client-only>
+      <intersect @enter.once="(scaleStartScroll = APP_SCROLL_VALUE),(scaleStartScrollActive = true)">
+        <div class="image-scale-img"
+             :style="'transform: scale('+this.imgScale+'); background: url('+img+'); background-size: contain; background-repeat: no-repeat'">
+        </div>
+      </intersect>
+    </client-only>
   </div>
 </template>
 

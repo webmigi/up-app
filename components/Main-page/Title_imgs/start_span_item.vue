@@ -17,7 +17,7 @@
             startOpacityZero: Boolean,
             textStyleClass:{
                 validator: function (value) {
-                    return ['start-text', 'second-text', 'small-text'].indexOf(value) !==-1
+                    return ['start-text', 'start-text', 'small-text'].indexOf(value) !==-1
                 }
             }
         },

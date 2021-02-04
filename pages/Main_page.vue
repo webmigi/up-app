@@ -21,7 +21,7 @@
 
     export default {
         name: 'Main_page',
-        components: {Title_imgs, Studio, Projects, News, Footer},
+        components: {Title_imgs, Studio, Projects, News, Footer}
     }
 </script>
 
