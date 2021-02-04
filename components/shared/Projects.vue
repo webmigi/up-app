@@ -18,7 +18,7 @@
            v-for="(item, index) in contentImgs"
            v-if="checkProjectPage ? item :  index<4"
            :key="index">
-        <Image_Scale_Block :img="item.img"/>
+        <Image_Scale_Block :img="item.img" appointment="project"/>
         <div class="item-project-title">
           {{item.title}}
         </div>

@@ -1,12 +1,14 @@
 <template>
   <div class="image-scale-block_wrap" ref="imageScaleElement">
-    <client-only>
-      <intersect @enter.once="(scaleStartScroll = APP_SCROLL_VALUE),(scaleStartScrollActive = true)">
-        <div class="image-scale-img"
-             :style="'transform: scale('+this.imgScale+'); background: url('+img+'); background-size: cover; background-repeat: no-repeat'">
-        </div>
-      </intersect>
-    </client-only>
+    <nuxt-link :to="currentNuxtLink">
+      <client-only>
+        <intersect @enter.once="(scaleStartScroll = APP_SCROLL_VALUE),(scaleStartScrollActive = true)">
+          <div :class="imageScaleImgClasses"
+               :style="'transform: scale('+this.imgScale+'); background: url('+img+'); background-size: cover; background-repeat: no-repeat'">
+          </div>
+        </intersect>
+      </client-only>
+    </nuxt-link>
   </div>
 </template>
 
@@ -15,7 +17,14 @@
 
     export default {
         name: "Image_Scale_Block",
-        props: ['img'],
+        props: {
+            img: String,
+            appointment: {
+                validator: function (value) {
+                    return ['project', 'news']
+                }
+            }
+        },
         data() {
             return {
                 scaleStartScroll: 0,
@@ -35,8 +44,20 @@
                         1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / ((this.APP_WINDOW_SIZE.height + this.$refs.imageScaleElement.offsetHeight) / 100)))
                     :
                     1
-
             },
+
+            imageScaleImgClasses() {
+                return ['image-scale-img',
+                    {'image-scale-img-width-hover': this.appointment === 'project' || this.appointment === 'news'}]
+            },
+
+            currentNuxtLink() {
+                if (this.appointment === 'project') {
+                    return '/Item_Project'
+                }else{
+                    return this.$route.path
+                }
+            }
         }
     }
 </script>
@@ -54,6 +75,14 @@
       left: 0;
       width: 100%;
       height: 100%;
+    }
+
+    .image-scale-img-width-hover {
+      &:hover {
+        transition: transform 0.3s;
+        transform: scale(1.4) !important;
+        cursor: pointer;
+      }
     }
   }
 </style>

@@ -1,4 +1,4 @@
-.block-title{
+.block-title {
   font-family: Helvetica;
   font-style: normal;
   font-weight: normal;
@@ -7,7 +7,8 @@
   text-transform: uppercase;
   color: #000000;
 }
-.content-title{
+
+.content-title {
   font-family: Helvetica;
   font-style: normal;
   font-weight: normal;
@@ -16,11 +17,11 @@
   color: #000000;
 }
 
-.content-title-bold{
+.content-title-bold {
   font-weight: bold;
 }
 
-.content-p{
+.content-p {
   font-family: Garamond;
   font-style: normal;
   font-weight: normal;
@@ -29,7 +30,7 @@
   color: #000000;
 }
 
-.content-btn-text{
+.content-btn-text {
   font-family: Helvetica;
   font-style: normal;
   font-weight: normal;
@@ -38,7 +39,7 @@
   color: #000000;
 }
 
-.main-page_start-text{
+.main-page_start-text {
   font-family: Helvetica;
   font-style: normal;
   font-weight: bold;
@@ -48,7 +49,7 @@
   color: #FFFFFF;
 }
 
-.main-page_small-text{
+.main-page_small-text {
   font-family: Helvetica;
   font-style: normal;
   font-weight: bold;
@@ -58,7 +59,26 @@
   color: #FFFFFF;
 }
 
-.nav-menu-btn-text{
+.text-very-small {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15.36px;
+  line-height: 166%;
+  letter-spacing: -0.04em;
+  color: #000000;
+}
+
+.item-project_description_value {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 166%;
+  color: #000000;
+}
+
+.nav-menu-btn-text {
   font-family: SF Pro Display;
   font-style: normal;
   font-weight: bold;
@@ -69,18 +89,18 @@
   color: #000000;
 }
 
-.footer-logo{
+.footer-logo {
   font-family: Helvetica;
   font-style: normal;
   font-weight: bold;
   font-size: 96px;
   line-height: 100%;
- text-transform: uppercase;
+  text-transform: uppercase;
   letter-spacing: -0.05em;
   color: #000000;
 }
 
-.footer-contacts{
+.footer-contacts {
   font-family: Helvetica;
   font-style: normal;
   font-weight: 300;

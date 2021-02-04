@@ -2,16 +2,16 @@
   <div class="gallery-item">
 
     <div class="gallery-item-img-wrap">
-      <Image_Scale_Block :img="imgProps"/>
+      <Image_Scale_Block :img="imgProps" appointment="spinner"/>
     </div>
 
     <span class="date">{{dateProps}}</span>
     <span class="title">{{ titleProps }}</span>
     <div class="teg-container">
-      <span>Office</span>
-      <span>Healthcare</span>
-      <span>Laboratory</span>
-      <span>Atrium</span>
+      <span class="text-very-small">Office</span>
+      <span> class="text-very-small"Healthcare</span>
+      <span class="text-very-small">Laboratory</span>
+      <span class="text-very-small">Atrium</span>
     </div>
 
   </div>
@@ -67,16 +67,6 @@
       display: flex;
       margin-top: 2px;
       justify-content: space-between;
-
-      span {
-        font-family: Helvetica;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 15.36px;
-        line-height: 166%;
-        letter-spacing: -0.04em;
-        color: #000000;
-      }
     }
   }
 
