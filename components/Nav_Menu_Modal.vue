@@ -3,9 +3,9 @@
        :style="'height: '+this.APP_WINDOW_SIZE.height+'px;'">
     <div class="content"
          :style="'height: '+(this.APP_WINDOW_SIZE.height/2 + this.hrefsSpanHeight/2)+'px;'">
-      <div class="hrefs" ref="nav_menu_hrefs">
+      <div class="hrefs" ref="nav_menu_hrefs" v-on:setBurger="">
         <Nav_Menu_btn title="People"/>
-        <Nav_Menu_btn title="Project" href="/Project_page"/>
+        <Nav_Menu_btn title="Project" href="/Project"/>
         <Nav_Menu_btn title="Process"/>
       </div>
 
@@ -89,7 +89,7 @@
     display: flex;
     flex-direction: column-reverse;
     background: linear-gradient(180deg, #A5C8DB 0%, #5480A3 100%);
-    z-index: 830;
+    z-index: 900;
 
     .content {
       display: flex;

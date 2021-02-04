@@ -3,7 +3,7 @@
     <client-only>
       <intersect @enter.once="(scaleStartScroll = APP_SCROLL_VALUE),(scaleStartScrollActive = true)">
         <div class="image-scale-img"
-             :style="'transform: scale('+this.imgScale+'); background: url('+img+'); background-size: contain; background-repeat: no-repeat'">
+             :style="'transform: scale('+this.imgScale+'); background: url('+img+'); background-size: cover; background-repeat: no-repeat'">
         </div>
       </intersect>
     </client-only>

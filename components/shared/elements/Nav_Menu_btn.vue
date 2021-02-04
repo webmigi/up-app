@@ -1,17 +1,22 @@
 <template>
-  <nuxt-link :to="`#${href}`" >
-    <button class="nav-menu-btn-text nav-menu-btn">
+  <nuxt-link :to="`${href}`">
+    <button class="nav-menu-btn-text nav-menu-btn"  @click="setModalIsActive">
       {{title}}
     </button>
   </nuxt-link>
 </template>
 
 <script>
+  import {mapActions} from 'vuex'
+
     export default {
         name: "Content-btn",
         props: {
             title: String,
             href: String
+        },
+        methods:{
+            ...mapActions('app', ['setModalIsActive'])
         }
     }
 </script>

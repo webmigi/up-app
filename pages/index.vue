@@ -16,7 +16,7 @@
 <script>
     import Title_imgs from "../components/Home/Title_imgs/Title_imgs";
     import Studio from "../components/Home/Studio";
-    import Projects from "../components/Home/Projects";
+    import Projects from "../components/shared/Projects";
     import News from "../components/Home/News";
 
 
@@ -31,6 +31,7 @@
     position: relative;
     width: 100%;
     height: 100%;
+
     .main-page {
       width: 100%;
       display: flex;

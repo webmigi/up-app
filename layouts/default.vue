@@ -95,7 +95,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    z-index: 850;
+    z-index: 1000;
   }
 
   .nav-menu-fade-enter, .nav-menu-fade-leave-to {
