@@ -13,11 +13,11 @@
       <span class="content-p">It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.</span>
     </div>
 
-    <div class="content-block main-content-margin-left-right">
-      <div class="content-img-wrap"
+    <div :class="contentBlockClasses">
+      <div :class="['content-img-wrap',{'content-img-wrap-big': item.big && checkProjectPage} ]"
            v-for="(item, index) in contentImgs"
-           :key="index"
-           :style="'grid-area:'+(projectsGridAreas[index])">
+           v-if="checkProjectPage ? item :  index<4"
+           :key="index">
         <Image_Scale_Block :img="item.img"/>
         <div class="item-project-title">
           {{item.title}}
@@ -45,17 +45,33 @@
         data() {
             return {
                 contentImgs: [
-                    {img: img1, title: 'RB'},
-                    {img: img2, title: 'Nyenrode'},
-                    {img: img3, title: "5CA int."},
-                    {img: img4, title: 'OG'}],
-                projectsGridAreas: ['a', 'b', 'c', 'd']
+                    {img: img1, title: 'RB', big: true},
+                    {img: img2, title: 'Nyenrode', big: false},
+                    {img: img3, title: "5CA int.", big: false},
+                    {img: img4, title: 'OG', big: false},
+                    {img: img3, title: "5CA int.", big: false},
+                    {img: img1, title: 'RB', big: true},
+                    {img: img2, title: 'Nyenrode', big: false},
+                    {img: img3, title: "5CA int.", big: false}
+                ]
             }
         },
         computed: {
             title() {
                 return this.$route.path === '/Project' ? 'projects' : 'featured projects'
-            }
+            },
+            checkProjectPage(){
+                return this.$route.path === '/Project' ?
+                    true
+                    :
+                    false
+            },
+        contentBlockClasses(){
+                return ['content-block',
+                    'main-content-margin-left-right',
+                    {'content-block-project-page-margin-top': this.checkProjectPage && this.contentImgs[0].big},
+                    {'content-block-project-page-margin-bottom': this.checkProjectPage && this.contentImgs[this.contentImgs.length-1].big}]
+        }
         }
     }
 </script>
@@ -79,17 +95,16 @@
 
     .content-block {
       margin-top: 82px;
-      margin-bottom: 110px;
-      display: grid;
-      grid-template-rows: 840px 840px;
-      grid-template-columns: calc((100% - 60px) / 2) calc((100% - 60px) / 2);
-      grid-template-areas: "a b" "c d";
-      gap: 60px;
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
 
       .content-img-wrap {
         position: relative;
-        width: 100%;
-        height: 100%;
+        width:  calc((100% - 60px) / 2);
+        height: 840px;
+        margin-bottom: 60px;
         display: flex;
 
 
@@ -107,6 +122,19 @@
           color: #FFFFFF;
         }
       }
+      .content-img-wrap-big{
+        width: 100%;
+        margin-bottom: 100px;
+        margin-top: 40px;
+      }
+    }
+
+    .content-block-project-page-margin-top{
+      margin-top: 42px;
+    }
+
+    .content-block-project-page-margin-bottom{
+      margin-bottom: 2px;
     }
 
     .project_btn_wrap {
