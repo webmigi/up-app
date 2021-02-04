@@ -7,12 +7,15 @@
       <Nav_Menu_Modal v-if="MODAL_IS_ACTIVE"/>
     </transition>
     <Nuxt/>
+    <Footer/>
   </div>
 </template>
 
 <script>
     import {mapActions, mapGetters} from 'vuex';
     import Header from "../components/shared/Header";
+    import Nav_Menu_Modal from "../components/Nav_Menu_Modal";
+    import Footer from "../components/shared/Footer";
 
     export default {
         data() {
@@ -21,7 +24,7 @@
                 yCursor: 0,
             }
         },
-        components: {Header},
+        components: {Header, Nav_Menu_Modal, Footer},
         created() {
             if (process.client) {
                 window.addEventListener("scroll", () => this.windowScrollSet());

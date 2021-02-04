@@ -24,8 +24,11 @@
 
 <style lang="scss" scoped>
   .footer {
+    position: relative;
+    background-color: #FFFFFF;
     width: 100%;
     display: flex;
+    z-index: 850;
 
     .content {
       margin: 121px 0 70px 120px;
