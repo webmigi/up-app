@@ -13,7 +13,7 @@ export default {
   },
 
   css: [
-    "./assets/fonts/HelveticaNeueCyr.css",
+    "./assets/fonts/HelveticaNeueCyr/HelveticaNeueCyr.css",
     "./assets/styles/reset.scss",
     "./assets/styles/main.scss",
     "./assets/styles/text.scss",
