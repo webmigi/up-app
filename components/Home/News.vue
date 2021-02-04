@@ -28,14 +28,14 @@
 
     import Gallery from "../shared/Gallery/Gallery";
 
-    import galleryImg1 from "@/static/images/Main-page/News/News1.jpg"
-    import galleryImg2 from "@/static/images/Main-page/News/News2.jpg"
-    import galleryImg3 from "@/static/images/Main-page/News/News3.jpg"
-    import galleryImg4 from "@/static/images/Main-page/News/News4.jpg"
-    import galleryImg5 from "@/static/images/Main-page/News/News5.jpg"
-    import galleryImg6 from "@/static/images/Main-page/News/News6.jpg"
-    import galleryImg7 from "@/static/images/Main-page/News/News7.jpg"
-    import galleryImg8 from "@/static/images/Main-page/News/News8.jpg"
+    import galleryImg1 from "@/static/images/Home/News/News1.jpg"
+    import galleryImg2 from "@/static/images/Home/News/News2.jpg"
+    import galleryImg3 from "@/static/images/Home/News/News3.jpg"
+    import galleryImg4 from "@/static/images/Home/News/News4.jpg"
+    import galleryImg5 from "@/static/images/Home/News/News5.jpg"
+    import galleryImg6 from "@/static/images/Home/News/News6.jpg"
+    import galleryImg7 from "@/static/images/Home/News/News7.jpg"
+    import galleryImg8 from "@/static/images/Home/News/News8.jpg"
 
     export default {
         name: 'News',

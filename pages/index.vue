@@ -14,39 +14,15 @@
 </template>
 
 <script>
-    import {mapActions} from 'vuex';
-    import Title_imgs from "../components/Main-page/Title_imgs/Title_imgs";
-    import Studio from "../components/Main-page/Studio";
-    import Projects from "../components/Main-page/Projects";
-    import News from "../components/Main-page/News";
+    import Title_imgs from "../components/Home/Title_imgs/Title_imgs";
+    import Studio from "../components/Home/Studio";
+    import Projects from "../components/Home/Projects";
+    import News from "../components/Home/News";
 
 
     export default {
         name: 'App',
         components: {Title_imgs, Studio, Projects, News},
-        data() {
-            return {
-                xCursor: 0,
-                yCursor: 0,
-            }
-        },
-        methods: {
-            ...mapActions('app', ['setCursorValue']),
-        },
-
-        mounted() {
-            window.addEventListener("mousemove", (e) => {
-                this.xCursor = e.pageX, this.yCursor = e.pageY, this.setCursorValue([this.xCursor, this.yCursor])
-            });
-            // window.addEventListener("scroll", (e)=>{ this.xCursor = e.pageX,this.yCursor = e.pageY, this.setCursorValue([this.xCursor, this.yCursor])});
-        },
-
-        beforeDestroy() {
-            window.removeEventListener("mousemove", (e) => {
-                this.xCursor = e.pageX, this.yCursor = e.pageY, this.setCursorValue([this.xCursor, this.yCursor])
-            });
-            // window.removeEventListener("scroll", (e)=>{ this.xCursor = e.pageX,this.yCursor = e.pageY, this.setCursorValue([this.xCursor, this.yCursor])});
-        }
     }
 </script>
 

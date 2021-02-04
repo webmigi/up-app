@@ -29,7 +29,7 @@
 <script>
     import Image_Scale_Block from "../shared/Image_Scale_Block";
     import Content_btn from "../shared/elements/Content_btn";
-    import ContentImg from '@/static/images/Main-page/Studio/content.jpg'
+    import ContentImg from '@/static/images/Home/Studio/content.jpg'
 
     export default {
         name: 'Studio',

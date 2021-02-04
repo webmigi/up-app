@@ -143,10 +143,10 @@
 
     import start_span_item from "./start_span_item";
 
-    import TitleImg_1 from '@/static/images/Main-page/Title-imgs/title-img-1.jpg'
-    import TitleImg_2 from '@/static/images/Main-page/Title-imgs/title-img-2.jpg'
-    import TitleImg_3 from '@/static/images/Main-page/Title-imgs/title-img-3.jpg'
-    import TitleImg_4 from '@/static/images/Main-page/Title-imgs/title-img-4.jpg'
+    import TitleImg_1 from '@/static/images/Home/Title-imgs/title-img-1.jpg'
+    import TitleImg_2 from '@/static/images/Home/Title-imgs/title-img-2.jpg'
+    import TitleImg_3 from '@/static/images/Home/Title-imgs/title-img-3.jpg'
+    import TitleImg_4 from '@/static/images/Home/Title-imgs/title-img-4.jpg'
 
     export default {
         name: "Title_imgs",

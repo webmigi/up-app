@@ -34,11 +34,16 @@
                 this.setWindowSizeAction();
             }
         },
+        mounted() {
+            window.addEventListener("mousemove", (e) => {
+                this.xCursor = e.pageX, this.yCursor = e.pageY, this.setCursorValue([this.xCursor, this.yCursor])
+            });
+        },
         computed: {
             ...mapGetters('app', ['MODAL_IS_ACTIVE'])
         },
         methods: {
-            ...mapActions('app', ['updateScrollValue', 'setWindowSize']),
+            ...mapActions('app', ['updateScrollValue', 'setWindowSize', 'setCursorValue']),
 
             windowScrollSet() {
                 this.updateScrollValue({
@@ -65,6 +70,9 @@
             window.removeEventListener("scroll", () => this.windowScrollSet());
             window.removeEventListener("resize", () => this.setWindowSizeAction());
             window.removeEventListener("orientationchange", () => this.setWindowSizeAction());
+            window.removeEventListener("mousemove", (e) => {
+                this.xCursor = e.pageX, this.yCursor = e.pageY, this.setCursorValue([this.xCursor, this.yCursor])
+            });
         }
     }
 </script>
