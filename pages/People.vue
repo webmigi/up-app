@@ -6,6 +6,7 @@
     </div>
     <People_Studio/>
     <Studio/>
+    <Team/>
     <News/>
   </div>
 </template>
@@ -14,11 +15,12 @@
     import Image_Scale_Block from "../components/shared/Image_Scale_Block";
     import News from "../components/Home/News";
     import People_Studio from "../components/People/People_Studio";
-    import Studio from "../components/Home/Studio";
+    import Studio from "../components/shared/Studio";
+    import Team from "../components/People/Team";
 
     export default {
         name: 'People',
-        components: {Image_Scale_Block, News, People_Studio, Studio}
+        components: {Image_Scale_Block, News, People_Studio, Studio, Team}
     }
 </script>
 

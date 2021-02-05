@@ -6,9 +6,9 @@
         <Image_Scale_Block :img="ContentImg"/>
       </div>
       <div class="studio_text-block__wrap">
-        <div class="studio_text-block">
+        <div :class="['studio_text-block', {'studio-people_text-block':this.$route.path === '/People'}]">
           <span class="content-title">About</span>
-          <p class="studio__text_p content-p">
+          <p v-if="this.$route.path === '/'" class="studio__text_p content-p">
             Founded in 2018 by Anne Boonstra
             UP works on both architecture
             and interior projects in the Netherlands as well as international. UP is unique projects. Every client,
@@ -17,7 +17,14 @@
             the soul and personal identity
             of our clients.
           </p>
-          <div class="studio_btn_wrap">
+
+          <p v-if="this.$route.path === '/People'" class="studio__text_p content-p">
+            up architecture makes unique projects. Every client, corporate or private is unique. It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.up architecture makes unique projects. Every client, corporate or private
+            is unique. It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.up architecture makes unique projects. Every client, corporate or private is unique. It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.up architecture makes unique projects. Every client, corporate or private
+            is unique. It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.
+          </p>
+
+          <div v-if="this.$route.path === '/'" class="studio_btn_wrap">
             <Content_btn title="Learn more"/>
           </div>
         </div>
@@ -27,8 +34,8 @@
 </template>
 
 <script>
-    import Image_Scale_Block from "../shared/Image_Scale_Block";
-    import Content_btn from "../shared/elements/Content_btn";
+    import Image_Scale_Block from "./Image_Scale_Block";
+    import Content_btn from "./elements/Content_btn";
     import ContentImg from '@/static/images/Home/Studio/content.jpg'
 
     export default {
@@ -75,11 +82,17 @@
           .studio__text_p {
             margin-top: 35px;
           }
+
+
           .studio_btn_wrap{
             width: 123px;
             height: 40px;
             margin-top: 60px;
           }
+        }
+        .studio-people_text-block{
+          width: unset;
+          margin-right: var(--main-mini-margin);
         }
       }
     }

@@ -15,7 +15,7 @@
 
 <script>
     import Title_imgs from "../components/Home/Title_imgs/Title_imgs";
-    import Studio from "../components/Home/Studio";
+    import Studio from "../components/shared/Studio";
     import Projects from "../components/shared/Projects";
     import News from "../components/Home/News";
 
