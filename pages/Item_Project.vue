@@ -2,11 +2,9 @@
   <div class="item-project">
     <div class="title-img-wrap">
       <span
-        class="project-title main-content-margin-left-right main-page_start-text">homebase for world wide networko</span>
+        class="project-title main-page_start-text">homebase for world wide networko</span>
       <Image_Scale_Block :img="'/images/Home/Title-imgs/title-img-2.jpg'"/>
     </div>
-
-
     <div class="description-block">
       <div class="description-text-wrap">
         <p class="content-p pages-content-margin-left-big"
@@ -15,7 +13,6 @@
 
       <div class="project-values-wrap">
         <div class="values-block">
-
           <div class="value">
             <span class="text-very-small">location</span>
             <span class="item-project_description_value">{{values.location}}</span>
@@ -42,6 +39,7 @@
       </div>
     </div>
 
+    <Item_Project_Content v-for="(item, index) in itemProjectContent" :key="index" :project="item"/>
 
     <News/>
   </div>
@@ -49,47 +47,42 @@
 
 <script>
     import News from "../components/Home/News";
+    import Item_Project_Content from "../components/Item_Project/Item_Project_Content";
 
     export default {
         name: 'Item_Project',
-        components: {News},
+        components: {News, Item_Project_Content},
         data() {
             return {
                 itemProjectContent: [
                     {
-                        img: ['/images/ItemProject/contentImg1.jpg'],
+                        img: ['/images/Item_Project/contentImg1.jpg'],
                         description: 'Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.',
                         styleType: 1
                     },
                     {
-                        img: ['/images/ItemProject/contentImg2.jpg'],
+                        img: ['/images/Item_Project/contentImg2.jpg'],
                         description: 'Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.',
                         styleType: 2
                     },
                     {
-                        img: ['/images/ItemProject/contentImg3_1.jpg', '/images/ItemProject/contentImg3_2.jpg'],
+                        img: ['/images/Item_Project/contentImg3_1.jpg', '/images/Item_Project/contentImg3_2.jpg', '/images/Item_Project/contentImg3_3.jpg'],
                         description: 'Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.',
                         styleType: 3
                     },
                     {
-                        img: ['/images/ItemProject/contentImg4.jpg'],
-                        description: 'Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.',
+                        img: ['/images/Item_Project/contentImg4.jpg'],
                         styleType: 4
                     },
                     {
-                        img: ['/images/ItemProject/contentImg5.jpg'],
+                        img: ['/images/Item_Project/contentImg5.jpg'],
                         description: 'Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.',
                         styleType: 5
                     },
                     {
-                        img: ['/images/ItemProject/contentImg6.jpg'],
+                        img: ['/images/Item_Project/contentImg6.jpg'],
                         description: 'Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.',
                         styleType: 6
-                    },
-                    {
-                        img: ['/images/ItemProject/contentImg7.jpg'],
-                        description: 'Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.',
-                        styleType: 7
                     }
                 ],
                 description: ['Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects. Every client, corporate or private, is unique. It is our ambition to create distinctive designs that reflect the soul and personal identity of our clients. Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.',
@@ -120,6 +113,8 @@
       align-items: center;
 
       .project-title {
+        margin-right: var(--main-mini-margin);
+        margin-left: var(--main-mini-margin);
         position: absolute;
         z-index: 1;
       }
@@ -129,6 +124,8 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      margin-top: 133px;
+      margin-bottom: 47px;
 
       .description-text-wrap {
         display: flex;

@@ -1,13 +1,13 @@
 .main-page__content-title-position{
-  margin: 288px 0 0 220px;
+  margin: 288px 0 0 var(--main-big-margin);
 }
 
 .main-content-margin-left-right{
-  margin: 0 120px 0 120px;
+  margin: 0 var(--main-mini-margin) 0 var(--main-mini-margin);
 }
 
 .pages-content-margin-left-big{
-  margin-left: 220px;
+  margin-left: var(--main-big-margin);
 }
 
 .value {
@@ -15,4 +15,8 @@
   flex-direction: column;
   min-width: 435px;
   margin-bottom: 37px;
+}
+
+.project_type_description-margin-top {
+  margin-top: 33px;
 }

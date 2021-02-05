@@ -86,6 +86,8 @@
     overflow-Y: scroll;
     --winHeight: 100vh;
     --winWidth: 100vw;
+    --main-big-margin: 220px;
+    --main-mini-margin: 120px;
   }
 
   .header-wrap {
