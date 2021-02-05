@@ -21,7 +21,7 @@
             img: String,
             appointment: {
                 validator: function (value) {
-                    return ['project', 'news']
+                    return ['project', 'news', 'people']
                 }
             }
         },
@@ -48,7 +48,7 @@
 
             imageScaleImgClasses() {
                 return ['image-scale-img',
-                    {'image-scale-img-width-hover': this.appointment === 'project' || this.appointment === 'news'}]
+                    {'image-scale-img-width-hover': this.appointment === 'project' || this.appointment === 'news' || this.appointment === 'people'}]
             },
 
             currentNuxtLink() {

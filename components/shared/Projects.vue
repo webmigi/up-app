@@ -8,8 +8,7 @@
         <span class="content-title content-title-bold">up </span>
         <span class="content-title">architecture makes unique projects.</span>
       </div>
-      <span
-        class="content-p">up architecture makes unique projects. Every client, corporate or private is unique.</span>
+      <span class="content-p">up architecture makes unique projects. Every client, corporate or private is unique.</span>
       <span class="content-p">It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.</span>
     </div>
 

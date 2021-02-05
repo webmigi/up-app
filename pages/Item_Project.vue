@@ -41,6 +41,18 @@
 
     <Item_Project_Content v-for="(item, index) in itemProjectContent" :key="index" :project="item"/>
 
+    <div class="paginator">
+      <button>
+        <svg viewBox="0 0 67 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 12L20 23.547V0.452994L0 12ZM18 14H66.5V10H18V14Z" fill="black"/>
+        </svg>
+      </button>
+      <button>
+        <svg viewBox="0 0 67 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M66.5 12L46.5 0.452996L46.5 23.547L66.5 12ZM48.5 10L-1.74846e-07 10L1.74846e-07 14L48.5 14L48.5 10Z" fill="black"/>
+        </svg>
+      </button>
+    </div>
     <News/>
   </div>
 </template>
@@ -144,6 +156,25 @@
         display: flex;
         flex-direction: column;
 
+      }
+    }
+
+    .paginator{
+      display: flex;
+      align-self: center;
+      align-items: center;
+      justify-content: space-between;
+      width: 195px;
+      height: 50px;
+      margin-bottom: 180px;
+
+      button{
+        width: calc((195px - 50px) / 2);
+
+        svg{
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }

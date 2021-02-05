@@ -88,6 +88,7 @@
     --winWidth: 100vw;
     --main-big-margin: 220px;
     --main-mini-margin: 120px;
+    --main-very-mini-margin: 60px;
   }
 
   .header-wrap {
