@@ -1,10 +1,10 @@
 <template>
-  <div class="news-block"
+  <div :class="['news-block', {'people__news-block': this.$route.path==='/People'}]"
        @mouseover="setGalleryCursorActive(true)"
        @mouseout="setGalleryCursorActive(false)">
     <div class="custom-cursor"
          :style="cursorCircle"
-    v-if="GALLERY_CURSOR_ACTIVE">
+         v-if="GALLERY_CURSOR_ACTIVE">
       <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="200" height="200" rx="100" fill="black"/>
         <path
@@ -19,6 +19,7 @@
       </svg>
     </div>
     <span class="main-page__content-title-position block-title title">news</span>
+    <div v-if="this.$route.path==='/People'" class="content-title">Publications</div>
     <Gallery :data="galleryData"/>
   </div>
 </template>
@@ -26,7 +27,7 @@
 <script>
     import {mapActions, mapGetters} from 'vuex'
 
-    import Gallery from "../shared/Gallery/Gallery";
+    import Gallery from "./Gallery/Gallery";
 
     import galleryImg1 from "@/static/images/Home/News/News1.jpg"
     import galleryImg2 from "@/static/images/Home/News/News2.jpg"
@@ -100,6 +101,20 @@
     .title {
       margin-bottom: 102px;
       margin-top: 78px;
+    }
+  }
+
+  .people__news-block {
+    margin-top: 323px;
+    background: #FFFFFF;
+
+    .title {
+      margin-bottom: 83px;
+    }
+
+    .content-title{
+      margin-left: var(--main-big-margin);
+      margin-bottom: 32px;
     }
   }
 </style>

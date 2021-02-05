@@ -13,7 +13,7 @@
 
 <script>
     import Image_Scale_Block from "../components/shared/Image_Scale_Block";
-    import News from "../components/Home/News";
+    import News from "../components/shared/News";
     import People_Studio from "../components/People/People_Studio";
     import Studio from "../components/shared/Studio";
     import Team from "../components/People/Team";

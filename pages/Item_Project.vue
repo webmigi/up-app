@@ -58,7 +58,7 @@
 </template>
 
 <script>
-    import News from "../components/Home/News";
+    import News from "../components/shared/News";
     import Item_Project_Content from "../components/Item_Project/Item_Project_Content";
 
     export default {
