@@ -40,7 +40,7 @@
   .collaboration {
     display: flex;
     flex-direction: column;
-    margin-bottom: 312px;
+    margin-bottom: 425px;
 
     .block-title {
       margin-left: var(--main-big-margin);
@@ -55,7 +55,6 @@
     .content-block {
       display: flex;
       width: 100%;
-      margin-bottom: 100px;
 
       .content-p {
         display: flex;

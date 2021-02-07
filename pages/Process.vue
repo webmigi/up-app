@@ -7,6 +7,7 @@
     <Philosophy/>
     <Method/>
     <Collaboration/>
+    <Sustain/>
     <News/>
   </div>
 </template>
@@ -16,10 +17,11 @@
     import Philosophy from "../components/Process/Philosophy";
     import Method from "../components/Process/Method";
     import Collaboration from "../components/Process/Collaboration";
+    import Sustain from "../components/Process/Sustain";
 
     export default {
         name: 'Process',
-        components: {Image_Scale_Block, News, Philosophy, Method, Collaboration}
+        components: {Image_Scale_Block, News, Philosophy, Method, Collaboration, Sustain}
     }
 </script>
 

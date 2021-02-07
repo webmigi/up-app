@@ -1,6 +1,6 @@
 <template>
   <div class="method">
-    <span class="main-page__content-title-position block-title">design method</span>
+    <span class="block-title">design method</span>
     <span class="content-title">How we do it</span>
 
     <div class="content-block-span-1">
@@ -59,6 +59,10 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 251px;
+
+    .block-title{
+      margin-left: var(--main-big-margin);
+    }
 
     .content-title {
       margin-top: 83px;
