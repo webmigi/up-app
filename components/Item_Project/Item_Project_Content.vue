@@ -6,7 +6,7 @@
       </div>
       <p v-if="project.description!== undefined"
          class="content-type-1_description
-         project_type_description-margin-top
+         img-description-margin-top
          content-p
          pages-content-margin-left-big">
         {{project.description}}
@@ -19,7 +19,8 @@
       </div>
       <p v-if="project.description!== undefined"
          class="content-type-2_description
-         project_type_description-margin-top
+         img-width-description
+         img-description-margin-top
          content-p
          pages-content-margin-left-big">
         {{project.description}}
@@ -34,7 +35,7 @@
           </div>
           <p v-if="project.description!== undefined"
              class="content-type-3_description
-         project_type_description-margin-top
+         img-description-margin-top
          content-p
          pages-content-margin-left-big">
             {{project.description}}
@@ -59,7 +60,7 @@
       </div>
       <p v-if="project.description!== undefined"
          class="content-type-4_description
-         project_type_description-margin-top
+         img-description-margin-top
          content-p">
         {{project.description}}
       </p>
@@ -71,7 +72,8 @@
       </div>
       <p v-if="project.description!== undefined"
          class="content-type-5_description
-         project_type_description-margin-top
+         img-description-margin-top
+         img-width-description
          content-p">
         {{project.description}}
       </p>
@@ -83,7 +85,8 @@
       </div>
       <p v-if="project.description!== undefined"
          class="content-type-6_description
-         project_type_description-margin-top
+         img-width-description
+         img-description-margin-top
          content-p">
         {{project.description}}
       </p>
@@ -139,7 +142,6 @@
       }
 
       .content-type-2_description {
-        width: 810px;
         align-self: flex-end;
         margin-right: 120px;
       }
@@ -224,7 +226,6 @@
 
       .content-type-5_description {
         margin-left: var(--main-mini-margin);
-        width: 810px;
       }
     }
 
@@ -243,7 +244,6 @@
 
       .content-type-6_description {
         align-self: center;
-        width: 810px;
       }
     }
   }

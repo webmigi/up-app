@@ -21,7 +21,7 @@
             img: String,
             appointment: {
                 validator: function (value) {
-                    return ['project', 'news', 'people']
+                    return ['project', 'news', 'people', 'process']
                 }
             }
         },
@@ -48,13 +48,18 @@
 
             imageScaleImgClasses() {
                 return ['image-scale-img',
-                    {'image-scale-img-width-hover': this.appointment === 'project' || this.appointment === 'news' || this.appointment === 'people'}]
+                    {
+                        'image-scale-img-width-hover': this.appointment === 'project' ||
+                            this.appointment === 'news' ||
+                            this.appointment === 'people' ||
+                            this.appointment === 'process'
+                    }]
             },
 
             currentNuxtLink() {
                 if (this.appointment === 'project') {
                     return '/Item_Project'
-                }else{
+                } else {
                     return this.$route.path
                 }
             }

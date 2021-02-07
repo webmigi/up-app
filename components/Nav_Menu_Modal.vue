@@ -6,7 +6,7 @@
       <div class="hrefs" ref="nav_menu_hrefs" v-on:setBurger="">
         <Nav_Menu_btn title="People" href="/People"/>
         <Nav_Menu_btn title="Project" href="/Project"/>
-        <Nav_Menu_btn title="Process"/>
+        <Nav_Menu_btn title="Process" href="/Process"/>
       </div>
 
       <div class="social-href">
