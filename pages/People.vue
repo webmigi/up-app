@@ -8,6 +8,8 @@
     <Studio/>
     <Team/>
     <News/>
+    <Jobs/>
+    <Jobs_Footer/>
   </div>
 </template>
 
@@ -17,10 +19,12 @@
     import People_Studio from "../components/People/People_Studio";
     import Studio from "../components/shared/Studio";
     import Team from "../components/People/Team";
+    import Jobs from "../components/People/Jobs/Jobs";
+    import Jobs_Footer from "../components/People/People_Footer";
 
     export default {
         name: 'People',
-        components: {Image_Scale_Block, News, People_Studio, Studio, Team}
+        components: {Image_Scale_Block, News, People_Studio, Studio, Team, Jobs, Jobs_Footer}
     }
 </script>
 
@@ -29,6 +33,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 150px;
 
     .title-img-wrap {
       position: relative;

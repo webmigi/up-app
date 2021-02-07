@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div class="content main-content-margin-left-right">
+    <div :class="['content', {'main-content-margin-left-right': this.$route.path !== '/People'}]">
       <nuxt-link to="/">
         <span class="footer-logo">UP</span>
       </nuxt-link>

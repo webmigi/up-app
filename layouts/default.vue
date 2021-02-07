@@ -7,7 +7,7 @@
       <Nav_Menu_Modal v-if="MODAL_IS_ACTIVE"/>
     </transition>
     <Nuxt/>
-    <Footer/>
+    <Footer v-if="this.$route.path !=='/People'"/>
   </div>
 </template>
 
