@@ -57,7 +57,7 @@
   .carousel-wrapper {
     width: 100%;
     overflow: hidden;
-    cursor: none;
+    cursor: none !important;
   }
 
   .img-wrapper {
