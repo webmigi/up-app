@@ -39,4 +39,12 @@
       margin-right: 0;
     }
   }
+  @media screen and (max-width: 1024px){
+    .jobs-footer{
+      margin-top: 147px;
+      .jobs-footer-column-1{
+        min-width: 412px;
+      }
+    }
+  }
 </style>

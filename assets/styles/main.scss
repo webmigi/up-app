@@ -34,6 +34,13 @@
     margin-top: 43px;
   }
   .img-width-description {
+    width: 100% !important;
     max-width: 770px !important;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .img-description-margin-top {
+    margin-top: 40px;
   }
 }

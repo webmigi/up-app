@@ -259,4 +259,16 @@
       }
     }
   }
+
+@media screen and (max-width: 1024px){
+  .main-page_title-imgs__container{
+    .block-wrap{
+      .block{
+        .start-span_with-logo_wrap{
+          left: 110px;
+        }
+      }
+    }
+  }
+}
 </style>

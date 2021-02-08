@@ -137,4 +137,16 @@
       }
     }
   }
+  @media screen and (max-width: 1024px){
+    .nav-menu-modal{
+      .content{
+        .hrefs{
+          width: 65%;
+        }
+        .social-href{
+          margin-bottom: 58px;
+        }
+      }
+    }
+  }
 </style>

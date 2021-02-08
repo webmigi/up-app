@@ -56,6 +56,18 @@
                             settings: {
                                 slidesToShow: 3.5
                             }
+                        },
+                        {
+                            breakpoint: 1070,
+                            settings: {
+                                slidesToShow: 3
+                            }
+                        },
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 3.2
+                            }
                         }
                     ]
                 }

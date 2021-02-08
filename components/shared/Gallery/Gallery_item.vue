@@ -84,4 +84,14 @@
       }
     }
   }
+  @media screen and (max-width: 1024px) {
+    .gallery-item {
+      width: 290px;
+      height: 330px;
+
+      .gallery-item-img-wrap{
+        height: 230px;
+      }
+    }
+  }
 </style>

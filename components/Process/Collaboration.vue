@@ -117,4 +117,21 @@
       }
     }
   }
+  @media screen and (max-height: 1024px) {
+    .collaboration{
+      margin-bottom: 114px;
+      .content-title{
+        margin-bottom: 72px;
+      }
+      .content-block{
+        .content-p{
+          padding-right: 20px;
+          width: 45%;
+        }
+        .img-container{
+          width: 58%;
+        }
+      }
+    }
+  }
 </style>

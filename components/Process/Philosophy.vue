@@ -49,7 +49,7 @@
       .content-column-1 {
         display: flex;
         flex-direction: column;
-        width: 50%;
+        width: calc(50% +  var(--main-very-mini-margin) / 2);
 
         .content-p {
           width: calc(100% - var(--main-big-margin) - var(--main-very-mini-margin));
@@ -62,7 +62,7 @@
       .content-column-2 {
         display: flex;
         flex-direction: column;
-        width: 50%;
+        width: calc(50% -  var(--main-very-mini-margin) / 2);
 
         .img-wrap {
           width: 100%;
@@ -77,9 +77,20 @@
   @media screen and (max-width: 1280px) {
 .philosophy{
   margin-bottom: 165px;
+}
+  }
+  @media screen and (max-width: 1024px) {
+.philosophy{
+  margin-bottom: 128px;
+  .content-title{
+    margin-bottom: 69px;
+  }
   .content-block{
-    .content-column-2{
 
+    .content-column-2{
+      .img-wrap{
+        height: 520px;
+      }
     }
   }
 }

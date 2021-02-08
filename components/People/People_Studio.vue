@@ -94,4 +94,28 @@
       }
     }
   }
+  @media screen and (max-width: 1024px){
+  .people-studio{
+    margin-bottom: 20px;
+    .content-title{
+      margin-bottom: 69px;
+    }
+    .content-block{
+      .content-p{
+        width: calc(50% - var(--main-big-margin) - var(--main-very-mini-margin) / 2);
+      }
+      .content-column-2{
+        width: calc(50% - var(--main-very-mini-margin) / 2);
+        .img-wrap{
+          height: 520px;
+        }
+        .img-description{
+          width: calc(100% - var(--main-mini-margin)) !important;
+          /*margin-right: var(--main-mini-margin) !important;*/
+          margin-right: 0 !important;
+        }
+      }
+    }
+  }
+  }
 </style>

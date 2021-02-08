@@ -108,7 +108,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: var(--winWidth);
     max-width: 1920px;
     display: flex;
     align-items: center;
@@ -127,6 +127,13 @@
     html{
       --main-big-margin: 200px;
       --main-very-mini-margin: 50px;
+    }
+  }
+  @media screen and (max-width: 1024px){
+    html{
+      --main-big-margin: 110px;
+      --main-mini-margin: 40px;
+      --main-very-mini-margin: 20px;
     }
   }
 </style>

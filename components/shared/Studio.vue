@@ -111,4 +111,28 @@
       }
     }
   }
+  @media screen and (max-width: 1024px) {
+    .studio-block{
+      .studio_content-block{
+        height: unset;
+        .studio_img-wrap{
+          width: calc((100% - 20px) / 2);
+          height: 470px;
+        }
+        .studio_text-block__wrap{
+          width: calc((100% - 20px) / 2);
+          .studio_text-block{
+            .studio__text_p{
+              margin-top: 40px;
+            }
+            .studio_btn_wrap{
+              width: 103px;
+              height: 33px;
+              margin-top: 80px;
+            }
+          }
+        }
+      }
+    }
+  }
 </style>

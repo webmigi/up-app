@@ -83,4 +83,17 @@
       }
     }
   }
+  @media screen and (max-width: 1024px) {
+    .footer {
+      .content {
+        margin-bottom: 77px;
+        .footer-logo {
+          width: 70px;
+        }
+      }
+      .contacts{
+        min-height: 110px !important;
+      }
+    }
+  }
 </style>

@@ -130,4 +130,16 @@
       margin-top: 158px;
     }
   }
+  @media screen and (max-width: 1024px){
+    .news-block{
+      padding-bottom: 70px;
+      .title{
+        margin-bottom: 66px;
+        margin-top: 18px;
+      }
+    }
+    .people__news-block{
+      margin-top: 90px;
+    }
+  }
 </style>
