@@ -1,7 +1,7 @@
 <template>
   <div class="main-page_title-imgs__container">
     <div class="block-wrap">
-      <div class="block block-fixed">
+      <div :class="['block', 'block-fixed', {'block-fixed-left': APP_WINDOW_SIZE.width > 1920}]">
         <div class="start-span_with-logo_wrap"
              ref="startSpanWithLogoWrap"
              :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT/2 - startSpanWithLogoWrapHeight/2) +'px);'">
@@ -25,7 +25,7 @@
     </div>
 
     <div class="block-wrap">
-      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (this.APP_WINDOW_SIZE.height + 2 * 1000))}]">
+      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (this.APP_WINDOW_SIZE.height + 2 * 1000))}, {'block-fixed-left': APP_WINDOW_SIZE.width > 1920}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item
             text="We are up."
@@ -60,7 +60,7 @@
     </div>
 
     <div class="block-wrap">
-      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (2 * this.APP_WINDOW_SIZE.height + 3 * 1000))}]">
+      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (2 * this.APP_WINDOW_SIZE.height + 3 * 1000))}, {'block-fixed-left': APP_WINDOW_SIZE.width > 1920}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We are uptimists."
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6))
@@ -194,11 +194,11 @@
                     1
             },
         },
-        mounted(){
+        mounted() {
             this.setStartSpanWithLogoWrapHeight();
         },
-        methods:{
-            setStartSpanWithLogoWrapHeight(){
+        methods: {
+            setStartSpanWithLogoWrapHeight() {
                 let heightBlock = this.$refs.startSpanWithLogoWrap.clientHeight;
                 this.startSpanWithLogoWrapHeight = heightBlock
             }
@@ -251,6 +251,11 @@
 
       .block-fixed {
         position: fixed;
+        max-width: 1920px;
+      }
+
+      .block-fixed-left{
+        left: calc((var(--winWidth) - 1920px) / 2);
       }
     }
   }
