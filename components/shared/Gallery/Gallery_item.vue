@@ -9,7 +9,7 @@
     <span class="title">{{ titleProps }}</span>
     <div class="teg-container">
       <span class="text-very-small">Office</span>
-      <span> class="text-very-small"Healthcare</span>
+      <span class="text-very-small">Healthcare</span>
       <span class="text-very-small">Laboratory</span>
       <span class="text-very-small">Atrium</span>
     </div>

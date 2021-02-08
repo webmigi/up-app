@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div :class="['header-wrap', {'header-wrap-left': APP_WINDOW_SIZE.width > 1920}]">
+    <div class="header-wrap"
+         :style="'left: ' + headerWidth + 'px'">
       <Header/>
     </div>
     <transition name="nav-menu-fade" appear>
@@ -40,7 +41,11 @@
             });
         },
         computed: {
-            ...mapGetters('app', ['MODAL_IS_ACTIVE', 'APP_WINDOW_SIZE'])
+            ...mapGetters('app', ['MODAL_IS_ACTIVE', 'APP_WINDOW_SIZE']),
+
+            headerWidth() {
+                return this.APP_WINDOW_SIZE.width > 1920 ? ((this.APP_WINDOW_SIZE.width - 1920) / 2) : 0
+            }
         },
         methods: {
             ...mapActions('app', ['updateScrollValue', 'setWindowSize', 'setCursorValue']),
@@ -83,7 +88,6 @@
     justify-content: center;
     font-family: 'Source Sans Pro';
     width: 100vw;
-    /*max-width: 1920px;*/
     min-height: 100vh;
     height: max-content;
     overflow-x: hidden;
@@ -108,10 +112,6 @@
     display: flex;
     align-items: center;
     z-index: 1000;
-  }
-
-  .header-wrap-left {
-    left: calc((var(--winWidth) - 1920px) / 2);
   }
 
   .nav-menu-fade-enter, .nav-menu-fade-leave-to {
