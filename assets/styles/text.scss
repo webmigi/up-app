@@ -73,12 +73,31 @@
   color: #000000;
 }
 
+ .item-project-title-text {
+  font-family: Garamond;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 46.88px;
+  line-height: 141%;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+}
+
 .item-project_description_value {
   font-family: Helvetica;
   font-style: normal;
   font-weight: normal;
   font-size: 30px;
   line-height: 166%;
+  color: #000000;
+}
+.item-project_pres-view{
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 166%;
+  text-decoration-line: underline;
   color: #000000;
 }
 
@@ -89,17 +108,6 @@
   font-size: 73.24px;
   line-height: 109%;
   text-align: center;
-  letter-spacing: -0.05em;
-  color: #000000;
-}
-
-.footer-logo {
-  font-family: Helvetica;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 96px;
-  line-height: 100%;
-  text-transform: uppercase;
   letter-spacing: -0.05em;
   color: #000000;
 }
@@ -121,4 +129,13 @@
   line-height: 107.5%;
   letter-spacing: -0.04em;
   color: #FFFFFF;
+}
+
+@media screen and (max-width: 1280px){
+  .main-page_start-text{
+    font-size: 48px;
+  }
+  .nav-menu-btn-text{
+    font-size: 48px;
+  }
 }

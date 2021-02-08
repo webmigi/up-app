@@ -48,4 +48,9 @@
       }
     }
   }
+  @media screen and (max-width: 1280px){
+    .people{
+      margin-bottom: 130px;
+    }
+  }
 </style>

@@ -73,4 +73,15 @@
   .classNoMargin {
     margin-right: 0;
   }
+
+  @media screen and (max-width: 1280px) {
+    .gallery-item {
+      width: 300px;
+      height: 340px;
+
+      .gallery-item-img-wrap{
+        height: 240px;
+      }
+    }
+  }
 </style>

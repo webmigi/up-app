@@ -19,7 +19,8 @@
           <Image_Scale_Block :img="'images/Item_Project/contentImg1.jpg'" appointment="people"/>
         </div>
         <p class="img-description img-description-margin-top content-p img-width-description">
-          Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.
+          Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as
+          well as international. UP is unique projects.
         </p>
       </div>
     </div>
@@ -37,6 +38,7 @@
 
 <style lang="scss" scoped>
   .people-studio {
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 94px;
@@ -63,12 +65,31 @@
         flex-direction: column;
 
         .img-wrap {
-         width: 100%;
+          width: 100%;
           height: 800px;
         }
 
-        .img-description{
+        .img-description {
           margin-left: 100px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    .people-studio {
+      margin-bottom: 50px;
+      .content-block {
+        .content-column-2 {
+          width: calc(100% - 670px);
+
+          .img-wrap {
+            height: 580px;
+          }
+          .img-description{
+            margin-left: 0;
+            max-width: 490px;
+          }
         }
       }
     }

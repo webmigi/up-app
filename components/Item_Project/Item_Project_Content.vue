@@ -5,7 +5,7 @@
         <Image_Scale_Block :img="project.img[0]" appointment="project"/>
       </div>
       <p v-if="project.description!== undefined"
-         class="content-type-1_description
+         class="img-width-description
          img-description-margin-top
          content-p
          pages-content-margin-left-big">
@@ -122,10 +122,6 @@
       .content-type-1_img-wrap {
         height: 800px;
         width: calc(100% - 120px);
-      }
-
-      .content-type-1_description {
-        width: calc((100% - 60px) / 2);
       }
     }
 
@@ -244,6 +240,81 @@
 
       .content-type-6_description {
         align-self: center;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    .project-content {
+      .content-type-1 {
+        margin-bottom: 57px;
+
+        .content-type-1_img-wrap {
+          height: 580px;
+          width: 100%;
+        }
+      }
+      .content-type-2{
+        margin-bottom: 57px;
+        .content-type-2_img-wrap{
+          height: 580px;
+        }
+        .content-type-2_description{
+          align-self: flex-start;
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+      .content-type-3{
+        margin-bottom: 100px;
+        .span-1{
+          .content-type-3_column-1{
+            width: calc(100% / 2 - 20px);
+            .content-type-3_img-wrap-1{
+              height: 580px;
+            }
+          }
+          .content-type-3_column-2{
+            width: calc(((100% - 100px) / 2) + 30px);
+            .content-type-3_img-wrap-2{
+              height: 580px;
+              margin-top: 380px;
+            }
+          }
+        }
+        .span-2{
+          .content-type-3_img-wrap-3{
+            height: 580px;
+          }
+        }
+      }
+      .content-type-4{
+        margin-bottom: 100px;
+        .content-type-4_img-wrap{
+          height: 580px;
+        }
+      }
+      .content-type-5{
+        width: 70%;
+        margin-right: 0;
+        margin-bottom: 57px;
+        .content-type-5_img-wrap{
+          height: 580px;
+        }
+        .content-type-5_description{
+          margin-left: 0;
+        }
+      }
+
+      .content-type-6{
+        margin-bottom: 180px;
+        .content-type-6_img-wrap{
+          height: 630px;
+        }
+        .content-type-6_description{
+          margin-right: var(--main-mini-margin);
+          align-self: flex-end;
+        }
       }
     }
   }

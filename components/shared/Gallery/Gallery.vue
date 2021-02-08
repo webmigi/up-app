@@ -28,21 +28,33 @@
                     pauseOnHover: false,
                     swipeToSlide: true,
                     arrows: false,
-                    autoplay: true,
+                    autoplay: false,
                     autoplaySpeed: 2000,
                     speed: 500,
                     infinite: true,
                     responsive: [
                         {
-                            breakpoint: 1500,
+                            breakpoint: 1810,
                             settings: {
                                 slidesToShow: 4
                             }
                         },
                         {
-                            breakpoint: 1024,
+                            breakpoint: 1470,
                             settings: {
-                                slidesToShow: 3
+                                slidesToShow: 3.5
+                            }
+                        },
+                        {
+                            breakpoint: 1285,
+                            settings: {
+                                slidesToShow: 3.2
+                            }
+                        },
+                        {
+                            breakpoint: 1280,
+                            settings: {
+                                slidesToShow: 3.5
                             }
                         }
                     ]

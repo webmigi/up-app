@@ -100,6 +100,7 @@
   }
 
   body {
+    width: var(--winWidth);
     max-width: 1920px;
   }
 
@@ -120,5 +121,12 @@
 
   .nav-menu-fade-enter-active, .nav-menu-fade-leave-active {
     transition: transform 1s;
+  }
+
+  @media screen and (max-width: 1280px){
+    html{
+      --main-big-margin: 200px;
+      --main-very-mini-margin: 50px;
+    }
   }
 </style>

@@ -73,9 +73,26 @@
           display: flex;
           flex-direction: column;
 
-
           .team__text_p {
             margin-top: 167px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1280px){
+    .team-block{
+      .team_content-block{
+        .team_img-wrap{
+          height: 490px;
+        }
+        .team_text-block__wrap{
+          .team_text-block{
+            justify-content: space-between;
+            .team__text_p{
+              margin-top: 0;
+            }
           }
         }
       }

@@ -1,7 +1,6 @@
 <template>
   <div :class="['projects-block', {'projects-block_projects-page':this.$route.path === '/Project'}]">
     <span class="main-page__content-title-position block-title">{{title}}</span>
-
     <div v-if="this.$route.path === '/Project'"
          class="description pages-content-margin-left-big">
       <div class="description-title">
@@ -17,7 +16,7 @@
            v-if="checkProjectPage ? item :  index<4"
            :key="index">
         <Image_Scale_Block :img="item.img" appointment="project"/>
-        <div class="item-project-title">
+        <div class="item-project-title item-project-title-text">
           {{item.title}}
         </div>
       </div>
@@ -84,6 +83,7 @@
     .description {
       display: flex;
       flex-direction: column;
+      margin-right: var(--main-mini-margin);
 
       .description-title {
         margin-top: 83px;
@@ -115,13 +115,6 @@
           bottom: 60px;
           left: 60px;
           align-self: flex-end;
-          font-family: Garamond;
-          font-style: normal;
-          font-weight: bold;
-          font-size: 46.88px;
-          line-height: 141%;
-          letter-spacing: -0.04em;
-          color: #FFFFFF;
         }
       }
 
@@ -150,5 +143,37 @@
 
   .projects-block_projects-page {
     margin-bottom: 100px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .projects-block {
+      .description {
+        .description-title {
+          max-width: 760px;
+          margin-bottom: 19px;
+        }
+      }
+
+      .content-block {
+        margin-bottom: 0;
+        .content-img-wrap {
+          width: calc((100% - 40px) / 2);
+          height: 620px;
+          margin-bottom: 40px;
+        }
+
+        .content-img-wrap-big {
+          width: 100%;
+          margin-bottom: 100px;
+          margin-top: 60px;
+        }
+      }
+    }
+    .content-block-project-page-margin-top {
+      margin-top: 40px !important;
+    }
+    .projects-block_projects-page {
+      margin-bottom: 60px;
+    }
   }
 </style>

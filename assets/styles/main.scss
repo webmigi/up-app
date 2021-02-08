@@ -13,8 +13,8 @@
 .value {
   display: flex;
   flex-direction: column;
-  min-width: 435px;
   margin-bottom: 37px;
+  width: 50%;
 }
 
 .img-description-margin-top {
@@ -23,4 +23,17 @@
 
 .img-width-description {
  width: 810px !important;
+}
+
+
+@media screen and (max-width: 1280px){
+  .main-page__content-title-position{
+    margin: 108px 0 0 var(--main-big-margin);
+  }
+  .img-description-margin-top {
+    margin-top: 43px;
+  }
+  .img-width-description {
+    max-width: 770px !important;
+  }
 }

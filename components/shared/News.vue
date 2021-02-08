@@ -117,4 +117,17 @@
       margin-bottom: 32px;
     }
   }
+
+  @media screen and (max-width: 1280px){
+    .news-block{
+      padding-bottom: 56px;
+      .title{
+        margin-bottom: 52px;
+        margin-top: 32px;
+      }
+    }
+    .people__news-block{
+      margin-top: 158px;
+    }
+  }
 </style>

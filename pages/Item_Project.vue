@@ -7,8 +7,7 @@
     </div>
     <div class="description-block">
       <div class="description-text-wrap">
-        <p class="content-p pages-content-margin-left-big"
-           v-for="(item, index) in description" :key="index">{{item}}</p>
+        <p class="content-p pages-content-margin-left-big">{{description}}</p>
       </div>
 
       <div class="project-values-wrap">
@@ -35,6 +34,9 @@
             <span class="text-very-small">client</span>
             <span class="item-project_description_value">{{values.client}}</span>
           </div>
+          <div class="value">
+            <span class="item-project_pres-view">presentation view</span>
+          </div>
         </div>
       </div>
     </div>
@@ -49,7 +51,8 @@
       </button>
       <button>
         <svg viewBox="0 0 67 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M66.5 12L46.5 0.452996L46.5 23.547L66.5 12ZM48.5 10L-1.74846e-07 10L1.74846e-07 14L48.5 14L48.5 10Z" fill="black"/>
+          <path d="M66.5 12L46.5 0.452996L46.5 23.547L66.5 12ZM48.5 10L-1.74846e-07 10L1.74846e-07 14L48.5 14L48.5 10Z"
+                fill="black"/>
         </svg>
       </button>
     </div>
@@ -97,8 +100,7 @@
                         styleType: 6
                     }
                 ],
-                description: ['Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects. Every client, corporate or private, is unique. It is our ambition to create distinctive designs that reflect the soul and personal identity of our clients. Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.',
-                    'Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects. Every client, corporate or private, is unique. It is our ambition to create distinctive designs that reflect the soul and personal identity of our clients. Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.'],
+                description: 'Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects. Every client, corporate or private, is unique. It is our ambition to create distinctive designs that reflect the soul and personal identity of our clients. Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.\n \n Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects. Every client, corporate or private, is unique. It is our ambition to create distinctive designs that reflect the soul and personal identity of our clients. Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as well as international. UP is unique projects.',
                 values: {
                     location: 'Utrecht',
                     timeline: '2019',
@@ -143,6 +145,10 @@
         display: flex;
         flex-direction: column;
         width: calc((100% - 60px) / 2);
+
+        .content-p {
+          white-space: pre-line;
+        }
       }
     }
 
@@ -159,7 +165,7 @@
       }
     }
 
-    .paginator{
+    .paginator {
       display: flex;
       align-self: center;
       align-items: center;
@@ -168,13 +174,37 @@
       height: 50px;
       margin-bottom: 180px;
 
-      button{
+      button {
         width: calc((195px - 50px) / 2);
 
-        svg{
+        svg {
           width: 100%;
           height: 100%;
         }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    .item-project {
+      .description-block {
+        margin-top: 103px;
+        margin-bottom: 67px;
+
+        .description-text-wrap {
+          width: calc((100% - 40px) / 2);
+        }
+      }
+
+      .project-values-wrap {
+        width: calc((100% - 40px) / 2);
+      }
+    }
+    .paginator {
+      margin-bottom: 100px !important;
+
+      button {
+        width: calc((195px - 60px) / 2) !important;
       }
     }
   }

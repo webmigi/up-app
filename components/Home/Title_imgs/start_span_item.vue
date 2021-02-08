@@ -53,4 +53,10 @@
     display: flex;
     min-height: 80px;
   }
+
+  @media screen and (max-width: 1280px){
+    .start-span-block{
+      min-height: 52px;
+    }
+  }
 </style>

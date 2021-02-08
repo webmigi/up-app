@@ -72,9 +72,18 @@
                     :
                     startPositionY
             },
+
+            setLogoStartWidth() {
+                return this.APP_WINDOW_SIZE.width <= 1280 ?
+                    169 : 338
+            },
+            setLogoFinishWidth() {
+                return this.APP_WINDOW_SIZE.width <= 1280 ?
+                    70 : 110
+            },
             logoWidth() {
-                let startWidth = 338;
-                let finishWidth = 110;
+                let startWidth = this.setLogoStartWidth;
+                let finishWidth = this.setLogoFinishWidth;
                 let wayWidth = startWidth - finishWidth
                 return (this.APP_SCROLL_VALUE > this.logoStartScroll) ?
                     (this.APP_SCROLL_VALUE > this.logoFinishScroll ?
@@ -189,6 +198,23 @@
       svg {
         path {
           stroke: #000000;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    .header {
+      padding: 40px 130px 0 90px;
+
+      .header-logo-on-nav-menu {
+        width: (70px !important);
+      }
+
+      .header-burger-btn {
+        svg {
+          width: 50px;
+          height: 50px;
         }
       }
     }

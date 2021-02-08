@@ -84,7 +84,6 @@
     left: 0;
     margin: auto;
     width: 100%;
-    /*height: 100%;*/
     overflow: hidden;
     display: flex;
     flex-direction: column-reverse;
@@ -121,6 +120,19 @@
             width: 100%;
             height: 100%;
           }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1280px){
+    .nav-menu-modal{
+      .content{
+        .hrefs{
+          width: 52%;
+        }
+        .social-href{
+          margin-bottom: 50px;
         }
       }
     }

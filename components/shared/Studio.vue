@@ -8,7 +8,7 @@
       <div class="studio_text-block__wrap">
         <div :class="['studio_text-block', {'studio-people_text-block':this.$route.path === '/People'}]">
           <span class="content-title">About</span>
-          <p v-if="this.$route.path === '/'" class="studio__text_p content-p">
+          <p class="studio__text_p content-p">
             Founded in 2018 by Anne Boonstra
             UP works on both architecture
             and interior projects in the Netherlands as well as international. UP is unique projects. Every client,
@@ -17,13 +17,6 @@
             the soul and personal identity
             of our clients.
           </p>
-
-          <p v-if="this.$route.path === '/People'" class="studio__text_p content-p">
-            up architecture makes unique projects. Every client, corporate or private is unique. It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.up architecture makes unique projects. Every client, corporate or private
-            is unique. It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.up architecture makes unique projects. Every client, corporate or private is unique. It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.up architecture makes unique projects. Every client, corporate or private
-            is unique. It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.
-          </p>
-
           <div v-if="this.$route.path === '/'" class="studio_btn_wrap">
             <Content_btn title="Learn more"/>
           </div>
@@ -63,19 +56,20 @@
       margin-top: 82px;
       height: 660px;
       display: flex;
+      justify-content: space-between;
 
       .studio_img-wrap {
         display: flex;
-        width: 50%;
+        width: calc((100% - 60px) / 2);
       }
 
       .studio_text-block__wrap {
-        width: 50%;
-        margin-left: 50px;
+        width: calc((100% - 60px) / 2);
         display: flex;
 
         .studio_text-block {
-          width: 360px;
+          max-width: 375px;
+          margin-right: var(--main-mini-margin);
           display: flex;
           flex-direction: column;
 
@@ -84,15 +78,35 @@
           }
 
 
-          .studio_btn_wrap{
+          .studio_btn_wrap {
             width: 123px;
             height: 40px;
             margin-top: 60px;
           }
         }
-        .studio-people_text-block{
+
+        .studio-people_text-block {
           width: unset;
           margin-right: var(--main-mini-margin);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    .studio-block {
+      .studio_content-block {
+             height: 580px;
+        .studio_img-wrap {
+          width: calc((100% - 40px) / 2);
+        }
+
+        .studio_text-block__wrap {
+          width: calc((100% - 40px) / 2);
+
+          .studio_text-block {
+            max-width: unset;
+          }
         }
       }
     }

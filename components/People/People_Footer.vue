@@ -23,10 +23,20 @@
     margin-left: var(--main-big-margin);
     margin-right: var(--main-mini-margin);
     display: flex;
-    justify-content: space-between;
+    overflow: hidden;
 
     .jobs-footer-column-1{
-       width: 480px;
+       min-width: 480px;
+    }
+    img{
+      height: 480px;
+    }
+  }
+
+  @media screen and (max-width: 1280px){
+    .jobs-footer{
+      margin-top: 228px;
+      margin-right: 0;
     }
   }
 </style>

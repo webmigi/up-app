@@ -65,6 +65,7 @@
 
       .btns-block {
         display: flex;
+        align-items: center;
 
         .content-btn-wrap {
           width: 97px;
@@ -101,5 +102,11 @@
   }
   .item-vacancy-no-margin{
     margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 1280px){
+    .item-vacancy-roll-down{
+      max-height: 720px;
+    }
   }
 </style>
