@@ -82,7 +82,7 @@ export const actions = {
   setLogoStartHeight({commit}, value) {
     commit("SET_LOGO_START_HEIGHT", value);
   },
-  setHeaderComponenttHeight({commit}, value) {
+  setHeaderComponentHeight({commit}, value) {
     commit("SET_HEADER_COMPONENT_HEIGHT", value);
   },
   setModalIsActive({commit}) {

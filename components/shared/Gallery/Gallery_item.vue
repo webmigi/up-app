@@ -2,7 +2,7 @@
   <div class="gallery-item">
 
     <div class="gallery-item-img-wrap">
-      <Image_Scale_Block :img="imgProps" appointment="spinner"/>
+      <Image_Scale_Block :img="imgProps" :appointment="'spinner'"/>
     </div>
 
     <span class="date">{{dateProps}}</span>

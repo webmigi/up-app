@@ -21,7 +21,7 @@
             img: String,
             appointment: {
                 validator: function (value) {
-                    return ['project', 'news', 'people', 'process']
+                    return ['project', 'news', 'people', 'process', 'spinner']
                 }
             }
         },
@@ -53,7 +53,8 @@
                             this.appointment === 'news' ||
                             this.appointment === 'people' ||
                             this.appointment === 'process'
-                    }]
+                    },
+                    {'image-scale-img-width-hover-no-cursor': this.appointment === 'spinner'}]
             },
 
             currentNuxtLink() {
@@ -87,6 +88,11 @@
         transition: transform 0.3s;
         transform: scale(1.4) !important;
         cursor: pointer;
+      }
+    }
+    .image-scale-img-width-hover-no-cursor {
+      &:hover {
+        cursor: none;
       }
     }
   }

@@ -39,7 +39,7 @@
         name: 'Header',
         mounted() {
             this.setLogoStartHeight(this.$refs.headerLogo.offsetHeight)
-            this.setHeaderComponenttHeight(this.$refs.header_component.offsetHeight)
+            this.setHeaderComponentHeight(this.$refs.header_component.offsetHeight)
         },
         computed: {
             ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE", "LOGO_START_HEIGHT", "MODAL_IS_ACTIVE", "HEADER_COMPONENT_HEIGHT"]),
@@ -110,7 +110,7 @@
         },
         methods: {
             ...
-                mapActions('app', ['setLogoStartHeight', 'setModalIsActive', 'setHeaderComponenttHeight']),
+                mapActions('app', ['setLogoStartHeight', 'setModalIsActive', 'setHeaderComponentHeight']),
             setBurgerActive() {
                 this.burgerActive = !this.burgerActive
             }
