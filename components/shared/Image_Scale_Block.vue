@@ -81,11 +81,12 @@
       left: 0;
       width: 100%;
       height: 100%;
+      transition: transform 0.3s;
     }
 
     .image-scale-img-width-hover {
       &:hover {
-        transition: transform 0.3s;
+        /*transition: transform 0.3s;*/
         transform: scale(1.4) !important;
         cursor: pointer;
       }

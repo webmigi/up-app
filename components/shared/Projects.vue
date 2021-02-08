@@ -8,8 +8,7 @@
         <span class="content-title content-title-bold">up </span>
         <span class="content-title">architecture makes unique projects.</span>
       </div>
-      <span class="content-p">up architecture makes unique projects. Every client, corporate or private is unique.</span>
-      <span class="content-p">It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.</span>
+      <span class="content-p">{{'up architecture makes unique projects. Every client, corporate or private is unique.'+'\n'+'It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.'}}</span>
     </div>
 
     <div :class="contentBlockClasses">
@@ -59,18 +58,18 @@
             title() {
                 return this.$route.path === '/Project' ? 'projects' : 'featured projects'
             },
-            checkProjectPage(){
+            checkProjectPage() {
                 return this.$route.path === '/Project' ?
                     true
                     :
                     false
             },
-        contentBlockClasses(){
+            contentBlockClasses() {
                 return ['content-block',
                     'main-content-margin-left-right',
                     {'content-block-project-page-margin-top': this.checkProjectPage && this.contentImgs[0].big},
-                    {'content-block-project-page-margin-bottom': this.checkProjectPage && this.contentImgs[this.contentImgs.length-1].big}]
-        }
+                    {'content-block-project-page-margin-bottom': this.checkProjectPage && this.contentImgs[this.contentImgs.length - 1].big}]
+            }
         }
     }
 </script>
@@ -86,9 +85,13 @@
       display: flex;
       flex-direction: column;
 
-      .description-title{
+      .description-title {
         margin-top: 83px;
         margin-bottom: 35px;
+      }
+
+      .content-p {
+        white-space: pre-line;
       }
     }
 
@@ -101,7 +104,7 @@
 
       .content-img-wrap {
         position: relative;
-        width:  calc((100% - 60px) / 2);
+        width: calc((100% - 60px) / 2);
         height: 840px;
         margin-bottom: 60px;
         display: flex;
@@ -121,18 +124,19 @@
           color: #FFFFFF;
         }
       }
-      .content-img-wrap-big{
+
+      .content-img-wrap-big {
         width: 100%;
         margin-bottom: 100px;
         margin-top: 40px;
       }
     }
 
-    .content-block-project-page-margin-top{
+    .content-block-project-page-margin-top {
       margin-top: 42px;
     }
 
-    .content-block-project-page-margin-bottom{
+    .content-block-project-page-margin-bottom {
       margin-bottom: 2px;
     }
 
@@ -144,7 +148,7 @@
     }
   }
 
-  .projects-block_projects-page{
+  .projects-block_projects-page {
     margin-bottom: 100px;
   }
 </style>
