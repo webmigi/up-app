@@ -200,6 +200,13 @@
       }
     }
   }
+  @media screen and (max-width: 1024px) {
+    .item-project{
+      .description-block{
+        margin-bottom: 117px;
+      }
+    }
+  }
   @media screen and (max-width: 768px) {
     .item-project{
       .description-block{
