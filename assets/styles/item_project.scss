@@ -1,0 +1,30 @@
+.item-project_img-description_margin-top {
+  margin-top: 33px;
+}
+
+.item-project_img-wrap_height{
+  height: 800px;
+}
+
+.item-project_img-description_width {
+  max-width: 810px !important;
+}
+
+@media screen and (max-width: 1280px){
+  .item-project_img-description_margin-top {
+    margin-top: 43px;
+  }
+  .item-project_img-wrap_height{
+    height: 580px !important;
+  }
+  .item-project_img-description_width {
+    max-width: 770px !important;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .item-project_img-description_margin-top {
+    margin-top: 40px;
+  }
+}
+

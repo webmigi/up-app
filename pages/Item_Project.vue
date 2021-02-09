@@ -144,7 +144,7 @@
       .description-text-wrap {
         display: flex;
         flex-direction: column;
-        width: calc((100% - 60px) / 2);
+        width: calc((100% - var(--main-very-mini-margin)) / 2);
 
         .content-p {
           white-space: pre-line;
@@ -153,7 +153,7 @@
     }
 
     .project-values-wrap {
-      width: calc((100% - 60px) / 2);
+      width: calc((100% - var(--main-very-mini-margin)) / 2);
       display: flex;
       flex-direction: column;
 
@@ -190,14 +190,6 @@
       .description-block {
         margin-top: 103px;
         margin-bottom: 67px;
-
-        .description-text-wrap {
-          width: calc((100% - 40px) / 2);
-        }
-      }
-
-      .project-values-wrap {
-        width: calc((100% - 40px) / 2);
       }
     }
     .paginator {
@@ -205,6 +197,14 @@
 
       button {
         width: calc((195px - 60px) / 2) !important;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .item-project{
+      .description-block{
+        margin-top: 53px;
+        margin-bottom: 53px;
       }
     }
   }
