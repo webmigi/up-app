@@ -126,7 +126,7 @@
   @media screen and (max-width: 1280px){
     html{
       --main-big-margin: 200px;
-      --main-very-mini-margin: 50px;
+      --main-very-mini-margin: 40px;
     }
   }
   @media screen and (max-width: 1024px){

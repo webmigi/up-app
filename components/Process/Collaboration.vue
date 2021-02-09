@@ -13,7 +13,7 @@
         as international.
         UP is unique projects.</p>
       </div>
-      <div class="img-container">
+      <div class="content-column-2">
         <div class="img-wrap process_img-wrap_height">
           <Image_Scale_Block :img="'images/Item_Project/contentImg2.jpg'" appointment="process"/>
         </div>
@@ -64,7 +64,7 @@
         }
       }
 
-      .img-container {
+      .content-column-2  {
         width: calc(100% - 270px - var(--main-big-margin) - var(--main-very-mini-margin));
         display: flex;
         flex-direction: column;
@@ -86,12 +86,30 @@
     }
   }
 
-  @media screen and (max-height: 1280px) {
+
+
+  @media (max-width: 1280px) {
     .collaboration {
       margin-bottom: 182px;
+      .content-block{
+        display: flex;
+        width: 100%;
+        .content-column-1{
+          width: calc(50% + var(--main-very-mini-margin) / 2);
+          .content-p{
+            margin-left: var(--main-big-margin);
+            margin-right: var(--main-very-mini-margin);
+            width: unset;
+          }
+        }
+        .content-column-2{
+          width: calc(50% -  var(--main-very-mini-margin) / 2);
+        }
+      }
     }
   }
-  @media screen and (max-height: 1024px) {
+
+  @media  (max-width: 1024px) {
     .collaboration{
       margin-bottom: 114px;
     }

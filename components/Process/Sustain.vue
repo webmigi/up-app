@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <div class="img-wrap-2">
+      <div :class="['img-wrap-2',{'process_img-wrap_height': APP_WINDOW_SIZE.width <= 1280}]">
         <Image_Scale_Block :img="'images/Item_Project/contentImg3_3.jpg'" appointment="people"/>
       </div>
 
@@ -37,11 +37,15 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
     import Image_Scale_Block from "../shared/Image_Scale_Block";
 
     export default {
         name: 'Sustain',
-        components: {Image_Scale_Block}
+        components: {Image_Scale_Block},
+        computed:{
+            ...mapGetters('app', ['APP_WINDOW_SIZE'])
+        }
     }
 </script>
 
@@ -95,12 +99,12 @@
 @media screen and (max-width: 1280px){
   .sustain{
     margin-bottom: 250px;
+    .content-title{
+      margin-bottom: 75px;
+    }
    .content-block{
      .span-1{
        margin-bottom: 67px;
-     }
-     .img-wrap-2{
-       height: 580px;
      }
    }
   }
