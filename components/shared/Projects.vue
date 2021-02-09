@@ -210,9 +210,11 @@
 
   @media screen and (max-width: 768px) {
     .projects-block {
-      margin-bottom: 100px;
-      .main-page__content-title-position {
-        margin-top: 108px;
+      margin-bottom: 84px;
+      .description{
+        .description-title{
+          margin-top: 50px;
+        }
       }
 
       .content-block {
@@ -229,9 +231,12 @@
 
         .content-img-wrap-big {
           width: 100%;
-          margin-bottom: 100px;
-          margin-top: 40px;
+          margin-bottom: 50px;
+          margin-top: 50px;
         }
+      }
+      .content-block-project-page-margin-top{
+        margin-top: 0 !important;
       }
     }
   }
