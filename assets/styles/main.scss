@@ -1,12 +1,12 @@
-.main-page__content-title-position{
+.main-page__content-title-position {
   margin: 288px 0 0 var(--main-big-margin);
 }
 
-.main-content-margin-left-right{
+.main-content-margin-left-right {
   margin: 0 var(--main-mini-margin) 0 var(--main-mini-margin);
 }
 
-.pages-content-margin-left-big{
+.pages-content-margin-left-big {
   margin-left: var(--main-big-margin);
 }
 
@@ -18,13 +18,27 @@
 }
 
 
-@media screen and (max-width: 1280px){
-  .main-page__content-title-position{
+@media screen and (max-width: 1280px) {
+  .main-page__content-title-position {
     margin: 108px 0 0 var(--main-big-margin);
   }
 }
-@media screen and (max-width: 768px){
-  .main-page__content-title-position{
+
+@media screen and (max-width: 768px) {
+  .main-page__content-title-position {
     margin: 58px 0 0 var(--main-big-margin);
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .main-page__content-title-position {
+    margin: 108px 0 0 var(--main-big-margin);
+  }
+  .value{
+    width: unset;
+    margin-right: 47px;
+  }
+  .main-content-margin-left-right {
+    margin: 0 var(--main-mini-margin) 0 var(--main-big-margin);
   }
 }

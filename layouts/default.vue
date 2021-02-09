@@ -142,4 +142,10 @@
       --main-very-mini-margin: 16px;
     }
   }
+  @media screen and (max-width: 414px){
+    html{
+      --main-big-margin: 72px;
+      --main-mini-margin: 24px;
+    }
+  }
 </style>

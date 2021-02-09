@@ -16,7 +16,7 @@
             <span class="text-very-small">location</span>
             <span class="item-project_description_value">{{values.location}}</span>
           </div>
-          <div style="display: flex">
+          <div class="value-big">
             <div class="value">
               <span class="text-very-small">timeline</span>
               <span class="item-project_description_value">{{values.timeline}}</span>
@@ -162,6 +162,9 @@
         display: flex;
         flex-direction: column;
 
+        .value-big {
+          display: flex;
+        }
       }
     }
 
@@ -200,18 +203,51 @@
       }
     }
   }
+
   @media screen and (max-width: 1024px) {
-    .item-project{
-      .description-block{
+    .item-project {
+      .description-block {
         margin-bottom: 117px;
       }
     }
   }
+
   @media screen and (max-width: 768px) {
-    .item-project{
-      .description-block{
+    .item-project {
+      .description-block {
         margin-top: 53px;
         margin-bottom: 53px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 414px) {
+    .item-project {
+      .description-block {
+        margin-top: 103px;
+        flex-direction: column;
+        margin-bottom: 179px;
+
+        .project-values-wrap {
+          width: unset;
+          order: 1;
+          margin-left: var(--main-big-margin);
+
+          .values-block {
+            .value-big {
+              justify-content: space-between;
+            }
+          }
+        }
+
+        .description-text-wrap {
+          width: unset;
+          order: 2;
+
+          .content-p {
+            margin-right: var(--main-mini-margin);
+          }
+        }
       }
     }
   }

@@ -125,26 +125,41 @@
     }
   }
 
-  @media screen and (max-width: 1280px){
-    .nav-menu-modal{
-      .content{
-        .hrefs{
+  @media screen and (max-width: 1280px) {
+    .nav-menu-modal {
+      .content {
+        .hrefs {
           width: 52%;
         }
-        .social-href{
+
+        .social-href {
           margin-bottom: 50px;
         }
       }
     }
   }
-  @media screen and (max-width: 1024px){
-    .nav-menu-modal{
-      .content{
-        .hrefs{
+
+  @media screen and (max-width: 1024px) {
+    .nav-menu-modal {
+      .content {
+        .hrefs {
           width: 65%;
         }
-        .social-href{
+
+        .social-href {
           margin-bottom: 58px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .nav-menu-modal {
+      .content {
+        .hrefs {
+          width: unset;
+          height: 356px;
+          flex-direction: column;
         }
       }
     }

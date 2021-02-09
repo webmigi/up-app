@@ -74,6 +74,30 @@
                             settings: {
                                 slidesToShow: 2.4
                             }
+                        },
+                        {
+                            breakpoint: 750,
+                            settings: {
+                                slidesToShow: 2.2
+                            }
+                        },
+                        {
+                            breakpoint: 650,
+                            settings: {
+                                slidesToShow: 1.8
+                            }
+                        },
+                        {
+                            breakpoint: 550,
+                            settings: {
+                                slidesToShow: 1.5
+                            }
+                        },
+                        {
+                            breakpoint: 415,
+                            settings: {
+                                slidesToShow: 1.3
+                            }
                         }
                     ]
                 }

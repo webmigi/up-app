@@ -149,9 +149,16 @@
   @media screen and (max-width: 768px) {
     .people__news-block {
       margin-top: 108px;
-      .content-title{
+
+      .content-title {
         margin-bottom: 44px;
       }
+    }
+  }
+
+  @media screen and (max-width: 414px) {
+    .news-block {
+      padding-bottom: 77px;
     }
   }
 </style>

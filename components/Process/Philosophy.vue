@@ -84,4 +84,22 @@
       margin-bottom: 120px;
     }
   }
+  @media screen and (max-width: 414px) {
+    .philosophy{
+      margin-bottom: 119px;
+      .content-block{
+        flex-direction: column;
+        .content-column-1{
+          width: unset;
+          margin-bottom: 50px;
+        }
+        .content-column-2{
+          width: unset;
+          .content-p{
+            margin-left: var(--main-big-margin);
+          }
+        }
+      }
+    }
+  }
 </style>

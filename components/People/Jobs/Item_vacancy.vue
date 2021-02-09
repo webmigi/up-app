@@ -4,7 +4,7 @@
       <span class="item-project_description_value">{{vacancy.title}}</span>
       <div class="btns-block">
         <div class="content-btn-wrap">
-          <Content_btn title="Send CV"/>
+          <Content_btn title="Send CV" place="jobs"/>
         </div>
         <button class="open-vacancy-btn" @click="setRollUp">
           <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,6 +107,27 @@
   @media screen and (max-width: 1280px){
     .item-vacancy-roll-down{
       max-height: 720px;
+    }
+  }
+  @media screen and (max-width: 414px){
+    .item-vacancy{
+      padding: 13px 0;
+      margin-bottom: 10px;
+      .title-span{
+        .btns-block{
+          .content-btn-wrap{
+            margin-right: 10px;
+          }
+          .open-vacancy-btn{
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+          }
+        }
+      }
+    }
+    .item-vacancy-roll-down{
+      max-height: 1000px;
     }
   }
 </style>

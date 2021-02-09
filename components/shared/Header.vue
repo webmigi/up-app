@@ -52,7 +52,10 @@
             },
             setStartPositionX() {
                 return this.APP_WINDOW_SIZE.width <= 1024 ?
-                    80
+                    (this.APP_WINDOW_SIZE.width <= 414 ?
+                        65
+                        :
+                        80)
                     :
                     50
             },
@@ -66,9 +69,14 @@
                     :
                     startPositionX
             },
-
+            setStartPositionLogoTranslateY() {
+                return this.APP_WINDOW_SIZE.width <= 414 ?
+                    20
+                    :
+                    60
+            },
             logoTranslateY() {
-                let startPositionY = this.APP_WINDOW_SIZE.height / 2 - (60 + (this.LOGO_START_HEIGHT / 2));
+                let startPositionY = this.APP_WINDOW_SIZE.height / 2 - (this.setStartPositionLogoTranslateY + (this.LOGO_START_HEIGHT / 2));
                 return (this.APP_SCROLL_VALUE > this.logoStartScroll) ?
                     (this.APP_SCROLL_VALUE > this.logoFinishScroll ?
                         0
@@ -85,7 +93,10 @@
             setLogoFinishWidth() {
                 return this.APP_WINDOW_SIZE.width <= 1280 ?
                     (this.APP_WINDOW_SIZE.width <= 1024 ?
-                        60
+                        (this.APP_WINDOW_SIZE.width <= 414 ?
+                            46
+                            :
+                            60)
                         :
                         70)
                     : 110
@@ -245,9 +256,23 @@
       }
     }
   }
+
   @media screen and (max-width: 768px) {
     .header {
       padding: 40px 50px 0 14px;
+    }
+  }
+
+  @media screen and (max-width: 414px) {
+    .header {
+      padding: 20px 20px 0 14px;
+
+      .header-logo-on-nav-menu {
+        width: (46px !important);
+      }
+      .header-burger-btn{
+        margin-top: 0;
+      }
     }
   }
 </style>

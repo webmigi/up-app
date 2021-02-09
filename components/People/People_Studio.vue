@@ -123,4 +123,27 @@
       margin-bottom: 0;
     }
   }
+  @media screen and (max-width: 414px){
+    .people-studio{
+      .content-title{
+        margin-bottom: 72px;
+      }
+      .content-block{
+        flex-direction: column;
+        .content-p{
+          width: unset;
+          margin-bottom: 100px;
+        }
+        .content-column-2{
+          width: unset;
+          .img-description{
+            width: unset !important;
+            margin-left: var(--main-big-margin);
+            margin-right: var(--main-mini-margin);
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
 </style>

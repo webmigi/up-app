@@ -133,4 +133,25 @@
       }
     }
   }
+  @media screen and (max-width: 414px){
+    .sustain{
+      .content-title{
+        margin-top: 83px;
+        margin-bottom: 50px;
+      }
+      .content-block{
+       .span-1{
+         flex-direction: column;
+
+         .content-column-1{
+           width: unset;
+           margin-bottom: 50px;
+         }
+         .img-wrap{
+           width: unset;
+         }
+       }
+      }
+    }
+  }
 </style>

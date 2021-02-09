@@ -283,4 +283,15 @@
     }
   }
 }
+  @media screen and (max-width: 414px){
+    .main-page_title-imgs__container{
+      .block-wrap{
+        .block{
+          .start-span_with-logo_wrap{
+            left: 72px;
+          }
+        }
+      }
+    }
+  }
 </style>

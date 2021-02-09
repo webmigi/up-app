@@ -54,7 +54,22 @@
         min-width: 296px;
       }
       img{
-        height: 369px ;
+        height: 369px;
+      }
+    }
+  }
+  @media screen and (max-width: 414px){
+    .jobs-footer{
+      flex-direction: column;
+      margin-top: 120px;
+      margin-left: 0;
+      .jobs-footer-column-1{
+        min-width: unset;
+        margin-left: var(--main-big-margin);
+      }
+      img{
+        height: 394px;
+        margin-bottom: 54px;
       }
     }
   }

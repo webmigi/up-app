@@ -1,5 +1,5 @@
 <template>
-  <button class="content-btn-text content-btn">
+  <button :class="['content-btn-text', 'content-btn', {'content-btn-jobs': place === 'jobs'}]">
     {{title}}
   </button>
 </template>
@@ -7,7 +7,7 @@
 <script>
     export default {
         name: "Content-btn",
-        props: ['title']
+        props: ['title', 'place']
     }
 </script>
 
@@ -31,6 +31,12 @@
 
     &:hover:after {
       width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 414px){
+    .content-btn-jobs{
+      font-size: 14px;
     }
   }
 </style>

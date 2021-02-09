@@ -30,9 +30,14 @@
     height: 520px !important;
   }
 }
-@media screen and (max-width: 1768px){
+@media screen and (max-width: 768px){
   .item-project_img-description_width {
     max-width: 512px !important;
+  }
+}
+@media screen and (max-width: 768px){
+  .item-project_img-description_margin-top {
+    margin-top: 50px;
   }
 }
 

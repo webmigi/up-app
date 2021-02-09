@@ -115,4 +115,27 @@
       }
     }
   }
+  @media screen and (max-width: 414px){
+    .team-block{
+      .team_content-block{
+        flex-direction: column;
+        .team_text-block__wrap{
+          order: 1;
+          width: unset;
+          margin-left: var(--main-big-margin);
+          margin-right: var(--main-mini-margin);
+          .team_text-block{
+            margin-bottom: 50px;
+            .content-title{
+              margin-bottom: 35px;
+            }
+          }
+        }
+        .team_img-wrap{
+          order: 2;
+          width: unset;
+        }
+      }
+    }
+  }
 </style>
