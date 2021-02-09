@@ -1,7 +1,7 @@
 <template>
   <div class="sustain">
     <span class="block-title">sustain ability</span>
-    <span class="content-title">How we do it</span>
+    <span class="content-title process_content-title_margin">How we do it</span>
 
     <div class="content-block">
       <div class="span-1">
@@ -55,12 +55,6 @@
       margin-left: var(--main-big-margin);
     }
 
-    .content-title {
-      margin-top: 83px;
-      margin-bottom: 35px;
-      margin-left: var(--main-big-margin);
-    }
-
     .content-block {
       display: flex;
       width: 100%;
@@ -69,15 +63,16 @@
       .span-1 {
         display: flex;
         width: 100%;
-        margin-bottom: 93px;
+        margin-bottom: 100px;
 
         .content-column-1 {
-          width: 50%;
+          width: calc(50% + var(--main-very-mini-margin) / 2);
           display: flex;
           flex-direction: column;
 
           .content-p {
-            width: calc(100% - var(--main-big-margin) - var(--main-very-mini-margin) / 2);
+            box-sizing: content-box;
+            width: calc(100% - var(--main-big-margin) -  var(--main-very-mini-margin));
             margin-left: var(--main-big-margin);
             margin-right: var(--main-very-mini-margin);
             white-space: pre-line;
@@ -85,7 +80,7 @@
         }
 
         .img-wrap {
-          width: calc(50% - var(--main-very-mini-margin) / 2) ;
+          width: calc(50% -  var(--main-very-mini-margin) / 2);
           height: 620px;
         }
       }

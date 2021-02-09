@@ -1,9 +1,10 @@
 <template>
   <div class="collaboration">
     <span class="block-title">collaboration</span>
-    <span class="content-title">The way we work</span>
+    <span class="content-title process_content-title_margin">The way we work</span>
 
     <div class="content-block">
+      <div class="content-column-1">
       <p class="content-p">Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the
         Netherlands as well as international. UP is unique projects. Every client, corporate or private, is unique. It
         is our ambition to create distinctive designs that reflect the soul and personal identity of our clients.
@@ -11,13 +12,13 @@
         well
         as international.
         UP is unique projects.</p>
-
+      </div>
       <div class="img-container">
-        <div class="img-wrap">
+        <div class="img-wrap process_img-wrap_height">
           <Image_Scale_Block :img="'images/Item_Project/contentImg2.jpg'" appointment="process"/>
         </div>
 
-        <p class="content-p img-description-margin-top">
+        <p class="content-p process_img-description_margin-top process_img-description_width">
           Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as
           well as international. UP is unique projects.
         </p>
@@ -46,21 +47,21 @@
       margin-left: var(--main-big-margin);
     }
 
-    .content-title {
-      margin-top: 83px;
-      margin-bottom: 35px;
-      margin-left: var(--main-big-margin);
-    }
-
     .content-block {
       display: flex;
       width: 100%;
 
-      .content-p {
+      .content-column-1 {
         display: flex;
-        width: 270px;
-        margin-left: var(--main-big-margin);
-        margin-right: var(--main-very-mini-margin);
+        flex-direction: column;
+        width: calc(270px + var(--main-big-margin) + var(--main-very-mini-margin));
+
+        .content-p {
+          display: flex;
+          width: 270px;
+          margin-left: var(--main-big-margin);
+          margin-right: var(--main-very-mini-margin);
+        }
       }
 
       .img-container {
@@ -68,14 +69,12 @@
         display: flex;
         flex-direction: column;
 
-        .content-p {
-          width: calc(100% - var(--main-mini-margin));
-          max-width: 810px;
-        }
-
         .img-wrap {
           width: 100%;
-          height: 800px;
+        }
+
+        .content-p {
+          width: calc(100% - var(--main-mini-margin));
         }
 
         .content-p {
@@ -90,48 +89,11 @@
   @media screen and (max-height: 1280px) {
     .collaboration {
       margin-bottom: 182px;
-      .content-block {
-        width: calc(100% - var(--main-big-margin));
-        margin-left: var(--main-big-margin);
-        display: flex;
-        justify-content: space-between;
-
-        .content-p {
-          margin-left: 0;
-          margin-right: 0;
-          width: 43%;
-          padding-right: 40px;
-        }
-
-        .img-container {
-          width: 57%;
-
-          .content-p{
-            padding: 0;
-          }
-
-          .img-wrap {
-            height: 580px;
-          }
-        }
-      }
     }
   }
   @media screen and (max-height: 1024px) {
     .collaboration{
       margin-bottom: 114px;
-      .content-title{
-        margin-bottom: 72px;
-      }
-      .content-block{
-        .content-p{
-          padding-right: 20px;
-          width: 45%;
-        }
-        .img-container{
-          width: 58%;
-        }
-      }
     }
   }
 </style>

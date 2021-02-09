@@ -16,6 +16,7 @@ export default {
     "./assets/fonts/HelveticaNeueCyr/HelveticaNeueCyr.css",
     "./assets/styles/reset.scss",
     "./assets/styles/main.scss",
+    "./assets/styles/process.scss",
     "./assets/styles/text.scss",
     "vue-slick-carousel/dist/vue-slick-carousel.css"
   ],

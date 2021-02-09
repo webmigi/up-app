@@ -1,17 +1,19 @@
 <template>
   <div class="method">
     <span class="block-title">design method</span>
-    <span class="content-title">How we do it</span>
+    <span class="content-title process_content-title_margin">How we do it</span>
 
     <div class="content-block-span-1">
-      <p class="content-p">Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the
-        Netherlands as well as international. UP is unique projects. Every client, corporate or private, is unique. It
-        is our ambition to create distinctive designs that reflect the soul and personal identity of our clients.
-        Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as
-        well
-        as international.
-        UP is unique projects.</p>
-      <div class="img-wrap">
+      <div class="content-column-1">
+        <p class="content-p">Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the
+          Netherlands as well as international. UP is unique projects. Every client, corporate or private, is unique. It
+          is our ambition to create distinctive designs that reflect the soul and personal identity of our clients.
+          Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as
+          well
+          as international.
+          UP is unique projects.</p>
+      </div>
+      <div class="img-wrap process_img-wrap_height">
         <Image_Scale_Block :img="'images/Item_Project/contentImg2.jpg'" appointment="process"/>
       </div>
     </div>
@@ -22,14 +24,14 @@
         <div class="img-wrap-2">
           <Image_Scale_Block :img="'images/Item_Project/contentImg3_1.jpg'" appointment="process"/>
         </div>
-        <p class="content-p img-description-margin-top">
+        <p class="content-p process_img-description_margin-top">
           Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as
           well as international. UP is unique projects.
           Founded in 2018 by Anne Boonstra UP works on both architecture.
         </p>
       </div>
       <div class="content-block-span-2__column-2">
-        <p class="content-p">
+        <p class="content-p process_img-description_width">
           Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as
           well as international. UP is unique projects.
           Every client, corporate or private, is unique. It is our ambition to create distinctive designs that reflect
@@ -60,13 +62,7 @@
     flex-direction: column;
     margin-bottom: 251px;
 
-    .block-title{
-      margin-left: var(--main-big-margin);
-    }
-
-    .content-title {
-      margin-top: 83px;
-      margin-bottom: 35px;
+    .block-title {
       margin-left: var(--main-big-margin);
     }
 
@@ -75,48 +71,50 @@
       width: 100%;
       margin-bottom: 100px;
 
-      .content-p {
+      .content-column-1 {
         display: flex;
-        width: 275px;
-        margin-left: var(--main-big-margin);
-        margin-right: var(--main-very-mini-margin);
+        flex-direction: column;
+        width: calc(275px + var(--main-big-margin) + var(--main-very-mini-margin));
+
+        .content-p {
+          display: flex;
+          width: 275px;
+          margin-left: var(--main-big-margin);
+          margin-right: var(--main-very-mini-margin);
+        }
       }
 
       .img-wrap {
         width: calc(100% - 275px - var(--main-big-margin) - var(--main-very-mini-margin));
-        height: 800px;
       }
     }
 
     .content-block-span-2 {
       display: flex;
-      justify-content: space-between;
-      margin-left: var(--main-mini-margin);
-      width: calc(100% - var(--main-mini-margin));
+      width: 100%;
 
       .content-block-span-2__column-1 {
-        width: 43%;
+        width: calc(50% + 100px / 2);
         display: flex;
         flex-direction: column;
 
         .img-wrap-2 {
-          width: 100%;
+          width: calc(100% - var(--main-mini-margin) -  100px);
+          margin-left: var(--main-mini-margin);
+          margin-right: 100px;
           height: 983px;
         }
 
         .content-p {
-          margin-left: 100px;
+          margin-left: var(--main-big-margin);
+          max-width:  calc(100% - var(--main-big-margin) -  100px);
         }
       }
 
       .content-block-span-2__column-2 {
-        width: 51%;
+        width: calc(50% -  100px / 2);
         display: flex;
         flex-direction: column;
-
-        .content-p{
-          margin-right: var(--main-mini-margin);
-        }
 
         .img-wrap-3 {
           width: 100%;
@@ -127,75 +125,15 @@
     }
   }
 
-@media screen and (max-width: 1280px) {
-  .method{
-    margin-bottom: 158px;
-    .content-block-span-1{
-      width: calc(100% - var(--main-big-margin));
-      margin-left: var(--main-big-margin);
-      display: flex;
-      justify-content: space-between;
-      .content-p{
-        width: 39%;
-        margin-left: 0;
-        margin-right: 0;
-      }
-      .img-wrap{
-        width: 58%;
-        height: 580px;
-      }
-    }
-    .content-block-span-2{
-      .content-block-span-2__column-1{
-        width: 43%;
-        .img-wrap-2{
-          height: 580px;
-        }
-      }
-      .content-block-span-2__column-2{
-        width: 53%;
-
-        .img-wrap-3{
-          height: 580px;
-        }
-      }
+  @media screen and (max-width: 1280px) {
+    .method {
+      margin-bottom: 158px;
     }
   }
-}
+
   @media screen and (max-width: 1024px) {
-    .method{
+    .method {
       margin-bottom: 108px;
-      .content-title{
-        margin-bottom: 120px;
-      }
-      .content-block-span-1{
-        margin-bottom: 160px;
-        .content-p{
-          width: 43%;
-        }
-        .img-wrap{
-          width: 55%;
-          height: 520px;
-        }
-      }
-      .content-block-span-2{
-        .content-block-span-2__column-1{
-          width: 47%;
-          .img-wrap-2{
-            height: 520px;
-          }
-          .content-p{
-            margin-left: 70px;
-          }
-        }
-        .content-block-span-2__column-2{
-          width: 51%;
-          .img-wrap-3{
-            height: 520px;
-            margin-top: 78px;
-          }
-        }
-      }
     }
   }
 </style>

@@ -17,30 +17,9 @@
   width: 50%;
 }
 
-.img-description-margin-top {
-  margin-top: 33px;
-}
-
-.img-width-description {
- width: 810px !important;
-}
-
 
 @media screen and (max-width: 1280px){
   .main-page__content-title-position{
     margin: 108px 0 0 var(--main-big-margin);
-  }
-  .img-description-margin-top {
-    margin-top: 43px;
-  }
-  .img-width-description {
-    width: 100% !important;
-    max-width: 770px !important;
-  }
-}
-
-@media screen and (max-width: 1024px){
-  .img-description-margin-top {
-    margin-top: 40px;
   }
 }
