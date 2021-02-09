@@ -245,4 +245,9 @@
       }
     }
   }
+  @media screen and (max-width: 768px) {
+    .header {
+      padding: 40px 50px 0 14px;
+    }
+  }
 </style>

@@ -68,6 +68,12 @@
                             settings: {
                                 slidesToShow: 3.2
                             }
+                        },
+                        {
+                            breakpoint: 940,
+                            settings: {
+                                slidesToShow: 2.4
+                            }
                         }
                     ]
                 }

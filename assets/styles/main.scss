@@ -23,3 +23,8 @@
     margin: 108px 0 0 var(--main-big-margin);
   }
 }
+@media screen and (max-width: 768px){
+  .main-page__content-title-position{
+    margin: 58px 0 0 var(--main-big-margin);
+  }
+}

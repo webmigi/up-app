@@ -229,8 +229,9 @@
 
         .title-imgs_img {
           position: absolute;
-          width: 100%;
+          width: 1920px;
           height: 100%;
+          left: calc(0px - (1920px - (var(--winWidth))) / 2);
         }
 
         .start-span_with-logo_wrap {
@@ -266,6 +267,17 @@
       .block{
         .start-span_with-logo_wrap{
           left: 110px;
+        }
+      }
+    }
+  }
+}
+  @media screen and (max-width: 768px){
+  .main-page_title-imgs__container{
+    .block-wrap{
+      .block{
+        .start-span_with-logo_wrap{
+          left: 88px;
         }
       }
     }

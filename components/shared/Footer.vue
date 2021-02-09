@@ -96,4 +96,12 @@
       }
     }
   }
+  @media screen and (max-width: 1024px) {
+    .footer {
+      .content {
+        margin-top: 50px;
+        margin-bottom: 77px;
+      }
+    }
+  }
 </style>

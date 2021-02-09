@@ -136,4 +136,10 @@
       --main-very-mini-margin: 20px;
     }
   }
+  @media screen and (max-width: 768px){
+    html{
+      --main-big-margin: 88px;
+      --main-very-mini-margin: 16px;
+    }
+  }
 </style>
