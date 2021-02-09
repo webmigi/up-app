@@ -74,6 +74,9 @@
   @media screen and (max-width: 1024px) {
 .philosophy{
   margin-bottom: 128px;
+  .content-title{
+    margin-bottom: 69px;
+  }
    }
   }
 </style>

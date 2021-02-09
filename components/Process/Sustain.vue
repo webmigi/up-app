@@ -23,7 +23,7 @@
             "as"+
             "international. UP is unique projects."}}</p>
         </div>
-        <div class="img-wrap">
+        <div  :class="['img-wrap',{'process_img-wrap_height': APP_WINDOW_SIZE.width <= 1280}]">
           <Image_Scale_Block :img="'images/Item_Project/contentImg3_2.jpg'" appointment="people"/>
         </div>
       </div>
@@ -114,18 +114,6 @@
       margin-bottom: 100px;
       .content-title{
         margin-bottom: 112px;
-      }
-      .content-block{
-      .span-1{
-        margin-bottom: 40px;
-        .img-wrap{
-          height: 520px;
-        }
-      }
-        .img-wrap-2{
-          height: 520px;
-          width: 73%;
-        }
       }
     }
   }

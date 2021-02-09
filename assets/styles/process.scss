@@ -24,3 +24,11 @@
     margin-top: 43px;
   }
 }
+@media screen and (max-width: 1024px){
+  .process_img-wrap_height{
+    height: 520px !important;
+  }
+  .process_img-description_margin-top {
+    margin-top: 40px;
+  }
+}

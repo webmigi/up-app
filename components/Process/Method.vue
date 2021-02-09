@@ -158,6 +158,16 @@
   @media screen and (max-width: 1024px) {
     .method {
       margin-bottom: 108px;
+      .content-title{
+       margin-bottom: 120px;
+      }
+      .content-block-span-2{
+        .content-block-span-2__column-2{
+          .img-wrap-3{
+            margin-top: 78px;
+          }
+        }
+      }
     }
   }
 </style>

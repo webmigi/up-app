@@ -86,8 +86,6 @@
     }
   }
 
-
-
   @media (max-width: 1280px) {
     .collaboration {
       margin-bottom: 182px;
@@ -112,6 +110,9 @@
   @media  (max-width: 1024px) {
     .collaboration{
       margin-bottom: 114px;
+      .content-title{
+       margin-bottom: 72px;
+      }
     }
   }
 </style>
