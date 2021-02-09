@@ -115,4 +115,13 @@
       }
     }
   }
+  @media  (max-width: 768px) {
+    .collaboration{
+      margin-bottom: 104px;
+      .content-title{
+        margin-top: 40px;
+        margin-bottom: 18px;
+      }
+    }
+  }
 </style>

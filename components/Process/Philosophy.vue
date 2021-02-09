@@ -79,4 +79,9 @@
   }
    }
   }
+  @media screen and (max-width: 768px) {
+    .philosophy{
+      margin-bottom: 120px;
+    }
+  }
 </style>

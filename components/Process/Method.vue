@@ -111,7 +111,7 @@
 
         .content-p {
           margin-left: var(--main-big-margin);
-          max-width: calc(100% - var(--main-big-margin) - 100px);
+          max-width: calc(100% - var(--main-big-margin) - (var(--main-very-mini-margin)));
         }
       }
 
@@ -166,6 +166,25 @@
           .img-wrap-3{
             margin-top: 78px;
           }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .method{
+     .content-title{
+       margin-top: 40px;
+       margin-bottom: 18px;
+     }
+      .content-block-span-1{
+        margin-bottom: 40px;
+      }
+      .content-block-span-2{
+        .content-block-span-2__column-1{
+        .img-wrap-2{
+          width: calc(100% - var(--main-very-mini-margin));
+          margin-left: 0;
+        }
         }
       }
     }

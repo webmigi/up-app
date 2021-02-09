@@ -68,8 +68,8 @@
         align-items: center;
 
         .content-btn-wrap {
-          width: 97px;
-          height: 40px;
+          width: max-content;
+          height: max-content;
           margin-right: 20px;
           display: flex;
           align-items: center;

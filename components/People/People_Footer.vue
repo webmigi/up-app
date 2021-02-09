@@ -47,4 +47,15 @@
       }
     }
   }
+  @media screen and (max-width: 768px){
+    .jobs-footer{
+      margin-top: 80px;
+      .jobs-footer-column-1{
+        min-width: 296px;
+      }
+      img{
+        height: 369px ;
+      }
+    }
+  }
 </style>

@@ -118,4 +118,9 @@
     }
   }
   }
+  @media screen and (max-width: 1024px){
+    .people-studio{
+      margin-bottom: 0;
+    }
+  }
 </style>

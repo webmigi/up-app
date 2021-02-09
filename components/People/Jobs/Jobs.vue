@@ -92,4 +92,9 @@
       }
     }
   }
+  @media screen and (max-width: 768px) {
+    .jobs{
+      margin-top: 104px;
+    }
+  }
 </style>

@@ -117,4 +117,20 @@
       }
     }
   }
+  @media screen and (max-width: 768px){
+    .sustain{
+      .content-title{
+        margin-top: 40px;
+        margin-bottom: 18px;
+      }
+      .content-block{
+        .span-1{
+          margin-bottom: 50px;
+        }
+        .img-wrap-2{
+          width: 100%;
+        }
+      }
+    }
+  }
 </style>

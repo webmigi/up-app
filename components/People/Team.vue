@@ -98,4 +98,21 @@
       }
     }
   }
+  @media screen and (max-width: 768px){
+    .team-block{
+      .team_content-block{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        .team_img-wrap{
+          width: calc((100% - var(--main-very-mini-margin))/ 2 - var(--main-mini-margin));
+          margin-left: var(--main-mini-margin);
+          margin-right: var(--main-very-mini-margin);
+        }
+        .team_text-block__wrap{
+          width: calc((100% - var(--main-very-mini-margin))/ 2);
+        }
+      }
+    }
+  }
 </style>
