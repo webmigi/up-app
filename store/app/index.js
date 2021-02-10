@@ -11,7 +11,8 @@ export const state = () => ({
   },
   logoStartHeight: 0,
   headerComponentHeight:0,
-  modalIsActive: false
+  modalIsActive: false,
+  modalImgIsActive: false
 });
 
 export const getters = {
@@ -35,6 +36,9 @@ export const getters = {
   },
   MODAL_IS_ACTIVE(state) {
     return state.modalIsActive;
+  },
+  MODAL_IMG_IS_ACTIVE(state) {
+    return state.modalImgIsActive;
   },
 };
 
@@ -64,6 +68,9 @@ export const mutations = {
   SET_MODAL_IS_ACTIVE(state) {
     state.modalIsActive = !state.modalIsActive;
   },
+  SET_MODAL_IMG_IS_ACTIVE(state) {
+    state.modalImgIsActive = !state.modalImgIsActive;
+  },
 };
 
 export const actions = {
@@ -87,6 +94,9 @@ export const actions = {
   },
   setModalIsActive({commit}) {
     commit("SET_MODAL_IS_ACTIVE");
+  },
+  setModalImgIsActive({commit}) {
+    commit("SET_MODAL_IMG_IS_ACTIVE");
   },
 };
 

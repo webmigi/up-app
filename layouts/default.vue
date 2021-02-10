@@ -5,6 +5,9 @@
       <Header/>
     </div>
     <transition name="nav-menu-fade" appear>
+      <Img_Modal v-if="MODAL_IMG_IS_ACTIVE"/>
+    </transition>
+    <transition name="nav-menu-fade" appear>
       <Nav_Menu_Modal v-if="MODAL_IS_ACTIVE"/>
     </transition>
     <Nuxt/>
@@ -17,6 +20,7 @@
     import Header from "../components/shared/Header";
     import Nav_Menu_Modal from "../components/Nav_Menu_Modal";
     import Footer from "../components/shared/Footer";
+    import Img_Modal from "../components/Img_Modal";
 
     export default {
         data() {
@@ -25,7 +29,7 @@
                 yCursor: 0,
             }
         },
-        components: {Header, Nav_Menu_Modal, Footer},
+        components: {Header, Nav_Menu_Modal, Footer, Img_Modal},
         created() {
             if (process.client) {
                 window.addEventListener("scroll", () => this.windowScrollSet());
@@ -41,7 +45,7 @@
             });
         },
         computed: {
-            ...mapGetters('app', ['MODAL_IS_ACTIVE', 'APP_WINDOW_SIZE']),
+            ...mapGetters('app', ['MODAL_IS_ACTIVE', 'APP_WINDOW_SIZE', 'MODAL_IMG_IS_ACTIVE']),
 
             headerWidth() {
                 return this.APP_WINDOW_SIZE.width > 1920 ? ((this.APP_WINDOW_SIZE.width - 1920) / 2) : 0

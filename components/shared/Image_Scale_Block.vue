@@ -52,7 +52,8 @@
                         'image-scale-img-width-hover': this.appointment === 'project' ||
                             this.appointment === 'news' ||
                             this.appointment === 'people' ||
-                            this.appointment === 'process'
+                            this.appointment === 'process' ||
+                            this.appointment === 'spinner'
                     },
                     {'image-scale-img-width-hover-no-cursor': this.appointment === 'spinner'}]
             },

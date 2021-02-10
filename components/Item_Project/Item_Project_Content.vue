@@ -2,7 +2,8 @@
   <div class="project-content">
     <div v-if="project.styleType===1" class="content-type-1">
       <div class="content-type-1_img-wrap
-       item-project_img-wrap_height">
+       item-project_img-wrap_height"
+      @click="setModalImgIsActive">
         <Image_Scale_Block :img="project.img[0]" appointment="project"/>
       </div>
       <p v-if="project.description!== undefined"
@@ -85,7 +86,7 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import {mapGetters, mapActions} from 'vuex'
     import Image_Scale_Block from "../shared/Image_Scale_Block";
 
     export default {
@@ -94,6 +95,9 @@
         components: {Image_Scale_Block},
         computed: {
             ...mapGetters('app', ['APP_WINDOW_SIZE'])
+        },
+        methods:{
+            ...mapActions('app', ['setModalImgIsActive'])
         }
     }
 </script>

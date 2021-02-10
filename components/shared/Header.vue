@@ -1,5 +1,5 @@
 <template>
-  <div class="header" ref="header_component">
+  <div class="header" ref="header_component" v-show="!MODAL_IMG_IS_ACTIVE">
     <nuxt-link to="/">
       <div :class="logoClasses"
            ref="headerLogo"
@@ -17,14 +17,16 @@
       :class="burgerClasses"
       @click="burgerBtnAction">
       <svg v-if="!MODAL_IS_ACTIVE"
-           viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+           viewBox="0 0 60 60"
+           fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M15 30L45 30" stroke-width="4"/>
         <path d="M15 40L45 40" stroke-width="4"/>
         <path d="M15 20L45 20" stroke-width="4"/>
       </svg>
 
       <svg v-if="MODAL_IS_ACTIVE"
-           viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+           viewBox="0 0 60 60"
+           fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M15 15L45 45M45 15L15 45" stroke-width="4"/>
       </svg>
 
@@ -42,7 +44,13 @@
             this.setHeaderComponentHeight(this.$refs.header_component.offsetHeight)
         },
         computed: {
-            ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE", "LOGO_START_HEIGHT", "MODAL_IS_ACTIVE", "HEADER_COMPONENT_HEIGHT"]),
+            ...mapGetters("app", [
+                "APP_SCROLL_VALUE",
+                "APP_WINDOW_SIZE", "LOGO_START_HEIGHT",
+                "MODAL_IS_ACTIVE",
+                "HEADER_COMPONENT_HEIGHT",
+                "MODAL_IMG_IS_ACTIVE"
+            ]),
 
             logoStartScroll() {
                 return (this.APP_WINDOW_SIZE.height / 2) + 1000
@@ -163,6 +171,7 @@
     padding: 60px 70px 0 70px;
 
     .header-logo {
+      margin-top: 10px;
       width: 110px;
       cursor: pointer;
 
@@ -197,16 +206,19 @@
     }
 
     .header-burger-btn {
-      margin-top: 9px;
       align-self: flex-start;
       position: relative;
-      width: max-content;
-      height: max-content;
+      width: 60px;
+      height: 60px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       svg {
-        width: 60px;
-        height: 60px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
 
         path {
           stroke: #FFFFFF;
@@ -226,53 +238,45 @@
 
   @media screen and (max-width: 1280px) {
     .header {
-      padding: 40px 130px 0 90px;
+      padding: 40px 120px 0 90px;
 
       .header-logo-on-nav-menu {
         width: (70px !important);
       }
 
       .header-burger-btn {
-        svg {
-          width: 50px;
-          height: 50px;
-        }
+        width: 50px;
+        height: 50px;
       }
     }
   }
 
   @media screen and (max-width: 1024px) {
     .header {
-      padding: 40px 50px 0 30px;
+      padding: 40px 40px 0 30px;
 
       .header-logo-on-nav-menu {
         width: (60px !important);
-      }
-
-      .header-burger-btn {
-        svg {
-          width: 30px;
-          height: 30px;
-        }
       }
     }
   }
 
   @media screen and (max-width: 768px) {
     .header {
-      padding: 40px 50px 0 14px;
+      padding: 40px 40px 0 14px;
     }
   }
 
   @media screen and (max-width: 414px) {
     .header {
-      padding: 20px 20px 0 14px;
+      padding: 20px 24px 0 14px;
 
       .header-logo-on-nav-menu {
         width: (46px !important);
       }
-      .header-burger-btn{
-        margin-top: 0;
+      .header-burger-btn {
+        width: 42px;
+        height: 42px;
       }
     }
   }

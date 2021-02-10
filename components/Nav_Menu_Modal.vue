@@ -1,6 +1,5 @@
 <template>
-  <div class="nav-menu-modal"
-       :style="'height: '+this.APP_WINDOW_SIZE.height+'px;'">
+  <div class="nav-menu-modal">
     <div class="content"
          :style="'height: '+(this.APP_WINDOW_SIZE.height/2 + this.hrefsSpanHeight/2)+'px;'">
       <div class="hrefs" ref="nav_menu_hrefs" v-on:setBurger="">
@@ -84,6 +83,7 @@
     left: 0;
     margin: auto;
     width: 100%;
+    height: var(--winHeight);
     overflow: hidden;
     display: flex;
     flex-direction: column-reverse;
