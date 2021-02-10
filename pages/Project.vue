@@ -17,7 +17,7 @@
 
     export default {
         name: 'Project',
-        components: {Image_Scale_Block, Projects},
+        components: {Image_Scale_Block, Projects, News},
     }
 </script>
 
