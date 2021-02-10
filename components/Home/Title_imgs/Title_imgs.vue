@@ -259,7 +259,7 @@
       }
     }
   }
-  @media screen and (max-width: 1280px){
+  @media screen and (max-width: 1920px){
     .main-page_title-imgs__container{
       .block-wrap{
         .block{
