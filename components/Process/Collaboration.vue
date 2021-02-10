@@ -124,7 +124,7 @@
       }
     }
   }
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 428px) {
     .collaboration{
       margin-bottom: 117px;
       .content-title{

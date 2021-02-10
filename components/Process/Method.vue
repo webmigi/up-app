@@ -189,7 +189,7 @@
       }
     }
   }
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 428px) {
     .method{
       .content-title{
         margin-top: 83px;

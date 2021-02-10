@@ -159,7 +159,7 @@
     margin-bottom: 0;
   }
 
-  @media screen and (max-width: 414px){
+  @media screen and (max-width: 428px){
     .item-vacancy{
       padding: 13px 0;
       margin-bottom: 10px;

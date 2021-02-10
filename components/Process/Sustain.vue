@@ -133,7 +133,7 @@
       }
     }
   }
-  @media screen and (max-width: 414px){
+  @media screen and (max-width: 428px){
     .sustain{
       .content-title{
         margin-top: 83px;

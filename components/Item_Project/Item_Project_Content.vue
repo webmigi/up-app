@@ -401,7 +401,7 @@
     }
   }
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 428px) {
     .project-content {
       .content-type-1 {
         margin-bottom: 50px;

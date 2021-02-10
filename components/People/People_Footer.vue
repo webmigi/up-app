@@ -58,7 +58,7 @@
       }
     }
   }
-  @media screen and (max-width: 414px){
+  @media screen and (max-width: 428px){
     .jobs-footer{
       flex-direction: column;
       margin-top: 120px;

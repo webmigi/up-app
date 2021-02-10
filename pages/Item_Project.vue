@@ -34,7 +34,7 @@
             <span class="text-very-small">client</span>
             <span class="item-project_description_value">{{values.client}}</span>
           </div>
-          <div class="value">
+          <div class="value" v-if="APP_WINDOW_SIZE.width > 500">
             <span class="item-project_pres-view">presentation view</span>
           </div>
         </div>
@@ -51,6 +51,8 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
+
     import News from "../components/shared/News";
     import Item_Project_Content from "../components/Item_Project/Item_Project_Content";
     import Arrow_Btn from "../components/shared/elements/Arrow_Btn";
@@ -100,6 +102,9 @@
                     client: '5CA international b.v.'
                 }
             }
+        },
+        computed:{
+            ...mapGetters('app', ['APP_WINDOW_SIZE'])
         }
     }
 </script>
@@ -198,7 +203,7 @@
     }
   }
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 428px) {
     .item-project {
       .description-block {
         margin-top: 103px;

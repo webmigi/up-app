@@ -124,7 +124,7 @@
       margin-bottom: 0;
     }
   }
-  @media screen and (max-width: 414px){
+  @media screen and (max-width: 428px){
     .people-studio{
       .content-title{
         margin-bottom: 72px;

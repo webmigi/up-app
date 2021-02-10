@@ -104,7 +104,7 @@
       }
     }
   }
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 428px) {
     .footer {
       .content {
         margin-top: 100px;

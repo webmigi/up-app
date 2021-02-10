@@ -84,7 +84,7 @@
       margin-bottom: 120px;
     }
   }
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 428px) {
     .philosophy{
       margin-bottom: 119px;
       .content-block{

@@ -4,10 +4,10 @@
     <div v-if="this.$route.path === '/Project'"
          class="description pages-content-margin-left-big">
       <div class="description-title">
-        <span class="content-title content-title-bold">up </span>
-        <span class="content-title">architecture makes unique projects.</span>
+             <span class="content-title"><span class="content-title content-title-bold">up</span> architecture makes</span>
+             <span class="content-title">unique projects.</span>
       </div>
-      <span class="content-p">{{'up architecture makes unique projects. Every client, corporate or private is unique.'+'\n'+'It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.'}}</span>
+      <p class="content-p">{{'up architecture makes unique projects. Every client, corporate or private is unique.'+'\n'+'It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.'}}</p>
     </div>
 
     <div :class="contentBlockClasses">
@@ -88,6 +88,8 @@
       .description-title {
         margin-top: 83px;
         margin-bottom: 35px;
+        display: flex;
+        flex-wrap: wrap;
       }
 
       .content-p {
@@ -149,7 +151,6 @@
     .projects-block {
       .description {
         .description-title {
-          max-width: 760px;
           margin-bottom: 19px;
         }
       }
@@ -182,7 +183,6 @@
 
       .description {
         .description-title {
-          max-width: 460px;
           margin-bottom: 40px;
         }
       }
@@ -243,12 +243,12 @@
     }
   }
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 428px) {
     .projects-block {
       margin-bottom: 131px;
 
-      .description{
-        .description-title{
+      .description {
+        .description-title {
           margin-top: 82px;
           margin-bottom: 30px;
         }

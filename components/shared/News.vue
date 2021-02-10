@@ -160,7 +160,7 @@
     }
   }
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 428px) {
     .news-block {
       padding-bottom: 77px;
     }

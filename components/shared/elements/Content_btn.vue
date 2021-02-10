@@ -34,7 +34,7 @@
     }
   }
 
-  @media screen and (max-width: 414px){
+  @media screen and (max-width: 428px){
     .content-btn-jobs{
       font-size: 14px;
     }

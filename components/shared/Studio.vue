@@ -149,7 +149,7 @@
     }
   }
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 428px) {
     .studio-block {
       .studio_content-block {
         margin-top: 80px;
