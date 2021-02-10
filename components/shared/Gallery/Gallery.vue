@@ -98,6 +98,12 @@
                             settings: {
                                 slidesToShow: 1.3
                             }
+                        },
+                        {
+                            breakpoint: 400,
+                            settings: {
+                                slidesToShow: 1.1
+                            },
                         }
                     ]
                 }

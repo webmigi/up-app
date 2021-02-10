@@ -34,6 +34,7 @@
     height: 440px;
     display: flex;
     flex-direction: column;
+    cursor: none;
 
     .gallery-item-img-wrap {
       width: 100%;
@@ -49,6 +50,7 @@
       text-transform: capitalize;
       color: #000000;
       margin-top: 17px;
+      cursor: none;
     }
 
     .title {
@@ -60,6 +62,7 @@
       letter-spacing: -0.04em;
       color: #000000;
       margin-top: 14px;
+      cursor: none;
     }
 
     .teg-container {
@@ -67,6 +70,10 @@
       display: flex;
       margin-top: 2px;
       justify-content: space-between;
+      cursor: none;
+      .text-very-small{
+        cursor: none;
+      }
     }
   }
 

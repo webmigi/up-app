@@ -1,5 +1,6 @@
 <template>
-  <div :class="['item-vacancy', {'item-vacancy-roll-down':rollUp}, {'item-vacancy-no-margin': noMargin}]">
+  <div :class="['item-vacancy',  {'item-vacancy-no-margin': noMargin}]"
+  :style="'max-height: ' +activeRollDawnHeight+ 'px'">
     <div class="title-span">
       <span class="item-project_description_value">{{vacancy.title}}</span>
       <div class="btns-block">
@@ -15,7 +16,7 @@
       </div>
     </div>
 
-    <p class="content-p">
+    <p class="content-p" ref="vacancy_description">
       {{vacancy.description}}
     </p>
   </div>
@@ -33,12 +34,25 @@
         },
         data() {
             return {
-                rollUp: false
+                rollUp: false,
+                hrefsSpanHeight: null
             }
+        },
+        mounted() {
+            this.setVacancyDescriptionHeight();
         },
         methods:{
             setRollUp(){
                 this.rollUp = !this.rollUp
+            },
+            setVacancyDescriptionHeight(){
+                let heightBlock = this.$refs.vacancy_description.clientHeight;
+                this.hrefsSpanHeight = heightBlock + 50
+            },
+        },
+        computed:{
+            activeRollDawnHeight(){
+                return this.rollUp ? this.hrefsSpanHeight : 50
             }
         }
     }
@@ -97,18 +111,10 @@
     }
   }
 
-  .item-vacancy-roll-down{
-    max-height: 700px;
-  }
   .item-vacancy-no-margin{
     margin-bottom: 0;
   }
 
-  @media screen and (max-width: 1280px){
-    .item-vacancy-roll-down{
-      max-height: 720px;
-    }
-  }
   @media screen and (max-width: 414px){
     .item-vacancy{
       padding: 13px 0;
@@ -125,9 +131,6 @@
           }
         }
       }
-    }
-    .item-vacancy-roll-down{
-      max-height: 1000px;
     }
   }
 </style>

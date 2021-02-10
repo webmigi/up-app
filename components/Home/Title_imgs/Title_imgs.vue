@@ -231,7 +231,6 @@
           position: absolute;
           width: 1920px;
           height: 100%;
-          left: calc(0px - (1920px - (var(--winWidth))) / 2);
         }
 
         .start-span_with-logo_wrap {
@@ -257,6 +256,17 @@
 
       .block-fixed-left{
         left: calc((var(--winWidth) - 1920px) / 2);
+      }
+    }
+  }
+  @media screen and (max-width: 1280px){
+    .main-page_title-imgs__container{
+      .block-wrap{
+        .block{
+          .title-imgs_img{
+            left: calc(0px - (1920px - (var(--winWidth))) / 2);
+          }
+        }
       }
     }
   }

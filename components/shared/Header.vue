@@ -202,6 +202,7 @@
       position: relative;
       width: max-content;
       height: max-content;
+      cursor: pointer;
 
       svg {
         width: 60px;

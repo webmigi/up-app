@@ -78,6 +78,10 @@
     padding-bottom: 103px;
     cursor: none;
 
+    .title{
+      cursor: none;
+    }
+
     .custom-cursor {
       position: absolute;
       top: 0;

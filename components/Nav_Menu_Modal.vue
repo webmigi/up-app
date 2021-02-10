@@ -164,4 +164,15 @@
       }
     }
   }
+  @media screen and (max-width: 400px) {
+    .nav-menu-modal {
+      .content {
+        .hrefs {
+          width: unset;
+          height: 250px;
+          flex-direction: column;
+        }
+      }
+    }
+  }
 </style>

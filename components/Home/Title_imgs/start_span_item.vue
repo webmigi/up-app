@@ -59,4 +59,9 @@
       min-height: 52px;
     }
   }
+  @media screen and (max-width: 400px){
+    .start-span-block{
+    margin-right: var(--main-mini-margin);
+    }
+  }
 </style>
