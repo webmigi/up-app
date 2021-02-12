@@ -37,6 +37,7 @@
     height: 100%;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
 
     .btn-left, .btn-right {
       height: 100%;

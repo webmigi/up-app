@@ -67,6 +67,7 @@
 
         .email {
           margin-top: auto;
+          text-decoration: underline;
         }
       }
     }

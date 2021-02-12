@@ -18,7 +18,9 @@
             of our clients.
           </p>
           <div v-if="this.$route.path === '/'" class="studio_btn_wrap">
+            <nuxt-link :to="'/People'">
             <Content_btn title="Learn more"/>
+            </nuxt-link>
           </div>
         </div>
       </div>

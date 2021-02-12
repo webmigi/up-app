@@ -7,7 +7,12 @@
 <script>
     export default {
         name: "Content-btn",
-        props: ['title', 'place']
+        props: ['title', 'place'],
+        // computed:{
+        //     currentHref(){
+        //      return this.href !== undefined ? this.href : this.$route.path
+        //     }
+        // }
     }
 </script>
 

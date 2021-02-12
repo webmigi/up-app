@@ -134,7 +134,7 @@
         .btns-block{
           .content-btn-wrap{
             .content-btn-text{
-              color: white;
+              color: white !important;
               &:after{
                 background-color: white;
               }

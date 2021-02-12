@@ -4,8 +4,8 @@
     <div v-if="this.$route.path === '/Project'"
          class="description pages-content-margin-left-big">
       <div class="description-title">
-             <span class="content-title"><span class="content-title content-title-bold">up</span> architecture makes</span>
-             <span class="content-title">unique projects.</span>
+             <span class="content-title"><span class="content-title content-title-bold">up</span>{{' architecture makes '}}</span>
+             <span class="content-title">{{'unique projects.'}}</span>
       </div>
       <p class="content-p">{{'up architecture makes unique projects. Every client, corporate or private is unique.'+'\n'+'It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.'}}</p>
     </div>
@@ -22,7 +22,9 @@
       </div>
     </div>
     <div v-if="this.$route.path !== '/Project'" class="project_btn_wrap">
+      <nuxt-link :to="'/Project'">
       <Content_btn title="Explore all projects"/>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -90,6 +92,7 @@
         margin-bottom: 35px;
         display: flex;
         flex-wrap: wrap;
+        white-space: pre;
       }
 
       .content-p {
@@ -151,7 +154,9 @@
     .projects-block {
       .description {
         .description-title {
+          flex-direction: column;
           margin-bottom: 19px;
+          white-space: unset;
         }
       }
 

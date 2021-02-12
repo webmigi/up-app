@@ -3,7 +3,8 @@
     <nuxt-link to="/">
       <div :class="logoClasses"
            ref="headerLogo"
-           :style="'transform: translate('+this.logoTranslateX+'px, '+this.logoTranslateY+'px); width: '+this.logoWidth+'px;'">
+           :style="'transform: translate('+this.logoTranslateX+'px, '+this.logoTranslateY+'px); width: '+this.logoWidth+'px;'"
+           @click="logoAction">
         <svg viewBox="0 0 110 78" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M14.5828 1.21322V34.4251C14.5828 37.5593 14.949 39.9183 15.6815 41.5023C16.9799 44.2994 19.5269 45.698 23.3224 45.698C28.1834 45.698 31.5128 43.7097 33.3106 39.733C34.2429 37.5762 34.709 34.7285 34.709 31.1899V1.21322H49.1419V56.3137H35.3083V48.5288C35.1751 48.6973 34.8422 49.2029 34.3095 50.0454C33.7767 50.8879 33.1442 51.6293 32.4117 52.2696C30.181 54.2916 28.0169 55.6734 25.9194 56.4148C23.8551 57.1562 21.4247 57.5269 18.628 57.5269C10.5708 57.5269 5.14392 54.5949 2.34723 48.731C0.782409 45.4958 0 40.7272 0 34.4251V1.21322H14.5828Z"/>
@@ -146,8 +147,7 @@
             }
         },
         methods: {
-            ...
-                mapActions('app', ['setLogoStartHeight', 'setModalIsActive', 'setHeaderComponentHeight']),
+            ...mapActions('app', ['setLogoStartHeight', 'setModalIsActive', 'setHeaderComponentHeight', 'setModalIsActive']),
             setBurgerActive() {
                 this.burgerActive = !this.burgerActive
             }
@@ -155,6 +155,9 @@
             burgerBtnAction() {
                 this.setModalIsActive(),
                     this.setBurgerActive()
+            },
+            logoAction(){
+                this.MODAL_IS_ACTIVE ? this.setModalIsActive() : ''
             }
         }
     }

@@ -36,7 +36,7 @@
       width: 0;
       height: 8px;
       background-color: #000000;
-      transition: width 0.3s;
+      transition: width 1s;
     }
 
     &:hover:after {

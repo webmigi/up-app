@@ -82,7 +82,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      transition: transform 0.3s;
+      transition: transform 1s;
     }
 
     .image-scale-img-width-hover {
