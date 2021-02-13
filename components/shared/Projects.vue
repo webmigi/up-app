@@ -4,26 +4,33 @@
     <div v-if="this.$route.path === '/Project'"
          class="description pages-content-margin-left-big">
       <div class="description-title">
-             <span class="content-title"><span class="content-title content-title-bold">up</span>{{' architecture makes '}}</span>
-             <span class="content-title">{{'unique projects.'}}</span>
+        <span class="content-title"><span
+          class="content-title content-title-bold">up</span>{{' architecture makes '}}</span>
+        <span class="content-title">{{'unique projects.'}}</span>
       </div>
-      <p class="content-p">{{'up architecture makes unique projects. Every client, corporate or private is unique.'+'\n'+'It is our ambition to create distinctive design that reflect the sould and personal identity of our clients.'}}</p>
+      <p class="content-p">{{'up architecture makes unique projects. Every client, corporate or private is'+
+        'unique.'+'\n'+'It is our ambition to create distinctive design that reflect the sould and personal identity of'+
+        'our clients.'}}</p>
     </div>
 
-    <div :class="contentBlockClasses">
-      <div :class="['content-img-wrap',{'content-img-wrap-big': item.big && checkProjectPage} ]"
-           v-for="(item, index) in contentImgs"
-           v-if="checkProjectPage ? item :  index<4"
-           :key="index">
-        <Image_Scale_Block :img="item.img" appointment="project"/>
-        <div class="item-project-title item-project-title-text">
-          {{item.title}}
+    <nuxt-link to="/Item_Project">
+      <div :class="contentBlockClasses">
+        <div :class="['content-img-wrap',{'content-img-wrap-big': item.big && checkProjectPage} ]"
+             v-for="(item, index) in contentImgs"
+             v-if="checkProjectPage ? item :  index<4"
+             :key="index">
+          <Image_Scale_Block :img="item.img" appointment="project"/>
+          <div class="item-project-title item-project-title-text">
+            {{item.title}}
+          </div>
         </div>
       </div>
-    </div>
+    </nuxt-link>
+
+
     <div v-if="this.$route.path !== '/Project'" class="project_btn_wrap">
       <nuxt-link :to="'/Project'">
-      <Content_btn title="Explore all projects"/>
+        <Content_btn title="Explore all projects"/>
       </nuxt-link>
     </div>
   </div>
@@ -120,6 +127,7 @@
           bottom: 60px;
           left: 60px;
           align-self: flex-end;
+          cursor: pointer;
         }
       }
 

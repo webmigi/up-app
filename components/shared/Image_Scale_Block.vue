@@ -1,6 +1,5 @@
 <template>
   <div class="image-scale-block_wrap" ref="imageScaleElement">
-    <nuxt-link :to="currentNuxtLink">
       <client-only>
         <intersect @enter.once="(scaleStartScroll = APP_SCROLL_VALUE),(scaleStartScrollActive = true)">
           <div :class="imageScaleImgClasses"
@@ -8,7 +7,6 @@
           </div>
         </intersect>
       </client-only>
-    </nuxt-link>
   </div>
 </template>
 
@@ -56,16 +54,6 @@
                     },
                     {'image-scale-img-width-hover-no-cursor': this.appointment === 'news'}]
             },
-
-            currentNuxtLink() {
-                if (this.appointment === 'project') {
-                    return '/Item_Project'
-                } else if(this.appointment === 'news'){
-                    return '/Item_News'
-                } else {
-                    return this.$route.path
-                }
-            }
         }
     }
 </script>

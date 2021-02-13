@@ -14,7 +14,6 @@
       <span class="text-very-small">Laboratory</span>
       <span class="text-very-small">Atrium</span>
     </div>
-
   </div>
   </nuxt-link>
 </template>
