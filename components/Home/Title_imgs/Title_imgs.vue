@@ -40,18 +40,22 @@
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
+
           <start_span_item text="and interiors"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*3)
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*4)
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
+          <nuxt-link to="/Project">
           <start_span_item text="explore our projects "
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*4)
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*5)
                            :startOpacityZero="true"
+                           :button-active=true
                            textStyleClass="small-text"
           />
+          </nuxt-link>
         </div>
         <img class="title-imgs_img"
              :src="TitleImg_2"
@@ -74,6 +78,9 @@
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
+<!--           in 'start_span_item' component props: Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*2)) ;-->
+<!--           (this.APP_WINDOW_SIZE.height*2+2000) - all way to start scroll this images block (get from Artem and figma);-->
+<!--           (1000/6*2) - 1000px - scroll way all string in this images block; 6 - all spans path; *2 - current span path for this span (start or end)-->
           <start_span_item text="design process,"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*3))
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*4))
@@ -86,12 +93,15 @@
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
+          <nuxt-link to="/People">
           <start_span_item text="meet up"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*5))
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*6))
                            :startOpacityZero="true"
+                           :button-active=true
                            textStyleClass="small-text"
           />
+          </nuxt-link>
         </div>
         <img class="title-imgs_img"
              :src="TitleImg_3"
@@ -121,12 +131,15 @@
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
+          <nuxt-link to="/Process">
           <start_span_item text="learn more about our process"
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*4))
                            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*5))
                            :startOpacityZero="true"
+                           :button-active=true
                            textStyleClass="small-text"
           />
+          </nuxt-link>
         </div>
         <img class="title-imgs_img"
              :src="TitleImg_4"
@@ -239,7 +252,7 @@
         .start-span_wrap {
           display: flex;
           flex-direction: column;
-          align-items: center;
+          /*align-items: center;*/
           justify-content: center;
         }
       }

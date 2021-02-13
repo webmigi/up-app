@@ -1,5 +1,5 @@
 <template>
-  <button :class="['content-btn-text', 'content-btn', {'content-btn-jobs': place === 'jobs'}]">
+  <button :class="['content-btn-text', 'content-btn', {'content-btn-jobs': place === 'jobs'}, {'start-bat-span': place==='start-span'}]">
     {{title}}
   </button>
 </template>
