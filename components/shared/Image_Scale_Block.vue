@@ -52,15 +52,16 @@
                         'image-scale-img-width-hover': this.appointment === 'project' ||
                             this.appointment === 'news' ||
                             this.appointment === 'people' ||
-                            this.appointment === 'process' ||
-                            this.appointment === 'spinner'
+                            this.appointment === 'process'
                     },
-                    {'image-scale-img-width-hover-no-cursor': this.appointment === 'spinner'}]
+                    {'image-scale-img-width-hover-no-cursor': this.appointment === 'news'}]
             },
 
             currentNuxtLink() {
                 if (this.appointment === 'project') {
                     return '/Item_Project'
+                } else if(this.appointment === 'news'){
+                    return '/Item_News'
                 } else {
                     return this.$route.path
                 }

@@ -1,11 +1,12 @@
 <template>
+  <nuxt-link to="/Item_News">
   <div class="gallery-item">
 
     <div class="gallery-item-img-wrap">
-      <Image_Scale_Block :img="imgProps" :appointment="'spinner'"/>
+      <Image_Scale_Block :img="imgProps" :appointment="'news'"/>
     </div>
 
-    <span class="date">{{dateProps}}</span>
+    <span class="date-text">{{dateProps}}</span>
     <span class="title">{{ titleProps }}</span>
     <div class="teg-container">
       <span class="text-very-small">Office</span>
@@ -15,6 +16,7 @@
     </div>
 
   </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -39,18 +41,6 @@
     .gallery-item-img-wrap {
       width: 100%;
       height: 340px;
-    }
-
-    .date {
-      font-family: Helvetica;
-      font-style: normal;
-      font-weight: 300;
-      font-size: 15.36px;
-      line-height: 100%;
-      text-transform: capitalize;
-      color: #000000;
-      margin-top: 17px;
-      cursor: none;
     }
 
     .title {

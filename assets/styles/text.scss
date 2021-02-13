@@ -132,6 +132,18 @@
   color: #FFFFFF;
 }
 
+.date-text {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15.36px;
+  line-height: 100%;
+  text-transform: capitalize;
+  color: #000000;
+  margin-top: 17px;
+  cursor: none;
+}
+
 @media screen and (max-width: 1280px) {
   .main-page_start-text {
     font-size: 48px;
