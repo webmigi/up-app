@@ -25,7 +25,6 @@
              :src="TitleImg_1">
       </div>
     </div>
-
     <div class="block-wrap">
       <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (this.APP_WINDOW_SIZE.height + 2 * 1000 - 100))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
