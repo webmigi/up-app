@@ -3,22 +3,21 @@
     <div class="block-wrap">
       <div :class="'block block-fixed'">
         <div class="start-span_with-logo_wrap" ref="startSpanWithLogoWrap" :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT/2 - startSpanWithLogoWrapHeight/2) +'px);'">
-          <transition-group name="translateY-opacity">
-            <span>architecture</span>
-            <span>interior</span>
+          <transition-group tag="div" class="translateY-group" name="translateY-opacity">
+            <start_span_item
+                            v-if="trGroup"
+                            key="1"
+                            text="architecture"
+                            textStyleClass="start-text"
+            />
+            <start_span_item
+                            v-if="!trGroup"
+                            key="2"
+                            text="interior"
+                            textStyleClass="start-text"
+            />
           </transition-group>
-          <start_span_item text="architecture"
-                           :startTransformScroll=500
-                           :finishTransformScroll=1000
-                           :startOpacityZero="false"
-                           textStyleClass="start-text"
-          />
-          <start_span_item text="interior"
-                           :startTransformScroll=500
-                           :finishTransformScroll=1000
-                           :startOpacityZero="true"
-                           textStyleClass="start-text"
-          />
+
         </div>
         <img class="title-imgs_img"
              :style="'transform: scale('+this.imgScale_1+')'"
@@ -111,7 +110,6 @@
       </div>
     </div>
 
-
     <div class="block-wrap">
       <div :class="['block']">
         <div class="start-span_with-logo_wrap start-span_wrap">
@@ -166,7 +164,8 @@
                 TitleImg_2: '/images/Home/Title-imgs/title-img-2.jpg',
                 TitleImg_3: '/images/Home/Title-imgs/title-img-3.jpg',
                 TitleImg_4: '/images/Home/Title-imgs/title-img-4.jpg',
-                startSpanWithLogoWrapHeight: 0
+                startSpanWithLogoWrapHeight: 0,
+                trGroup: false
             }
         },
         components: {start_span_item},
@@ -206,6 +205,10 @@
         },
         mounted() {
             this.setStartSpanWithLogoWrapHeight();
+            let self = this
+            setInterval(() => {
+              self.trGroup = !self.trGroup
+            }, 3000)
         },
         methods: {
             setStartSpanWithLogoWrapHeight() {
@@ -314,5 +317,19 @@
         }
       }
     }
+  }
+
+.translateY-opacity-enter-active, .translateY-opacity-leave-active {
+  transition: all 1s;
+}
+  .translateY-opacity-enter, .translateY-opacity-leave-to /* .list-leave-active до версии 2.1.8 */ {
+    opacity: 0;
+    position: absolute;
+  }
+  .translateY-opacity-leave-to {
+    transform: translateY(-70px);
+  }
+  .translateY-opacity-enter {
+    transform: translateY(70px);
   }
 </style>

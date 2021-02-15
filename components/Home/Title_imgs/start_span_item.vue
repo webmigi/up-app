@@ -3,10 +3,10 @@
     <span v-if="!buttonActive"
           :class="'main-page_'+textStyleClass"
           :style="'transform: translateY('+this.spanTranslate+'%); opacity: '+this.spanOpacity+';'">{{text}}</span>
-    <div class="btn-wrap"
-         v-if="buttonActive"
-         :style="'transform: translateY('+this.spanTranslate+'%); opacity: '+this.spanOpacity+';'"
-    >
+  <div class="btn-wrap"
+       v-if="buttonActive"
+       :style="'transform: translateY('+this.spanTranslate+'%); opacity: '+this.spanOpacity+';'"
+  >
     <span class="main-page_small-text">{{text}}</span>
 <!--    <Content_btn :title="text" :place="'start-span'"/>-->
   </div>

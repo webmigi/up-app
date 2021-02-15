@@ -47,7 +47,6 @@
 
         .main-page_content {
           width: 100%;
-          max-width: 1920px;
           display: flex;
           flex-direction: column;
           background-color: #FFFFFF;
