@@ -2,8 +2,8 @@
   <div class="image-scale-block_wrap" ref="imageScaleElement">
       <client-only>
         <intersect @enter.once="(scaleStartScroll = APP_SCROLL_VALUE),(scaleStartScrollActive = true)">
-          <div :class="imageScaleImgClasses"
-               :style="'transform: scale('+this.imgScale+'); background: url('+img+'); background-size: cover; background-repeat: no-repeat'">
+          <div :class="imageScaleImgClasses" :style="'transform: scale('+this.imgScale+'); opacity: '+this.imgOpacity+';'">
+            <img :src="img" alt="">
           </div>
         </intersect>
       </client-only>
@@ -17,6 +17,10 @@
         name: "Image_Scale_Block",
         props: {
             img: String,
+            opacity: {
+              type: [Object, Boolean],
+              default: false
+            },
             appointment: {
                 validator: function (value) {
                     return ['project', 'news', 'people', 'process', 'spinner']
@@ -37,13 +41,31 @@
                 return (this.APP_SCROLL_VALUE > startScroll && this.scaleStartScrollActive) ?
                     (this.APP_SCROLL_VALUE > (startScroll + this.APP_WINDOW_SIZE.height + this.$refs.imageScaleElement.offsetHeight) ?
                         1.2
-
                         :
                         1 + (0.2 / 100) * ((this.APP_SCROLL_VALUE - startScroll) / ((this.APP_WINDOW_SIZE.height + this.$refs.imageScaleElement.offsetHeight) / 100)))
                     :
                     1
             },
+            imgOpacity() {
+              if(this.opacity) {
+                let startScroll = this.scaleStartScroll;
+                let value = 0;
+                let offset = this.opacity.offset ?? 0
 
+                if(this.APP_SCROLL_VALUE > (startScroll + offset) && this.scaleStartScrollActive) {
+                  if(this.APP_SCROLL_VALUE > ((startScroll + offset) + this.$refs.imageScaleElement.offsetHeight)) {
+                    value = 1;
+                  } else {
+                     value = (this.APP_SCROLL_VALUE - (startScroll + offset)) / this.$refs.imageScaleElement.offsetHeight
+                  }
+                } else {
+                  value = 0;
+                }
+                return value;
+              } else {
+                return 1
+              }
+            },
             imageScaleImgClasses() {
                 return ['image-scale-img',
                     {
@@ -71,13 +93,17 @@
       left: 0;
       width: 100%;
       height: 100%;
-      transition: transform 1s;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1s;
+      }
     }
 
     .image-scale-img-width-hover {
-      &:hover {
-        /*transition: transform 0.3s;*/
-        transform: scale(1.4) !important;
+      img:hover {
+        transform: scale(1.2);
         cursor: pointer;
       }
     }

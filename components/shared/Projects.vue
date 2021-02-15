@@ -1,8 +1,8 @@
 <template>
   <div :class="['projects-block', {'projects-block_projects-page':this.$route.path === '/Project'}]">
     <span class="main-page__content-title-position block-title">{{title}}</span>
-    <div v-if="this.$route.path === '/Project'"
-         class="description pages-content-margin-left-big">
+
+    <div v-if="this.$route.path === '/Project'" class="description pages-content-margin-left-big">
       <div class="description-title">
         <span class="content-title"><span
           class="content-title content-title-bold">up</span>{{' architecture makes '}}</span>
@@ -17,9 +17,13 @@
       <div :class="contentBlockClasses">
         <div :class="['content-img-wrap',{'content-img-wrap-big': item.big && checkProjectPage} ]"
              v-for="(item, index) in contentImgs"
-             v-if="checkProjectPage ? item :  index<4"
+             v-if="checkProjectPage ? item : index < 4"
              :key="index">
-          <Image_Scale_Block :img="item.img" appointment="project"/>
+          <Image_Scale_Block
+            :img="item.img"
+            appointment="project"
+            :opacity="{offset: index === 1 || index === 3 ? 400 : 0}"
+          />
           <div class="item-project-title item-project-title-text">
             {{item.title}}
           </div>
@@ -67,10 +71,7 @@
                 return this.$route.path === '/Project' ? 'projects' : 'featured projects'
             },
             checkProjectPage() {
-                return this.$route.path === '/Project' ?
-                    true
-                    :
-                    false
+                return this.$route.path === '/Project'
             },
             contentBlockClasses() {
                 return ['content-block',

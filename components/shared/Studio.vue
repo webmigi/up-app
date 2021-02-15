@@ -3,7 +3,7 @@
     <span class="main-page__content-title-position block-title">studio</span>
     <div class="studio_content-block">
       <div class="studio_img-wrap">
-        <Image_Scale_Block :img="ContentImg"/>
+        <Image_Scale_Block :opacity="true" :img="ContentImg"/>
       </div>
       <div class="studio_text-block__wrap">
         <div :class="['studio_text-block', {'studio-people_text-block':this.$route.path === '/People'}]">

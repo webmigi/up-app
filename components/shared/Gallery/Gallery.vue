@@ -12,25 +12,35 @@
         </div>
       </VueSlickCarousel>
     </client-only>
+    <swiper
+      ref="swiperComponent"
+      :options="swiperOptions"
+    >
+      <swiper-slide>Slide 1</swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+      <swiper-slide>Slide 4</swiper-slide>
+      <swiper-slide>Slide 5</swiper-slide>
+      <swiper-slide>Slide 6</swiper-slide>
+    </swiper>
   </div>
 </template>
 <script>
 
     import Gallery_item from "./Gallery_item";
-
     export default {
         name: "Gallery",
         props: ["data"],
         data() {
             return {
+                swiperOptions: {
+                  freeMode: true,
+                  loop: true,
+                },
                 slickOptions: {
-                    slidesToShow: 4.8,
-                    pauseOnHover: false,
-                    swipeToSlide: true,
+                    variableWidth: true,
                     arrows: false,
                     autoplay: false,
-                    autoplaySpeed: 2000,
-                    speed: 500,
                     infinite: true,
                     responsive: [
                         {

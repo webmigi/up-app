@@ -3,7 +3,7 @@
   <div class="gallery-item">
 
     <div class="gallery-item-img-wrap">
-      <Image_Scale_Block :img="imgProps" :appointment="'news'"/>
+      <Image_Scale_Block :opacity="true" :img="imgProps" :appointment="'news'"/>
     </div>
 
     <span class="date-text">{{dateProps}}</span>
