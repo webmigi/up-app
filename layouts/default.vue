@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="header-wrap"
-         :style="'left: ' + headerWidth + 'px'">
+    <div class="header-wrap">
       <Header/>
     </div>
     <transition name="nav-menu-fade" appear>
@@ -105,7 +104,7 @@
 
   body {
     width: var(--winWidth);
-    max-width: 1920px;
+    /*max-width: 1920px;*/
   }
 
   .header-wrap {
@@ -113,18 +112,18 @@
     top: 0;
     left: 0;
     width: var(--winWidth);
-    max-width: 1920px;
     display: flex;
     align-items: center;
     z-index: 1000;
   }
 
   .nav-menu-fade-enter, .nav-menu-fade-leave-to {
+    opacity: 0;
     transform: scale(0);
   }
 
   .nav-menu-fade-enter-active, .nav-menu-fade-leave-active {
-    transition: transform 1s;
+    transition: transform 1s, opacity 1s;
   }
 
   @media screen and (max-width: 1280px){

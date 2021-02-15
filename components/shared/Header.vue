@@ -166,7 +166,6 @@
 <style lang="scss" scoped>
   .header {
     width: 100%;
-    max-width: 1920px;
     display: flex;
     justify-content: space-between;
     align-self: center;
@@ -184,7 +183,8 @@
 
         path {
           fill: #FFFFFF;
-          /*transition: fill 0.3s;*/
+          transition: fill 0.5s;
+          transition-delay: 0.5s;
         }
       }
     }
@@ -204,6 +204,7 @@
       svg {
         path {
           fill: #FFFFFF;
+          transition-delay: 0s;
         }
       }
     }

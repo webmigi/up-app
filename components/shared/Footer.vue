@@ -17,8 +17,8 @@
           Overtoom 2a, Castricum
            </span>
         <span class="footer-contacts">The Netherlands, 1901 EW </span>
-        <span class="footer-contacts">T +31 (0)251 82 76 10  </span>
-        <span class="footer-contacts email">studio@uparchitecture.nl </span>
+        <a href="tel:+31(0)251827610" class="footer-contacts">T +31 (0)251 82 76 10  </a>
+        <a href="mailto:studio@uparchitecture.nl" class="footer-contacts email">studio@uparchitecture.nl </a>
       </div>
     </div>
   </div>

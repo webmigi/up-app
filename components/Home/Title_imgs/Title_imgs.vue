@@ -1,10 +1,12 @@
 <template>
   <div class="main-page_title-imgs__container">
     <div class="block-wrap">
-      <div :class="['block', 'block-fixed', {'block-fixed-left': APP_WINDOW_SIZE.width > 1920}]">
-        <div class="start-span_with-logo_wrap"
-             ref="startSpanWithLogoWrap"
-             :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT/2 - startSpanWithLogoWrapHeight/2) +'px);'">
+      <div :class="'block block-fixed'">
+        <div class="start-span_with-logo_wrap" ref="startSpanWithLogoWrap" :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT/2 - startSpanWithLogoWrapHeight/2) +'px);'">
+          <transition-group name="translateY-opacity">
+            <span>architecture</span>
+            <span>interior</span>
+          </transition-group>
           <start_span_item text="architecture"
                            :startTransformScroll=500
                            :finishTransformScroll=1000
@@ -25,7 +27,7 @@
     </div>
 
     <div class="block-wrap">
-      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (this.APP_WINDOW_SIZE.height + 2 * 1000))}, {'block-fixed-left': APP_WINDOW_SIZE.width > 1920}]">
+      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (this.APP_WINDOW_SIZE.height + 2 * 1000 - 100))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item
             text="We are up."
@@ -64,7 +66,7 @@
     </div>
 
     <div class="block-wrap">
-      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (2 * this.APP_WINDOW_SIZE.height + 3 * 1000))}, {'block-fixed-left': APP_WINDOW_SIZE.width > 1920}]">
+      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (2 * this.APP_WINDOW_SIZE.height + 3 * 1000 - 100))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We are uptimists."
                            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6))
@@ -226,7 +228,6 @@
       height: calc(var(--winHeight) + 1000px);
 
       .block {
-        position: sticky;
         top: 0;
         left: 0;
         width: 100%;
@@ -234,11 +235,14 @@
         overflow: hidden;
         display: flex;
         align-items: center;
+        //position: fixed;
+        position: sticky;
 
         .title-imgs_img {
           position: absolute;
-          width: 1920px;
           height: 100%;
+          width: 100%;
+          object-fit: cover;
         }
 
         .start-span_with-logo_wrap {
@@ -252,14 +256,13 @@
         .start-span_wrap {
           display: flex;
           flex-direction: column;
-          /*align-items: center;*/
+          align-items: flex-start;
           justify-content: center;
         }
       }
 
       .block-fixed {
         position: fixed;
-        max-width: 1920px;
       }
 
       .block-fixed-left{

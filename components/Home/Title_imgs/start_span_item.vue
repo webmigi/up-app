@@ -3,11 +3,12 @@
     <span v-if="!buttonActive"
           :class="'main-page_'+textStyleClass"
           :style="'transform: translateY('+this.spanTranslate+'%); opacity: '+this.spanOpacity+';'">{{text}}</span>
-  <div class="btn-wrap"
-       v-if="buttonActive"
-       :style="'transform: translateY('+this.spanTranslate+'%); opacity: '+this.spanOpacity+';'"
-  >
-    <Content_btn :title="text" :place="'start-span'"/>
+    <div class="btn-wrap"
+         v-if="buttonActive"
+         :style="'transform: translateY('+this.spanTranslate+'%); opacity: '+this.spanOpacity+';'"
+    >
+    <span class="main-page_small-text">{{text}}</span>
+<!--    <Content_btn :title="text" :place="'start-span'"/>-->
   </div>
   </div>
 </template>
@@ -61,18 +62,23 @@
   .start-span-block {
     width: 100%;
     display: flex;
-    min-height: 80px;
+    //min-height: 80px;
 
     .btn-wrap{
-      .content-btn{
-        &:after {
-          background-color: white;
-          width: 0;
-          transition: width 1s;
-        }
-        &:hover:after {
-          width: 100%;
-        }
+      margin-top: 15px;
+      &:after {
+        content: '';
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background-color: #fff;
+        transition: width 0.3s;
+      }
+
+      &:hover:after {
+        width: 100%;
       }
       .content-btn-text{
         color: white;

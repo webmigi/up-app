@@ -13,7 +13,9 @@
           </svg>
         </button>
       </div>
-      <img class="img-span" src="../static/images/Item_Project/contentImg1.jpg"/>
+      <div class="image-list">
+        <img class="img-span" src="../static/images/Item_Project/contentImg1.jpg"/>
+      </div>
       <div class="paginator">
         <Arrow_Btn :btn-width=80 :place="'imgModal'"/>
       </div>
@@ -36,28 +38,41 @@
 
 <style lang="scss" scoped>
   .img-modal {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
-    margin: auto;
     width: 100%;
     height: var(--winHeight);
     overflow: hidden;
     display: flex;
-    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
     background: rgba(0, 0, 0, 0.7);
     z-index: 1000;
 
     .content {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      margin: 60px var(--main-mini-margin);
-
+      width: 80%;
+      position: relative;
+      .image-list {
+        height: calc(var(--winHeight) - 230px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
       .btn-span {
         display: flex;
         justify-content: space-between;
-
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(-100%);
         button {
           width: 60px;
           height: 60px;
@@ -65,13 +80,17 @@
         }
       }
 
-      .img-span {
-        height: calc(100% - 180px);
-      }
-      .paginator{
+      .paginator {
         display: flex;
-        height: 120px;
         padding: 0 20px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(calc(100% + 30px));
+      }
+      .paginator >>> .arrow-wrap {
+        width: 100%;
       }
     }
   }

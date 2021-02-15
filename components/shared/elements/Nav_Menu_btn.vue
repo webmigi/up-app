@@ -1,4 +1,8 @@
 <template>
+<!--  Не очень хороший тон помещать кнопку внутри ссылки,
+      если надо что бы компонент при необходимости был кнопкой
+      или ссылкой https://ru.vuejs.org/v2/guide/components-dynamic-async.html
+      Вынес ссылки в модалку  -->
   <nuxt-link :to="`${href}`">
     <button class="nav-menu-btn-text nav-menu-btn"  @click="setModalIsActive">
       {{title}}
