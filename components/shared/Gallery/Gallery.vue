@@ -17,6 +17,7 @@
 <script>
 
     import Gallery_item from "./Gallery_item";
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "Gallery",
         props: ["data"],
@@ -29,7 +30,7 @@
                 }
             }
         },
-        components: {Gallery_item},
+        components: {Gallery_item}
     };
 </script>
 

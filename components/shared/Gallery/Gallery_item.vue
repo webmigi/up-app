@@ -2,7 +2,10 @@
   <div>
   <div class="gallery-item">
 
-    <div class="gallery-item-img-wrap">
+    <div class="gallery-item-img-wrap"
+         @mouseover="setGalleryCursorActive(true)"
+         @mouseout="setGalleryCursorActive(false)"
+    >
       <Image_Scale_Block :img="imgProps" :appointment="'news'"/>
     </div>
 
@@ -22,29 +25,35 @@
 
 <script>
     import Image_Scale_Block from "../Image_Scale_Block";
+    import {mapActions, mapGetters} from "vuex";
 
     export default {
         name: "Gallery_item",
         components: {Image_Scale_Block},
-        props: ["imgProps", "titleProps", "dateProps"]
+        props: ["imgProps", "titleProps", "dateProps"],
+        methods: {
+          ...mapActions('app', ['setGalleryCursorActive']),
+        }
     };
 </script>
 
 <style lang="scss" scoped>
+
   .gallery-item {
     position: relative;
     width: 375px;
     height: 440px;
+    margin-right: 30px;
     display: flex;
     flex-direction: column;
-    cursor: none;
-    margin-right: 30px;
 
     .gallery-item-img-wrap {
       width: 100%;
       height: 340px;
     }
-
+    a {
+      cursor: pointer;
+    }
     .title {
       font-family: Garamond;
       font-style: normal;
@@ -54,7 +63,7 @@
       letter-spacing: -0.04em;
       color: #000000;
       margin-top: 14px;
-      cursor: none;
+      cursor: pointer;
     }
 
     .teg-container {
@@ -62,10 +71,10 @@
       display: flex;
       margin-top: 2px;
       justify-content: space-between;
-      cursor: none;
-      .text-very-small{
-        cursor: none;
+      span {
+        cursor: pointer;
       }
+      cursor: pointer;
     }
   }
 
