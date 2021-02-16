@@ -2,7 +2,11 @@
   <div class="main-page_title-imgs__container">
     <div class="block-wrap">
       <div :class="'block block-fixed'">
-        <div class="start-span_with-logo_wrap" ref="startSpanWithLogoWrap" :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT/2 - startSpanWithLogoWrapHeight/2) +'px);'">
+        <div
+          class="start-span_with-logo_wrap"
+          ref="startSpanWithLogoWrap"
+          :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT / 2 - startSpanWithLogoWrapHeight / 2) +'px);'"
+        >
           <transition-group tag="div" class="translateY-group" name="translateY-opacity">
             <start_span_item
                             v-if="trGroup"
@@ -25,7 +29,7 @@
       </div>
     </div>
 
-    <div class="block-wrap">
+    <div v-if="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
       <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (this.APP_WINDOW_SIZE.height + 2 * 1000 - 100))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item
@@ -64,7 +68,7 @@
       </div>
     </div>
 
-    <div class="block-wrap">
+    <div v-if="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
       <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (2 * this.APP_WINDOW_SIZE.height + 3 * 1000 - 100))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We are uptimists."
@@ -110,7 +114,7 @@
       </div>
     </div>
 
-    <div class="block-wrap">
+    <div v-if="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
       <div :class="['block']">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We see unlimited posibilities"
@@ -267,23 +271,9 @@
       .block-fixed {
         position: fixed;
       }
+    }
+  }
 
-      .block-fixed-left{
-        left: calc((var(--winWidth) - 1920px) / 2);
-      }
-    }
-  }
-  @media screen and (max-width: 1920px){
-    .main-page_title-imgs__container{
-      .block-wrap{
-        .block{
-          .title-imgs_img{
-            left: calc(0px - (1920px - (var(--winWidth))) / 2);
-          }
-        }
-      }
-    }
-  }
 
 @media screen and (max-width: 1024px){
   .main-page_title-imgs__container{

@@ -6,7 +6,8 @@
          @mouseover="setGalleryCursorActive(true)"
          @mouseout="setGalleryCursorActive(false)"
     >
-      <Image_Scale_Block :img="imgProps" :appointment="'news'"/>
+<!--      <Image_Scale_Block :img="imgProps" :appointment="'news'"/>-->
+      <img :src="imgProps" alt="">
     </div>
 
     <span class="date-text">{{dateProps}}</span>
@@ -50,6 +51,15 @@
     .gallery-item-img-wrap {
       width: 100%;
       height: 340px;
+      overflow: hidden;
+      cursor: none;
+      &:hover img {
+        transform: scale(1.2);
+      }
+      img {
+        transition: .3s;
+        pointer-events: none;
+      }
     }
     a {
       cursor: pointer;

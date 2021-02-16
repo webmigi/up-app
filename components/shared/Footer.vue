@@ -23,7 +23,7 @@
     </div>
     <a v-if="$route.path !== '/people'" href="" class="email footer-contacts">Privacy policy</a>
     <div v-if="$route.path === '/people'" class="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2426.283695969157!2d4.660434116009477!3d52.54639307981919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5f7402e0d79bf%3A0x4db3af8c73ebe839!2zT3ZlcnRvb20gMkEsIDE5MDEgRVcgQ2FzdHJpY3VtLCDQndC40LTQtdGA0LvQsNC90LTRiw!5e0!3m2!1sru!2sby!4v1613489778321!5m2!1sru!2sby" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2426.283695969157!2d4.660434116009477!3d52.54639307981919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5f7402e0d79bf%3A0x4db3af8c73ebe839!2zT3ZlcnRvb20gMkEsIDE5MDEgRVcgQ2FzdHJpY3VtLCDQndC40LTQtdGA0LvQsNC90LTRiw!5e0!3m2!1sru!2sby!4v1613489778321!5m2!1sen!2sby" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
 
   </div>

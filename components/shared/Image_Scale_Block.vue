@@ -2,8 +2,7 @@
   <div class="image-scale-block_wrap" ref="imageScaleElement">
       <client-only>
         <intersect @enter.once="(scaleStartScroll = APP_SCROLL_VALUE),(scaleStartScrollActive = true)">
-          <div :class="imageScaleImgClasses" :style="'transform: scale('+this.imgScale+'); opacity: '+this.imgOpacity+';'">
-            <img :src="img" alt="">
+          <div :class="imageScaleImgClasses" :style="'transform: scale('+this.imgScale+'); opacity: '+this.imgOpacity+'; background-image: url('+img+')'">
           </div>
         </intersect>
       </client-only>
@@ -80,7 +79,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
   .image-scale-block_wrap {
     position: relative;
     width: 100%;
@@ -93,6 +92,8 @@
       left: 0;
       width: 100%;
       height: 100%;
+      background-size: cover;
+      background-position: center;
       img {
         width: 100%;
         height: 100%;

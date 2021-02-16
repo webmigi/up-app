@@ -102,7 +102,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
   .project-content {
     display: flex;
     flex-direction: column;
@@ -202,6 +202,10 @@
       .content-type-4_img-wrap {
         width: 100%;
         height: var(--winHeight);
+
+        .image-scale-block_wrap .image-scale-img {
+          background-attachment: fixed;
+        }
       }
     }
 
