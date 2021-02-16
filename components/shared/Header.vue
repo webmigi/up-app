@@ -3,7 +3,7 @@
     <nuxt-link to="/">
       <div :class="logoClasses"
            ref="headerLogo"
-           :style="'transform: translate('+this.logoTranslateX+'px, '+this.logoTranslateY+'px); width: '+this.logoWidth+'px;'"
+           :style="'transform: translate('+logoTranslateX+'px, '+logoTranslateY+'px); width: '+logoWidth+'px;'"
            @click="logoAction">
         <svg viewBox="0 0 110 78" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
