@@ -10,9 +10,9 @@
 </template>
 
 <script>
-    import Image_Scale_Block from "../components/shared/Image_Scale_Block";
-    import Projects from "../components/shared/Projects";
-    import News from "../components/shared/News";
+    import Image_Scale_Block from "../../components/shared/Image_Scale_Block";
+    import Projects from "../../components/shared/Projects";
+    import News from "../../components/shared/News";
 
 
     export default {

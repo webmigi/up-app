@@ -44,7 +44,18 @@
     <Item_Project_Content v-for="(item, index) in itemProjectContent" :key="index" :project="item"/>
 
     <div class="paginator">
-      <Arrow_Btn :btn-width=66 :place="'project'"/>
+      <div class="arrow-wrap">
+        <nuxt-link to="" class="btn-left">
+          <svg viewBox="0 0 67 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="projectFill" d="M0 12L20 23.547V0.452994L0 12ZM18 14H66.5V10H18V14Z"/>
+          </svg>
+        </nuxt-link>
+        <nuxt-link to="" class="btn-right">
+          <svg viewBox="0 0 67 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="projectFill" d="M66.5 12L46.5 0.452996L46.5 23.547L66.5 12ZM48.5 10L-1.74846e-07 10L1.74846e-07 14L48.5 14L48.5 10Z"/>
+          </svg>
+        </nuxt-link>
+      </div>
     </div>
     <News/>
   </div>
@@ -53,13 +64,16 @@
 <script>
     import {mapGetters} from 'vuex'
 
-    import News from "../components/shared/News";
-    import Item_Project_Content from "../components/Item_Project/Item_Project_Content";
-    import Arrow_Btn from "../components/shared/elements/Arrow_Btn";
+    import News from "../../components/shared/News";
+    import Item_Project_Content from "../../components/Item_Project/Item_Project_Content";
+    import Arrow_Btn from "../../components/shared/elements/Arrow_Btn";
 
     export default {
-        name: 'Item_Project',
-        components: {News, Item_Project_Content, Arrow_Btn},
+        name: 'single-project',
+        components: {
+          News,
+          Item_Project_Content, Arrow_Btn
+        },
         data() {
             return {
                 itemProjectContent: [
@@ -105,7 +119,7 @@
         },
         computed:{
             ...mapGetters('app', ['APP_WINDOW_SIZE'])
-        }
+        },
     }
 </script>
 
@@ -166,10 +180,8 @@
 
     .paginator {
       display: flex;
-      align-self: center;
       align-items: center;
-      width: 195px;
-      height: 50px;
+      justify-content: center;
       margin-bottom: 180px;
     }
   }

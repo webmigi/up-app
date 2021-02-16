@@ -15,19 +15,19 @@
 
 <script>
   export default {
-      name: 'Arrow_Btn',
-      props:{
-          place: {
-              validator: function (value) {
-                  return ['imgModal', 'project']
-              }
+    name: 'Arrow_Btn',
+    props:{
+        place: {
+            validator: function (value) {
+                return ['imgModal', 'project']
+            }
 
-          }
-      }
+        },
+    },
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .arrow-wrap{
     display: flex;
     height: 100%;

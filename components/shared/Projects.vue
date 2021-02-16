@@ -1,8 +1,8 @@
 <template>
-  <div :class="['projects-block', {'projects-block_projects-page':this.$route.path === '/Project'}]">
+  <div :class="['projects-block', {'projects-block_projects-page':this.$route.path === '/project'}]">
     <span class="main-page__content-title-position block-title">{{title}}</span>
 
-    <div v-if="this.$route.path === '/Project'" class="description pages-content-margin-left-big">
+    <div v-if="this.$route.path === '/project'" class="description pages-content-margin-left-big">
       <div class="description-title">
         <span class="content-title"><span
           class="content-title content-title-bold">up</span>{{' architecture makes '}}</span>
@@ -13,12 +13,13 @@
         'our clients.'}}</p>
     </div>
 
-    <nuxt-link to="/Item_Project">
       <div :class="contentBlockClasses">
-        <div :class="['content-img-wrap',{'content-img-wrap-big': item.big && checkProjectPage} ]"
-             v-for="(item, index) in contentImgs"
-             v-if="checkProjectPage ? item : index < 4"
-             :key="index">
+        <nuxt-link
+          :to="'/project/'+item.title"
+          :class="['content-img-wrap',{'content-img-wrap-big': item.big && checkProjectPage} ]"
+          v-for="(item, index) in contentImgs"
+          v-if="checkProjectPage ? item : index < 4"
+          :key="index">
           <Image_Scale_Block
             :img="item.img"
             appointment="project"
@@ -27,13 +28,12 @@
           <div class="item-project-title item-project-title-text">
             {{item.title}}
           </div>
-        </div>
+        </nuxt-link>
       </div>
-    </nuxt-link>
 
 
-    <div v-if="this.$route.path !== '/Project'" class="project_btn_wrap">
-      <nuxt-link :to="'/Project'">
+    <div v-if="this.$route.path !== '/project'" class="project_btn_wrap">
+      <nuxt-link :to="'/project'">
         <Content_btn title="Explore all projects"/>
       </nuxt-link>
     </div>
@@ -68,10 +68,10 @@
         },
         computed: {
             title() {
-                return this.$route.path === '/Project' ? 'projects' : 'featured projects'
+                return this.$route.path === '/project' ? 'projects' : 'featured projects'
             },
             checkProjectPage() {
-                return this.$route.path === '/Project'
+                return this.$route.path === '/project'
             },
             contentBlockClasses() {
                 return ['content-block',
