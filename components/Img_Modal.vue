@@ -118,6 +118,7 @@
         display: flex;
         padding: 0 20px;
         position: absolute;
+        box-sizing: border-box;
         bottom: 0;
         left: 0;
         width: 100%;

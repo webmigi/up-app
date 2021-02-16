@@ -1,8 +1,8 @@
 <template>
-  <div class="footer">
-    <div :class="['content', {'main-content-margin-left-right': this.$route.path !== '/People'}]">
+  <div :class="['footer', {'people-footer': $route.path === '/people'}]">
+    <div class="content">
+      <span v-if="$route.path === '/people'" class="block-title">Contact</span>
       <nuxt-link to="/">
-        <!--        <span class="footer-logo">UP</span>-->
         <div class="footer-logo">
           <svg viewBox="0 0 110 78" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -21,6 +21,11 @@
         <a href="mailto:studio@uparchitecture.nl" class="footer-contacts email">studio@uparchitecture.nl </a>
       </div>
     </div>
+    <a v-if="$route.path !== '/people'" href="" class="email footer-contacts">Privacy policy</a>
+    <div v-if="$route.path === '/people'" class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2426.283695969157!2d4.660434116009477!3d52.54639307981919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5f7402e0d79bf%3A0x4db3af8c73ebe839!2zT3ZlcnRvb20gMkEsIDE5MDEgRVcgQ2FzdHJpY3VtLCDQndC40LTQtdGA0LvQsNC90LTRiw!5e0!3m2!1sru!2sby!4v1613489778321!5m2!1sru!2sby" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+
   </div>
 </template>
 
@@ -36,11 +41,26 @@
     background-color: #FFFFFF;
     width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     z-index: 850;
-
+    padding: 200px 120px 70px;
+    box-sizing: border-box;
+    &.people-footer {
+      align-items: flex-start;
+    }
+    .map {
+      width: calc(100% - 480px);
+      height: 610px;
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .block-title {
+      margin-bottom: 110px;
+    }
     .content {
-      margin-top: 121px;
-      margin-bottom: 70px;
       display: flex;
       flex-direction: column;
 
@@ -65,19 +85,17 @@
         display: flex;
         flex-direction: column;
 
-        .email {
-          margin-top: auto;
-          text-decoration: underline;
-        }
       }
+    }
+    .email {
+      margin-top: auto;
+      text-decoration: underline;
     }
   }
 
   @media screen and (max-width: 1280px) {
     .footer {
       .content {
-        margin-top: 100px;
-        margin-bottom: 37px;
         .footer-logo {
           width: 70px;
         }
@@ -87,7 +105,6 @@
   @media screen and (max-width: 1024px) {
     .footer {
       .content {
-        margin-bottom: 77px;
         .footer-logo {
           width: 70px;
         }
@@ -100,15 +117,12 @@
   @media screen and (max-width: 1024px) {
     .footer {
       .content {
-        margin-top: 50px;
-        margin-bottom: 77px;
       }
     }
   }
   @media screen and (max-width: 428px) {
     .footer {
       .content {
-        margin-top: 100px;
       }
     }
   }

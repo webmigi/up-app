@@ -1,13 +1,13 @@
 <template>
   <div :class="['item-vacancy',  {'item-vacancy-no-margin': noMargin}]"
-  :style="'max-height: ' +activeRollDawnHeight+ 'px'">
+  :style="'max-height: ' +activeRollDawnHeight+ 'px'"  @click="setRollUp">
     <div class="title-span">
       <span class="item-project_description_value">{{vacancy.title}}</span>
       <div class="btns-block">
         <div class="content-btn-wrap">
           <Content_btn title="Send CV" place="jobs"/>
         </div>
-        <button class="open-vacancy-btn" @click="setRollUp">
+        <button class="open-vacancy-btn">
           <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="10" y="29" width="40" height="2"/>
             <rect v-if="!rollUp" x="31" y="10" width="40" height="2" transform="rotate(90 31 10)"/>
@@ -47,12 +47,12 @@
             },
             setVacancyDescriptionHeight(){
                 let heightBlock = this.$refs.vacancy_description.clientHeight;
-                this.hrefsSpanHeight = heightBlock + 50
+                this.hrefsSpanHeight = heightBlock + 60
             },
         },
         computed:{
             activeRollDawnHeight(){
-                return this.rollUp ? this.hrefsSpanHeight : 50
+                return this.rollUp ? this.hrefsSpanHeight : 60
             }
         }
     }
@@ -62,7 +62,7 @@
   .item-vacancy {
     display: flex;
     height: auto;
-    max-height: 50px;
+    max-height: 60px;
     flex-direction: column;
     padding: 24px 20px 24px 30px;
     border-radius: 0;
@@ -93,12 +93,12 @@
           align-items: center;
           justify-content: center;
 
-          .content-btn-text{
-            transition: color 0.3s;
-            &:after{
-              transition: background-color 0.3s;
-            }
-          }
+          //.content-btn-text{
+          //  transition: color 0.3s;
+          //  &:after{
+          //    transition: background-color 0.3s;
+          //  }
+          //}
         }
 
         .open-vacancy-btn {

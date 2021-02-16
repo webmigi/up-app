@@ -9,7 +9,6 @@
     <Team/>
     <News/>
     <Jobs/>
-    <Jobs_Footer/>
   </div>
 </template>
 
@@ -20,11 +19,10 @@
     import Studio from "../components/shared/Studio";
     import Team from "../components/People/Team";
     import Jobs from "../components/People/Jobs/Jobs";
-    import Jobs_Footer from "../components/People/People_Footer";
 
     export default {
         name: 'People',
-        components: {Image_Scale_Block, News, People_Studio, Studio, Team, Jobs, Jobs_Footer}
+        components: {Image_Scale_Block, News, People_Studio, Studio, Team, Jobs}
     }
 </script>
 
