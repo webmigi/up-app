@@ -233,6 +233,7 @@
     .block-wrap {
       position: relative;
       height: calc(var(--winHeight) + 1000px);
+      transition: height .3s;
 
       .block {
         top: 0;
@@ -244,6 +245,7 @@
         align-items: center;
         //position: fixed;
         position: sticky;
+        transition: height .3s;
 
         .title-imgs_img {
           position: absolute;

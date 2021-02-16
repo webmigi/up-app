@@ -100,6 +100,7 @@
       height: 730px;
       display: flex;
       align-items: center;
+      transition: height .3s;
     }
 
     .content {

@@ -135,6 +135,7 @@
       height: var(--winHeight);
       display: flex;
       align-items: center;
+      transition: height .3s;
 
       .project-title {
         margin-right: var(--main-mini-margin);

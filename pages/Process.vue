@@ -37,6 +37,7 @@
       height: var(--winHeight);
       display: flex;
       align-items: center;
+      transition: height .3s;
 
       .people-title {
         position: absolute;
