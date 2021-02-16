@@ -3,7 +3,8 @@
     <span class="main-page__content-title-position block-title">team</span>
     <div class="team_content-block">
       <div class="team_img-wrap">
-        <Image_Scale_Block :img="'/images/People/Team/team.jpg'"/>
+        <img src="/images/People/Team/team.jpg" alt="">
+<!--        <Image_Scale_Block :img="'/images/People/Team/team.jpg'"/>-->
         <div class="img-description">
           <span class="team-img-description-text" style="margin-bottom: 6px">Nick</span>
           <span class="block-title text-color-white">ceo</span>
@@ -54,7 +55,9 @@
         position: relative;
         display: flex;
         width: calc((100% - 60px) / 2 - 50px);
-        height: 880px;
+        img {
+          max-width: 100%;
+        }
 
         .img-description{
           position: absolute;

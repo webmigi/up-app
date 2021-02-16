@@ -1,11 +1,11 @@
 <template>
   <div class="main-page_title-imgs__container">
-    <div class="block-wrap">
+    <div class="block-wrap" :style="`opacity: ${APP_SCROLL_VALUE > APP_WINDOW_SIZE.height * 3 ? 0 : 1}`">
       <div :class="'block block-fixed'">
         <div
           class="start-span_with-logo_wrap"
           ref="startSpanWithLogoWrap"
-          :style="'top: calc((100% / 2) + '+ (LOGO_START_HEIGHT / 2 - startSpanWithLogoWrapHeight / 2) +'px);'"
+          :style="'top: calc((95% / 2) + '+ (LOGO_START_HEIGHT / 2 - startSpanWithLogoWrapHeight / 2) +'px);'"
         >
           <transition-group tag="div" class="translateY-group" name="translateY-opacity">
             <start_span_item

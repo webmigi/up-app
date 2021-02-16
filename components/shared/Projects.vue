@@ -4,9 +4,7 @@
 
     <div v-if="this.$route.path === '/project'" class="description pages-content-margin-left-big">
       <div class="description-title">
-        <span class="content-title"><span
-          class="content-title content-title-bold">up</span>{{' architecture makes '}}</span>
-        <span class="content-title">{{'unique projects.'}}</span>
+        <span class="content-title"><b>up</b> architecture <br>makes unique projects.</span>
       </div>
       <p class="content-p">{{'up architecture makes unique projects. Every client, corporate or private is'+
         'unique.'+'\n'+'It is our ambition to create distinctive design that reflect the sould and personal identity of'+
@@ -98,9 +96,12 @@
       .description-title {
         margin-top: 83px;
         margin-bottom: 35px;
-        display: flex;
-        flex-wrap: wrap;
-        white-space: pre;
+        br {
+          display: none;
+          @media (max-width: 1440px) {
+            display: block;
+          }
+        }
       }
 
       .content-p {

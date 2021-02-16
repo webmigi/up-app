@@ -37,7 +37,6 @@
 
 <style lang="scss" scoped>
   .footer {
-    position: relative;
     background-color: #FFFFFF;
     width: 100%;
     display: flex;
@@ -46,17 +45,60 @@
     z-index: 850;
     padding: 200px 120px 70px;
     box-sizing: border-box;
+    position: relative;
     &.people-footer {
       align-items: flex-start;
     }
     .map {
       width: calc(100% - 480px);
       height: 610px;
+      .place-card {
+        display: none;
+      }
       iframe {
         width: 100%;
         height: 100%;
       }
     }
+    @media (max-width: 1280px) {
+      padding: 100px 120px 40px;
+      &.people-footer {
+        padding-right: 0;
+      }
+
+      .map {
+        width: calc(100% - 300px);
+        height: 480px;
+      }
+    }
+    @media (max-width: 1024px) {
+      padding: 100px 40px 40px;
+      &.people-footer {
+        padding-right: 0;
+        padding-bottom: 0;
+      }
+
+      .map {
+        width: calc(100% - 300px);
+        height: 480px;
+      }
+    }
+    @media (max-width: 425px) {
+      padding: 50px 24px 40px;
+      &.people-footer {
+        padding-right: 0;
+        padding-bottom: 50px;
+        flex-direction: column;
+      }
+
+      .map {
+        width: calc(100% + 24px);
+        height: 400px;
+        margin-left: -24px;
+        margin-top: 50px;
+      }
+    }
+
     .block-title {
       margin-bottom: 110px;
     }

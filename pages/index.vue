@@ -44,6 +44,8 @@
         flex-direction: column;
         align-items: center;
         z-index: 800;
+        overflow: hidden;
+
 
         .main-page_content {
           width: 100%;

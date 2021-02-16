@@ -44,7 +44,8 @@
     position: relative;
     width: 375px;
     height: 440px;
-    margin-right: 30px;
+    margin-right: 20px;
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
 
