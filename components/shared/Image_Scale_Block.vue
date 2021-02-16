@@ -98,6 +98,7 @@
         height: 100%;
         object-fit: cover;
         transition: transform 1s;
+        pointer-events: none;
       }
     }
 

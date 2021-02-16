@@ -72,8 +72,6 @@
 
 <style lang="scss" scoped>
   .news-block {
-    display: flex;
-    flex-direction: column;
     background: #E8E8E8;
     padding-bottom: 103px;
     cursor: none;
@@ -105,6 +103,7 @@
     .title {
       margin-bottom: 102px;
       margin-top: 78px;
+      display: block;
     }
   }
 

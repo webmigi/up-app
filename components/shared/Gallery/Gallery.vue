@@ -12,17 +12,6 @@
         </div>
       </VueSlickCarousel>
     </client-only>
-    <swiper
-      ref="swiperComponent"
-      :options="swiperOptions"
-    >
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 4</swiper-slide>
-      <swiper-slide>Slide 5</swiper-slide>
-      <swiper-slide>Slide 6</swiper-slide>
-    </swiper>
   </div>
 </template>
 <script>
@@ -33,89 +22,10 @@
         props: ["data"],
         data() {
             return {
-                swiperOptions: {
-                  freeMode: true,
-                  loop: true,
-                },
                 slickOptions: {
+                    edgeFriction: 0.01,
                     variableWidth: true,
                     arrows: false,
-                    autoplay: false,
-                    infinite: true,
-                    responsive: [
-                        {
-                            breakpoint: 1810,
-                            settings: {
-                                slidesToShow: 4
-                            }
-                        },
-                        {
-                            breakpoint: 1470,
-                            settings: {
-                                slidesToShow: 3.5
-                            }
-                        },
-                        {
-                            breakpoint: 1285,
-                            settings: {
-                                slidesToShow: 3.2
-                            }
-                        },
-                        {
-                            breakpoint: 1280,
-                            settings: {
-                                slidesToShow: 3.5
-                            }
-                        },
-                        {
-                            breakpoint: 1070,
-                            settings: {
-                                slidesToShow: 3
-                            }
-                        },
-                        {
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 3.2
-                            }
-                        },
-                        {
-                            breakpoint: 940,
-                            settings: {
-                                slidesToShow: 2.4
-                            }
-                        },
-                        {
-                            breakpoint: 750,
-                            settings: {
-                                slidesToShow: 2.2
-                            }
-                        },
-                        {
-                            breakpoint: 650,
-                            settings: {
-                                slidesToShow: 1.8
-                            }
-                        },
-                        {
-                            breakpoint: 550,
-                            settings: {
-                                slidesToShow: 1.5
-                            }
-                        },
-                        {
-                            breakpoint: 428,
-                            settings: {
-                                slidesToShow: 1.3
-                            }
-                        },
-                        {
-                            breakpoint: 400,
-                            settings: {
-                                slidesToShow: 1.1
-                            },
-                        }
-                    ]
                 }
             }
         },

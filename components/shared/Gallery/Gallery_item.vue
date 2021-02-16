@@ -1,12 +1,13 @@
 <template>
-  <nuxt-link to="/Item_News">
+  <div>
   <div class="gallery-item">
 
     <div class="gallery-item-img-wrap">
-      <Image_Scale_Block :opacity="true" :img="imgProps" :appointment="'news'"/>
+      <Image_Scale_Block :img="imgProps" :appointment="'news'"/>
     </div>
 
     <span class="date-text">{{dateProps}}</span>
+  <nuxt-link to="/Item_News">
     <span class="title">{{ titleProps }}</span>
     <div class="teg-container">
       <span class="text-very-small">Office</span>
@@ -14,8 +15,9 @@
       <span class="text-very-small">Laboratory</span>
       <span class="text-very-small">Atrium</span>
     </div>
-  </div>
   </nuxt-link>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -36,6 +38,7 @@
     display: flex;
     flex-direction: column;
     cursor: none;
+    margin-right: 30px;
 
     .gallery-item-img-wrap {
       width: 100%;
