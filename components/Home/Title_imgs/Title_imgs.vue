@@ -1,6 +1,6 @@
 <template>
   <div class="main-page_title-imgs__container">
-    <div class="block-wrap">
+    <div class="block-wrap" :style="`opacity: ${APP_SCROLL_VALUE > APP_WINDOW_SIZE.height * 3 ? 0 : 1}`">
       <div :class="'block block-fixed'">
         <div
           class="start-span_with-logo_wrap"
@@ -27,7 +27,7 @@
              :src="TitleImg_1">
       </div>
     </div>
-    <div v-if="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
+    <div v-show="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
       <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (this.APP_WINDOW_SIZE.height + 2 * 1000 - 100))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item
@@ -66,7 +66,7 @@
       </div>
     </div>
 
-    <div v-if="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
+    <div v-show="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
       <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (2 * this.APP_WINDOW_SIZE.height + 3 * 1000 - 100))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We are uptimists."
@@ -112,7 +112,7 @@
       </div>
     </div>
 
-    <div v-if="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
+    <div v-show="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
       <div :class="['block']">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We see unlimited posibilities"
