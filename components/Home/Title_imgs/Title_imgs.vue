@@ -1,6 +1,6 @@
 <template>
   <div class="main-page_title-imgs__container">
-    <div class="block-wrap" :style="`opacity: ${APP_SCROLL_VALUE > APP_WINDOW_SIZE.height * 3 ? 0 : 1}`">
+    <div class="block-wrap">
       <div :class="'block block-fixed'">
         <div
           class="start-span_with-logo_wrap"
