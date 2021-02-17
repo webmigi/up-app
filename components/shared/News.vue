@@ -1,7 +1,7 @@
 <template>
-  <div :class="['news-block', {'people__news-block': this.$route.path==='/People'}]">
+  <div :class="['news-block', {'people__news-block': $route.path==='/people'}]">
       <div class="custom-cursor"
-           :style="cursorCircle">
+           :style="cursorCircle" v-if="APP_WINDOW_SIZE.width > 1024">
         <transition name="cursor-change">
           <svg v-if="GALLERY_CURSOR_ACTIVE" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="200" height="200" rx="100" fill="black"/>
@@ -57,7 +57,7 @@
             }
         },
         computed: {
-          ...mapGetters("app", ["GALLERY_CURSOR_ACTIVE", "WINDOW_CURSOR"]),
+          ...mapGetters("app", ["GALLERY_CURSOR_ACTIVE", "WINDOW_CURSOR", "APP_WINDOW_SIZE"]),
 
           cursorCircle() {
             return `transform: translateX(${this.WINDOW_CURSOR.x}px) translateY(${this.WINDOW_CURSOR.y}px);`

@@ -21,7 +21,7 @@
           <Image_Scale_Block
             :img="item.img"
             appointment="project"
-            :opacity="{offset: index === 1 || index === 3 ? 400 : 0}"
+            :opacity="{offset: index === (checkProjectPage ? 2 : 1) || index === (checkProjectPage ? 4 : 3) ? 400 : 0}"
           />
           <div class="item-project-title item-project-title-text">
             {{item.title}}

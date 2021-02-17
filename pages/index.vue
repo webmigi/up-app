@@ -18,8 +18,6 @@
     import Studio from "../components/shared/Studio";
     import Projects from "../components/shared/Projects";
     import News from "../components/shared/News";
-
-
     export default {
         name: 'App',
         components: {Title_imgs, Studio, Projects, News},

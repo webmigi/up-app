@@ -5,7 +5,7 @@
         <div
           class="start-span_with-logo_wrap"
           ref="startSpanWithLogoWrap"
-          :style="'top: calc((95% / 2) + '+ (LOGO_START_HEIGHT / 2 - startSpanWithLogoWrapHeight / 2) +'px);'"
+          :style="'top: calc((' + (APP_WINDOW_SIZE.width > 1024 ? 93 : 95) + '% / 2) + '+ (LOGO_START_HEIGHT / 2 - startSpanWithLogoWrapHeight / 2) +'px);'"
         >
           <transition-group tag="div" class="translateY-group" name="translateY-opacity">
             <start_span_item
