@@ -63,6 +63,7 @@
                     width: window.innerWidth,
                     height: window.innerHeight
                 };
+                console.log(windowSize)
                 document.documentElement.style.setProperty(
                     "--winWidth",
                     `${windowSize.width}px`
@@ -90,7 +91,6 @@
     display: flex;
     justify-content: center;
     font-family: 'Source Sans Pro';
-    width: 100vw;
     min-height: 100vh;
     height: max-content;
     overflow-x: hidden;
@@ -103,8 +103,8 @@
   }
 
   body {
-    width: var(--winWidth);
-    /*max-width: 1920px;*/
+    width: 100%;
+    overflow: hidden;
   }
 
   .header-wrap {
