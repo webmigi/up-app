@@ -1,164 +1,222 @@
 <template>
-  <div :class="['news-block', {'people__news-block': $route.path==='/people'}]">
-      <div class="custom-cursor"
-           :style="cursorCircle" v-if="APP_WINDOW_SIZE.width > 1024">
+  <client-only>
+    <div
+      :class="[
+        'news-block',
+        { 'people__news-block': $route.path === '/people' }
+      ]"
+    >
+      <div
+        class="custom-cursor"
+        :style="cursorCircle"
+        v-if="APP_WINDOW_SIZE.width > 1024"
+      >
         <transition name="cursor-change">
-          <svg v-if="GALLERY_CURSOR_ACTIVE" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="200" rx="100" fill="black"/>
+          <svg
+            v-if="GALLERY_CURSOR_ACTIVE"
+            viewBox="0 0 200 200"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="200" height="200" rx="100" fill="black" />
             <path
               d="M180.707 102.707C181.098 102.317 181.098 101.683 180.707 101.293L174.343 94.9289C173.953 94.5384 173.319 94.5384 172.929 94.9289C172.538 95.3195 172.538 95.9526 172.929 96.3431L178.586 102L172.929 107.657C172.538 108.047 172.538 108.681 172.929 109.071C173.319 109.462 173.953 109.462 174.343 109.071L180.707 102.707ZM160 103L180 103L180 101L160 101L160 103Z"
-              fill="#E5E5E5"/>
+              fill="#E5E5E5"
+            />
             <path
               d="M19.2929 101.293C18.9024 101.683 18.9024 102.317 19.2929 102.707L25.6569 109.071C26.0474 109.462 26.6805 109.462 27.0711 109.071C27.4616 108.681 27.4616 108.047 27.0711 107.657L21.4142 102L27.0711 96.3431C27.4616 95.9526 27.4616 95.3195 27.0711 94.9289C26.6805 94.5384 26.0474 94.5384 25.6569 94.9289L19.2929 101.293ZM40 101L20 101L20 103L40 103L40 101Z"
-              fill="#E5E5E5"/>
+              fill="#E5E5E5"
+            />
             <path
               d="M61.6777 110C61.5177 110 61.3817 109.944 61.2697 109.832C61.1577 109.72 61.1017 109.584 61.1017 109.424V93.8C61.1017 93.624 61.1497 93.48 61.2457 93.368C61.3577 93.256 61.5017 93.2 61.6777 93.2H67.5337C72.2377 93.2 74.6377 95.376 74.7337 99.728C74.7657 100.656 74.7817 101.28 74.7817 101.6C74.7817 101.904 74.7657 102.52 74.7337 103.448C74.6697 105.688 74.0697 107.344 72.9337 108.416C71.7977 109.472 70.0377 110 67.6537 110H61.6777ZM67.5337 107.24C68.8777 107.24 69.8457 106.944 70.4377 106.352C71.0297 105.744 71.3417 104.752 71.3737 103.376C71.4057 102.416 71.4217 101.816 71.4217 101.576C71.4217 101.32 71.4057 100.728 71.3737 99.8C71.3417 98.488 71.0057 97.52 70.3657 96.896C69.7417 96.272 68.7577 95.96 67.4137 95.96H64.4377V107.24H67.5337ZM83.3527 110C83.1927 110 83.0567 109.944 82.9447 109.832C82.8327 109.72 82.7767 109.584 82.7767 109.424V93.8C82.7767 93.624 82.8247 93.48 82.9207 93.368C83.0327 93.256 83.1767 93.2 83.3527 93.2H89.5687C91.5207 93.2 93.0487 93.656 94.1527 94.568C95.2727 95.48 95.8327 96.776 95.8327 98.456C95.8327 99.624 95.5447 100.608 94.9687 101.408C94.4087 102.192 93.6247 102.76 92.6167 103.112L96.1207 109.232C96.1687 109.328 96.1927 109.416 96.1927 109.496C96.1927 109.64 96.1367 109.76 96.0247 109.856C95.9287 109.952 95.8167 110 95.6887 110H93.5047C93.2487 110 93.0487 109.944 92.9047 109.832C92.7767 109.72 92.6567 109.56 92.5447 109.352L89.4487 103.664H86.1127V109.424C86.1127 109.584 86.0567 109.72 85.9447 109.832C85.8487 109.944 85.7127 110 85.5367 110H83.3527ZM89.4967 100.952C90.4567 100.952 91.1767 100.736 91.6567 100.304C92.1527 99.872 92.4007 99.248 92.4007 98.432C92.4007 97.616 92.1527 96.984 91.6567 96.536C91.1767 96.088 90.4567 95.864 89.4967 95.864H86.1127V100.952H89.4967ZM102.693 110C102.565 110 102.445 109.952 102.333 109.856C102.237 109.76 102.189 109.64 102.189 109.496L102.237 109.28L108.021 93.8C108.133 93.4 108.413 93.2 108.861 93.2H111.477C111.893 93.2 112.173 93.4 112.317 93.8L118.101 109.28C118.117 109.328 118.125 109.4 118.125 109.496C118.125 109.64 118.077 109.76 117.981 109.856C117.885 109.952 117.773 110 117.645 110H115.557C115.349 110 115.189 109.952 115.077 109.856C114.965 109.76 114.893 109.656 114.861 109.544L113.733 106.616H106.605L105.477 109.544C105.349 109.848 105.117 110 104.781 110H102.693ZM112.893 103.856L110.157 96.44L107.445 103.856H112.893ZM131.366 110.24C129.174 110.24 127.462 109.672 126.23 108.536C125.014 107.4 124.366 105.816 124.286 103.784C124.27 103.32 124.262 102.576 124.262 101.552C124.262 100.528 124.27 99.784 124.286 99.32C124.366 97.336 125.022 95.784 126.254 94.664C127.502 93.528 129.206 92.96 131.366 92.96C132.838 92.96 134.102 93.208 135.158 93.704C136.214 94.2 137.014 94.824 137.558 95.576C138.102 96.312 138.39 97.04 138.422 97.76V97.808C138.422 97.936 138.374 98.048 138.278 98.144C138.182 98.224 138.062 98.264 137.918 98.264H135.446C135.286 98.264 135.166 98.24 135.086 98.192C135.006 98.128 134.934 98.024 134.87 97.88C134.646 97.288 134.254 96.784 133.694 96.368C133.134 95.936 132.358 95.72 131.366 95.72C130.246 95.72 129.366 96.024 128.726 96.632C128.102 97.24 127.766 98.176 127.718 99.44C127.702 99.904 127.694 100.608 127.694 101.552C127.694 102.48 127.702 103.184 127.718 103.664C127.814 106.208 129.046 107.48 131.414 107.48C132.55 107.48 133.462 107.176 134.15 106.568C134.838 105.944 135.182 105.024 135.182 103.808V103.064H132.254C132.078 103.064 131.934 103.008 131.822 102.896C131.726 102.784 131.678 102.64 131.678 102.464V101.192C131.678 101.016 131.726 100.872 131.822 100.76C131.934 100.648 132.078 100.592 132.254 100.592H137.99C138.166 100.592 138.302 100.648 138.398 100.76C138.51 100.872 138.566 101.016 138.566 101.192V103.712C138.566 105.04 138.27 106.2 137.678 107.192C137.102 108.168 136.27 108.92 135.182 109.448C134.094 109.976 132.822 110.24 131.366 110.24Z"
-              fill="#E5E5E5"/>
+              fill="#E5E5E5"
+            />
           </svg>
         </transition>
       </div>
-    <span class="main-page__content-title-position block-title title">news</span>
-    <div v-if="this.$route.path==='/People'" class="content-title">Publications</div>
-    <Gallery :data="galleryData"/>
-  </div>
+      <span class="main-page__content-title-position block-title title"
+        >news</span
+      >
+      <div v-if="this.$route.path === '/People'" class="content-title">
+        Publications
+      </div>
+      <Gallery :data="galleryData" />
+    </div>
+  </client-only>
 </template>
 
 <script>
-    import {mapActions, mapGetters} from 'vuex'
+import { mapActions, mapGetters } from "vuex";
 
-    import Gallery from "./Gallery/Gallery";
+import Gallery from "./Gallery/Gallery";
 
-    import galleryImg1 from "@/static/images/Home/News/News1.jpg"
-    import galleryImg2 from "@/static/images/Home/News/News2.jpg"
-    import galleryImg3 from "@/static/images/Home/News/News3.jpg"
-    import galleryImg4 from "@/static/images/Home/News/News4.jpg"
-    import galleryImg5 from "@/static/images/Home/News/News5.jpg"
-    import galleryImg6 from "@/static/images/Home/News/News6.jpg"
-    import galleryImg7 from "@/static/images/Home/News/News7.jpg"
-    import galleryImg8 from "@/static/images/Home/News/News8.jpg"
+import galleryImg1 from "@/static/images/Home/News/News1.jpg";
+import galleryImg2 from "@/static/images/Home/News/News2.jpg";
+import galleryImg3 from "@/static/images/Home/News/News3.jpg";
+import galleryImg4 from "@/static/images/Home/News/News4.jpg";
+import galleryImg5 from "@/static/images/Home/News/News5.jpg";
+import galleryImg6 from "@/static/images/Home/News/News6.jpg";
+import galleryImg7 from "@/static/images/Home/News/News7.jpg";
+import galleryImg8 from "@/static/images/Home/News/News8.jpg";
 
-    export default {
-        name: 'News',
-        components: {
-            Gallery
+export default {
+  name: "News",
+  components: {
+    Gallery
+  },
+  data() {
+    return {
+      galleryData: [
+        {
+          img: galleryImg1,
+          title: "We work with an open mind",
+          date: "11.04.2020"
         },
-        data() {
-            return {
-                galleryData: [
-                    {img: galleryImg1, title: 'We work with an open mind', date: '11.04.2020'},
-                    {img: galleryImg2, title: 'We work with an open mind', date: '11.04.2020'},
-                    {img: galleryImg3, title: 'We work with an open mind', date: '11.04.2020'},
-                    {img: galleryImg4, title: 'We work with an open mind', date: '11.04.2020'},
-                    {img: galleryImg5, title: 'We work with an open mind', date: '11.04.2020'},
-                    {img: galleryImg6, title: 'We work with an open mind', date: '11.04.2020'},
-                    {img: galleryImg7, title: 'We work with an open mind', date: '11.04.2020'},
-                    {img: galleryImg8, title: 'We work with an open mind', date: '11.04.2020'}
-                ]
-            }
+        {
+          img: galleryImg2,
+          title: "We work with an open mind",
+          date: "11.04.2020"
         },
-        computed: {
-          ...mapGetters("app", ["GALLERY_CURSOR_ACTIVE", "WINDOW_CURSOR", "APP_WINDOW_SIZE"]),
+        {
+          img: galleryImg3,
+          title: "We work with an open mind",
+          date: "11.04.2020"
+        },
+        {
+          img: galleryImg4,
+          title: "We work with an open mind",
+          date: "11.04.2020"
+        },
+        {
+          img: galleryImg5,
+          title: "We work with an open mind",
+          date: "11.04.2020"
+        },
+        {
+          img: galleryImg6,
+          title: "We work with an open mind",
+          date: "11.04.2020"
+        },
+        {
+          img: galleryImg7,
+          title: "We work with an open mind",
+          date: "11.04.2020"
+        },
+        {
+          img: galleryImg8,
+          title: "We work with an open mind",
+          date: "11.04.2020"
+        }
+      ]
+    };
+  },
+  computed: {
+    ...mapGetters("app", [
+      "GALLERY_CURSOR_ACTIVE",
+      "WINDOW_CURSOR",
+      "APP_WINDOW_SIZE"
+    ]),
 
-          cursorCircle() {
-            return `transform: translateX(${this.WINDOW_CURSOR.x}px) translateY(${this.WINDOW_CURSOR.y}px);`
-          }
-        },
+    cursorCircle() {
+      return `transform: translateX(${this.WINDOW_CURSOR.x}px) translateY(${this.WINDOW_CURSOR.y}px);`;
     }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-  .cursor-change-enter-active, .cursor-change-leave-active {
-    transition: .2s;
+.cursor-change-enter-active,
+.cursor-change-leave-active {
+  transition: 0.2s;
+}
+.cursor-change-enter, .cursor-change-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  transform: scale(0);
+}
+.news-block {
+  background: #e8e8e8;
+  padding-bottom: 103px;
+
+  .custom-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    pointer-events: none;
+    z-index: 1500;
+    opacity: 1;
+
+    svg {
+      position: relative;
+      left: -50%;
+      top: -50%;
+      width: 100%;
+      height: 100%;
+    }
   }
-  .cursor-change-enter, .cursor-change-leave-to /* .fade-leave-active до версии 2.1.8 */ {
-    transform: scale(0);
+
+  .title {
+    margin-bottom: 102px;
+    margin-top: 78px;
+    display: block;
   }
+}
+
+.people__news-block {
+  margin-top: 323px;
+  background: #ffffff;
+
+  .title {
+    margin-bottom: 83px;
+  }
+
+  .content-title {
+    margin-left: var(--main-big-margin);
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
   .news-block {
-    background: #E8E8E8;
-    padding-bottom: 103px;
-
-    .custom-cursor {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200px;
-      height: 200px;
-      pointer-events: none;
-      z-index: 1500;
-      opacity: 1;
-
-      svg {
-        position: relative;
-        left: -50%;
-        top: -50%;
-        width: 100%;
-        height: 100%;
-
-      }
-    }
+    padding-bottom: 56px;
 
     .title {
-      margin-bottom: 102px;
-      margin-top: 78px;
-      display: block;
+      margin-bottom: 52px;
+      margin-top: 32px;
     }
   }
-
   .people__news-block {
-    margin-top: 323px;
-    background: #FFFFFF;
+    margin-top: 158px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .news-block {
+    padding-bottom: 70px;
 
     .title {
-      margin-bottom: 83px;
+      margin-bottom: 66px;
+      margin-top: 18px;
     }
+  }
+  .people__news-block {
+    margin-top: 90px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .people__news-block {
+    margin-top: 108px;
 
     .content-title {
-      margin-left: var(--main-big-margin);
-      margin-bottom: 32px;
+      margin-bottom: 44px;
     }
   }
+}
 
-  @media screen and (max-width: 1280px) {
-    .news-block {
-      padding-bottom: 56px;
-
-      .title {
-        margin-bottom: 52px;
-        margin-top: 32px;
-      }
-    }
-    .people__news-block {
-      margin-top: 158px;
-    }
+@media screen and (max-width: 428px) {
+  .news-block {
+    padding-bottom: 77px;
   }
-
-  @media screen and (max-width: 1024px) {
-    .news-block {
-      padding-bottom: 70px;
-
-      .title {
-        margin-bottom: 66px;
-        margin-top: 18px;
-      }
-    }
-    .people__news-block {
-      margin-top: 90px;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .people__news-block {
-      margin-top: 108px;
-
-      .content-title {
-        margin-bottom: 44px;
-      }
-    }
-  }
-
-  @media screen and (max-width: 428px) {
-    .news-block {
-      padding-bottom: 77px;
-    }
-  }
+}
 </style>
