@@ -24,7 +24,8 @@ export default {
 
   plugins: [
     { src: "~/plugins/vue-intersect.js", ssr: false },
-    { src: "./plugins/vue-slick-carousel.js" }
+    { src: "./plugins/vue-slick-carousel.js" },
+    { src: '@/plugins/VueAwesomeSwiper', ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

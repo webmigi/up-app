@@ -1,6 +1,6 @@
 <template>
   <div class="header" ref="header_component" v-show="!MODAL_IMG_IS_ACTIVE">
-    <nuxt-link to="/">
+    <nuxt-link :to="{path: '/', hash: '#'}">
       <div :class="logoClasses"
            ref="headerLogo"
            :style="'transform: translate('+logoTranslateX+'px, '+logoTranslateY+'px); width: '+logoWidth+'px;'"
@@ -54,10 +54,10 @@
             ]),
 
             logoStartScroll() {
-                return (this.APP_WINDOW_SIZE.height / 2) + 1000
+                return (this.APP_WINDOW_SIZE.height / 2)
             },
             logoFinishScroll() {
-                return (this.APP_WINDOW_SIZE.height + 1000)
+                return (this.APP_WINDOW_SIZE.height)
             },
             setStartPositionX() {
                 return this.APP_WINDOW_SIZE.width <= 1024 ?

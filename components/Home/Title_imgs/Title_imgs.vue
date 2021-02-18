@@ -28,32 +28,32 @@
       </div>
     </div>
     <div v-show="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
-      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (this.APP_WINDOW_SIZE.height + 2 * 1000 - 100))}]">
+      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE > (this.APP_WINDOW_SIZE.height))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item
             text="We are up."
-            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5)
-            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*2)
+            :startTransformScroll=Number((this.APP_WINDOW_SIZE.height)+1000/5)
+            :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height)+1000/5*2)
             :startOpacityZero="true"
             textStyleClass="start-text"
           />
           <start_span_item text="We create architecture"
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*2)
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*3)
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height)+1000/5*2)
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height)+1000/5*3)
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
 
           <start_span_item text="and interiors"
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*3)
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*4)
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height)+1000/5*3)
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height)+1000/5*4)
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
           <nuxt-link to="/Project">
           <start_span_item text="explore our projects "
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*4)
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height+1000)+1000/5*5)
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height)+1000/5*4)
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height)+1000/5*5)
                            :startOpacityZero="true"
                            :button-active=true
                            textStyleClass="small-text"
@@ -67,17 +67,17 @@
     </div>
 
     <div v-show="APP_WINDOW_SIZE.width > 1024" class="block-wrap">
-      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (2 * this.APP_WINDOW_SIZE.height + 3 * 1000 - 100))}]">
+      <div :class="['block', {'block-fixed': (this.APP_SCROLL_VALUE> (2 * this.APP_WINDOW_SIZE.height + 1000))}]">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We are uptimists."
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6))
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*2))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+1000)+(1000/6))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+1000)+(1000/6*2))
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
           <start_span_item text="We create a positive"
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*2))
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*3))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+1000)+(1000/6*2))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+1000)+(1000/6*3))
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
@@ -85,14 +85,14 @@
 <!--           (this.APP_WINDOW_SIZE.height*2+2000) - all way to start scroll this images block (get from Artem and figma);-->
 <!--           (1000/6*2) - 1000px - scroll way all string in this images block; 6 - all spans path; *2 - current span path for this span (start or end)-->
           <start_span_item text="design process,"
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*3))
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*4))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+1000)+(1000/6*3))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+1000)+(1000/6*4))
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
           <start_span_item text="building is fun"
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*4))
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+2000)+(1000/6*5))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+1000)+(1000/6*4))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*2+1000)+(1000/6*5))
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
@@ -116,27 +116,27 @@
       <div :class="['block']">
         <div class="start-span_with-logo_wrap start-span_wrap">
           <start_span_item text="We see unlimited posibilities"
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5))
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*2))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+2000)+(1000/5))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+2000)+(1000/5*2))
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
           <start_span_item text="We work with an open mind"
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*2))
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*3))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+2000)+(1000/5*2))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+2000)+(1000/5*3))
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
           <start_span_item text="Everything is possible "
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*3))
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*4))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+2000)+(1000/5*3))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+2000)+(1000/5*4))
                            :startOpacityZero="true"
                            textStyleClass="start-text"
           />
           <nuxt-link to="/Process">
           <start_span_item text="learn more about our process"
-                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*4))
-                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+3000)+(1000/5*5))
+                           :startTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+2000)+(1000/5*4))
+                           :finishTransformScroll=Number((this.APP_WINDOW_SIZE.height*3+2000)+(1000/5*5))
                            :startOpacityZero="true"
                            :button-active=true
                            textStyleClass="small-text"
@@ -227,6 +227,10 @@
     display: flex;
     flex-direction: column;
     z-index: 500;
+
+    .block-wrap:first-child {
+      height: var(--winHeight);
+    }
 
     .block-wrap {
       position: relative;

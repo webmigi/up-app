@@ -3,7 +3,10 @@
     <span class="main-page__content-title-position block-title">studio</span>
     <div class="studio_content-block">
       <div class="studio_img-wrap">
-        <Image_Scale_Block :opacity="true" :img="ContentImg"/>
+        <ScrollScaleOpacity>
+          <img :src="ContentImg" alt="">
+        </ScrollScaleOpacity>
+<!--        <Image_Scale_Block :opacity="true" :img="ContentImg"/>-->
       </div>
       <div class="studio_text-block__wrap">
         <div :class="['studio_text-block', {'studio-people_text-block':this.$route.path === '/People'}]">
@@ -32,10 +35,11 @@
     import Image_Scale_Block from "./Image_Scale_Block";
     import Content_btn from "./elements/Content_btn";
     import ContentImg from '@/static/images/Home/Studio/content.jpg'
+    import ScrollScaleOpacity from '@/components/ScrollScaleOpacity'
 
     export default {
         name: 'Studio',
-        components: {Image_Scale_Block, Content_btn},
+        components: {Image_Scale_Block, Content_btn, ScrollScaleOpacity},
         data() {
             return {
                 ContentImg

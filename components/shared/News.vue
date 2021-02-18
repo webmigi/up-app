@@ -3,7 +3,8 @@
     <div
       :class="[
         'news-block',
-        { 'people__news-block': $route.path === '/people' }
+        { 'people__news-block': $route.path === '/people' },
+        { 'cursor': cursor }
       ]"
     >
       <div
@@ -13,7 +14,7 @@
       >
         <transition name="cursor-change">
           <svg
-            v-if="GALLERY_CURSOR_ACTIVE"
+            v-if="cursor"
             viewBox="0 0 200 200"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +41,13 @@
       <div v-if="this.$route.path === '/People'" class="content-title">
         Publications
       </div>
-      <Gallery :data="galleryData" />
+      <div class="wrap"
+           @mouseover="cursor = !cursor"
+           @mouseout="cursor = !cursor"
+      >
+        <h1>txtx</h1>
+        <Gallery :data="galleryData" />
+      </div>
     </div>
   </client-only>
 </template>
@@ -66,6 +73,7 @@ export default {
   },
   data() {
     return {
+      cursor: false,
       galleryData: [
         {
           img: galleryImg1,
@@ -120,6 +128,9 @@ export default {
     cursorCircle() {
       return `transform: translateX(${this.WINDOW_CURSOR.x}px) translateY(${this.WINDOW_CURSOR.y}px);`;
     }
+  },
+  methods: {
+    ...mapActions('app', ['setGalleryCursorActive']),
   }
 };
 </script>

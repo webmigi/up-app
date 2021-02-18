@@ -81,7 +81,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .projects-block {
     width: 100%;
     display: flex;
@@ -122,6 +122,10 @@
         height: 840px;
         margin-bottom: var(--main-very-mini-margin);
         display: flex;
+
+        & .image-scale-block_wrap .image-scale-img {
+          cursor: pointer;
+        }
 
 
         .item-project-title {

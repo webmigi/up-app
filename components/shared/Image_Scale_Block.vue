@@ -1,7 +1,10 @@
 <template>
   <div class="image-scale-block_wrap" ref="imageScaleElement">
       <client-only>
-        <intersect @enter.once="(scaleStartScroll = APP_SCROLL_VALUE),(scaleStartScrollActive = true)">
+        <intersect
+          @enter.once="(scaleStartScroll = APP_SCROLL_VALUE), (scaleStartScrollActive = true)"
+          @leave.once="(scaleStartScroll = APP_SCROLL_VALUE), (scaleStartScrollActive = false)"
+        >
           <div :class="imageScaleImgClasses" :style="'transform: scale('+this.imgScale+'); opacity: '+this.imgOpacity+'; background-image: url('+img+')'">
           </div>
         </intersect>
@@ -55,7 +58,7 @@
                   if(this.APP_SCROLL_VALUE > ((startScroll + offset) + this.$refs.imageScaleElement.offsetHeight)) {
                     value = 1;
                   } else {
-                     value = (this.APP_SCROLL_VALUE - (startScroll + offset)) / this.$refs.imageScaleElement.offsetHeight
+                    value = (this.APP_SCROLL_VALUE - (startScroll + offset)) / this.$refs.imageScaleElement.offsetHeight
                   }
                 } else {
                   value = 0;
@@ -79,7 +82,7 @@
     }
 </script>
 
-<style lang="scss" >
+<style lang="scss">
   .image-scale-block_wrap {
     position: relative;
     width: 100%;

@@ -2,10 +2,7 @@
   <div>
   <div class="gallery-item">
 
-    <div class="gallery-item-img-wrap"
-         @mouseover="setGalleryCursorActive(true)"
-         @mouseout="setGalleryCursorActive(false)"
-    >
+    <div class="gallery-item-img-wrap">
 <!--      <Image_Scale_Block :img="imgProps" :appointment="'news'"/>-->
       <img :src="imgProps" alt="">
     </div>
@@ -32,9 +29,7 @@
         name: "Gallery_item",
         components: {Image_Scale_Block},
         props: ["imgProps", "titleProps", "dateProps"],
-        methods: {
-          ...mapActions('app', ['setGalleryCursorActive']),
-        }
+
     };
 </script>
 
@@ -44,8 +39,6 @@
     position: relative;
     width: 375px;
     height: 440px;
-    margin-right: 20px;
-    padding-left: 10px;
     display: flex;
     flex-direction: column;
 
@@ -53,7 +46,6 @@
       width: 100%;
       height: 340px;
       overflow: hidden;
-      cursor: none;
       &:hover img {
         transform: scale(1.2);
       }
