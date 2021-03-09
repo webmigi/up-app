@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: `http://ovz13.dwynn-dev.me2jm.vps.myjino.ru/`,
+  baseURL: `https://ovz13.dwynn-dev.me2jm.vps.myjino.ru/`,
   withCredentials: false,
   headers: {
     Accept: 'application/json',

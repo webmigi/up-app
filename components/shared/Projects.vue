@@ -58,10 +58,10 @@
 
     async fetch() {
       this.projectsList = await fetch(
-        'http://ovz13.dwynn-dev.me2jm.vps.myjino.ru/projects-lists',
+        'https://ovz13.dwynn-dev.me2jm.vps.myjino.ru/projects-lists',
       ).then(res => res.json());
       this.projectsPage = await fetch(
-        'http://ovz13.dwynn-dev.me2jm.vps.myjino.ru/project',
+        'https://ovz13.dwynn-dev.me2jm.vps.myjino.ru/project',
       ).then(res => res.json());
     },
 
@@ -73,7 +73,7 @@
     },
     methods: {
       getUrl(url) {
-        return `http://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+        return `https://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
       },
       bigClass(idx) {
         return idx === 0 || idx === 5;

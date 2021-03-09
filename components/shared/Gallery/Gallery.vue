@@ -29,7 +29,7 @@
 
     async fetch() {
       this.news = await fetch(
-        'http://ovz13.dwynn-dev.me2jm.vps.myjino.ru/news-lists',
+        'https://ovz13.dwynn-dev.me2jm.vps.myjino.ru/news-lists',
       ).then(res => res.json());
     },
 

@@ -51,7 +51,7 @@
     },
     methods: {
       getUrl(url) {
-        return `http://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+        return `https://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
       },
     },
   };
