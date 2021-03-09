@@ -1,19 +1,26 @@
 <template>
-  <button :class="['content-btn-text', 'content-btn', {'content-btn-jobs': place === 'jobs'}, {'start-bat-span': place==='start-span'}]">
-    {{title}}
+  <button
+    :class="[
+      'content-btn-text',
+      'content-btn',
+      { 'content-btn-jobs': place === 'jobs' },
+      { 'start-bat-span': place === 'start-span' },
+    ]"
+  >
+    {{ title }}
   </button>
 </template>
 
 <script>
-    export default {
-        name: "Content-btn",
-        props: ['title', 'place'],
-        // computed:{
-        //     currentHref(){
-        //      return this.href !== undefined ? this.href : this.$route.path
-        //     }
-        // }
-    }
+  export default {
+    name: 'Content-btn',
+    props: ['title', 'place'],
+    // computed:{
+    //     currentHref(){
+    //      return this.href !== undefined ? this.href : this.$route.path
+    //     }
+    // }
+  };
 </script>
 
 <style lang="scss" scoped>
@@ -28,7 +35,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      width: 50%;
+      width: 0;
       height: 4px;
       background-color: #000000;
       transition: width 0.3s;
@@ -39,8 +46,8 @@
     }
   }
 
-  @media screen and (max-width: 428px){
-    .content-btn-jobs{
+  @media screen and (max-width: 428px) {
+    .content-btn-jobs {
       font-size: 14px;
     }
   }

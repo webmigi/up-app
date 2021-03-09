@@ -5,41 +5,35 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   css: [
-    "./assets/fonts/HelveticaNeueCyr/HelveticaNeueCyr.css",
-    "./assets/styles/reset.scss",
-    "./assets/styles/text.scss",
-    "./assets/styles/main.scss",
-    "./assets/styles/process.scss",
-    "./assets/styles/item_project.scss",
-    "vue-slick-carousel/dist/vue-slick-carousel.css"
+    './assets/fonts/HelveticaNeueCyr/HelveticaNeueCyr.css',
+    './assets/styles/reset.scss',
+    './assets/styles/text.scss',
+    './assets/styles/main.scss',
+    './assets/styles/process.scss',
+    './assets/styles/item_project.scss',
+    'swiper/css/swiper.css',
   ],
 
   plugins: [
-    { src: "~/plugins/vue-intersect.js", ssr: false },
-    { src: "./plugins/vue-slick-carousel.js" },
-    { src: '@/plugins/VueAwesomeSwiper', ssr: false },
+    { src: '~/plugins/vue-intersect.js', ssr: false },
+    { src: '~/plugins/vue-awesome-swiper', mode: 'client' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-  buildModules: [
-  ],
+  buildModules: [],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [
-  ],
+  modules: [],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {
-  }
-}
+  build: {},
+};

@@ -1,108 +1,191 @@
 <template>
   <div class="project-content">
-    <div v-if="project.styleType===1" class="content-type-1">
-      <div class="content-type-1_img-wrap
+    <div
+      v-if="project['__component'] === 'project-style-type.style-1'"
+      class="content-type-1"
+    >
+      <div
+        class="content-type-1_img-wrap
        item-project_img-wrap_height"
-      @click="setModalImgIsActive">
-        <Image_Scale_Block :img="project.img[0]" appointment="project"/>
+        @click="setModalImgIsActive"
+      >
+        <ScrollAnimation :opacity="false" cover>
+          <img :src="getUrl(project.image.url)" alt="" />
+        </ScrollAnimation>
       </div>
-      <p v-if="project.description!== undefined"
-         class="item-project_img-description_width
+      <p
+        v-if="project.description !== undefined"
+        class="item-project_img-description_width
          item-project_img-description_margin-top
-         content-p">
-        {{project.description}}
+         content-p"
+      >
+        {{ project.description }}
       </p>
     </div>
 
-    <div v-if="project.styleType===2" class="content-type-2">
-      <div class="content-type-2_img-wrap
-                 item-project_img-wrap_height">
-        <Image_Scale_Block :img="project.img[0]" appointment="project"/>
+    <div
+      v-if="project['__component'] === 'project-style-type.style-2'"
+      class="content-type-2"
+    >
+      <div
+        class="content-type-2_img-wrap
+                 item-project_img-wrap_height"
+      >
+        <ScrollAnimation :opacity="false" cover>
+          <img :src="getUrl(project.image.url)" alt="" />
+        </ScrollAnimation>
       </div>
-      <p v-if="project.description!== undefined"
-         class="item-project_img-description_width
+      <p
+        v-if="project.description !== undefined"
+        class="item-project_img-description_width
          item-project_img-description_margin-top
-         content-p">
-        {{project.description}}
+         content-p"
+      >
+        {{ project.description }}
       </p>
     </div>
 
-    <div v-if="project.styleType===3" class="content-type-3">
+    <div
+      v-if="project['__component'] === 'project-style-type.style-3'"
+      class="content-type-3"
+    >
       <div class="span-1">
         <div class="content-type-3_column-1">
-          <div :class="['content-type-3_img-wrap-1', {'item-project_img-wrap_height': APP_WINDOW_SIZE.width<=1280}]">
-            <Image_Scale_Block :img="project.img[0]" appointment="project"/>
+          <div
+            :class="[
+              'content-type-3_img-wrap-1',
+              { 'item-project_img-wrap_height': APP_WINDOW_SIZE.width <= 1280 },
+            ]"
+          >
+            <ScrollAnimation :opacity="false" cover>
+              <img :src="getUrl(project.image_1.url)" alt="" />
+            </ScrollAnimation>
           </div>
-          <p v-if="project.description!== undefined"
-             class="item-project_img-description_margin-top
-         content-p">
-            {{project.description}}
+          <p
+            v-if="project.description !== undefined"
+            class="item-project_img-description_margin-top
+         content-p"
+          >
+            {{ project.description }}
           </p>
         </div>
         <div class="content-type-3_column-2">
-          <div :class="['content-type-3_img-wrap-2', {'item-project_img-wrap_height': APP_WINDOW_SIZE.width<=1280}]">
-            <Image_Scale_Block :img="project.img[1]" appointment="project"/>
+          <div
+            :class="[
+              'content-type-3_img-wrap-2',
+              { 'item-project_img-wrap_height': APP_WINDOW_SIZE.width <= 1280 },
+            ]"
+          >
+            <ScrollAnimation :opacity="false" cover>
+              <img :src="getUrl(project.image_2.url)" alt="" />
+            </ScrollAnimation>
           </div>
         </div>
       </div>
       <div class="span-2">
-        <div :class="['content-type-3_img-wrap-3', {'item-project_img-wrap_height': APP_WINDOW_SIZE.width<=1280}]">
-          <Image_Scale_Block :img="project.img[2]" appointment="project"/>
+        <div
+          :class="[
+            'content-type-3_img-wrap-3',
+            { 'item-project_img-wrap_height': APP_WINDOW_SIZE.width <= 1280 },
+          ]"
+        >
+          <ScrollAnimation :opacity="false" cover>
+            <img :src="getUrl(project.image_3.url)" alt="" />
+          </ScrollAnimation>
         </div>
       </div>
     </div>
 
-    <div v-if="project.styleType===4" class="content-type-4">
-      <div :class="['content-type-4_img-wrap', {'item-project_img-wrap_height': APP_WINDOW_SIZE.width<=1280}]">
-        <Image_Scale_Block :img="project.img[0]" appointment="project"/>
+    <div
+      v-if="project['__component'] === 'project-style-type.style-4'"
+      class="content-type-4"
+    >
+      <div
+        :class="[
+          'content-type-4_img-wrap',
+          { 'item-project_img-wrap_height': APP_WINDOW_SIZE.width <= 1280 },
+        ]"
+      >
+        <ScrollAnimation :opacity="false" cover>
+          <div
+            class="background-fixed"
+            :style="`background-image: url(${getUrl(project.image.url)})`"
+          ></div>
+        </ScrollAnimation>
       </div>
     </div>
 
-    <div v-if="project.styleType===5" class="content-type-5">
-      <div :class="['content-type-5_img-wrap', {'item-project_img-wrap_height': APP_WINDOW_SIZE.width<=1280}]">
-        <Image_Scale_Block :img="project.img[0]" appointment="project"/>
+    <div
+      v-if="project['__component'] === 'project-style-type.style-5'"
+      class="content-type-5"
+    >
+      <div
+        :class="[
+          'content-type-5_img-wrap',
+          { 'item-project_img-wrap_height': APP_WINDOW_SIZE.width <= 1280 },
+        ]"
+      >
+        <ScrollAnimation :opacity="false" cover>
+          <img :src="getUrl(project.image.url)" alt="" />
+        </ScrollAnimation>
       </div>
-      <p v-if="project.description!== undefined"
-         class="item-project_img-description_margin-top
+      <p
+        v-if="project.description !== undefined"
+        class="item-project_img-description_margin-top
          item-project_img-description_width
-         content-p">
-        {{project.description}}
+         content-p"
+      >
+        {{ project.description }}
       </p>
     </div>
 
-    <div v-if="project.styleType===6" class="content-type-6">
-      <div :class="['content-type-6_img-wrap', {'item-project_img-wrap_height': APP_WINDOW_SIZE.width<=1280}]">
-        <Image_Scale_Block :img="project.img[0]" appointment="project"/>
+    <div
+      v-if="project['__component'] === 'project-style-type.style-6'"
+      class="content-type-6"
+    >
+      <div
+        :class="[
+          'content-type-6_img-wrap',
+          { 'item-project_img-wrap_height': APP_WINDOW_SIZE.width <= 1280 },
+        ]"
+      >
+        <ScrollAnimation :opacity="false" cover>
+          <img :src="getUrl(project.image.url)" alt="" />
+        </ScrollAnimation>
       </div>
-      <p v-if="project.description!== undefined"
-         class="item-project_img-description_width
+      <p
+        v-if="project.description !== undefined"
+        class="item-project_img-description_width
          item-project_img-description_margin-top
-         content-p">
-        {{project.description}}
+         content-p"
+      >
+        {{ project.description }}
       </p>
     </div>
-
   </div>
 </template>
 
 <script>
-    import {mapGetters, mapActions} from 'vuex'
-    import Image_Scale_Block from "../shared/Image_Scale_Block";
+  import { mapGetters, mapActions } from 'vuex';
+  import Image_Scale_Block from '../shared/Image_Scale_Block';
 
-    export default {
-        name: 'Item_Project_Content',
-        props: ['project'],
-        components: {Image_Scale_Block},
-        computed: {
-            ...mapGetters('app', ['APP_WINDOW_SIZE'])
-        },
-        methods:{
-            ...mapActions('app', ['setModalImgIsActive'])
-        }
-    }
+  export default {
+    name: 'Item_Project_Content',
+    props: ['project'],
+    components: { Image_Scale_Block },
+    computed: {
+      ...mapGetters('app', ['APP_WINDOW_SIZE']),
+    },
+    methods: {
+      ...mapActions('app', ['setModalImgIsActive']),
+      getUrl(url) {
+        return `http://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+      },
+    },
+  };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
   .project-content {
     display: flex;
     flex-direction: column;
@@ -203,8 +286,11 @@
         width: 100%;
         height: var(--winHeight);
 
-        .image-scale-block_wrap .image-scale-img {
+        .background-fixed {
+          width: 100%;
+          height: 100%;
           background-attachment: fixed;
+          background-size: cover;
         }
       }
     }
@@ -266,10 +352,15 @@
 
         .span-1 {
           .content-type-3_column-1 {
-            width: calc(((100% - var(--main-very-mini-margin)) / 2) + var(--main-very-mini-margin));
+            width: calc(
+              ((100% - var(--main-very-mini-margin)) / 2) +
+                var(--main-very-mini-margin)
+            );
 
             .content-type-3_img-wrap-1 {
-              width: calc(100% - var(--main-mini-margin) - var(--main-very-mini-margin));
+              width: calc(
+                100% - var(--main-mini-margin) - var(--main-very-mini-margin)
+              );
               margin-right: var(--main-very-mini-margin);
             }
 
@@ -410,59 +501,59 @@
       .content-type-1 {
         margin-bottom: 50px;
       }
-      .content-type-2{
+      .content-type-2 {
         width: 100%;
         margin-bottom: 50px;
-        .content-p{
+        .content-p {
           margin-left: var(--main-big-margin);
         }
       }
-      .content-type-3{
+      .content-type-3 {
         margin-bottom: 50px;
-        .span-1{
+        .span-1 {
           flex-direction: column;
-          .content-type-3_column-1{
+          .content-type-3_column-1 {
             width: 100%;
             margin-bottom: 50px;
-            .content-type-3_img-wrap-1{
+            .content-type-3_img-wrap-1 {
               width: unset;
               margin-right: 0;
               margin-left: 0;
             }
-            .content-p{
+            .content-p {
               margin-right: var(--main-mini-margin);
             }
           }
-          .content-type-3_column-2{
-           width: unset;
+          .content-type-3_column-2 {
+            width: unset;
             margin-bottom: 50px;
-            .content-type-3_img-wrap-2{
+            .content-type-3_img-wrap-2 {
               margin-top: 0;
             }
           }
         }
-        .span-2{
-          .content-type-3_img-wrap-3{
+        .span-2 {
+          .content-type-3_img-wrap-3 {
             width: 100%;
           }
         }
       }
-      .content-type-4{
+      .content-type-4 {
         margin-bottom: 50px;
       }
-      .content-type-5{
+      .content-type-5 {
         width: unset;
         margin-bottom: 50px;
-        .content-p{
+        .content-p {
           margin-left: var(--main-big-margin);
           margin-right: var(--main-mini-margin);
         }
       }
-      .content-type-6{
+      .content-type-6 {
         margin-bottom: 162px;
         margin-left: 0;
         width: unset;
-        .content-p{
+        .content-p {
           margin-left: var(--main-big-margin);
           margin-right: var(--main-mini-margin);
         }

@@ -1,84 +1,103 @@
 <template>
-  <div :class="['projects-block', {'projects-block_projects-page':this.$route.path === '/project'}]">
-    <span class="main-page__content-title-position block-title">{{title}}</span>
-
-    <div v-if="this.$route.path === '/project'" class="description pages-content-margin-left-big">
+  <div
+    :class="[
+      'projects-block',
+      { 'projects-block_projects-page': this.$route.path === '/project' },
+    ]"
+  >
+    <span class="main-page__content-title-position block-title">{{
+      title
+    }}</span>
+    <div
+      v-if="this.$route.path === '/project'"
+      class="description pages-content-margin-left-big"
+    >
       <div class="description-title">
-        <span class="content-title"><b>up</b> architecture <br>makes unique projects.</span>
+        <span class="content-title" v-html="projectsPage.title_content"></span>
       </div>
-      <p class="content-p">{{'up architecture makes unique projects. Every client, corporate or private is'+
-        'unique.'+'\n'+'It is our ambition to create distinctive design that reflect the sould and personal identity of'+
-        'our clients.'}}</p>
+      <p class="content-p" v-html="projectsPage.description"></p>
     </div>
 
-      <div :class="contentBlockClasses">
-        <nuxt-link
-          :to="'/project/'+item.title"
-          :class="['content-img-wrap',{'content-img-wrap-big': item.big && checkProjectPage} ]"
-          v-for="(item, index) in contentImgs"
-          v-if="checkProjectPage ? item : index < 4"
-          :key="index">
-          <Image_Scale_Block
-            :img="item.img"
-            appointment="project"
-            :opacity="{offset: index === (checkProjectPage ? 2 : 1) || index === (checkProjectPage ? 4 : 3) ? 400 : 0}"
-          />
-          <div class="item-project-title item-project-title-text">
-            {{item.title}}
-          </div>
-        </nuxt-link>
-      </div>
-
+    <div :class="contentBlockClasses">
+      <nuxt-link
+        :to="'/project/' + item.id"
+        :class="[
+          'content-img-wrap',
+          { 'content-img-wrap-big': bigClass(index) && checkProjectPage },
+        ]"
+        v-for="(item, index) in projectsList"
+        v-if="checkProjectPage ? item : index < 4"
+        :key="index"
+      >
+        <ScrollAnimation class="cover">
+          <img :src="getUrl(item.preview.url)" alt="" />
+        </ScrollAnimation>
+        <div class="item-project-title item-project-title-text">
+          {{ item.title_card }}
+        </div>
+      </nuxt-link>
+    </div>
 
     <div v-if="this.$route.path !== '/project'" class="project_btn_wrap">
       <nuxt-link :to="'/project'">
-        <Content_btn title="Explore all projects"/>
+        <Content_btn title="Explore all projects" />
       </nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
-    import Image_Scale_Block from "./Image_Scale_Block";
-    import Content_btn from "./elements/Content_btn";
+  import ScrollAnimation from './../ScrollAnimation';
+  import Content_btn from './elements/Content_btn';
 
-    import img1 from '@/static/images/Home/Project/content1.jpg';
-    import img2 from '@/static/images/Home/Project/content2.jpg';
-    import img3 from '@/static/images/Home/Project/content3.jpg';
-    import img4 from '@/static/images/Home/Project/content4.jpg';
+  import axios from 'axios';
 
-    export default {
-        name: 'Projects',
-        components: {Image_Scale_Block, Content_btn},
-        data() {
-            return {
-                contentImgs: [
-                    {img: img1, title: 'RB', big: true},
-                    {img: img2, title: 'Nyenrode', big: false},
-                    {img: img3, title: "5CA int.", big: false},
-                    {img: img4, title: 'OG', big: false},
-                    {img: img3, title: "5CA int.", big: false},
-                    {img: img1, title: 'RB', big: true},
-                    {img: img2, title: 'Nyenrode', big: false},
-                    {img: img3, title: "5CA int.", big: false}
-                ]
-            }
-        },
-        computed: {
-            title() {
-                return this.$route.path === '/project' ? 'projects' : 'featured projects'
-            },
-            checkProjectPage() {
-                return this.$route.path === '/project'
-            },
-            contentBlockClasses() {
-                return ['content-block',
-                    'main-content-margin-left-right',
-                    {'content-block-project-page-margin-top': this.checkProjectPage && this.contentImgs[0].big},
-                    {'content-block-project-page-margin-bottom': this.checkProjectPage && this.contentImgs[this.contentImgs.length - 1].big}]
-            }
-        }
-    }
+  export default {
+    name: 'Projects',
+    components: { ScrollAnimation, Content_btn },
+
+    async fetch() {
+      this.projectsList = await fetch(
+        'http://ovz13.dwynn-dev.me2jm.vps.myjino.ru/projects-lists',
+      ).then(res => res.json());
+      this.projectsPage = await fetch(
+        'http://ovz13.dwynn-dev.me2jm.vps.myjino.ru/project',
+      ).then(res => res.json());
+    },
+
+    data() {
+      return {
+        projectsList: {},
+        projectsPage: {},
+      };
+    },
+    methods: {
+      getUrl(url) {
+        return `http://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+      },
+      bigClass(idx) {
+        return idx === 0 || idx === 5;
+      },
+    },
+    computed: {
+      title() {
+        return this.$route.path === '/project'
+          ? 'projects'
+          : 'featured projects';
+      },
+      checkProjectPage() {
+        return this.$route.path === '/project';
+      },
+      contentBlockClasses() {
+        return [
+          'content-block',
+          'main-content-margin-left-right',
+          { 'content-block-project-page-margin-top': this.checkProjectPage },
+          { 'content-block-project-page-margin-bottom': this.checkProjectPage },
+        ];
+      },
+    },
+  };
 </script>
 
 <style lang="scss">
@@ -122,11 +141,14 @@
         height: 840px;
         margin-bottom: var(--main-very-mini-margin);
         display: flex;
-
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
         & .image-scale-block_wrap .image-scale-img {
           cursor: pointer;
         }
-
 
         .item-project-title {
           position: absolute;
@@ -141,6 +163,12 @@
         width: 100%;
         margin-bottom: 100px;
         margin-top: 40px;
+        & > div {
+          width: inherit;
+        }
+        img {
+          width: 100%;
+        }
       }
     }
 

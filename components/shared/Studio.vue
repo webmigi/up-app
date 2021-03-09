@@ -3,26 +3,25 @@
     <span class="main-page__content-title-position block-title">studio</span>
     <div class="studio_content-block">
       <div class="studio_img-wrap">
-        <ScrollScaleOpacity>
-          <img :src="ContentImg" alt="">
-        </ScrollScaleOpacity>
-<!--        <Image_Scale_Block :opacity="true" :img="ContentImg"/>-->
+        <ScrollAnimation class="cover" :opacity="false">
+          <img :src="getUrl(data.about.image.url)" alt="" />
+        </ScrollAnimation>
       </div>
       <div class="studio_text-block__wrap">
-        <div :class="['studio_text-block', {'studio-people_text-block':this.$route.path === '/People'}]">
-          <span class="content-title">About</span>
-          <p class="studio__text_p content-p">
-            Founded in 2018 by Anne Boonstra
-            UP works on both architecture
-            and interior projects in the Netherlands as well as international. UP is unique projects. Every client,
-            corporate
-            or private, is unique. It is our ambition to create distinctive designs that reflect
-            the soul and personal identity
-            of our clients.
-          </p>
-          <div v-if="this.$route.path === '/'" class="studio_btn_wrap">
-            <nuxt-link :to="'/People'">
-            <Content_btn title="Learn more"/>
+        <div
+          :class="[
+            'studio_text-block',
+            { 'studio-people_text-block': this.$route.path === '/People' },
+          ]"
+        >
+          <span class="content-title">{{ data.about.title }}</span>
+          <p class="studio__text_p content-p">{{ data.about.description }}</p>
+          <div
+            v-if="this.$route.path === '/' && data.about.link"
+            class="studio_btn_wrap"
+          >
+            <nuxt-link :to="data.about.link.link">
+              <Content_btn :title="data.about.link.name" />
             </nuxt-link>
           </div>
         </div>
@@ -32,22 +31,29 @@
 </template>
 
 <script>
-    import Image_Scale_Block from "./Image_Scale_Block";
-    import Content_btn from "./elements/Content_btn";
-    import ContentImg from '@/static/images/Home/Studio/content.jpg'
-    import ScrollScaleOpacity from '@/components/ScrollScaleOpacity'
+  import Image_Scale_Block from './Image_Scale_Block';
+  import Content_btn from './elements/Content_btn';
+  import ScrollAnimation from '~/components/ScrollAnimation';
 
-    export default {
-        name: 'Studio',
-        components: {Image_Scale_Block, Content_btn, ScrollScaleOpacity},
-        data() {
-            return {
-                ContentImg
-            }
-        }
-    }
+  export default {
+    name: 'Studio',
+    components: { Image_Scale_Block, Content_btn, ScrollAnimation },
+    props: {
+      data: {
+        default: {},
+        type: Object,
+      },
+    },
+    data() {
+      return {};
+    },
+    methods: {
+      getUrl(url) {
+        return `http://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+      },
+    },
+  };
 </script>
-
 
 <style lang="scss" scoped>
   .studio-block {
@@ -78,6 +84,10 @@
           margin-right: var(--main-mini-margin);
           display: flex;
           flex-direction: column;
+          margin-top: -130px;
+          @media (max-width: 425px) {
+            margin-top: 0;
+          }
 
           .studio__text_p {
             margin-top: 35px;
@@ -122,7 +132,6 @@
         }
 
         .studio_text-block__wrap {
-
           .studio_text-block {
             .studio__text_p {
               margin-top: 40px;

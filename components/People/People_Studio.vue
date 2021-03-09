@@ -1,26 +1,21 @@
 <template>
   <div class="people-studio">
     <span class="main-page__content-title-position block-title">studio</span>
-    <span class="content-title">Explore the studio</span>
+    <span class="content-title">{{ data.title }}</span>
 
     <div class="content-block">
-      <p class="content-p">up architecture makes unique projects. Every client, corporate or private is unique. It is
-        our ambition to create distinctive design that reflect the sould and personal identity of our clients.up
-        architecture makes unique projects. Every client, corporate or private
-        is unique. It is our ambition to create distinctive design that reflect the sould and personal identity of our
-        clients.up architecture makes unique projects. Every client, corporate or private is unique. It is our ambition
-        to create distinctive design that reflect the sould and personal identity of our clients.up architecture makes
-        unique projects. Every client, corporate or private
-        is unique. It is our ambition to create distinctive design that reflect the sould and personal identity of our
-        clients.</p>
+      <p class="content-p">{{ data.description }}</p>
 
       <div class="content-column-2">
         <div class="img-wrap">
-          <Image_Scale_Block :img="'images/Item_Project/contentImg1.jpg'" appointment="people"/>
+          <scroll-animation :opacity="false">
+            <img :src="getUrl(data.image.url)" alt="" />
+          </scroll-animation>
         </div>
-        <p class="process_img-description_margin-top content-p img-width-description">
-          Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as
-          well as international. UP is unique projects.
+        <p
+          class="process_img-description_margin-top content-p img-width-description"
+        >
+          {{ data.description_image }}
         </p>
       </div>
     </div>
@@ -28,12 +23,23 @@
 </template>
 
 <script>
-    import Image_Scale_Block from "../shared/Image_Scale_Block";
+  import scrollAnimation from '../ScrollAnimation';
 
-    export default {
-        name: 'People_Studio',
-        components: {Image_Scale_Block}
-    }
+  export default {
+    name: 'People_Studio',
+    components: { scrollAnimation },
+    props: {
+      data: {
+        type: Object,
+        default: {},
+      },
+    },
+    methods: {
+      getUrl(url) {
+        return `http://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
@@ -87,7 +93,7 @@
           .img-wrap {
             height: 580px;
           }
-          .content-p{
+          .content-p {
             margin-left: 0;
             max-width: 490px;
           }
@@ -95,49 +101,51 @@
       }
     }
   }
-  @media screen and (max-width: 1024px){
-  .people-studio{
-    margin-bottom: 20px;
-    .content-title{
-      margin-bottom: 69px;
-    }
-    .content-block{
-      .content-p{
-        width: calc(50% - var(--main-big-margin) - var(--main-very-mini-margin) / 2);
+  @media screen and (max-width: 1024px) {
+    .people-studio {
+      margin-bottom: 20px;
+      .content-title {
+        margin-bottom: 69px;
       }
-      .content-column-2{
-        width: calc(50% - var(--main-very-mini-margin) / 2);
-        .img-wrap{
-          height: 520px;
+      .content-block {
+        .content-p {
+          width: calc(
+            50% - var(--main-big-margin) - var(--main-very-mini-margin) / 2
+          );
         }
-        .content-p{
-          width: calc(100% - var(--main-mini-margin)) !important;
-          /*margin-right: var(--main-mini-margin) !important;*/
-          margin-right: 0 !important;
+        .content-column-2 {
+          width: calc(50% - var(--main-very-mini-margin) / 2);
+          .img-wrap {
+            height: 520px;
+          }
+          .content-p {
+            width: calc(100% - var(--main-mini-margin)) !important;
+            /*margin-right: var(--main-mini-margin) !important;*/
+            margin-right: 0 !important;
+          }
         }
       }
     }
   }
-  }
-  @media screen and (max-width: 1024px){
-    .people-studio{
+  @media screen and (max-width: 1024px) {
+    .people-studio {
       margin-bottom: 0;
     }
   }
-  @media screen and (max-width: 428px){
-    .people-studio{
-      .content-title{
+  @media screen and (max-width: 428px) {
+    .people-studio {
+      .content-title {
         margin-bottom: 72px;
       }
-      .content-block{
+      .content-block {
         flex-direction: column;
-        .content-p{
+        .content-p {
           width: unset;
           margin-bottom: 100px;
         }
-        .content-column-2{
+        .content-column-2 {
           width: unset;
-          .content-p{
+          .content-p {
             width: unset !important;
             margin-left: var(--main-big-margin);
             margin-right: var(--main-mini-margin);

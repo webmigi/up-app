@@ -1,46 +1,42 @@
 <template>
-  <div>
-  <div class="gallery-item">
-
+  <nuxt-link :to="`news/${id}`" class="gallery-item">
     <div class="gallery-item-img-wrap">
-<!--      <Image_Scale_Block :img="imgProps" :appointment="'news'"/>-->
-      <img :src="imgProps" alt="">
+      <img :src="getUrl(img)" alt="" />
     </div>
-
-    <span class="date-text">{{dateProps}}</span>
-  <nuxt-link to="/Item_News">
-    <span class="title">{{ titleProps }}</span>
+    <span class="date-text">{{ getDate(date) }}</span>
+    <span class="title">{{ title }}</span>
     <div class="teg-container">
-      <span class="text-very-small">Office</span>
-      <span class="text-very-small">Healthcare</span>
-      <span class="text-very-small">Laboratory</span>
-      <span class="text-very-small">Atrium</span>
+      <span class="text-very-small" v-for="item in tags">{{ item.title }}</span>
     </div>
   </nuxt-link>
-  </div>
-  </div>
 </template>
 
 <script>
-    import Image_Scale_Block from "../Image_Scale_Block";
-    import {mapActions, mapGetters} from "vuex";
-
-    export default {
-        name: "Gallery_item",
-        components: {Image_Scale_Block},
-        props: ["imgProps", "titleProps", "dateProps"],
-
-    };
+  export default {
+    name: 'Gallery_item',
+    props: ['id', 'img', 'title', 'date', 'tags'],
+    methods: {
+      getUrl(url) {
+        return `http://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+      },
+      getDate(date) {
+        let y = new Date(date).getFullYear(),
+          m = ('0' + (new Date(date).getMonth() + 1)).slice(-2),
+          d = ('0' + new Date(date).getDate()).slice(-2);
+        return `${d}.${m}.${y}`;
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-
   .gallery-item {
     position: relative;
     width: 375px;
     height: 440px;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 
     .gallery-item-img-wrap {
       width: 100%;
@@ -50,8 +46,10 @@
         transform: scale(1.2);
       }
       img {
-        transition: .3s;
-        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.3s;
       }
     }
     a {
@@ -66,7 +64,6 @@
       letter-spacing: -0.04em;
       color: #000000;
       margin-top: 14px;
-      cursor: pointer;
     }
 
     .teg-container {
@@ -74,10 +71,6 @@
       display: flex;
       margin-top: 2px;
       justify-content: space-between;
-      span {
-        cursor: pointer;
-      }
-      cursor: pointer;
     }
   }
 
@@ -90,7 +83,7 @@
       width: 300px;
       height: 340px;
 
-      .gallery-item-img-wrap{
+      .gallery-item-img-wrap {
         height: 240px;
       }
     }
@@ -100,7 +93,7 @@
       width: 290px;
       height: 330px;
 
-      .gallery-item-img-wrap{
+      .gallery-item-img-wrap {
         height: 230px;
       }
     }

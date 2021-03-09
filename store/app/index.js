@@ -1,18 +1,15 @@
+import axios from 'axios';
+import axiosOption from '/services/axios';
+
 export const state = () => ({
-  currentScrollValue: "",
-  winSize: {
-    width: null,
-    height: null,
-  },
+  currentScrollValue: '',
+  winSize: { width: null, height: null },
   galleryCursorActive: false,
-  windowCursor:{
-    x:0,
-    y:0
-  },
+  windowCursor: { x: 0, y: 0 },
   logoStartHeight: 0,
-  headerComponentHeight:0,
+  headerComponentHeight: 0,
   modalIsActive: false,
-  modalImgIsActive: false
+  modalImgIsActive: false,
 });
 
 export const getters = {
@@ -47,10 +44,7 @@ export const mutations = {
     state.currentScrollValue = payload.value;
   },
   SET_APP_WINDOW_SIZE(state, payload) {
-    state.winSize = {
-      width: payload.width,
-      height: payload.height
-    };
+    state.winSize = { width: payload.width, height: payload.height };
   },
   SET_GALLERY_CURSOR_ACTIVE(state, payload) {
     state.galleryCursorActive = payload;
@@ -74,29 +68,29 @@ export const mutations = {
 };
 
 export const actions = {
-  updateScrollValue({commit}, scrollValue) {
-    commit("SET_APP_SCROLL_VALUE", scrollValue);
+  updateScrollValue({ commit }, scrollValue) {
+    commit('SET_APP_SCROLL_VALUE', scrollValue);
   },
-  setWindowSize({commit}, windowSize) {
-    commit("SET_APP_WINDOW_SIZE", windowSize);
+  setWindowSize({ commit }, windowSize) {
+    commit('SET_APP_WINDOW_SIZE', windowSize);
   },
-  setGalleryCursorActive({commit}, value) {
-    commit("SET_GALLERY_CURSOR_ACTIVE", value);
+  setGalleryCursorActive({ commit }, value) {
+    commit('SET_GALLERY_CURSOR_ACTIVE', value);
   },
-  setCursorValue({commit}, value) {
-    commit("SET_CURSOR_VALUE", value);
+  setCursorValue({ commit }, value) {
+    commit('SET_CURSOR_VALUE', value);
   },
-  setLogoStartHeight({commit}, value) {
-    commit("SET_LOGO_START_HEIGHT", value);
+  setLogoStartHeight({ commit }, value) {
+    commit('SET_LOGO_START_HEIGHT', value);
   },
-  setHeaderComponentHeight({commit}, value) {
-    commit("SET_HEADER_COMPONENT_HEIGHT", value);
+  setHeaderComponentHeight({ commit }, value) {
+    commit('SET_HEADER_COMPONENT_HEIGHT', value);
   },
-  setModalIsActive({commit}) {
-    commit("SET_MODAL_IS_ACTIVE");
+  setModalIsActive({ commit }) {
+    commit('SET_MODAL_IS_ACTIVE');
   },
-  setModalImgIsActive({commit}) {
-    commit("SET_MODAL_IMG_IS_ACTIVE");
+  setModalImgIsActive({ commit }) {
+    commit('SET_MODAL_IMG_IS_ACTIVE');
   },
 };
 
@@ -105,5 +99,5 @@ export default {
   state,
   getters,
   mutations,
-  actions
+  actions,
 };

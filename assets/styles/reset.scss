@@ -17,7 +17,7 @@ time, mark, audio, video, option, input {
   border: 0;
   font-family: Gotham Pro;
   text-decoration: none;
-  cursor: default;
+  //cursor: default;
 }
 
 input, textarea {
@@ -51,7 +51,6 @@ button:active, button:focus {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
   content: none;
 }
 

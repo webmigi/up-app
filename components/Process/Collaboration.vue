@@ -1,40 +1,48 @@
 <template>
   <div class="collaboration">
     <span class="block-title">collaboration</span>
-    <span class="content-title process_content-title_margin">The way we work</span>
+    <span class="content-title process_content-title_margin">{{
+      data.title
+    }}</span>
 
     <div class="content-block">
       <div class="content-column-1">
-      <p class="content-p">Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the
-        Netherlands as well as international. UP is unique projects. Every client, corporate or private, is unique. It
-        is our ambition to create distinctive designs that reflect the soul and personal identity of our clients.
-        Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as
-        well
-        as international.
-        UP is unique projects.</p>
+        <p class="content-p">
+          {{ data.description }}
+        </p>
       </div>
       <div class="content-column-2">
         <div class="img-wrap process_img-wrap_height">
-          <Image_Scale_Block :img="'images/Item_Project/contentImg2.jpg'" appointment="process"/>
+          <scroll-animation :opacity="false">
+            <img :src="getUrl(data.image.url)" alt="" />
+          </scroll-animation>
         </div>
 
-        <p class="content-p process_img-description_margin-top process_img-description_width">
-          Founded in 2018 by Anne Boonstra UP works on both architecture and interior projects in the Netherlands as
-          well as international. UP is unique projects.
+        <p
+          class="content-p process_img-description_margin-top process_img-description_width"
+        >
+          {{ data.description_image }}
         </p>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
-    import Image_Scale_Block from "../shared/Image_Scale_Block";
-
-    export default {
-        name: 'Collaboration',
-        components: {Image_Scale_Block}
-    }
+  export default {
+    name: 'Collaboration',
+    props: {
+      data: {
+        type: Object,
+        default: {},
+      },
+    },
+    methods: {
+      getUrl(url) {
+        return `http://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
@@ -54,7 +62,9 @@
       .content-column-1 {
         display: flex;
         flex-direction: column;
-        width: calc(270px + var(--main-big-margin) + var(--main-very-mini-margin));
+        width: calc(
+          270px + var(--main-big-margin) + var(--main-very-mini-margin)
+        );
 
         .content-p {
           display: flex;
@@ -64,8 +74,10 @@
         }
       }
 
-      .content-column-2  {
-        width: calc(100% - 270px - var(--main-big-margin) - var(--main-very-mini-margin));
+      .content-column-2 {
+        width: calc(
+          100% - 270px - var(--main-big-margin) - var(--main-very-mini-margin)
+        );
         display: flex;
         flex-direction: column;
 
@@ -89,57 +101,57 @@
   @media screen and (max-width: 1280px) {
     .collaboration {
       margin-bottom: 182px;
-      .content-block{
+      .content-block {
         display: flex;
         width: 100%;
-        .content-column-1{
+        .content-column-1 {
           width: calc(50% + var(--main-very-mini-margin) / 2);
-          .content-p{
+          .content-p {
             margin-left: var(--main-big-margin);
             margin-right: var(--main-very-mini-margin);
             width: unset;
           }
         }
-        .content-column-2{
-          width: calc(50% -  var(--main-very-mini-margin) / 2);
+        .content-column-2 {
+          width: calc(50% - var(--main-very-mini-margin) / 2);
         }
       }
     }
   }
 
   @media screen and (max-width: 1024px) {
-    .collaboration{
+    .collaboration {
       margin-bottom: 114px;
-      .content-title{
-       margin-bottom: 72px;
+      .content-title {
+        margin-bottom: 72px;
       }
     }
   }
   @media screen and (max-width: 768px) {
-    .collaboration{
+    .collaboration {
       margin-bottom: 104px;
-      .content-title{
+      .content-title {
         margin-top: 40px;
         margin-bottom: 18px;
       }
     }
   }
   @media screen and (max-width: 428px) {
-    .collaboration{
+    .collaboration {
       margin-bottom: 117px;
-      .content-title{
+      .content-title {
         margin-top: 83px;
         margin-bottom: 50px;
       }
-      .content-block{
+      .content-block {
         flex-direction: column;
-        .content-column-1{
+        .content-column-1 {
           width: unset;
           margin-bottom: 50px;
         }
-        .content-column-2{
+        .content-column-2 {
           width: unset;
-          .content-p{
+          .content-p {
             width: unset;
             margin-left: var(--main-big-margin);
           }
