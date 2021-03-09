@@ -1,20 +1,7 @@
 <template>
-  <div class="header" ref="header_component" v-show="!MODAL_IMG_IS_ACTIVE">
+  <div class="header" ref="header_component">
     <nuxt-link :to="{ path: '/', hash: '#' }">
-      <div
-        :class="logoClasses"
-        ref="headerLogo"
-        :style="
-          'transform: translate(' +
-            logoTranslateX +
-            'px, ' +
-            logoTranslateY +
-            'px); width: ' +
-            logoWidth +
-            'px;'
-        "
-        @click="logoAction"
-      >
+      <div ref="headerLogo" class="header-logo">
         <svg
           viewBox="0 0 110 78"
           fill="none"
@@ -30,24 +17,14 @@
       </div>
     </nuxt-link>
 
-    <button :class="burgerClasses" @click="burgerBtnAction">
-      <svg
-        v-if="!MODAL_IS_ACTIVE"
-        viewBox="0 0 60 60"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+    <button class="header-burger-btn">
+      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M15 30L45 30" stroke-width="4" />
         <path d="M15 40L45 40" stroke-width="4" />
         <path d="M15 20L45 20" stroke-width="4" />
       </svg>
 
-      <svg
-        v-if="MODAL_IS_ACTIVE"
-        viewBox="0 0 60 60"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M15 15L45 45M45 15L15 45" stroke-width="4" />
       </svg>
     </button>
@@ -55,148 +32,8 @@
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex';
-
   export default {
     name: 'Header',
-    mounted() {
-      this.setLogoStartHeight(this.$refs.headerLogo.offsetHeight);
-      this.setHeaderComponentHeight(this.$refs.header_component.offsetHeight);
-    },
-    computed: {
-      ...mapGetters('app', [
-        'APP_SCROLL_VALUE',
-        'APP_WINDOW_SIZE',
-        'LOGO_START_HEIGHT',
-        'MODAL_IS_ACTIVE',
-        'HEADER_COMPONENT_HEIGHT',
-        'MODAL_IMG_IS_ACTIVE',
-      ]),
-
-      logoStartScroll() {
-        return this.APP_WINDOW_SIZE.height / 2;
-      },
-      logoFinishScroll() {
-        return this.APP_WINDOW_SIZE.height;
-      },
-      setStartPositionX() {
-        return this.APP_WINDOW_SIZE.width <= 1024
-          ? this.APP_WINDOW_SIZE.width <= 414
-            ? 65
-            : 80
-          : 125;
-      },
-      logoTranslateX() {
-        let startPositionX = this.setStartPositionX;
-        return this.APP_SCROLL_VALUE > this.logoStartScroll
-          ? this.APP_SCROLL_VALUE > this.logoFinishScroll
-            ? 0
-            : startPositionX -
-              (startPositionX / 100) *
-                ((this.APP_SCROLL_VALUE - this.logoStartScroll) /
-                  ((this.logoFinishScroll - this.logoStartScroll) / 100))
-          : startPositionX;
-      },
-      setStartPositionLogoTranslateY() {
-        return this.APP_WINDOW_SIZE.width <= 414 ? 20 : 60;
-      },
-      logoTranslateY() {
-        let startPositionY =
-          this.APP_WINDOW_SIZE.height / 2 -
-          (this.setStartPositionLogoTranslateY + this.LOGO_START_HEIGHT / 2);
-        return this.APP_SCROLL_VALUE > this.logoStartScroll
-          ? this.APP_SCROLL_VALUE > this.logoFinishScroll
-            ? 0
-            : startPositionY -
-              (startPositionY / 100) *
-                ((this.APP_SCROLL_VALUE - this.logoStartScroll) /
-                  ((this.logoFinishScroll - this.logoStartScroll) / 100))
-          : startPositionY;
-      },
-
-      setLogoStartWidth() {
-        return this.APP_WINDOW_SIZE.width <= 1280 ? 169 : 338;
-      },
-      setLogoFinishWidth() {
-        return this.APP_WINDOW_SIZE.width <= 1280
-          ? this.APP_WINDOW_SIZE.width <= 1024
-            ? this.APP_WINDOW_SIZE.width <= 414
-              ? 46
-              : 60
-            : 70
-          : 110;
-      },
-      logoWidth() {
-        let startWidth = this.setLogoStartWidth;
-        let finishWidth = this.setLogoFinishWidth;
-        let wayWidth = startWidth - finishWidth;
-        return this.APP_SCROLL_VALUE > this.logoStartScroll
-          ? this.APP_SCROLL_VALUE > this.logoFinishScroll
-            ? finishWidth
-            : startWidth -
-              (wayWidth / 100) *
-                ((this.APP_SCROLL_VALUE - this.logoStartScroll) /
-                  ((this.logoFinishScroll - this.logoStartScroll) / 100))
-          : startWidth;
-      },
-      logoClasses() {
-        return [
-          'header-logo',
-          {
-            'header-logo-on-nav-menu':
-              this.MODAL_IS_ACTIVE ||
-              this.APP_SCROLL_VALUE >
-                this.APP_WINDOW_SIZE.height * 4 +
-                  4 * 1000 -
-                  this.HEADER_COMPONENT_HEIGHT / 3 ||
-              this.$route.path !== '/',
-          },
-          {
-            'header-logo-on-nav-menu-white':
-              this.$route.path !== '/' &&
-              this.APP_SCROLL_VALUE <
-                this.APP_WINDOW_SIZE.height -
-                  this.HEADER_COMPONENT_HEIGHT / 3 &&
-              !this.MODAL_IS_ACTIVE,
-          },
-        ];
-      },
-      burgerClasses() {
-        return [
-          'header-burger-btn',
-          {
-            'header-burger-btn-on-nav-menu':
-              this.MODAL_IS_ACTIVE ||
-              this.APP_SCROLL_VALUE >
-                this.APP_WINDOW_SIZE.height * 4 +
-                  4 * 1000 -
-                  this.HEADER_COMPONENT_HEIGHT / 3 ||
-              (this.$route.path !== '/' &&
-                this.APP_SCROLL_VALUE >
-                  this.APP_WINDOW_SIZE.height -
-                    this.HEADER_COMPONENT_HEIGHT / 3 &&
-                !this.MODAL_IS_ACTIVE),
-          },
-        ];
-      },
-    },
-    methods: {
-      ...mapActions('app', [
-        'setLogoStartHeight',
-        'setModalIsActive',
-        'setHeaderComponentHeight',
-        'setModalIsActive',
-      ]),
-      setBurgerActive() {
-        this.burgerActive = !this.burgerActive;
-      },
-      burgerBtnAction() {
-        this.setModalIsActive(), this.setBurgerActive();
-      },
-      logoAction() {
-        this.MODAL_IS_ACTIVE ? this.setModalIsActive() : '';
-      },
-    },
   };
 </script>
 
@@ -226,26 +63,6 @@
       }
     }
 
-    .header-logo-on-nav-menu {
-      transform: (translate(0) !important);
-      width: (110px !important);
-
-      svg {
-        path {
-          fill: #000000;
-        }
-      }
-    }
-
-    .header-logo-on-nav-menu-white {
-      svg {
-        path {
-          fill: #ffffff;
-          transition-delay: 0s;
-        }
-      }
-    }
-
     .header-burger-btn {
       align-self: flex-start;
       position: relative;
@@ -264,14 +81,6 @@
         path {
           stroke: #ffffff;
           transition: fill 0.3s;
-        }
-      }
-    }
-
-    .header-burger-btn-on-nav-menu {
-      svg {
-        path {
-          stroke: #000000;
         }
       }
     }
