@@ -58,10 +58,10 @@
 
     async fetch() {
       this.projectsList = await fetch(
-        'https://ovz13.dwynn-dev.me2jm.vps.myjino.ru/projects-lists',
+        'https://arch-admin.archimatika.agency/projects-lists',
       ).then(res => res.json());
       this.projectsPage = await fetch(
-        'https://ovz13.dwynn-dev.me2jm.vps.myjino.ru/project',
+        'https://arch-admin.archimatika.agency/project',
       ).then(res => res.json());
     },
 
@@ -73,7 +73,7 @@
     },
     methods: {
       getUrl(url) {
-        return `https://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+        return `https://arch-admin.archimatika.agency${url}`;
       },
       bigClass(idx) {
         return idx === 0 || idx === 5;

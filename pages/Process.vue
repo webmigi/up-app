@@ -5,7 +5,7 @@
         class="people-title main-content-margin-left-right main-page_start-text"
         >{{ process.title }}</span
       >
-      <ScrollAnimation>
+      <ScrollAnimation cover>
         <img :src="getUrl(process.background_image.url)" alt="" />
       </ScrollAnimation>
     </div>
@@ -51,7 +51,7 @@
     },
     methods: {
       getUrl(url) {
-        return `https://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+        return `https://arch-admin.archimatika.agency${url}`;
       },
     },
   };

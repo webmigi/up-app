@@ -29,7 +29,7 @@
 
     async fetch() {
       this.news = await fetch(
-        'https://ovz13.dwynn-dev.me2jm.vps.myjino.ru/news-lists',
+        'https://arch-admin.archimatika.agency/news-lists',
       ).then(res => res.json());
     },
 
@@ -50,7 +50,7 @@
       onSwiperRedied(swiper) {
         setTimeout(function() {
           swiper.slideReset();
-        }, 100);
+        }, 500);
       },
     },
   };

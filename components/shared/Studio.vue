@@ -49,7 +49,7 @@
     },
     methods: {
       getUrl(url) {
-        return `https://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+        return `https://arch-admin.archimatika.agency${url}`;
       },
     },
   };

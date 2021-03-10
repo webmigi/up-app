@@ -6,7 +6,7 @@ export const state = () => ({
   winSize: { width: null, height: null },
   galleryCursorActive: false,
   windowCursor: { x: 0, y: 0 },
-  logoStartHeight: 0,
+  logoStartHeight: false,
   headerComponentHeight: 0,
   modalIsActive: false,
   modalImgIsActive: false,
@@ -59,8 +59,9 @@ export const mutations = {
   SET_HEADER_COMPONENT_HEIGHT(state, payload) {
     state.headerComponentHeight = payload;
   },
-  SET_MODAL_IS_ACTIVE(state) {
-    state.modalIsActive = !state.modalIsActive;
+  SET_MODAL_IS_ACTIVE(state, payload) {
+    state.modalIsActive =
+      payload === undefined ? !state.modalIsActive : payload;
   },
   SET_MODAL_IMG_IS_ACTIVE(state) {
     state.modalImgIsActive = !state.modalImgIsActive;
@@ -86,7 +87,7 @@ export const actions = {
   setHeaderComponentHeight({ commit }, value) {
     commit('SET_HEADER_COMPONENT_HEIGHT', value);
   },
-  setModalIsActive({ commit }) {
+  setModalIsActive({ commit }, value) {
     commit('SET_MODAL_IS_ACTIVE');
   },
   setModalImgIsActive({ commit }) {

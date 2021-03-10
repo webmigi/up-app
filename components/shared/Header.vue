@@ -1,10 +1,26 @@
 <template>
   <div class="header" ref="header_component">
-    <nuxt-link :to="{ path: '/', hash: '#' }">
-      <div ref="headerLogo" class="header-logo">
+    <span style="display: none">{{ animationClass }}</span>
+    <nuxt-link
+      :to="{ path: '/', hash: '#' }"
+      @click.native="$store.commit('app/SET_MODAL_IS_ACTIVE', false)"
+    >
+      <div
+        ref="headerLogo"
+        :class="[
+          'header-logo',
+          { animation: $store.getters['app/LOGO_START_HEIGHT'] },
+          {
+            black:
+              $store.getters['app/MODAL_IS_ACTIVE'] ||
+              $store.getters['app/APP_SCROLL_VALUE'] >
+                $store.getters['app/APP_WINDOW_SIZE'].height - 120,
+          },
+        ]"
+      >
         <svg
           viewBox="0 0 110 78"
-          fill="none"
+          fill="#fff"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -17,14 +33,34 @@
       </div>
     </nuxt-link>
 
-    <button class="header-burger-btn">
-      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <button
+      class="header-burger-btn"
+      @click="$store.dispatch('app/setModalIsActive')"
+    >
+      <svg
+        v-if="!$store.getters['app/MODAL_IS_ACTIVE']"
+        viewBox="0 0 60 60"
+        stroke="#fff"
+        xmlns="http://www.w3.org/2000/svg"
+        :class="[
+          {
+            black:
+              $store.getters['app/APP_SCROLL_VALUE'] >
+              $store.getters['app/APP_WINDOW_SIZE'].height - 120,
+          },
+        ]"
+      >
         <path d="M15 30L45 30" stroke-width="4" />
         <path d="M15 40L45 40" stroke-width="4" />
         <path d="M15 20L45 20" stroke-width="4" />
       </svg>
 
-      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        v-if="$store.getters['app/MODAL_IS_ACTIVE']"
+        viewBox="0 0 60 60"
+        stroke="#000"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <path d="M15 15L45 45M45 15L15 45" stroke-width="4" />
       </svg>
     </button>
@@ -34,6 +70,13 @@
 <script>
   export default {
     name: 'Header',
+    computed: {
+      animationClass() {
+        if (this.$store.getters['app/APP_SCROLL_VALUE'] > 0) {
+          this.$store.dispatch('app/setLogoStartHeight', false);
+        }
+      },
+    },
   };
 </script>
 
@@ -47,18 +90,55 @@
     padding: 60px 70px 0 66px;
 
     .header-logo {
-      margin-top: 10px;
       width: 110px;
-      cursor: pointer;
+      position: absolute;
+      top: 60px;
+      left: 66px;
+      transition: 1s;
+      @media (max-width: 1024px) {
+        top: 40px;
+        left: 30px;
+      }
+      &.animation {
+        transition: 0s;
+        top: 50vh;
+        left: 310px;
+        transform: translateY(-200%) scale(3);
+        @media (max-width: 1024px) {
+          left: 170px;
+          transform: translateY(-150%) scale(2);
+        }
+        @media (max-width: 768px) {
+          left: 120px;
+        }
+        @media (max-width: 428px) {
+          left: 100px;
+        }
+      }
 
+      &.black {
+        top: 60px;
+        left: 66px;
+        transition: 0s;
+        transform: translateY(0%) scale(1);
+        @media (max-width: 1024px) {
+          top: 40px;
+          left: 30px;
+        }
+        @media (max-width: 428px) {
+          top: 30px;
+          left: 14px;
+        }
+        svg path {
+          fill: #000;
+        }
+      }
       svg {
         width: 100%;
         height: 100%;
 
         path {
           fill: #ffffff;
-          //transition: fill 0.5s;
-          //transition-delay: 0.5s;
         }
       }
     }
@@ -72,14 +152,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
+      .black path {
+        stroke: #000;
+      }
       svg {
         position: absolute;
         width: 100%;
         height: 100%;
 
         path {
-          stroke: #ffffff;
+          //stroke: #ffffff;
           transition: fill 0.3s;
         }
       }
@@ -90,8 +172,8 @@
     .header {
       padding: 40px 120px 0 90px;
 
-      .header-logo-on-nav-menu {
-        width: (70px !important);
+      .header-logo {
+        width: 70px;
       }
 
       .header-burger-btn {
@@ -104,10 +186,6 @@
   @media screen and (max-width: 1024px) {
     .header {
       padding: 40px 40px 0 30px;
-
-      .header-logo-on-nav-menu {
-        width: (60px !important);
-      }
     }
   }
 
@@ -121,8 +199,10 @@
     .header {
       padding: 20px 24px 0 14px;
 
-      .header-logo-on-nav-menu {
-        width: (46px !important);
+      .header-logo {
+        top: 30px;
+        left: 14px;
+        width: 46px;
       }
       .header-burger-btn {
         width: 42px;

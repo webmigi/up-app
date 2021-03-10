@@ -1,61 +1,68 @@
 <template>
   <div class="start-span-block">
-    <span v-if="!buttonActive"
-          :class="'main-page_'+textStyleClass"
-          :style="'transform: translateY('+this.spanTranslate+'%); opacity: '+this.spanOpacity+';'">{{text}}</span>
-  <div class="btn-wrap"
-       v-if="buttonActive"
-       :style="'transform: translateY('+this.spanTranslate+'%); opacity: '+this.spanOpacity+';'"
-  >
-    <span class="main-page_small-text">{{text}}</span>
-<!--    <Content_btn :title="text" :place="'start-span'"/>-->
-  </div>
+    <span v-if="!buttonActive" :class="'main-page_' + textStyleClass">{{
+      text
+    }}</span>
+    <div
+      class="btn-wrap"
+      v-if="buttonActive"
+      :style="
+        'transform: translateY(' +
+          this.spanTranslate +
+          '%); opacity: ' +
+          this.spanOpacity +
+          ';'
+      "
+    >
+      <span class="main-page_small-text">{{ text }}</span>
+      <!--    <Content_btn :title="text" :place="'start-span'"/>-->
+    </div>
   </div>
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
-    import Content_btn from "../../shared/elements/Content_btn";
+  import { mapGetters } from 'vuex';
+  import Content_btn from '../../shared/elements/Content_btn';
 
-    export default {
-        name: 'start-span-item',
-        components: {Content_btn},
-        props: {
-            text: String,
-            startTransformScroll: Number,
-            finishTransformScroll: Number,
-            startOpacityZero: Boolean,
-            textStyleClass: {
-                validator: function (value) {
-                    return ['start-text', 'start-text', 'small-text'].indexOf(value) !== -1
-                }
-            },
-            buttonActive: Boolean,
+  export default {
+    name: 'start-span-item',
+    components: { Content_btn },
+    props: {
+      text: String,
+      startTransformScroll: Number,
+      finishTransformScroll: Number,
+      startOpacityZero: Boolean,
+      textStyleClass: {
+        validator: function(value) {
+          return (
+            ['start-text', 'start-text', 'small-text'].indexOf(value) !== -1
+          );
         },
-        computed: {
-            ...mapGetters("app", ["APP_SCROLL_VALUE", "APP_WINDOW_SIZE"]),
+      },
+      buttonActive: Boolean,
+    },
+    computed: {
+      ...mapGetters('app', ['APP_SCROLL_VALUE', 'APP_WINDOW_SIZE']),
 
-            spanTranslate() {
-                let startScroll = this.startTransformScroll;
-                let finishScroll = this.finishTransformScroll;
-                return (this.APP_SCROLL_VALUE > startScroll) ?
-                    (this.APP_SCROLL_VALUE > finishScroll ?
-                        0
+      spanTranslate() {
+        let startScroll = this.startTransformScroll;
+        let finishScroll = this.finishTransformScroll;
+        return this.APP_SCROLL_VALUE > startScroll
+          ? this.APP_SCROLL_VALUE > finishScroll
+            ? 0
+            : 100 -
+              (this.APP_SCROLL_VALUE - startScroll) /
+                ((finishScroll - startScroll) / 100)
+          : 100;
+      },
 
-                        :
-                        (100 - ((this.APP_SCROLL_VALUE - startScroll) / ((finishScroll - startScroll) / 100))))
-                    :
-                    100
-            },
-
-            spanOpacity() {
-                return this.startOpacityZero ?
-                    1 - (this.spanTranslate / 100)
-                    :
-                    0 + (this.spanTranslate / 100)
-            },
-        }
-    }
+      spanOpacity() {
+        return this.startOpacityZero
+          ? 1 - this.spanTranslate / 100
+          : 0 + this.spanTranslate / 100;
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
@@ -64,7 +71,11 @@
     display: flex;
     //min-height: 80px;
 
-    .btn-wrap{
+    .main-page_small-text {
+      margin-top: 15px;
+    }
+
+    .btn-wrap {
       margin-top: 15px;
       &:after {
         content: '';
@@ -80,7 +91,7 @@
       &:hover:after {
         width: 100%;
       }
-      .content-btn-text{
+      .content-btn-text {
         color: white;
       }
     }

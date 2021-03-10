@@ -1,5 +1,13 @@
 <template>
-  <div class="project-content">
+  <div
+    :class="[
+      'project-content',
+      {
+        'project-content-4':
+          project['__component'] === 'project-style-type.style-4',
+      },
+    ]"
+  >
     <div
       v-if="project['__component'] === 'project-style-type.style-1'"
       class="content-type-1"
@@ -106,12 +114,10 @@
           { 'item-project_img-wrap_height': APP_WINDOW_SIZE.width <= 1280 },
         ]"
       >
-        <ScrollAnimation :opacity="false" cover>
-          <div
-            class="background-fixed"
-            :style="`background-image: url(${getUrl(project.image.url)})`"
-          ></div>
-        </ScrollAnimation>
+        <div
+          class="background-fixed"
+          :style="`background-image: url(${getUrl(project.image.url)})`"
+        ></div>
       </div>
     </div>
 
@@ -179,7 +185,7 @@
     methods: {
       ...mapActions('app', ['setModalImgIsActive']),
       getUrl(url) {
-        return `https://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+        return `https://arch-admin.archimatika.agency${url}`;
       },
     },
   };
@@ -191,6 +197,13 @@
     flex-direction: column;
     width: 100%;
     overflow: hidden;
+    background-color: #fff;
+
+    &.project-content-4 {
+      background-color: transparent;
+      position: relative;
+      height: 100vh;
+    }
 
     .content-type-1 {
       width: 100%;
@@ -281,6 +294,12 @@
     .content-type-4 {
       width: 100%;
       margin-bottom: 280px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
 
       .content-type-4_img-wrap {
         width: 100%;
@@ -302,6 +321,7 @@
       align-self: flex-end;
       margin-right: var(--main-mini-margin);
       margin-bottom: 280px;
+      margin-top: 100px;
 
       .content-type-5_img-wrap {
         width: 100%;

@@ -119,7 +119,7 @@
     },
     methods: {
       getUrl(url) {
-        return `https://ovz13.dwynn-dev.me2jm.vps.myjino.ru${url}`;
+        return `https://arch-admin.archimatika.agency${url}`;
       },
     },
     computed: {
@@ -154,8 +154,9 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      margin-top: 133px;
-      margin-bottom: 47px;
+      padding-top: 133px;
+      padding-bottom: 47px;
+      background-color: #fff;
 
       .description-text-wrap {
         display: flex;
@@ -190,26 +191,27 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 180px;
+      padding-bottom: 180px;
+      background-color: #fff;
     }
   }
 
   @media screen and (max-width: 1280px) {
     .item-project {
       .description-block {
-        margin-top: 103px;
-        margin-bottom: 67px;
+        padding-top: 103px;
+        padding-bottom: 67px;
       }
     }
     .paginator {
-      margin-bottom: 100px !important;
+      padding-bottom: 100px !important;
     }
   }
 
   @media screen and (max-width: 1024px) {
     .item-project {
       .description-block {
-        margin-bottom: 117px;
+        padding-bottom: 117px;
       }
     }
   }
@@ -217,8 +219,8 @@
   @media screen and (max-width: 768px) {
     .item-project {
       .description-block {
-        margin-top: 53px;
-        margin-bottom: 53px;
+        padding-top: 53px;
+        padding-bottom: 53px;
       }
     }
   }
@@ -226,9 +228,9 @@
   @media screen and (max-width: 428px) {
     .item-project {
       .description-block {
-        margin-top: 103px;
+        padding-top: 103px;
         flex-direction: column;
-        margin-bottom: 179px;
+        padding-bottom: 179px;
 
         .project-values-wrap {
           width: unset;
