@@ -36,19 +36,19 @@
     <button
       class="header-burger-btn"
       @click="$store.dispatch('app/setModalIsActive')"
+      :class="[
+        {
+          black:
+            $store.getters['app/APP_SCROLL_VALUE'] >
+            $store.getters['app/APP_WINDOW_SIZE'].height - 120,
+        },
+      ]"
     >
       <svg
         v-if="!$store.getters['app/MODAL_IS_ACTIVE']"
         viewBox="0 0 60 60"
         stroke="#fff"
         xmlns="http://www.w3.org/2000/svg"
-        :class="[
-          {
-            black:
-              $store.getters['app/APP_SCROLL_VALUE'] >
-              $store.getters['app/APP_WINDOW_SIZE'].height - 120,
-          },
-        ]"
       >
         <path d="M15 30L45 30" stroke-width="4" />
         <path d="M15 40L45 40" stroke-width="4" />
@@ -152,7 +152,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      .black path {
+      &.black svg path {
         stroke: #000;
       }
       svg {
