@@ -13,9 +13,8 @@
     <People_Studio :data="people.explore" />
     <Studio :data="{ about: people.about }" />
     <Team :data="people.team" />
-    <News />
     <Jobs :data="people.careers" @clicked="modalOpen = !modalOpen" />
-
+    <News />
     <div class="modal-send" v-if="modalOpen">
       <div class="close" @click="modalOpen = !modalOpen">
         <svg

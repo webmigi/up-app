@@ -4,7 +4,9 @@
       <intersect @enter="start = true" @leave="start = false">
         <div
           class="scale-content"
-          :style="`transform: scale(${scaleValue}); opacity: ${opacityValue};}`"
+          :style="
+            `transform: scale(${scaleValue}) translateY(${translateYValue}px); opacity: ${opacityValue};}`
+          "
         >
           <slot></slot>
         </div>
@@ -47,12 +49,28 @@
           };
         },
       },
+      translateY: {
+        type: [Object, Boolean],
+        required: false,
+        default: () => {
+          return {
+            start: 0, // %
+            end: 100, // %
+          };
+        },
+      },
+      translate: {
+        type: Boolean,
+        required: false,
+        default: false,
+      },
     },
     data() {
       return {
         start: false,
         scaleValue: 1,
         opacityValue: 1,
+        translateYValue: 0,
       };
     },
 
@@ -61,6 +79,7 @@
         if (this.start) {
           this.opacityValue = this.getOpacity();
           this.scaleValue = this.getScale();
+          this.translateYValue = this.translate ? this.getTranslateY() : 0;
         }
       },
     },
@@ -79,7 +98,25 @@
         ).toFixed(3);
       },
 
-      getPercent(start, end, type) {
+      getTranslateY() {
+        let result = 0;
+        let full = +this.getPercent(
+          this.translateY.start,
+          this.translateY.end,
+        ).toFixed(3);
+
+        if (full < 50) {
+          result = (full / 50) * 150;
+        } else if (full > 50) {
+          result = 150;
+        } else {
+          result = 0;
+        }
+
+        return 150 - result;
+      },
+
+      getPercent(start, end, type, offset = 0) {
         let size = this.$refs.wrapper.getBoundingClientRect(),
           a =
             type === 'windowHeight'
@@ -89,11 +126,11 @@
             type === 'windowHeight'
               ? size.top + size.height
               : size.bottom - this.APP_WINDOW_SIZE.height,
-          offset = a * (this.offset / 100),
+          offset2 = a * (offset / 100),
           percent =
             end +
             start -
-            (b * (start - end) - (a - offset) * start) / -(a - offset); // ~ 0 - 100 ~
+            (b * (start - end) - (a - offset2) * start) / -(a - offset2); // ~ 0 - 100 ~
 
         return (percent =
           percent > end

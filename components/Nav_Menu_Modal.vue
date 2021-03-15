@@ -130,13 +130,14 @@
         .nav-menu-btn {
           position: relative;
           cursor: pointer;
+          font-family: Helvetica Now Display;
           &:after {
             content: '';
             position: absolute;
             top: 100%;
             left: 0;
             width: 0;
-            height: 8px;
+            height: 4px;
             background-color: #000000;
             transition: width 0.3s ease-in-out;
           }
