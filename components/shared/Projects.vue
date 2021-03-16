@@ -29,7 +29,7 @@
         v-if="checkProjectPage ? item : index < 4"
         :key="index"
       >
-        <ScrollAnimation class="cover" translate>
+        <ScrollAnimation class="cover" translate :opacity="false">
           <img :src="getUrl(item.preview.url)" alt="" />
         </ScrollAnimation>
         <div class="item-project-title item-project-title-text">
