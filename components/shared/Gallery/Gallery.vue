@@ -29,7 +29,7 @@
 
     async fetch() {
       this.news = await fetch(
-        'https://arch-admin.archimatika.agency/news-lists',
+        'https://strapi-up.verodigital.site/news-lists',
       ).then(res => res.json());
     },
 

@@ -18,7 +18,7 @@ export default {
     './assets/styles/main.scss',
     './assets/styles/process.scss',
     './assets/styles/item_project.scss',
-    'swiper/css/swiper.css',
+    // 'swiper/css/swiper.css',
   ],
 
   plugins: [

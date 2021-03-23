@@ -58,10 +58,10 @@
 
     async fetch() {
       this.projectsList = await fetch(
-        'https://arch-admin.archimatika.agency/projects-lists',
+        'https://strapi-up.verodigital.site/projects-lists',
       ).then(res => res.json());
       this.projectsPage = await fetch(
-        'https://arch-admin.archimatika.agency/project',
+        'https://strapi-up.verodigital.site/project',
       ).then(res => res.json());
     },
 
@@ -73,7 +73,7 @@
     },
     methods: {
       getUrl(url) {
-        return `https://arch-admin.archimatika.agency${url}`;
+        return `https://strapi-up.verodigital.site${url}`;
       },
       bigClass(idx) {
         return idx === 0 || idx === 5;

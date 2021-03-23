@@ -39,7 +39,7 @@
     },
     methods: {
       getUrl(url) {
-        return `https://arch-admin.archimatika.agency${url}`;
+        return `https://strapi-up.verodigital.site${url}`;
       },
     },
   };

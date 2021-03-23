@@ -17,7 +17,7 @@
     props: ['id', 'img', 'title', 'date', 'tags'],
     methods: {
       getUrl(url) {
-        return `https://arch-admin.archimatika.agency${url}`;
+        return `https://strapi-up.verodigital.site${url}`;
       },
       getDate(date) {
         let y = new Date(date).getFullYear(),
