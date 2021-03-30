@@ -53,6 +53,7 @@ a {
 .main-page_start-text {
   font-family: Helvetica;
   font-family: Helvetica Now Display;
+  font-family: SFProDisplay;
   font-style: normal;
   font-weight: bold;
   font-size: 73.24px;
@@ -63,6 +64,7 @@ a {
 
 .main-page_small-text {
   font-family: Helvetica;
+  font-family: SFProDisplay;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -92,6 +94,16 @@ a {
   color: #FFFFFF;
 }
 
+.item-project-title-text-2 {
+  font-family: SFProDisplay;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 141%;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+}
+
 .item-project_description_value {
   font-family: Helvetica;
   font-style: normal;
@@ -112,9 +124,8 @@ a {
 }
 
 .nav-menu-btn-text {
-  font-family: SF Pro Display;
+  font-family: SFProDisplay;
   font-style: normal;
-  //font-weight: bold;
   font-size: 73.24px;
   line-height: 109%;
   text-align: center;

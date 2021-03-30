@@ -15,21 +15,21 @@
 </template>
 
 <script>
-  import Item_vacancy from './Item_vacancy';
+    import Item_vacancy from './Item_vacancy';
 
-  export default {
-    name: 'Jobs',
-    components: { Item_vacancy },
-    props: {
-      data: {
-        type: Object,
-        default: {},
-      },
-    },
-    data() {
-      return {};
-    },
-  };
+    export default {
+        name: 'Jobs',
+        components: {Item_vacancy},
+        props: {
+            data: {
+                type: Object,
+                default: {},
+            },
+        },
+        data() {
+            return {};
+        },
+    };
 </script>
 
 <style lang="scss" scoped>
@@ -57,17 +57,38 @@
       margin-top: 120px;
     }
   }
+
   @media screen and (max-width: 1024px) {
     .jobs {
       margin-top: 97px;
+
       .content-title {
         margin-bottom: 69px;
       }
     }
   }
+
   @media screen and (max-width: 768px) {
     .jobs {
       margin-top: 104px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .jobs {
+      margin-top: 104px;
+    }
+  }
+
+  @media screen and (max-width: 428px) {
+    .jobs {
+      p {
+        max-width: unset;
+        margin-top: 0;
+      }
+      .content-title {
+        margin-bottom: 30px;
+      }
     }
   }
 </style>

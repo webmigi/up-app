@@ -5,9 +5,9 @@
       { 'projects-block_projects-page': this.$route.path === '/project' },
     ]"
   >
-    <span class="main-page__content-title-position block-title">{{
-      title
-    }}</span>
+<!--    <span class="main-page__content-title-position block-title">{{-->
+<!--      title-->
+<!--    }}</span>-->
     <div
       v-if="this.$route.path === '/project'"
       class="description pages-content-margin-left-big"
@@ -30,74 +30,79 @@
         :key="index"
       >
         <ScrollAnimation class="cover" translate :opacity="false">
-          <img :src="getUrl(item.preview.url)" alt="" />
+          <img :src="getUrl(item.preview.url)" alt=""/>
         </ScrollAnimation>
-        <div class="item-project-title item-project-title-text">
+        <div class="item-project-title">
+        <span class="item-project-title-text">
           {{ item.title_card }}
+          </span>
+          <span class="item-project-title-text-2">
+          {{ item.title }}
+          </span>
         </div>
       </nuxt-link>
     </div>
 
     <div v-if="this.$route.path !== '/project'" class="project_btn_wrap">
       <nuxt-link :to="'/project'">
-        <Content_btn title="Explore all projects" />
+        <Content_btn title="Explore all projects"/>
       </nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
-  import ScrollAnimation from './../ScrollAnimation';
-  import Content_btn from './elements/Content_btn';
+    import ScrollAnimation from './../ScrollAnimation';
+    import Content_btn from './elements/Content_btn';
 
-  import axios from 'axios';
+    import axios from 'axios';
 
-  export default {
-    name: 'Projects',
-    components: { ScrollAnimation, Content_btn },
+    export default {
+        name: 'Projects',
+        components: {ScrollAnimation, Content_btn},
 
-    async fetch() {
-      this.projectsList = await fetch(
-        'https://strapi-up.verodigital.site/projects-lists',
-      ).then(res => res.json());
-      this.projectsPage = await fetch(
-        'https://strapi-up.verodigital.site/project',
-      ).then(res => res.json());
-    },
+        async fetch() {
+            this.projectsList = await fetch(
+                'https://strapi-up.verodigital.site/projects-lists',
+            ).then(res => res.json());
+            this.projectsPage = await fetch(
+                'https://strapi-up.verodigital.site/project',
+            ).then(res => res.json());
+        },
 
-    data() {
-      return {
-        projectsList: {},
-        projectsPage: {},
-      };
-    },
-    methods: {
-      getUrl(url) {
-        return `https://strapi-up.verodigital.site${url}`;
-      },
-      bigClass(idx) {
-        return idx === 0 || idx === 5;
-      },
-    },
-    computed: {
-      title() {
-        return this.$route.path === '/project'
-          ? 'projects'
-          : 'featured projects';
-      },
-      checkProjectPage() {
-        return this.$route.path === '/project';
-      },
-      contentBlockClasses() {
-        return [
-          'content-block',
-          'main-content-margin-left-right',
-          { 'content-block-project-page-margin-top': this.checkProjectPage },
-          { 'content-block-project-page-margin-bottom': this.checkProjectPage },
-        ];
-      },
-    },
-  };
+        data() {
+            return {
+                projectsList: {},
+                projectsPage: {},
+            };
+        },
+        methods: {
+            getUrl(url) {
+                return `https://strapi-up.verodigital.site${url}`;
+            },
+            bigClass(idx) {
+                return idx === 0 || idx === 5;
+            },
+        },
+        computed: {
+            title() {
+                return this.$route.path === '/project'
+                    ? 'projects'
+                    : 'featured projects';
+            },
+            checkProjectPage() {
+                return this.$route.path === '/project';
+            },
+            contentBlockClasses() {
+                return [
+                    'content-block',
+                    'main-content-margin-left-right',
+                    {'content-block-project-page-margin-top': this.checkProjectPage},
+                    {'content-block-project-page-margin-bottom': this.checkProjectPage},
+                ];
+            },
+        },
+    };
 </script>
 
 <style lang="scss">
@@ -115,6 +120,7 @@
       .description-title {
         margin-top: 83px;
         margin-bottom: 35px;
+
         br {
           display: none;
           @media (max-width: 1440px) {
@@ -141,11 +147,13 @@
         height: 840px;
         margin-bottom: var(--main-very-mini-margin);
         display: flex;
+
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
+
         & .image-scale-block_wrap .image-scale-img {
           cursor: pointer;
         }
@@ -154,8 +162,13 @@
           position: absolute;
           bottom: 60px;
           left: 60px;
-          align-self: flex-end;
           cursor: pointer;
+          display: flex;
+          flex-direction: column;
+
+          .item-project-title-text {
+            font-family: SFProDisplay;
+          }
         }
       }
 
@@ -163,9 +176,11 @@
         width: 100%;
         margin-bottom: 100px;
         margin-top: 40px;
+
         & > div {
           width: inherit;
         }
+
         img {
           width: 100%;
         }

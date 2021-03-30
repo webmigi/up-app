@@ -1,26 +1,24 @@
 <template>
   <div class="item-project">
     <div class="title-img-wrap">
-      <span class="project-title main-page_start-text">{{
-        project.title
-      }}</span>
+      <div class="project-title">
+        <span class="main-page_start-text">{{ project.title}}</span>
+        <span class="main-page_small-text">{{ project.title_card}}</span>
+      </div>
       <scroll-animation :opacity="false" cover>
         <img :src="getUrl(project.background_image.url)" alt="" />
       </scroll-animation>
     </div>
     <div class="description-block">
       <div class="description-text-wrap">
-        <p class="content-p pages-content-margin-left-big">
-          {{ project.description }}
-        </p>
+        <p class="content-p pages-content-margin-left-big">{{ project.description }}</p>
       </div>
 
       <div class="project-values-wrap">
         <div class="values-block">
           <div
-            :class="['value', { group: idx === 1 || idx === 2 }]"
-            v-for="(item, idx) in project.tags.tag"
-          >
+            :class="['value', { group: idx === 1 || idx === 2 }, {'value-none': !item.title}]"
+            v-for="(item, idx) in project.tags.tag">
             <span class="text-very-small">{{ item.title }}</span>
             <span class="item-project_description_value">{{
               item.description
@@ -146,6 +144,8 @@
         margin-right: var(--main-mini-margin);
         margin-left: var(--main-mini-margin);
         position: absolute;
+        display: flex;
+        flex-direction: column;
         z-index: 1;
       }
     }
@@ -183,6 +183,9 @@
           &.group {
             width: 50%;
           }
+        }
+        .value-none{
+          display: none;
         }
       }
     }

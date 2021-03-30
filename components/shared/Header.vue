@@ -1,5 +1,11 @@
 <template>
-  <div class="header" ref="header_component">
+  <div :class="['header',  {
+            white:
+              !$store.getters['app/MODAL_IS_ACTIVE'] &&
+              $store.getters['app/APP_SCROLL_VALUE'] >
+                $store.getters['app/APP_WINDOW_SIZE'].height,
+          }]"
+       ref="header_component">
     <span style="display: none">{{ animationClass }}</span>
     <nuxt-link
       v-if="$route.path !== '/'"
@@ -80,9 +86,9 @@
         stroke="#fff"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M15 30L45 30" stroke-width="4" />
-        <path d="M15 40L45 40" stroke-width="4" />
-        <path d="M15 20L45 20" stroke-width="4" />
+        <path d="M15 30L45 30" stroke-width="4"/>
+        <path d="M15 40L45 40" stroke-width="4"/>
+        <path d="M15 20L45 20" stroke-width="4"/>
       </svg>
 
       <svg
@@ -91,23 +97,23 @@
         stroke="#000"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M15 15L45 45M45 15L15 45" stroke-width="4" />
+        <path d="M15 15L45 45M45 15L15 45" stroke-width="4"/>
       </svg>
     </button>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'Header',
-    computed: {
-      animationClass() {
-        if (this.$store.getters['app/APP_SCROLL_VALUE'] > 0) {
-          this.$store.dispatch('app/setLogoStartHeight', false);
-        }
-      },
-    },
-  };
+    export default {
+        name: 'Header',
+        computed: {
+            animationClass() {
+                if (this.$store.getters['app/APP_SCROLL_VALUE'] > 0) {
+                    this.$store.dispatch('app/setLogoStartHeight', false);
+                }
+            },
+        },
+    };
 </script>
 
 <style lang="scss" scoped>
@@ -129,6 +135,7 @@
         top: 40px;
         left: 30px;
       }
+
       &.animation {
         transition: 0s;
         top: 50vh;
@@ -159,10 +166,12 @@
           top: 30px;
           left: 14px;
         }
+
         svg path {
           fill: #000;
         }
       }
+
       svg {
         width: 100%;
         height: 100%;
@@ -182,9 +191,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       &.black svg path {
         stroke: #000;
       }
+
       svg {
         position: absolute;
         width: 100%;
@@ -234,9 +245,14 @@
         left: 14px;
         width: 46px;
       }
+
       .header-burger-btn {
         width: 42px;
         height: 42px;
+      }
+
+      &.white {
+        background-color: white;
       }
     }
   }

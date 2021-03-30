@@ -223,7 +223,6 @@
       }
     }
   }
-
   .translateY-opacity-enter-active,
   .translateY-opacity-leave-active {
     transition: all 1s;
@@ -240,5 +239,22 @@
   .slide-images-enter,
   .slide-images-leave-to {
     transform: translateY(100%);
+  }
+  @media screen and (max-width: 400px) {
+    .main-page_title-imgs__container {
+      .block-wrap {
+        .block {
+          .start-span_with-logo_wrap {
+            margin-right: 10px;
+            left: 35px;
+            top: 20vh;
+            /*<!--transform: translateY(-50%);-->*/
+            .start-text{
+              font-size: 38px;
+            }
+          }
+        }
+      }
+    }
   }
 </style>

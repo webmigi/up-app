@@ -108,4 +108,11 @@
       margin-right: var(--main-mini-margin);
     }
   }
+  @media screen and (max-width: 325px) {
+    .start-span-block {
+      .main-page_start-text{
+        font-size: 38px;
+      }
+    }
+  }
 </style>

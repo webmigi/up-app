@@ -31,7 +31,7 @@
         </a>
       </div>
     </div>
-    <a href="" class="email footer-contacts">powered by VERO Digital</a>
+    <a href="" class="email footer-contacts vero">powered by VERO Digital</a>
     <a href="" class="email footer-contacts"></a>
     <!--    <div v-if="$route.path === '/people'" class="map">-->
     <!--      &lt;!&ndash;      <iframe&ndash;&gt;-->
@@ -172,15 +172,11 @@
       }
     }
   }
-  @media screen and (max-width: 1024px) {
-    .footer {
-      .content {
-      }
-    }
-  }
   @media screen and (max-width: 428px) {
     .footer {
-      .content {
+      .vero {
+        margin-bottom: -30px;
+        opacity: 0.7;
       }
     }
   }
