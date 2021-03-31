@@ -4,10 +4,7 @@
       <intersect @enter="start = true" @leave="start = false">
         <div
           class="scale-content"
-          :style="
-            `transform: scale(${scaleValue}) translateY(${translateYValue}px); opacity: ${opacityValue};}`
-          "
-        >
+          :style="`transform: scale(${scaleValue}) translateY(${translateYValue}px); opacity: ${opacityValue};}`">
           <slot></slot>
         </div>
       </intersect>
@@ -22,6 +19,7 @@
     name: 'ScrollAnimation',
 
     props: {
+      place: String,
       cover: {
         type: Boolean,
       },

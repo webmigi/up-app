@@ -15,7 +15,6 @@
       <div
         class="content-type-1_img-wrap
        item-project_img-wrap_height"
-        @click="setModalImgIsActive"
       >
         <ScrollAnimation :opacity="false" cover>
           <img :src="getUrl(project.image.url)" alt="" />
@@ -183,7 +182,6 @@
       ...mapGetters('app', ['APP_WINDOW_SIZE']),
     },
     methods: {
-      ...mapActions('app', ['setModalImgIsActive']),
       getUrl(url) {
         return `https://strapi-up.verodigital.site${url}`;
       },

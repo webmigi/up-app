@@ -1,5 +1,9 @@
 <template>
   <div class="item-project">
+    <transition name="nav-menu-fade" appear>
+      <Img_Modal v-if="MODAL_IMG_IS_ACTIVE"
+      :images="project.presentation"/>
+    </transition>
     <div class="title-img-wrap">
       <div class="project-title">
         <span class="main-page_start-text">{{ project.title}}</span>
@@ -26,7 +30,8 @@
           </div>
 
           <div class="value" v-if="APP_WINDOW_SIZE.width > 500">
-            <span class="item-project_pres-view">presentation view</span>
+            <span class="item-project_pres-view"
+                  @click="setModalImgIsActive">presentation view</span>
           </div>
         </div>
       </div>
@@ -81,7 +86,8 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
+import {mapActions, mapGetters} from 'vuex';
+import Img_Modal from "~/components/Img_Modal";
 
   import News from '../../components/shared/News';
   import Item_Project_Content from '../../components/Item_Project/Item_Project_Content';
@@ -91,6 +97,7 @@
   export default {
     name: 'single-project',
     components: {
+      Img_Modal,
       News,
       Item_Project_Content,
       Arrow_Btn,
@@ -116,12 +123,14 @@
       };
     },
     methods: {
+      ...mapActions('app', ['setModalImgIsActive']),
+
       getUrl(url) {
         return `https://strapi-up.verodigital.site${url}`;
       },
     },
     computed: {
-      ...mapGetters('app', ['APP_WINDOW_SIZE']),
+      ...mapGetters('app', ['APP_WINDOW_SIZE', 'MODAL_IMG_IS_ACTIVE']),
     },
   };
 </script>
@@ -131,6 +140,17 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+
+    .nav-menu-fade-enter,
+    .nav-menu-fade-leave-to {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    .nav-menu-fade-enter-active,
+    .nav-menu-fade-leave-active {
+      transition: transform 1s, opacity 1s;
+    }
 
     .title-img-wrap {
       position: relative;
