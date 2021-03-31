@@ -92,14 +92,6 @@
         console.log(this.count)
     },
 
-    // async asyncData(params) {
-    //   const [news-lists, count] = await Promise.all(
-    //     [
-    //       axiosOption.getPage('news-lists-lists/' + params.id),
-    //       axiosOption.getPage('news-lists-lists/count')
-    //     ])
-    //   return {news-lists, count}
-    // },
     data() {
       return {
         news: {},
