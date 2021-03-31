@@ -63,7 +63,7 @@
           </svg>
         </nuxt-link>
         <nuxt-link
-          :to="`/news/${project.id === count ? 1 : project.id + 1}`"
+          :to="`/project/${project.id === count ? 1 : project.id + 1}`"
           class="btn-right"
         >
           <svg

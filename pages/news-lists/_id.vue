@@ -27,7 +27,7 @@
       <div class="paginator">
         <div class="arrow-wrap">
           <nuxt-link
-            :to="`/news/${news.id === 1 ? count : news.id - 1}`"
+            :to="`/news-lists/${news.id === 1 ? count : news.id - 1}`"
             class="btn-left"
           >
             <svg
@@ -44,7 +44,7 @@
             </svg>
           </nuxt-link>
           <nuxt-link
-            :to="`/news/${news.id === count ? 1 : news.id + 1}`"
+            :to="`/news-lists/${news.id === count ? 1 : news.id + 1}`"
             class="btn-right"
           >
             <svg
@@ -86,6 +86,20 @@
         });
       }
     },
+
+    mounted() {
+      console.log(this.news),
+        console.log(this.count)
+    },
+
+    // async asyncData(params) {
+    //   const [news-lists, count] = await Promise.all(
+    //     [
+    //       axiosOption.getPage('news-lists-lists/' + params.id),
+    //       axiosOption.getPage('news-lists-lists/count')
+    //     ])
+    //   return {news-lists, count}
+    // },
     data() {
       return {
         news: {},

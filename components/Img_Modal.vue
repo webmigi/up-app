@@ -26,8 +26,7 @@
         </button>
       </div>
       <transition-group name="modal-image" class="image-list">
-        <img
-            v-for="(item, index) in images"
+        <img v-for="(item, index) in images"
             v-if="idx === index && item"
             :key="item.id"
             class="img-span"
