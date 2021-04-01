@@ -28,7 +28,8 @@
 
     </div>
     <Tags_block :mainText="news.main_text"
-                :tags="news.tags.tag"/>
+                :tags="news.tags.tag"
+                :presView="false"/>
 
 
     <div class="project-content">

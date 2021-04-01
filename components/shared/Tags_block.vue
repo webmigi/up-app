@@ -17,8 +17,10 @@
             }}</span>
         </div>
 
-        <div class="value" v-if="APP_WINDOW_SIZE.width > 500  && $route.name!=='news-lists-id'">
+        <div v-if="APP_WINDOW_SIZE.width > 500  && presView"
+             class="value">
             <span class="item-project_pres-view"
+                  style="cursor: pointer"
                   @click="setModalImgIsActive">presentation view</span>
         </div>
       </div>
@@ -32,7 +34,8 @@ import {mapActions, mapGetters} from 'vuex';
 
 export default {
   name: 'Tags_block',
-  props:{
+  props: {
+    presView: Boolean,
     mainText: String,
     tags: Array
   },
@@ -64,6 +67,7 @@ export default {
       white-space: pre-line;
     }
   }
+
   .project-values-wrap {
     width: calc((100% - var(--main-very-mini-margin)) / 2);
     display: flex;
@@ -73,13 +77,16 @@ export default {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
+
       .value {
         width: 100%;
+
         &.group {
           width: 50%;
         }
       }
-      .value-none{
+
+      .value-none {
         display: none;
       }
     }
@@ -87,46 +94,46 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-    .description-block {
-      padding-top: 103px;
-      padding-bottom: 67px;
-    }
+  .description-block {
+    padding-top: 103px;
+    padding-bottom: 67px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-    .description-block {
-      padding-bottom: 117px;
+  .description-block {
+    padding-bottom: 117px;
   }
 }
 
 @media screen and (max-width: 768px) {
-    .description-block {
-      padding-top: 53px;
-      padding-bottom: 53px;
+  .description-block {
+    padding-top: 53px;
+    padding-bottom: 53px;
   }
 }
 
 
 @media screen and (max-width: 428px) {
-    .description-block {
-      padding-top: 103px;
-      flex-direction: column;
-      padding-bottom: 179px;
+  .description-block {
+    padding-top: 103px;
+    flex-direction: column;
+    padding-bottom: 179px;
 
-      .project-values-wrap {
-        width: unset;
-        order: 1;
-        margin-left: var(--main-big-margin);
-      }
+    .project-values-wrap {
+      width: unset;
+      order: 1;
+      margin-left: var(--main-big-margin);
+    }
 
-      .description-text-wrap {
-        width: unset;
-        order: 2;
+    .description-text-wrap {
+      width: unset;
+      order: 2;
 
-        .content-p {
-          margin-right: var(--main-mini-margin);
-        }
+      .content-p {
+        margin-right: var(--main-mini-margin);
       }
     }
+  }
 }
 </style>
