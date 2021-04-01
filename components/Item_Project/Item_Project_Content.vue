@@ -16,7 +16,7 @@
         class="content-type-1_img-wrap
        item-project_img-wrap_height"
       >
-        <ScrollAnimation :opacity="false" cover>
+        <ScrollAnimation :opacity="false" class="cover">
           <img :src="getUrl(project.image.url)" alt="" />
         </ScrollAnimation>
       </div>
@@ -34,10 +34,7 @@
       v-if="project['__component'] === 'project-style-type.style-2'"
       class="content-type-2"
     >
-      <div
-        class="content-type-2_img-wrap
-                 item-project_img-wrap_height"
-      >
+      <div class="content-type-2_img-wrap item-project_img-wrap_height">
         <ScrollAnimation :opacity="false" cover>
           <img :src="getUrl(project.image.url)" alt="" />
         </ScrollAnimation>
