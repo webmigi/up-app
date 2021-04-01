@@ -94,25 +94,20 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .item-project {
     .description-block {
       padding-bottom: 117px;
-    }
   }
 }
 
 @media screen and (max-width: 768px) {
-  .item-project {
     .description-block {
       padding-top: 53px;
       padding-bottom: 53px;
-    }
   }
 }
 
 
 @media screen and (max-width: 428px) {
-  .item-project {
     .description-block {
       padding-top: 103px;
       flex-direction: column;
@@ -133,6 +128,5 @@ export default {
         }
       }
     }
-  }
 }
 </style>
