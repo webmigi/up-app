@@ -2,40 +2,21 @@
   <div class="item-project">
     <transition name="nav-menu-fade" appear>
       <Img_Modal v-if="MODAL_IMG_IS_ACTIVE"
-      :images="project.presentation"/>
+                 :images="project.presentation"/>
     </transition>
     <div class="title-img-wrap">
       <div class="project-title">
-        <span class="main-page_start-text">{{ project.title}}</span>
-        <span class="main-page_small-text">{{ project.title_card}}</span>
+        <span class="main-page_start-text">{{ project.title }}</span>
+        <span class="main-page_small-text">{{ project.title_card }}</span>
       </div>
       <scroll-animation :opacity="false" cover>
-        <img :src="getUrl(project.background_image.url)" alt="" />
+        <img :src="getUrl(project.background_image.url)" alt=""/>
       </scroll-animation>
     </div>
-    <div class="description-block">
-      <div class="description-text-wrap">
-        <p class="content-p pages-content-margin-left-big">{{ project.description }}</p>
-      </div>
 
-      <div class="project-values-wrap">
-        <div class="values-block">
-          <div
-            :class="['value', { group: idx === 1 || idx === 2 }, {'value-none': !item.title}]"
-            v-for="(item, idx) in project.tags.tag">
-            <span class="text-very-small">{{ item.title }}</span>
-            <span class="item-project_description_value">{{
-              item.description
-            }}</span>
-          </div>
 
-          <div class="value" v-if="APP_WINDOW_SIZE.width > 500">
-            <span class="item-project_pres-view"
-                  @click="setModalImgIsActive">presentation view</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Tags_block :mainText="project.description"
+                :tags="project.tags.tag"/>
 
     <Item_Project_Content
       v-for="(item, index) in project.project_content"
@@ -81,195 +62,107 @@
         </nuxt-link>
       </div>
     </div>
-    <News />
+    <News/>
   </div>
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex';
+import {mapGetters} from 'vuex';
 import Img_Modal from "~/components/Img_Modal";
 
-  import News from '../../components/shared/News';
-  import Item_Project_Content from '../../components/Item_Project/Item_Project_Content';
-  import Arrow_Btn from '../../components/shared/elements/Arrow_Btn';
-  import axiosOption from '~/services/axios';
+import Tags_block from "~/components/shared/Tags_block";
+import News from '../../components/shared/News';
+import Item_Project_Content from '../../components/Item_Project/Item_Project_Content';
+import Arrow_Btn from '../../components/shared/elements/Arrow_Btn';
+import axiosOption from '~/services/axios';
 
-  export default {
-    name: 'single-project',
-    components: {
-      Img_Modal,
-      News,
-      Item_Project_Content,
-      Arrow_Btn,
+export default {
+  name: 'single-project',
+  components: {
+    Img_Modal,
+    News,
+    Item_Project_Content,
+    Arrow_Btn,
+    Tags_block
+  },
+  async asyncData({error, params}) {
+    try {
+      const project = await axiosOption.getPage(
+        'projects-lists/' + params.id,
+      );
+      const count = await axiosOption.getPage('projects-lists/count');
+      return {project: project.data, count: count.data};
+    } catch (e) {
+      error({
+        statusCode: 503,
+        message: 'Unable to fetch blogs at this time',
+      });
+    }
+  },
+  data() {
+    return {
+      project: {},
+      count: {},
+    };
+  },
+  methods: {
+    getUrl(url) {
+      return `https://strapi-up.verodigital.site${url}`;
     },
-    async asyncData({ error, params }) {
-      try {
-        const project = await axiosOption.getPage(
-          'projects-lists/' + params.id,
-        );
-        const count = await axiosOption.getPage('projects-lists/count');
-        return { project: project.data, count: count.data };
-      } catch (e) {
-        error({
-          statusCode: 503,
-          message: 'Unable to fetch blogs at this time',
-        });
-      }
-    },
-    data() {
-      return {
-        project: {},
-        count: {},
-      };
-    },
-    methods: {
-      ...mapActions('app', ['setModalImgIsActive']),
-
-      getUrl(url) {
-        return `https://strapi-up.verodigital.site${url}`;
-      },
-    },
-    computed: {
-      ...mapGetters('app', ['APP_WINDOW_SIZE', 'MODAL_IMG_IS_ACTIVE']),
-    },
-  };
+  },
+  computed: {
+    ...mapGetters('app', ['MODAL_IMG_IS_ACTIVE']),
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .item-project {
+.item-project {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .nav-menu-fade-enter,
+  .nav-menu-fade-leave-to {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .nav-menu-fade-enter-active,
+  .nav-menu-fade-leave-active {
+    transition: transform 1s, opacity 1s;
+  }
+
+  .title-img-wrap {
+    position: relative;
     width: 100%;
+    height: var(--winHeight);
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    transition: height 0.3s;
 
-    .nav-menu-fade-enter,
-    .nav-menu-fade-leave-to {
-      opacity: 0;
-      transform: scale(0);
-    }
-
-    .nav-menu-fade-enter-active,
-    .nav-menu-fade-leave-active {
-      transition: transform 1s, opacity 1s;
-    }
-
-    .title-img-wrap {
-      position: relative;
-      width: 100%;
-      height: var(--winHeight);
-      display: flex;
-      align-items: center;
-      transition: height 0.3s;
-
-      .project-title {
-        margin-right: var(--main-mini-margin);
-        margin-left: var(--main-mini-margin);
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        z-index: 1;
-      }
-    }
-
-    .description-block {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding-top: 133px;
-      padding-bottom: 47px;
-      background-color: #fff;
-
-      .description-text-wrap {
-        display: flex;
-        flex-direction: column;
-        width: calc((100% - var(--main-very-mini-margin)) / 2);
-
-        .content-p {
-          white-space: pre-line;
-        }
-      }
-    }
-
-    .project-values-wrap {
-      width: calc((100% - var(--main-very-mini-margin)) / 2);
+    .project-title {
+      margin-right: var(--main-mini-margin);
+      margin-left: var(--main-mini-margin);
+      position: absolute;
       display: flex;
       flex-direction: column;
-
-      .values-block {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        .value {
-          width: 100%;
-          &.group {
-            width: 50%;
-          }
-        }
-        .value-none{
-          display: none;
-        }
-      }
-    }
-
-    .paginator {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-bottom: 180px;
-      background-color: #fff;
+      z-index: 1;
     }
   }
 
-  @media screen and (max-width: 1280px) {
-    .item-project {
-      .description-block {
-        padding-top: 103px;
-        padding-bottom: 67px;
-      }
-    }
-    .paginator {
-      padding-bottom: 100px !important;
-    }
+  .paginator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 180px;
+    background-color: #fff;
   }
+}
 
-  @media screen and (max-width: 1024px) {
-    .item-project {
-      .description-block {
-        padding-bottom: 117px;
-      }
-    }
+@media screen and (max-width: 1280px) {
+  .paginator {
+    padding-bottom: 100px !important;
   }
-
-  @media screen and (max-width: 768px) {
-    .item-project {
-      .description-block {
-        padding-top: 53px;
-        padding-bottom: 53px;
-      }
-    }
-  }
-
-  @media screen and (max-width: 428px) {
-    .item-project {
-      .description-block {
-        padding-top: 103px;
-        flex-direction: column;
-        padding-bottom: 179px;
-
-        .project-values-wrap {
-          width: unset;
-          order: 1;
-          margin-left: var(--main-big-margin);
-        }
-
-        .description-text-wrap {
-          width: unset;
-          order: 2;
-
-          .content-p {
-            margin-right: var(--main-mini-margin);
-          }
-        }
-      }
-    }
-  }
+}
 </style>
