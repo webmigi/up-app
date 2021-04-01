@@ -68,47 +68,12 @@
 
     </div>
 
-
     <div class="paginator-wrap">
-      <div class="paginator">
-        <div class="arrow-wrap">
-          <nuxt-link
-            :to="`/news-lists/${news.id === 1 ? count : news.id - 1}`"
-            class="btn-left"
-          >
-            <svg
-              width="21"
-              height="16"
-              viewBox="0 0 21 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0.292892 7.2929C-0.0976315 7.68342 -0.0976314 8.31658 0.292893 8.70711L6.65686 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928933C7.68054 0.538409 7.04738 0.538409 6.65685 0.928933L0.292892 7.2929ZM21 7L1 7L1 9L21 9L21 7Z"
-                fill="#000"
-              />
-            </svg>
-          </nuxt-link>
-          <nuxt-link
-            :to="`/news-lists/${news.id === count ? 1 : news.id + 1}`"
-            class="btn-right"
-          >
-            <svg
-              width="21"
-              height="16"
-              viewBox="0 0 21 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20.7071 8.70711C21.0976 8.31658 21.0976 7.68342 20.7071 7.2929L14.3431 0.928933C13.9526 0.538409 13.3195 0.538409 12.9289 0.928933C12.5384 1.31946 12.5384 1.95262 12.9289 2.34315L18.5858 8L12.9289 13.6569C12.5384 14.0474 12.5384 14.6805 12.9289 15.0711C13.3195 15.4616 13.9526 15.4616 14.3431 15.0711L20.7071 8.70711ZM-8.74228e-08 9L20 9L20 7L8.74228e-08 7L-8.74228e-08 9Z"
-                fill="#000"
-              />
-            </svg>
-          </nuxt-link>
-        </div>
-      </div>
+      <Paginator :page="'/news-lists'"
+                 :elIndex="elIndex"
+                 :elsArr="newsArr"/>
     </div>
+
   </div>
 </template>
 
@@ -116,16 +81,17 @@
 import Tags_block from "~/components/shared/Tags_block";
 import ScrollAnimation from '../../components/ScrollAnimation';
 import Arrow_Btn from '../../components/shared/elements/Arrow_Btn';
+import Paginator from "~/components/shared/elements/Paginator";
 import axiosOption from '~/services/axios';
 
 export default {
   name: 'Item_News',
-  components: {ScrollAnimation, Arrow_Btn, Tags_block},
+  components: {ScrollAnimation, Arrow_Btn, Tags_block, Paginator},
   async asyncData({error, params}) {
     try {
       const news = await axiosOption.getPage('news-lists/' + params.id);
-      const count = await axiosOption.getPage('news-lists/count');
-      return {news: news.data, count: count.data};
+      const newsArr = await axiosOption.getPage('news-lists');
+      return {news: news.data, newsArr: newsArr.data};
     } catch (e) {
       error({
         statusCode: 503,
@@ -134,16 +100,15 @@ export default {
     }
   },
 
-  mounted() {
-    console.log(this.news),
-      console.log(this.count)
-  },
-
   data() {
     return {
       news: {},
-      count: {},
     };
+  },
+  computed: {
+    elIndex() {
+      return this.newsArr.map(el => el.id).indexOf(this.news.id)
+    }
   },
   methods: {
     getUrl(url) {
@@ -249,6 +214,7 @@ export default {
   .paginator-wrap {
     align-self: center;
     margin-top: 157px;
+    width: 150px;
   }
 }
 
