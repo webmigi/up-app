@@ -161,18 +161,18 @@ export default {
 <style lang="scss">
 .scale-wrapper {
   overflow: hidden;
+  height: 100%;
 
   &.cover {
     width: 100%;
     height: 100%;
-
-    .scale-content {
-      width: 100%;
-      height: 100%;
-    }
+  }
+  .scale-content {
+    width: 100%;
+    height: 100%;
 
     img {
-      width: 100%;
+      //width: 100%;
       height: 100%;
       object-fit: cover;
     }

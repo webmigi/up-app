@@ -8,25 +8,8 @@
     <div class="content">
       <span class="date-text">{{ getDate(news.published_at) }}</span>
       <span class="item-project-title-text">{{ news.title }}</span>
-
-
-      <!--      <template v-for="(item, key) in news.news_content">-->
-      <!--        <p class="content-p" v-if="item['__component'] === 'news-content.text'">-->
-      <!--          {{ item.text }}-->
-      <!--        </p>-->
-
-      <!--        <div-->
-      <!--          class="news-img-wrap"-->
-      <!--          v-if="item['__component'] === 'news-content.image'"-->
-      <!--        >-->
-      <!--          <scroll-animation :opacity="false" cover>-->
-      <!--            <img :src="getUrl(item.image.url)" alt="" />-->
-      <!--          </scroll-animation>-->
-      <!--        </div>-->
-      <!--      </template>-->
-
-
     </div>
+
     <Tags_block :mainText="news.main_text"
                 :tags="news.tags.tag"
                 :presView="false"/>
@@ -153,16 +136,13 @@ export default {
     .item-project-title-text {
       color: black;
       margin-top: 11px;
-      margin-bottom: 38px;
+      margin-bottom: 35px;
     }
-
-    //.news-img-wrap {
-    //  width: 100%;
-    //  height: 660px;
-    //  margin: 107px 0 100px 0;
-    //}
   }
 
+  .description-block{
+    padding-top: 0;
+  }
 
   .project-content {
     display: flex;

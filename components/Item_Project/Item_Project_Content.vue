@@ -17,7 +17,7 @@
        item-project_img-wrap_height"
       >
         <ScrollAnimation :opacity="false" cover>
-          <img :src="`https://strapi-up.verodigital.site${project.image.url}`" alt="" />
+          <img :src="getUrl(project.image.url)" alt="" />
         </ScrollAnimation>
       </div>
       <p

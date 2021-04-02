@@ -329,6 +329,7 @@
           .item-project-title {
             bottom: 60px;
             left: 60px;
+            width: unset;
           }
         }
 
