@@ -14,11 +14,11 @@
       </scroll-animation>
     </div>
 
-
+    <client-only>
       <Tags_block :mainText="project.description"
                   :tags="project.tags.tag"
                   :presView="true"/>
-    <client-only>
+
       <Item_Project_Content
         v-for="(item, index) in project.project_content"
         :key="index"
