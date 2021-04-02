@@ -23,11 +23,11 @@
     components: { Image_Scale_Block, Projects, News },
     async asyncData({ error, params }) {
       try {
-        const home = await axiosOption.getPage('home');
+        // const home = await axiosOption.getPage('home');
         const projects = await axiosOption.getPage('projects-lists');
         const project = await axiosOption.getPage('project');
         return {
-          home: home.data,
+          // home: home.data,
           projects: projects.data,
           project: project.data,
         };
@@ -38,9 +38,84 @@
         });
       }
     },
+    head() {
+      return {
+        title: this.project.SEO.seoTitle,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.project.SEO.seoDescription,
+          },
+          {
+            hid: 'fb:app_id',
+            property: 'fb:app_id',
+            content: 988674798283826,
+          },
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: this.project.SEO.seoTitle,
+          },
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: 'http://localhost:3000',
+          },
+          {
+            hid: 'og:type',
+            property: 'og:type',
+            content: 'website',
+          },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: this.project.SEO.seoDescription,
+          },
+          {
+            hid: 'og:site_name',
+            property: 'og:site_name',
+            content: 'up',
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content:
+              'https://strapi-up.verodigital.site/' +
+              (this.project.SEO.seoImage
+                ? this.project.SEO.seoImage.url
+                : '/uploads/28_s5_cam001_211541b7b2.jpg'),
+          },
+          {
+            name: 'twitter:title',
+            content: this.project.SEO.seoTitle,
+          },
+          {
+            name: 'twitter:card',
+            content: 'summary',
+          },
+          {
+            name: 'twitter:description',
+            content: this.project.SEO.seoDescription,
+          },
+          {
+            name: 'twitter:site',
+            content: 'website',
+          },
+          {
+            name: 'twitter:image',
+            content:
+              'https://strapi-up.verodigital.site/' +
+              (this.project.SEO.seoImage
+                ? this.project.SEO.seoImage.url
+                : '/uploads/28_s5_cam001_211541b7b2.jpg'),
+          },
+        ],
+      };
+    },
     data() {
       return {
-        home: {},
+        // home: {},
         projects: {},
         project: {},
       };
