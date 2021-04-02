@@ -14,17 +14,17 @@
       </scroll-animation>
     </div>
 
-    <client-only>
-    <Tags_block :mainText="project.description"
-                :tags="project.tags.tag"
-                :presView="true"/>
 
-    <Item_Project_Content
-      v-for="(item, index) in project.project_content"
-      :key="index"
-      :project="item"
-    />
-</client-only>
+      <Tags_block :mainText="project.description"
+                  :tags="project.tags.tag"
+                  :presView="true"/>
+    <client-only>
+      <Item_Project_Content
+        v-for="(item, index) in project.project_content"
+        :key="index"
+        :project="item"
+      />
+    </client-only>
 
     <div class="paginator-wrap">
       <Paginator :page="'/project'"
@@ -136,7 +136,7 @@ export default {
     padding-bottom: 180px;
     background-color: #fff;
 
-    .paginator{
+    .paginator {
       align-self: center;
       width: 150px;
     }
