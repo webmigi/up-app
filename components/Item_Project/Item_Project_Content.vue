@@ -9,7 +9,7 @@
     ]"
   >
     <div
-      v-if="project['__component'] === 'project-style-type.style-1'"
+
       class="content-type-1"
     >
       <div
