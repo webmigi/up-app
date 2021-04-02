@@ -17,7 +17,7 @@
 
     <Tags_block :mainText="project.description"
                 :tags="project.tags.tag"
-                presView="true"/>
+                :presView="true"/>
 
     <Item_Project_Content
       v-for="(item, index) in project.project_content"
