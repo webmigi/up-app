@@ -4,12 +4,12 @@
       'project-content',
       {
         'project-content-4':
-          project.__component === 'project-style-type.style-4',
+          project['__component'] === 'project-style-type.style-4',
       },
     ]"
   >
     <div
-      v-if="project.__component === 'project-style-type.style-1'"
+      v-if="project['__component'] === 'project-style-type.style-1'"
       class="content-type-1"
     >
       <div
@@ -31,10 +31,11 @@
     </div>
 
     <div
-      v-if="project.__component === 'project-style-type.style-2'"
+      v-if="project['__component'] === 'project-style-type.style-2'"
       class="content-type-2"
     >
-      <div class="content-type-2_img-wrap item-project_img-wrap_height">
+      <div class="content-type-2_img-wrap item-project_img-wrap_height"
+      >
         <ScrollAnimation :opacity="false" cover>
           <img :src="getUrl(project.image.url)" alt="" />
         </ScrollAnimation>
@@ -50,7 +51,7 @@
     </div>
 
     <div
-      v-if="project.__component === 'project-style-type.style-3'"
+      v-if="project['__component'] === 'project-style-type.style-3'"
       class="content-type-3"
     >
       <div class="span-1">
@@ -101,7 +102,7 @@
     </div>
 
     <div
-      v-if="project.__component === 'project-style-type.style-4'"
+      v-if="project['__component'] === 'project-style-type.style-4'"
       class="content-type-4"
     >
       <div
@@ -118,7 +119,7 @@
     </div>
 
     <div
-      v-if="project.__component === 'project-style-type.style-5'"
+      v-if="project['__component'] === 'project-style-type.style-5'"
       class="content-type-5"
     >
       <div
@@ -142,7 +143,7 @@
     </div>
 
     <div
-      v-if="project.__component === 'project-style-type.style-6'"
+      v-if="project['__component'] === 'project-style-type.style-6'"
       class="content-type-6"
     >
       <div

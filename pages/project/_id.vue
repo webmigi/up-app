@@ -14,7 +14,7 @@
       </scroll-animation>
     </div>
 
-
+    <client-only>
     <Tags_block :mainText="project.description"
                 :tags="project.tags.tag"
                 :presView="true"/>
@@ -24,6 +24,7 @@
       :key="index"
       :project="item"
     />
+</client-only>
 
     <div class="paginator-wrap">
       <Paginator :page="'/project'"
