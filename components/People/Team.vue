@@ -4,7 +4,7 @@
     <div class="team_content-block">
       <div class="team_img-wrap">
         <scroll-animation :opacity="false">
-          <img :src="getUrl(data.image.url)" alt="" />
+          <img :src="getUrl(data.image.url)" alt=""/>
         </scroll-animation>
         <div class="img-description">
           <span class="team-img-description-text" style="margin-bottom: 6px">
@@ -24,20 +24,20 @@
 </template>
 
 <script>
-  export default {
-    name: 'Team',
-    props: {
-      data: {
-        type: Object,
-        default: {},
-      },
-    },
-    methods: {
-      getUrl(url) {
-        return `https://strapi-up.verodigital.site${url}`;
-      },
-    },
-  };
+    export default {
+        name: 'Team',
+        props: {
+            data: {
+                type: Object,
+                default: {},
+            },
+        },
+        methods: {
+            getUrl(url) {
+                return `https://strapi-up.verodigital.site${url}`;
+            },
+        },
+    };
 </script>
 
 <style lang="scss" scoped>
@@ -59,6 +59,7 @@
         position: relative;
         display: flex;
         margin-right: var(--main-very-mini-margin);
+
         img {
           max-width: 100%;
         }
@@ -95,6 +96,7 @@
         .team_text-block__wrap {
           .team_text-block {
             justify-content: space-between;
+
             .team__text_p {
               margin-top: 0;
             }
@@ -110,6 +112,7 @@
         width: 100%;
         margin-left: 0;
         margin-right: 0;
+
         .team_img-wrap {
           width: calc(
             (100% - var(--main-very-mini-margin)) / 2 - var(--main-mini-margin)
@@ -117,6 +120,7 @@
           margin-left: var(--main-mini-margin);
           margin-right: var(--main-very-mini-margin);
         }
+
         .team_text-block__wrap {
           width: calc((100% - var(--main-very-mini-margin)) / 2);
         }
@@ -128,19 +132,23 @@
     .team-block {
       .team_content-block {
         flex-direction: column;
+
         .team_text-block__wrap {
           order: 1;
           width: unset;
           margin-top: 0;
           margin-left: var(--main-big-margin);
           margin-right: var(--main-mini-margin);
+
           .team_text-block {
             margin-bottom: 50px;
+
             .content-title {
               margin-bottom: 30px;
             }
           }
         }
+
         .team_img-wrap {
           order: 2;
           width: unset;

@@ -557,6 +557,11 @@
         position: absolute;
         z-index: 1;
       }
+
+      img{
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
   @media screen and (max-width: 1280px) {

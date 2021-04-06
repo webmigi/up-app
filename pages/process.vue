@@ -146,6 +146,11 @@
       align-items: center;
       transition: height 0.3s;
 
+      img{
+        width: 100%;
+        object-fit: cover;
+      }
+
       .people-title {
         position: absolute;
         z-index: 1;

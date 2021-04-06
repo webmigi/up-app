@@ -5,9 +5,9 @@
       { 'projects-block_projects-page': this.$route.path === '/project' },
     ]"
   >
-<!--    <span class="main-page__content-title-position block-title">{{-->
-<!--      title-->
-<!--    }}</span>-->
+    <!--    <span class="main-page__content-title-position block-title">{{-->
+    <!--      title-->
+    <!--    }}</span>-->
     <div
       v-if="this.$route.path === '/project'"
       class="description pages-content-margin-left-big"
@@ -168,6 +168,10 @@
 
           .item-project-title-text {
             font-family: SFProDisplay;
+          }
+
+          .item-project-title-text-2, .item-project-title-text {
+            cursor: pointer;
           }
         }
       }

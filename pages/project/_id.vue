@@ -199,6 +199,10 @@ export default {
       flex-direction: column;
       z-index: 1;
     }
+    img{
+      width: 100%;
+      object-fit: cover;
+    }
   }
 
   .paginator-wrap {
