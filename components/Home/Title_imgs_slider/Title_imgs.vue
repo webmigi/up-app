@@ -183,12 +183,16 @@
         .arrow {
           position: absolute;
           bottom: 50px;
-          right: 50%;
+          left: 50%;
           transform: translatex(-50%);
           z-index: 2;
           cursor: pointer;
           img {
             transition: 0.2s transform ease-in-out;
+            @media (min-width: 429px) {
+              width: 36px;
+              height: 20px;
+            }
           }
           &:hover img {
             transform: translateY(5px);
