@@ -38,7 +38,7 @@
             </span>
           </transitionGroup>
         </div>
-        <div class="arrow" v-if="slideIdx === 4">
+        <div class="arrow" @click="scrollTo">
           <img src="/arrow-down.svg" alt="" />
         </div>
         <img
@@ -92,6 +92,17 @@
       });
     },
     methods: {
+      scrollTo() {
+        if (process.client) {
+          const href = document.getElementById('studio');
+          const offsetTop = href.offsetTop + 100;
+
+          scroll({
+            top: offsetTop,
+            behavior: 'smooth',
+          });
+        }
+      },
       changeSlide(key, length, length2) {
         if (key === 'one') {
           this.changeSlideText(this.keyData[this.slideIdx]);
@@ -175,6 +186,13 @@
           right: 50%;
           transform: translatex(-50%);
           z-index: 2;
+          cursor: pointer;
+          img {
+            transition: 0.2s transform ease-in-out;
+          }
+          &:hover img {
+            transform: translateY(5px);
+          }
         }
         .start-span_with-logo_wrap {
           position: absolute;

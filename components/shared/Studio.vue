@@ -1,5 +1,5 @@
 <template>
-  <div class="studio-block">
+  <div class="studio-block" id="studio">
     <span class="main-page__content-title-position block-title">studio</span>
     <div class="studio_content-block">
       <div class="studio_img-wrap">
