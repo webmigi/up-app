@@ -44,10 +44,7 @@
       });
     },
     computed: {
-      ...mapGetters('app', [
-        'MODAL_IS_ACTIVE',
-        'APP_WINDOW_SIZE',
-      ]),
+      ...mapGetters('app', ['MODAL_IS_ACTIVE', 'APP_WINDOW_SIZE']),
 
       headerWidth() {
         return this.APP_WINDOW_SIZE.width > 1920
@@ -136,7 +133,7 @@
 
   .nav-menu-fade-enter-active,
   .nav-menu-fade-leave-active {
-    transition: transform 1s, opacity 1s;
+    transition: transform 0s, opacity 0s;
   }
 
   @media screen and (max-width: 1280px) {

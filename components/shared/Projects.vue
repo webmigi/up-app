@@ -30,14 +30,14 @@
         :key="index"
       >
         <ScrollAnimation class="cover" translate :opacity="false">
-          <img :src="getUrl(item.preview.url)" alt=""/>
+          <img :src="getUrl(item.preview.url)" alt="" />
         </ScrollAnimation>
         <div class="item-project-title">
-        <span class="item-project-title-text">
-          {{ item.title_card }}
+          <span class="item-project-title-text">
+            {{ item.title_card }}
           </span>
           <span class="item-project-title-text-2">
-          {{ item.title }}
+            {{ item.title }}
           </span>
         </div>
       </nuxt-link>
@@ -45,64 +45,64 @@
 
     <div v-if="this.$route.path !== '/project'" class="project_btn_wrap">
       <nuxt-link :to="'/project'">
-        <Content_btn title="Explore all projects"/>
+        <Content_btn title="Explore all projects" />
       </nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
-    import ScrollAnimation from './../ScrollAnimation';
-    import Content_btn from './elements/Content_btn';
+  import ScrollAnimation from './../ScrollAnimation';
+  import Content_btn from './elements/Content_btn';
 
-    import axios from 'axios';
+  import axios from 'axios';
 
-    export default {
-        name: 'Projects',
-        components: {ScrollAnimation, Content_btn},
+  export default {
+    name: 'Projects',
+    components: { ScrollAnimation, Content_btn },
 
-        async fetch() {
-            this.projectsList = await fetch(
-                'https://strapi-up.verodigital.site/projects-lists',
-            ).then(res => res.json());
-            this.projectsPage = await fetch(
-                'https://strapi-up.verodigital.site/project',
-            ).then(res => res.json());
-        },
+    async fetch() {
+      this.projectsList = await fetch(
+        'https://strapi-up.verodigital.site/projects-lists',
+      ).then(res => res.json());
+      this.projectsPage = await fetch(
+        'https://strapi-up.verodigital.site/project',
+      ).then(res => res.json());
+    },
 
-        data() {
-            return {
-                projectsList: {},
-                projectsPage: {},
-            };
-        },
-        methods: {
-            getUrl(url) {
-                return `https://strapi-up.verodigital.site${url}`;
-            },
-            bigClass(idx) {
-                return idx === 0 || idx === 5;
-            },
-        },
-        computed: {
-            title() {
-                return this.$route.path === '/project'
-                    ? 'projects'
-                    : 'featured projects';
-            },
-            checkProjectPage() {
-                return this.$route.path === '/project';
-            },
-            contentBlockClasses() {
-                return [
-                    'content-block',
-                    'main-content-margin-left-right',
-                    {'content-block-project-page-margin-top': this.checkProjectPage},
-                    {'content-block-project-page-margin-bottom': this.checkProjectPage},
-                ];
-            },
-        },
-    };
+    data() {
+      return {
+        projectsList: {},
+        projectsPage: {},
+      };
+    },
+    methods: {
+      getUrl(url) {
+        return `https://strapi-up.verodigital.site${url}`;
+      },
+      bigClass(idx) {
+        return idx === 0 || idx === 5;
+      },
+    },
+    computed: {
+      title() {
+        return this.$route.path === '/project'
+          ? 'projects'
+          : 'featured projects';
+      },
+      checkProjectPage() {
+        return this.$route.path === '/project';
+      },
+      contentBlockClasses() {
+        return [
+          'content-block',
+          'main-content-margin-left-right',
+          { 'content-block-project-page-margin-top': this.checkProjectPage },
+          { 'content-block-project-page-margin-bottom': this.checkProjectPage },
+        ];
+      },
+    },
+  };
 </script>
 
 <style lang="scss">
@@ -135,7 +135,7 @@
     }
 
     .content-block {
-      margin-top: 82px;
+      margin-top: 150px;
       margin-bottom: 50px;
       display: flex;
       justify-content: space-between;
@@ -170,7 +170,8 @@
             font-family: SFProDisplay;
           }
 
-          .item-project-title-text-2, .item-project-title-text {
+          .item-project-title-text-2,
+          .item-project-title-text {
             cursor: pointer;
           }
         }

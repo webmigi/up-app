@@ -34,8 +34,7 @@
       v-if="project['__component'] === 'project-style-type.style-2'"
       class="content-type-2"
     >
-      <div class="content-type-2_img-wrap item-project_img-wrap_height"
-      >
+      <div class="content-type-2_img-wrap item-project_img-wrap_height">
         <ScrollAnimation :opacity="false" cover>
           <img :src="getUrl(project.image.url)" alt="" />
         </ScrollAnimation>
@@ -266,7 +265,7 @@
         .content-type-3_column-2 {
           display: flex;
           width: calc(50% - 30px);
-          margin-bottom: 100px;
+          margin-bottom: 150px;
 
           .content-type-3_img-wrap-2 {
             width: 100%;

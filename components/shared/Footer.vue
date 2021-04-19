@@ -24,10 +24,10 @@
         </span>
         <span class="footer-contacts">The Netherlands, 1901 EW </span>
         <a href="tel:+31(0)251827610" class="footer-contacts"
-        >T +31 (0)251 82 76 10
+          >T +31 (0)251 82 76 10
         </a>
         <a href="mailto:studio@uparchitecture.nl" class="footer-contacts email"
-        >studio@uparchitecture.nl
+          >studio@uparchitecture.nl
         </a>
       </div>
     </div>
@@ -47,9 +47,9 @@
 </template>
 
 <script>
-    export default {
-        name: 'Footer',
-    };
+  export default {
+    name: 'Footer',
+  };
 </script>
 
 <style lang="scss" scoped>
@@ -188,7 +188,11 @@
       justify-content: unset;
       align-items: unset;
       padding-bottom: 20px;
-
+      .content {
+        .footer-logo {
+          width: 46px;
+        }
+      }
       .vero {
         margin-top: 30px;
         align-self: center;

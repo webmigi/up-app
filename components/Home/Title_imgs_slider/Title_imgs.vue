@@ -29,14 +29,17 @@
               :key="data[key].text_iteration.length + 1"
               style="display: block"
             >
-              <nuxt-link v-if="data[key].link" :to="data[key].link.link || ''">
-                <start_span_item
-                  :text="data[key].link.name || ''"
-                  textStyleClass="small-text"
-                />
-              </nuxt-link>
+              <start_span_item
+                v-if="data[key].link"
+                :text="data[key].link.name || ''"
+                textStyleClass="small-text"
+                :link="data[key].link.link || ''"
+              />
             </span>
           </transitionGroup>
+        </div>
+        <div class="arrow" v-if="slideIdx === 4">
+          <img src="/arrow-down.svg" alt="" />
         </div>
         <img
           class="title-imgs_img"
@@ -166,7 +169,13 @@
           width: 100%;
           object-fit: cover;
         }
-
+        .arrow {
+          position: absolute;
+          bottom: 50px;
+          right: 50%;
+          transform: translatex(-50%);
+          z-index: 2;
+        }
         .start-span_with-logo_wrap {
           position: absolute;
           top: 40vh;
@@ -249,7 +258,7 @@
             left: 35px;
             top: 20vh;
             /*<!--transform: translateY(-50%);-->*/
-            .start-text{
+            .start-text {
               font-size: 38px;
             }
           }

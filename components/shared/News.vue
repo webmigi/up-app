@@ -10,7 +10,7 @@
         news
       </span>
       <div v-if="this.$route.path === '/people'" class="content-title">
-        Publications
+        News
       </div>
       <div class="wrap">
         <Gallery />
