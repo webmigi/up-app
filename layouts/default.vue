@@ -110,7 +110,10 @@
     --main-mini-margin: 120px;
     --main-very-mini-margin: 40px;
   }
-
+  a,
+  button {
+    cursor: pointer;
+  }
   body {
     width: 100%;
   }

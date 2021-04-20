@@ -38,7 +38,7 @@
             </span>
           </transitionGroup>
         </div>
-        <div class="arrow" @click="scrollTo">
+        <div class="arrow" @click="scrollTo" v-if="slideIdx != 0">
           <img src="/arrow-down.svg" alt="" />
         </div>
         <img
@@ -115,7 +115,7 @@
           if (key !== 'four') {
             this.changeSlideText(this.keyData[this.slideIdx]);
           }
-        }, 1000 * length);
+        }, 1000 * (key === 'one' ? length - 1.5 : length));
       },
       changeSlideText(key) {
         let interval = setInterval(() => {
