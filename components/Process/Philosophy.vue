@@ -48,7 +48,7 @@
   .philosophy {
     display: flex;
     flex-direction: column;
-    margin-bottom: 382px;
+    margin-bottom: 288px;
 
     .content-block {
       display: flex;

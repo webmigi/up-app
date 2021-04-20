@@ -47,7 +47,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 94px;
+    // margin-bottom: 94px;
 
     .content-title {
       margin-top: 83px;

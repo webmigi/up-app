@@ -543,7 +543,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 150px;
+    margin-bottom: -15px;
 
     .title-img-wrap {
       position: relative;
@@ -558,7 +558,7 @@
         z-index: 1;
       }
 
-      img{
+      img {
         width: 100%;
         object-fit: cover;
       }

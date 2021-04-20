@@ -64,13 +64,13 @@
 
     .title {
       margin-bottom: 102px;
-      margin-top: 78px;
+      margin-top: 0px;
       display: block;
     }
   }
 
   .people__news-block {
-    margin-top: 323px;
+    margin-top: 288px;
     background: #ffffff;
 
     .title {
