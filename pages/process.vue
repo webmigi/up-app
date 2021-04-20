@@ -8,6 +8,9 @@
       <ScrollAnimation cover>
         <img :src="getUrl(process.background_image.url)" alt="" />
       </ScrollAnimation>
+      <div class="arrow" @click="scrollTo">
+        <img src="/arrow-down.svg" alt="" />
+      </div>
     </div>
     <Philosophy :data="process.philosophy" />
     <Method :data="process.desing_method" />
@@ -125,6 +128,17 @@
       };
     },
     methods: {
+      scrollTo() {
+        if (process.client) {
+          const href = document.getElementsByClassName('philosophy')[0];
+          const offsetTop = href.offsetTop + 200;
+
+          scroll({
+            top: offsetTop,
+            behavior: 'smooth',
+          });
+        }
+      },
       getUrl(url) {
         return `https://strapi-up.verodigital.site${url}`;
       },
@@ -145,8 +159,25 @@
       display: flex;
       align-items: center;
       transition: height 0.3s;
-
-      img{
+      .arrow {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translatex(-50%);
+        z-index: 2;
+        cursor: pointer;
+        img {
+          transition: 0.2s transform ease-in-out;
+          @media (min-width: 429px) {
+            width: 36px;
+            height: 20px;
+          }
+        }
+        &:hover img {
+          transform: translateY(5px);
+        }
+      }
+      img {
         width: 100%;
         object-fit: cover;
       }

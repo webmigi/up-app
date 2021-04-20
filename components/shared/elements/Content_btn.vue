@@ -36,7 +36,7 @@
       top: 100%;
       left: 0;
       width: 0;
-      height: 4px;
+      height: 2px;
       background-color: #000000;
       transition: width 0s;
     }
