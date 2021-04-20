@@ -77,11 +77,11 @@
     .btn-right {
       text-align: left;
       margin-left: 30px;
-      &:hover {
-        svg {
-          transform: translateX(50%);
-        }
-      }
+      // &:hover {
+      //   svg {
+      //     transform: translateX(50%);
+      //   }
+      // }
     }
   }
 </style>
