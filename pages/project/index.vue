@@ -1,10 +1,12 @@
 <template>
   <div class="project">
     <div class="title-img-wrap">
-      <span
-        class="project-title main-content-margin-left-right main-page_start-text"
-        >{{ project.title }}</span
-      >
+      <div class="titles">
+        <span class="project-title main-page_start-text">{{
+          project.title
+        }}</span>
+        <span class="main-page_small-text">{{ project.undertitle }}</span>
+      </div>
       <Image_Scale_Block :img="getUrl(project.background_image.url)" />
       <div class="arrow" @click="scrollTo">
         <img src="/arrow-down.svg" alt="" />
@@ -155,6 +157,14 @@
       display: flex;
       align-items: center;
       transition: height 0.3s;
+      .titles {
+        margin-right: var(--main-mini-margin);
+        margin-left: var(--main-mini-margin);
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+      }
       .arrow {
         position: absolute;
         bottom: 50px;
@@ -173,10 +183,10 @@
           transform: translateY(5px);
         }
       }
-      .project-title {
-        position: absolute;
-        z-index: 1;
-      }
+      // .project-title {
+      //   position: absolute;
+      //   z-index: 1;
+      // }
     }
   }
 </style>

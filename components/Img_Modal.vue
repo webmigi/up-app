@@ -11,26 +11,26 @@
             <path d="M2 2L32 32M32 2L2 32" stroke="white" stroke-width="4" />
           </svg>
         </button>
-        <!-- <button>
+        <button @click="largeImage = !largeImage">
           <svg
-              viewBox="0 0 44 44"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 44 44"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-                d="M22 0.786804V43.2132M43.2132 22H0.786797"
-                stroke="white"
-                stroke-width="4"
+              d="M22 0.786804V43.2132M43.2132 22H0.786797"
+              stroke="white"
+              stroke-width="4"
             />
           </svg>
-        </button> -->
+        </button>
       </div>
       <transition-group name="modal-image" class="image-list">
         <img
           v-for="(item, index) in images"
           v-if="idx === index && item"
           :key="item.id"
-          class="img-span"
+          :class="[{ largeImage: largeImage }, 'img-span']"
           :src="getUrl(item.url)"
           :alt="item.alternativeText"
           :title="item.name"
@@ -86,6 +86,7 @@
     data() {
       return {
         idx: 0,
+        largeImage: false,
       };
     },
     methods: {
@@ -141,6 +142,12 @@
           max-height: 100%;
           width: auto;
           height: auto;
+          &.largeImage {
+            width: 100vw;
+            height: auto;
+            max-width: 100vw;
+            max-height: 100vh;
+          }
         }
       }
 
@@ -152,6 +159,7 @@
         left: 0;
         width: 100%;
         transform: translateY(-100%);
+        z-index: 2;
 
         button {
           width: 60px;

@@ -1,10 +1,12 @@
 <template>
   <div class="process">
     <div class="title-img-wrap">
-      <span
-        class="people-title main-content-margin-left-right main-page_start-text"
-        >{{ process.title }}</span
-      >
+      <div class="titles">
+        <span class="people-title main-page_start-text">{{
+          process.title
+        }}</span>
+        <span class="main-page_small-text">{{ process.undertitle }}</span>
+      </div>
       <ScrollAnimation cover>
         <img :src="getUrl(process.background_image.url)" alt="" />
       </ScrollAnimation>
@@ -159,6 +161,14 @@
       display: flex;
       align-items: center;
       transition: height 0.3s;
+      .titles {
+        margin-right: var(--main-mini-margin);
+        margin-left: var(--main-mini-margin);
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+      }
       .arrow {
         position: absolute;
         bottom: 50px;
@@ -182,10 +192,10 @@
         object-fit: cover;
       }
 
-      .people-title {
-        position: absolute;
-        z-index: 1;
-      }
+      // .people-title {
+      //   position: absolute;
+      //   z-index: 1;
+      // }
     }
   }
 </style>

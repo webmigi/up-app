@@ -1,11 +1,13 @@
 <template>
   <div class="people">
     <div class="title-img-wrap">
-      <span
-        class="people-title main-content-margin-left-right main-page_start-text"
-      >
-        {{ people.title }}
-      </span>
+      <div class="titles">
+        <span class="people-title main-page_start-text">
+          {{ people.title }}
+        </span>
+        <span class="main-page_small-text">{{ people.undertitle }}</span>
+      </div>
+
       <ScrollAnimation cover :opacity="false">
         <img :src="getUrl(people.backgroun_image.url)" alt="" />
       </ScrollAnimation>
@@ -566,6 +568,15 @@
       display: flex;
       align-items: center;
       transition: height 0.3s;
+      .titles {
+        margin-right: var(--main-mini-margin);
+        margin-left: var(--main-mini-margin);
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+      }
+
       .arrow {
         position: absolute;
         bottom: 50px;
@@ -584,10 +595,10 @@
           transform: translateY(5px);
         }
       }
-      .people-title {
-        position: absolute;
-        z-index: 1;
-      }
+      // .people-title {
+      //   position: absolute;
+      //   z-index: 1;
+      // }
 
       img {
         width: 100%;

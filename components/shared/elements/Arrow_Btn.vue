@@ -53,7 +53,7 @@
         transform: translateX(0);
         transition: transform 0.3s;
         width: 60px;
-        mxa-height: 100%;
+        height: 25px;
 
         .imgModalFill {
           fill: white;
