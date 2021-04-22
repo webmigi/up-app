@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`news/${id}`" class="gallery-item">
+  <nuxt-link :to="`/news-lists/${id}`" class="gallery-item">
     <div class="gallery-item-img-wrap">
       <img :src="getUrl(img)" alt="" />
     </div>

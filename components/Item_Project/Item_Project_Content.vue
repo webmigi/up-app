@@ -15,7 +15,6 @@
       <div
         class="content-type-1_img-wrap
        item-project_img-wrap_height"
-        @click="setModalImgIsActive"
       >
         <ScrollAnimation :opacity="false" cover>
           <img :src="getUrl(project.image.url)" alt="" />
@@ -35,10 +34,7 @@
       v-if="project['__component'] === 'project-style-type.style-2'"
       class="content-type-2"
     >
-      <div
-        class="content-type-2_img-wrap
-                 item-project_img-wrap_height"
-      >
+      <div class="content-type-2_img-wrap item-project_img-wrap_height">
         <ScrollAnimation :opacity="false" cover>
           <img :src="getUrl(project.image.url)" alt="" />
         </ScrollAnimation>
@@ -183,7 +179,6 @@
       ...mapGetters('app', ['APP_WINDOW_SIZE']),
     },
     methods: {
-      ...mapActions('app', ['setModalImgIsActive']),
       getUrl(url) {
         return `https://strapi-up.verodigital.site${url}`;
       },
@@ -270,7 +265,7 @@
         .content-type-3_column-2 {
           display: flex;
           width: calc(50% - 30px);
-          margin-bottom: 100px;
+          margin-bottom: 150px;
 
           .content-type-3_img-wrap-2 {
             width: 100%;

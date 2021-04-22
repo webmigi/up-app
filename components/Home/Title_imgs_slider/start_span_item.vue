@@ -1,8 +1,13 @@
 <template>
   <div class="start-span-block">
-    <span v-if="!buttonActive" :class="'main-page_' + textStyleClass">{{
-      text
-    }}</span>
+    <span v-if="!buttonActive && link" :class="'main-page_' + textStyleClass"
+      ><nuxt-link :to="link">{{ text }}</nuxt-link></span
+    >
+    <span
+      v-if="!buttonActive && !link"
+      :class="'main-page_' + textStyleClass"
+      >{{ text }}</span
+    >
     <div
       class="btn-wrap"
       v-if="buttonActive"
@@ -32,6 +37,7 @@
       startTransformScroll: Number,
       finishTransformScroll: Number,
       startOpacityZero: Boolean,
+      link: String,
       textStyleClass: {
         validator: function(value) {
           return (
@@ -73,6 +79,11 @@
 
     .main-page_small-text {
       margin-top: 15px;
+      a {
+        color: white;
+        outline: 0;
+        font-family: 'SFProDisplay';
+      }
     }
 
     .btn-wrap {
@@ -106,6 +117,13 @@
   @media screen and (max-width: 400px) {
     .start-span-block {
       margin-right: var(--main-mini-margin);
+    }
+  }
+  @media screen and (max-width: 325px) {
+    .start-span-block {
+      .main-page_start-text {
+        font-size: 38px;
+      }
     }
   }
 </style>

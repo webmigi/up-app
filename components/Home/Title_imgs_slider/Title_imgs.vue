@@ -29,14 +29,17 @@
               :key="data[key].text_iteration.length + 1"
               style="display: block"
             >
-              <nuxt-link v-if="data[key].link" :to="data[key].link.link || ''">
-                <start_span_item
-                  :text="data[key].link.name || ''"
-                  textStyleClass="small-text"
-                />
-              </nuxt-link>
+              <start_span_item
+                v-if="data[key].link"
+                :text="data[key].link.name || ''"
+                textStyleClass="small-text"
+                :link="data[key].link.link || ''"
+              />
             </span>
           </transitionGroup>
+        </div>
+        <div class="arrow" @click="scrollTo" v-if="slideIdx != 0">
+          <img src="/arrow-down.svg" alt="" />
         </div>
         <img
           class="title-imgs_img"
@@ -89,6 +92,17 @@
       });
     },
     methods: {
+      scrollTo() {
+        if (process.client) {
+          const href = document.getElementById('studio');
+          const offsetTop = href.offsetTop + 100;
+
+          scroll({
+            top: offsetTop,
+            behavior: 'smooth',
+          });
+        }
+      },
       changeSlide(key, length, length2) {
         if (key === 'one') {
           this.changeSlideText(this.keyData[this.slideIdx]);
@@ -101,7 +115,7 @@
           if (key !== 'four') {
             this.changeSlideText(this.keyData[this.slideIdx]);
           }
-        }, 1000 * length);
+        }, 1000 * (key === 'one' ? length - 1.5 : length));
       },
       changeSlideText(key) {
         let interval = setInterval(() => {
@@ -166,7 +180,24 @@
           width: 100%;
           object-fit: cover;
         }
-
+        .arrow {
+          position: absolute;
+          bottom: 50px;
+          left: 50%;
+          transform: translatex(-50%);
+          z-index: 2;
+          cursor: pointer;
+          img {
+            transition: 0.2s transform ease-in-out;
+            @media (min-width: 429px) {
+              width: 36px;
+              height: 20px;
+            }
+          }
+          &:hover img {
+            transform: translateY(5px);
+          }
+        }
         .start-span_with-logo_wrap {
           position: absolute;
           top: 40vh;
@@ -223,7 +254,6 @@
       }
     }
   }
-
   .translateY-opacity-enter-active,
   .translateY-opacity-leave-active {
     transition: all 1s;
@@ -240,5 +270,22 @@
   .slide-images-enter,
   .slide-images-leave-to {
     transform: translateY(100%);
+  }
+  @media screen and (max-width: 400px) {
+    .main-page_title-imgs__container {
+      .block-wrap {
+        .block {
+          .start-span_with-logo_wrap {
+            margin-right: 10px;
+            left: 35px;
+            top: 20vh;
+            /*<!--transform: translateY(-50%);-->*/
+            .start-text {
+              font-size: 38px;
+            }
+          }
+        }
+      }
+    }
   }
 </style>

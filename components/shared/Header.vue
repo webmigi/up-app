@@ -1,5 +1,16 @@
 <template>
-  <div class="header" ref="header_component">
+  <div
+    :class="[
+      'header',
+      {
+        white:
+          !$store.getters['app/MODAL_IS_ACTIVE'] &&
+          $store.getters['app/APP_SCROLL_VALUE'] >
+            $store.getters['app/APP_WINDOW_SIZE'].height,
+      },
+    ]"
+    ref="header_component"
+  >
     <span style="display: none">{{ animationClass }}</span>
     <nuxt-link
       v-if="$route.path !== '/'"
@@ -129,6 +140,7 @@
         top: 40px;
         left: 30px;
       }
+
       &.animation {
         transition: 0s;
         top: 50vh;
@@ -144,6 +156,9 @@
         @media (max-width: 428px) {
           left: 100px;
         }
+        @media (max-width: 400px) {
+          left: 60px;
+        }
       }
 
       &.black {
@@ -156,13 +171,15 @@
           left: 30px;
         }
         @media (max-width: 428px) {
-          top: 30px;
+          top: 15px;
           left: 14px;
         }
+
         svg path {
           fill: #000;
         }
       }
+
       svg {
         width: 100%;
         height: 100%;
@@ -182,9 +199,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       &.black svg path {
         stroke: #000;
       }
+
       svg {
         position: absolute;
         width: 100%;
@@ -227,16 +246,21 @@
 
   @media screen and (max-width: 428px) {
     .header {
-      padding: 20px 24px 0 14px;
+      padding: 10px 24px 10px 14px;
 
       .header-logo {
-        top: 30px;
+        top: 15px;
         left: 14px;
         width: 46px;
       }
+
       .header-burger-btn {
         width: 42px;
         height: 42px;
+      }
+
+      &.white {
+        background-color: white;
       }
     }
   }

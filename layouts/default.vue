@@ -4,10 +4,8 @@
       <Header />
     </div>
     <transition name="nav-menu-fade" appear>
-      <Img_Modal v-if="MODAL_IMG_IS_ACTIVE" />
+      <Nav_Menu_Modal v-if="MODAL_IS_ACTIVE" />
     </transition>
-    <Nav_Menu_Modal v-if="MODAL_IS_ACTIVE" />
-    <transition name="nav-menu-fade" appear> </transition>
     <Nuxt />
     <Footer />
   </div>
@@ -18,7 +16,6 @@
   import Header from '../components/shared/Header';
   import Nav_Menu_Modal from '../components/Nav_Menu_Modal';
   import Footer from '../components/shared/Footer';
-  import Img_Modal from '../components/Img_Modal';
 
   export default {
     data() {
@@ -27,7 +24,7 @@
         yCursor: 0,
       };
     },
-    components: { Header, Nav_Menu_Modal, Footer, Img_Modal },
+    components: { Header, Nav_Menu_Modal, Footer },
     created() {
       if (process.client) {
         window.addEventListener('scroll', () => this.windowScrollSet());
@@ -47,11 +44,7 @@
       });
     },
     computed: {
-      ...mapGetters('app', [
-        'MODAL_IS_ACTIVE',
-        'APP_WINDOW_SIZE',
-        'MODAL_IMG_IS_ACTIVE',
-      ]),
+      ...mapGetters('app', ['MODAL_IS_ACTIVE', 'APP_WINDOW_SIZE']),
 
       headerWidth() {
         return this.APP_WINDOW_SIZE.width > 1920
@@ -117,7 +110,10 @@
     --main-mini-margin: 120px;
     --main-very-mini-margin: 40px;
   }
-
+  a,
+  button {
+    cursor: pointer;
+  }
   body {
     width: 100%;
   }
@@ -140,7 +136,7 @@
 
   .nav-menu-fade-enter-active,
   .nav-menu-fade-leave-active {
-    transition: transform 1s, opacity 1s;
+    transition: transform 0s, opacity 0s;
   }
 
   @media screen and (max-width: 1280px) {

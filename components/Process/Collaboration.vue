@@ -49,7 +49,7 @@
   .collaboration {
     display: flex;
     flex-direction: column;
-    margin-bottom: 425px;
+    margin-bottom: 288px;
 
     .block-title {
       margin-left: var(--main-big-margin);

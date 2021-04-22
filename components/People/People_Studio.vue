@@ -47,7 +47,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 94px;
+    // margin-bottom: 94px;
 
     .content-title {
       margin-top: 83px;
@@ -58,6 +58,7 @@
     .content-block {
       display: flex;
       width: 100%;
+      overflow: hidden;
 
       .content-p {
         width: 420px;
@@ -135,7 +136,7 @@
   @media screen and (max-width: 428px) {
     .people-studio {
       .content-title {
-        margin-bottom: 72px;
+        margin-bottom: 30px;
       }
       .content-block {
         flex-direction: column;

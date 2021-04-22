@@ -5,9 +5,9 @@
       { 'projects-block_projects-page': this.$route.path === '/project' },
     ]"
   >
-    <span class="main-page__content-title-position block-title">{{
-      title
-    }}</span>
+    <!--    <span class="main-page__content-title-position block-title">{{-->
+    <!--      title-->
+    <!--    }}</span>-->
     <div
       v-if="this.$route.path === '/project'"
       class="description pages-content-margin-left-big"
@@ -32,8 +32,13 @@
         <ScrollAnimation class="cover" translate :opacity="false">
           <img :src="getUrl(item.preview.url)" alt="" />
         </ScrollAnimation>
-        <div class="item-project-title item-project-title-text">
-          {{ item.title_card }}
+        <div class="item-project-title">
+          <span class="item-project-title-text">
+            {{ item.title_card }}
+          </span>
+          <span class="item-project-title-text-2">
+            {{ item.title }}
+          </span>
         </div>
       </nuxt-link>
     </div>
@@ -115,6 +120,7 @@
       .description-title {
         margin-top: 83px;
         margin-bottom: 35px;
+
         br {
           display: none;
           @media (max-width: 1440px) {
@@ -129,7 +135,7 @@
     }
 
     .content-block {
-      margin-top: 82px;
+      margin-top: 150px;
       margin-bottom: 50px;
       display: flex;
       justify-content: space-between;
@@ -141,11 +147,13 @@
         height: 840px;
         margin-bottom: var(--main-very-mini-margin);
         display: flex;
+
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
+
         & .image-scale-block_wrap .image-scale-img {
           cursor: pointer;
         }
@@ -154,8 +162,18 @@
           position: absolute;
           bottom: 60px;
           left: 60px;
-          align-self: flex-end;
           cursor: pointer;
+          display: flex;
+          flex-direction: column;
+
+          .item-project-title-text {
+            font-family: SFProDisplay;
+          }
+
+          .item-project-title-text-2,
+          .item-project-title-text {
+            cursor: pointer;
+          }
         }
       }
 
@@ -163,9 +181,11 @@
         width: 100%;
         margin-bottom: 100px;
         margin-top: 40px;
+
         & > div {
           width: inherit;
         }
+
         img {
           width: 100%;
         }
@@ -314,6 +334,7 @@
           .item-project-title {
             bottom: 60px;
             left: 60px;
+            width: unset;
           }
         }
 

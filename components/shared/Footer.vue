@@ -31,8 +31,8 @@
         </a>
       </div>
     </div>
-    <a href="" class="email footer-contacts">powered by VERO Digital</a>
-    <a href="" class="email footer-contacts"></a>
+    <a href="" class="email footer-contacts vero">powered by VERO Digital</a>
+    <!--    <a href="" class="email footer-contacts"></a>-->
     <!--    <div v-if="$route.path === '/people'" class="map">-->
     <!--      &lt;!&ndash;      <iframe&ndash;&gt;-->
     <!--      &lt;!&ndash;        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2426.283695969157!2d4.660434116009477!3d52.54639307981919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5f7402e0d79bf%3A0x4db3af8c73ebe839!2zT3ZlcnRvb20gMkEsIDE5MDEgRVcgQ2FzdHJpY3VtLCDQndC40LTQtdGA0LvQsNC90LTRiw!5e0!3m2!1sru!2sby!4v1613489778321!5m2!1sen!2sby"&ndash;&gt;-->
@@ -63,20 +63,25 @@
     padding: 200px 120px 70px;
     box-sizing: border-box;
     position: relative;
+
     &.people-footer {
       align-items: flex-start;
     }
+
     .map {
       width: calc(100% - 480px);
       height: 610px;
+
       .place-card {
         display: none;
       }
+
       iframe {
         width: 100%;
         height: 100%;
       }
     }
+
     @media (max-width: 1280px) {
       padding: 100px 120px 40px;
       &.people-footer {
@@ -119,6 +124,7 @@
     .block-title {
       margin-bottom: 110px;
     }
+
     .content {
       display: flex;
       flex-direction: column;
@@ -145,6 +151,7 @@
         flex-direction: column;
       }
     }
+
     .email {
       margin-top: auto;
       text-decoration: underline;
@@ -160,6 +167,7 @@
       }
     }
   }
+
   @media screen and (max-width: 1024px) {
     .footer {
       .content {
@@ -167,20 +175,29 @@
           width: 70px;
         }
       }
+
       .contacts {
         min-height: 110px !important;
       }
     }
   }
-  @media screen and (max-width: 1024px) {
-    .footer {
-      .content {
-      }
-    }
-  }
+
   @media screen and (max-width: 428px) {
     .footer {
+      flex-direction: column;
+      justify-content: unset;
+      align-items: unset;
+      padding-bottom: 20px;
       .content {
+        .footer-logo {
+          width: 46px;
+        }
+      }
+      .vero {
+        margin-top: 30px;
+        align-self: center;
+        margin-bottom: 0;
+        opacity: 0.7;
       }
     }
   }

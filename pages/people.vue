@@ -1,14 +1,19 @@
 <template>
   <div class="people">
     <div class="title-img-wrap">
-      <span
-        class="people-title main-content-margin-left-right main-page_start-text"
-      >
-        {{ people.title }}
-      </span>
+      <div class="titles">
+        <span class="people-title main-page_start-text">
+          {{ people.title }}
+        </span>
+        <span class="main-page_small-text">{{ people.undertitle }}</span>
+      </div>
+
       <ScrollAnimation cover :opacity="false">
         <img :src="getUrl(people.backgroun_image.url)" alt="" />
       </ScrollAnimation>
+      <div class="arrow" @click="scrollTo">
+        <img src="/arrow-down.svg" alt="" />
+      </div>
     </div>
     <People_Studio :data="people.explore" />
     <Studio :data="{ about: people.about }" />
@@ -133,6 +138,81 @@
         });
       }
     },
+    head() {
+      return {
+        title: this.people.SEO.seoTitle,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.people.SEO.seoDescription,
+          },
+          {
+            hid: 'fb:app_id',
+            property: 'fb:app_id',
+            content: 988674798283826,
+          },
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: this.people.SEO.seoTitle,
+          },
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: 'http://localhost:3000',
+          },
+          {
+            hid: 'og:type',
+            property: 'og:type',
+            content: 'website',
+          },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: this.people.SEO.seoDescription,
+          },
+          {
+            hid: 'og:site_name',
+            property: 'og:site_name',
+            content: 'up',
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content:
+              'https://strapi-up.verodigital.site/' +
+              (this.people.SEO.seoImage
+                ? this.people.SEO.seoImage.url
+                : '/uploads/28_s5_cam001_211541b7b2.jpg'),
+          },
+          {
+            name: 'twitter:title',
+            content: this.people.SEO.seoTitle,
+          },
+          {
+            name: 'twitter:card',
+            content: 'summary',
+          },
+          {
+            name: 'twitter:description',
+            content: this.people.SEO.seoDescription,
+          },
+          {
+            name: 'twitter:site',
+            content: 'website',
+          },
+          {
+            name: 'twitter:image',
+            content:
+              'https://strapi-up.verodigital.site/' +
+              (this.people.SEO.seoImage
+                ? this.people.SEO.seoImage.url
+                : '/uploads/28_s5_cam001_211541b7b2.jpg'),
+          },
+        ],
+      };
+    },
     data() {
       return {
         modalOpen: false,
@@ -149,6 +229,17 @@
       };
     },
     methods: {
+      scrollTo() {
+        if (process.client) {
+          const href = document.getElementsByClassName('people-studio')[0];
+          const offsetTop = href.offsetTop + 200;
+
+          scroll({
+            top: offsetTop,
+            behavior: 'smooth',
+          });
+        }
+      },
       getUrl(url) {
         return `https://strapi-up.verodigital.site${url}`;
       },
@@ -468,7 +559,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 150px;
+    margin-bottom: -15px;
 
     .title-img-wrap {
       position: relative;
@@ -477,10 +568,41 @@
       display: flex;
       align-items: center;
       transition: height 0.3s;
-
-      .people-title {
+      .titles {
+        margin-right: var(--main-mini-margin);
+        margin-left: var(--main-mini-margin);
         position: absolute;
+        display: flex;
+        flex-direction: column;
         z-index: 1;
+      }
+
+      .arrow {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translatex(-50%);
+        z-index: 2;
+        cursor: pointer;
+        img {
+          transition: 0.2s transform ease-in-out;
+          @media (min-width: 429px) {
+            width: 36px;
+            height: 20px;
+          }
+        }
+        &:hover img {
+          transform: translateY(5px);
+        }
+      }
+      // .people-title {
+      //   position: absolute;
+      //   z-index: 1;
+      // }
+
+      img {
+        width: 100%;
+        object-fit: cover;
       }
     }
   }

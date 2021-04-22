@@ -11,7 +11,7 @@
             <path d="M2 2L32 32M32 2L2 32" stroke="white" stroke-width="4" />
           </svg>
         </button>
-        <button>
+        <button @click="largeImage = !largeImage">
           <svg
             viewBox="0 0 44 44"
             fill="none"
@@ -27,28 +27,13 @@
       </div>
       <transition-group name="modal-image" class="image-list">
         <img
-          v-if="idx === 0"
-          key="0"
-          class="img-span"
-          src="../static/images/Item_Project/contentImg1.jpg"
-        />
-        <img
-          v-if="idx === 1"
-          key="1"
-          class="img-span"
-          src="../static/images/Item_Project/contentImg2.jpg"
-        />
-        <img
-          v-if="idx === 2"
-          key="2"
-          class="img-span"
-          src="../static/images/Item_Project/contentImg3_2.jpg"
-        />
-        <img
-          v-if="idx === 3"
-          key="3"
-          class="img-span"
-          src="../static/images/Item_Project/contentImg4.jpg"
+          v-for="(item, index) in images"
+          v-if="idx === index && item"
+          :key="item.id"
+          :class="[{ largeImage: largeImage }, 'img-span']"
+          :src="getUrl(item.url)"
+          :alt="item.alternativeText"
+          :title="item.name"
         />
       </transition-group>
       <div class="paginator">
@@ -93,16 +78,24 @@
 
   export default {
     name: 'Img_Modal',
+    props: {
+      images: Array,
+      url: String,
+    },
     components: { Arrow_Btn },
     data() {
       return {
         idx: 0,
+        largeImage: false,
       };
     },
     methods: {
       ...mapActions('app', ['setModalImgIsActive']),
+      getUrl(url) {
+        return `https://strapi-up.verodigital.site${url}`;
+      },
       idxUp() {
-        if (this.idx !== 3) {
+        if (this.idx !== this.images.length - 1) {
           this.idx++;
         } else {
           this.idx = 0;
@@ -112,7 +105,7 @@
         if (this.idx !== 0) {
           this.idx--;
         } else {
-          this.idx = 3;
+          this.idx = this.images.length - 1;
         }
       },
     },
@@ -136,19 +129,28 @@
     .content {
       width: 80%;
       position: relative;
+
       .image-list {
         height: calc(var(--winHeight) - 230px);
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
+
         img {
           max-width: 100%;
           max-height: 100%;
           width: auto;
           height: auto;
+          &.largeImage {
+            width: 100vw;
+            height: auto;
+            max-width: 100vw;
+            max-height: 100vh;
+          }
         }
       }
+
       .btn-span {
         display: flex;
         justify-content: space-between;
@@ -157,6 +159,8 @@
         left: 0;
         width: 100%;
         transform: translateY(-100%);
+        z-index: 2;
+
         button {
           width: 60px;
           height: 60px;
@@ -173,8 +177,10 @@
         left: 0;
         width: 100%;
         transform: translateY(calc(100% + 30px));
+
         .arrow-wrap {
           width: 100%;
+
           .btn-left,
           .btn-right {
             min-width: 60px;
@@ -185,10 +191,12 @@
       }
     }
   }
+
   .modal-image-enter-active,
   .modal-image-leave-active {
     transition: opacity 1s;
   }
+
   .modal-image-enter,
   .modal-image-leave-to {
     opacity: 0;
